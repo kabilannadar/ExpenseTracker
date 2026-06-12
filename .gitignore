@@ -1,0 +1,20 @@
+# Root-level ignores (monorepo)
+node_modules/
+dist/
+.env
+.env.local
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Backend specific
+backend/.env
+backend/expense_tracker.db
+backend/uploads/
+
+# OS
+.DS_Store
+Thumbs.db
