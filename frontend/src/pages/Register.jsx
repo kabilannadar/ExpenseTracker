@@ -35,12 +35,12 @@ export default function Register() {
   return (
     <div className="auth-page">
       <div className="auth-bg" />
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', gap: '24px', zIndex: 1, padding: '0 16px' }}>
-        <div style={{ width: '100%', maxWidth: '520px', display: 'flex', justifyContent: 'center', margin: '-30px 0 -85px 0' }}>
+      <div className="auth-container">
+        <div className="auth-logo-wrap">
           <img 
             src={bannerLightTagline} 
             alt="ExpenseTracker Logo" 
-            style={{ width: '100%', height: 'auto', objectFit: 'contain' }} 
+            className="auth-logo-img"
           />
         </div>
         <div className="auth-card" style={{ width: '100%', maxWidth: '420px', marginTop: 0 }}>
