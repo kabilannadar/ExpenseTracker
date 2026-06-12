@@ -8,6 +8,9 @@ import {
 import { useState } from 'react';
 import './Sidebar.css';
 
+import logoIconDark from '../assets/logo-icon-dark.jpg';
+import logoIconLight from '../assets/logo-icon-light.png';
+
 const navItems = [
   { to: '/', icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/expenses', icon: Receipt, label: 'Expenses' },
@@ -29,9 +32,13 @@ export default function Sidebar({ isOpen, onClose }) {
   const { user, logout } = useAuth();
   const [collapsed, setCollapsed] = useState(false);
 
+  const isDark = user ? user.dark_mode : true;
+  const logoIcon = isDark ? logoIconDark : logoIconLight;
+
   return (
     <aside className={`sidebar ${collapsed ? 'collapsed' : ''} ${isOpen ? 'mobile-open' : ''}`}>
       <div className="sidebar-logo">
+        <img src={logoIcon} alt="Logo" style={{ width: 32, height: 32, borderRadius: 8, objectFit: 'cover' }} />
         {!collapsed && <span className="logo-text">ExpenseTracker</span>}
         <button className="mobile-close-btn" onClick={onClose} title="Close Sidebar">
           <X size={18} />

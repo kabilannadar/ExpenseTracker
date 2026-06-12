@@ -5,6 +5,8 @@ import { Toaster } from 'react-hot-toast';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Sidebar from './components/Sidebar';
 import { Menu } from 'lucide-react';
+import logoIconDark from './assets/logo-icon-dark.jpg';
+import logoIconLight from './assets/logo-icon-light.png';
 import Dashboard from './pages/Dashboard';
 import Expenses from './pages/Expenses';
 import Income from './pages/Income';
@@ -47,12 +49,15 @@ function ProtectedLayout() {
       )}
 
       <main style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-        <header className="mobile-header">
+        <header className="mobile-header" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <button className="menu-toggle" onClick={() => setSidebarOpen(true)} title="Open Menu">
             <Menu size={20} />
           </button>
-          <span className="mobile-logo">ExpenseTracker</span>
-          <div className="mobile-avatar">{user.name?.[0]?.toUpperCase()}</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <img src={user?.dark_mode ? logoIconDark : logoIconLight} alt="Logo" style={{ width: 28, height: 28, borderRadius: 6, objectFit: 'cover' }} />
+            <span className="mobile-logo">ExpenseTracker</span>
+          </div>
+          <div className="mobile-avatar" style={{ marginLeft: 'auto' }}>{user.name?.[0]?.toUpperCase()}</div>
         </header>
 
         <Routes>
