@@ -234,6 +234,7 @@ class RecurringOut(BaseModel):
 class SubscriptionCreate(BaseModel):
     name: str
     amount: float
+    billing_cycle: Optional[str] = "monthly"
     start_date: DateType
     end_date: Union[DateType, None] = None
     sub_type: Optional[str] = None
@@ -242,6 +243,7 @@ class SubscriptionCreate(BaseModel):
 class SubscriptionUpdate(BaseModel):
     name: Optional[str] = None
     amount: Optional[float] = None
+    billing_cycle: Optional[str] = None
     start_date: Union[DateType, None] = None
     end_date: Union[DateType, None] = None
     sub_type: Optional[str] = None
@@ -252,6 +254,7 @@ class SubscriptionOut(BaseModel):
     id: int
     name: str
     amount: float
+    billing_cycle: Optional[str] = "monthly"
     start_date: DateType
     end_date: Optional[DateType]
     sub_type: Optional[str]

@@ -161,6 +161,7 @@ class Subscription(Base):
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     name = Column(String(200), nullable=False)
     amount = Column(Float, nullable=False)
+    billing_cycle = Column(String(20), default="monthly", nullable=True)
     start_date = Column(Date, nullable=False)
     end_date = Column(Date, nullable=True)
     sub_type = Column(String(100), nullable=True)

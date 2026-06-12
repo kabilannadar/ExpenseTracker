@@ -7,7 +7,8 @@ import { Plus, Pencil, Trash2, CreditCard } from 'lucide-react';
 import { format, differenceInDays } from 'date-fns';
 
 const fmt = (n) => `₹${Number(n).toLocaleString('en-IN')}`;
-const EMPTY = { name: '', amount: '', start_date: format(new Date(), 'yyyy-MM-dd'), end_date: '', sub_type: '', features: '' };
+const CYCLE_LABELS = { daily: '/day', weekly: '/wk', monthly: '/mo', yearly: '/yr' };
+const EMPTY = { name: '', amount: '', billing_cycle: 'monthly', start_date: format(new Date(), 'yyyy-MM-dd'), end_date: '', sub_type: '', features: '' };
 
 export default function Subscriptions() {
   const qc = useQueryClient();
@@ -21,7 +22,7 @@ export default function Subscriptions() {
   const deleteMut = useMutation({ mutationFn: (id) => subscriptionsApi.delete(id), onSuccess: () => { qc.invalidateQueries(['subscriptions']); toast.success('Removed'); }, onError: (e) => toast.error(getApiError(e)) });
 
   const openCreate = () => { setForm(EMPTY); setModal('create'); };
-  const openEdit = (s) => { setForm({ name: s.name, amount: s.amount, start_date: s.start_date, end_date: s.end_date || '', sub_type: s.sub_type || '', features: s.features || '' }); setModal(s); };
+  const openEdit = (s) => { setForm({ name: s.name, amount: s.amount, billing_cycle: s.billing_cycle || 'monthly', start_date: s.start_date, end_date: s.end_date || '', sub_type: s.sub_type || '', features: s.features || '' }); setModal(s); };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -66,7 +67,7 @@ export default function Subscriptions() {
                   </div>
                 </div>
                 <div className="flex justify-between" style={{ fontSize: 13 }}>
-                  <span style={{ fontWeight: 700, color: 'var(--accent-primary)', fontSize: 18 }}>{fmt(s.amount)}</span>
+                  <span style={{ fontWeight: 700, color: 'var(--accent-primary)', fontSize: 18 }}>{fmt(s.amount)}<span style={{ fontSize: 12, color: 'var(--text-muted)', fontWeight: 400 }}>{CYCLE_LABELS[s.billing_cycle] || '/mo'}</span></span>
                   {expiringSoon
                     ? <span className="badge badge-warning">Expires in {daysLeft}d</span>
                     : s.end_date
@@ -85,11 +86,22 @@ export default function Subscriptions() {
           <form onSubmit={handleSubmit}>
             <div className="form-group"><label className="form-label">Name *</label><input placeholder="e.g. Netflix, Spotify" value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} required /></div>
             <div className="grid-2">
-              <div className="form-group"><label className="form-label">Amount (₹/mo) *</label><input type="number" min="0" step="0.01" placeholder="0.00" value={form.amount} onChange={e => setForm(p => ({ ...p, amount: e.target.value }))} required /></div>
-              <div className="form-group"><label className="form-label">Type</label><input placeholder="e.g. Streaming, SaaS" value={form.sub_type} onChange={e => setForm(p => ({ ...p, sub_type: e.target.value }))} /></div>
+              <div className="form-group"><label className="form-label">Amount *</label><input type="number" min="0" step="0.01" placeholder="0.00" value={form.amount} onChange={e => setForm(p => ({ ...p, amount: e.target.value }))} required /></div>
+              <div className="form-group">
+                <label className="form-label">Billing Cycle</label>
+                <select value={form.billing_cycle} onChange={e => setForm(p => ({ ...p, billing_cycle: e.target.value }))}>
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly">Monthly</option>
+                  <option value="yearly">Yearly</option>
+                </select>
+              </div>
             </div>
             <div className="grid-2">
+              <div className="form-group"><label className="form-label">Type</label><input placeholder="e.g. Streaming, SaaS" value={form.sub_type} onChange={e => setForm(p => ({ ...p, sub_type: e.target.value }))} /></div>
               <div className="form-group"><label className="form-label">Start Date *</label><input type="date" value={form.start_date} onChange={e => setForm(p => ({ ...p, start_date: e.target.value }))} required /></div>
+            </div>
+            <div className="grid-2">
               <div className="form-group"><label className="form-label">End Date</label><input type="date" value={form.end_date} onChange={e => setForm(p => ({ ...p, end_date: e.target.value }))} /></div>
             </div>
             <div className="form-group"><label className="form-label">Features / Notes</label><textarea rows={2} placeholder="What's included..." value={form.features} onChange={e => setForm(p => ({ ...p, features: e.target.value }))} /></div>
