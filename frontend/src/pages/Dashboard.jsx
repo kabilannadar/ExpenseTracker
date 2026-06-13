@@ -3,7 +3,7 @@ import { analyticsApi } from '../api';
 import StatCard from '../components/StatCard';
 import AnnouncementTicker from '../components/AnnouncementTicker';
 import {
-  PieChart, Pie, Cell, Tooltip, ResponsiveContainer,
+  PieChart, Pie, Cell, Sector, Tooltip, ResponsiveContainer,
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Legend
 } from 'recharts';
 import {
@@ -160,35 +160,98 @@ export default function Dashboard() {
         {/* Category Pie */}
         <div className="card">
           <h3 className="chart-title">Spending by Category</h3>
-          {stats?.category_breakdown?.length ? (
-            <div className="pie-container">
-              <ResponsiveContainer width="50%" height={200}>
-                <PieChart>
-                  <Pie
-                    data={stats.category_breakdown}
-                    cx="50%" cy="50%"
-                    innerRadius={55} outerRadius={85}
-                    dataKey="amount" nameKey="name"
-                    paddingAngle={3}
-                  >
-                    {stats.category_breakdown.map((entry, i) => (
-                      <Cell key={i} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <Tooltip formatter={(v) => fmt(v)} />
-                </PieChart>
-              </ResponsiveContainer>
-              <div className="pie-legend">
-                {stats.category_breakdown.slice(0, 6).map((c, i) => (
-                  <div key={i} className="legend-item">
-                    <span className="legend-dot" style={{ background: c.color }} />
-                    <span>{c.name}</span>
-                    <span className="legend-amount">{fmt(c.amount)}</span>
+          {stats?.category_breakdown?.length ? (() => {
+            const data = stats.category_breakdown;
+            const total = data.reduce((s, d) => s + d.amount, 0);
+
+            const PieTooltipContent = ({ active, payload }) => {
+              if (!active || !payload?.length) return null;
+              const d = payload[0];
+              const pct = total > 0 ? ((d.value / total) * 100).toFixed(1) : 0;
+              return (
+                <div className="chart-tooltip" style={{ minWidth: 140 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: d.payload.color, flexShrink: 0 }} />
+                    <span className="tooltip-label" style={{ margin: 0 }}>{d.name}</span>
                   </div>
-                ))}
+                  <div style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: 14 }}>{fmt(d.value)}</div>
+                  <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>{pct}% of total</div>
+                </div>
+              );
+            };
+
+            const ActiveShape = (props) => {
+              const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill } = props;
+              return (
+                <g>
+                  <Sector
+                    cx={cx} cy={cy}
+                    innerRadius={innerRadius - 3}
+                    outerRadius={outerRadius + 6}
+                    startAngle={startAngle}
+                    endAngle={endAngle}
+                    fill={fill}
+                    opacity={1}
+                  />
+                </g>
+              );
+            };
+
+            return (
+              <div className="pie-container">
+                <ResponsiveContainer width="50%" height={210}>
+                  <PieChart>
+                    <defs>
+                      {data.map((entry, i) => (
+                        <linearGradient key={i} id={`pieGrad-${i}`} x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%"   stopColor={entry.color} stopOpacity={1}   />
+                          <stop offset="100%" stopColor={entry.color} stopOpacity={0.55}/>
+                        </linearGradient>
+                      ))}
+                    </defs>
+                    <Pie
+                      data={data}
+                      cx="50%" cy="50%"
+                      innerRadius={52} outerRadius={82}
+                      dataKey="amount" nameKey="name"
+                      paddingAngle={3}
+                      activeShape={ActiveShape}
+                    >
+                      {data.map((entry, i) => (
+                        <Cell
+                          key={i}
+                          fill={`url(#pieGrad-${i})`}
+                          stroke={entry.color}
+                          strokeWidth={1.5}
+                          strokeOpacity={0.4}
+                        />
+                      ))}
+                    </Pie>
+                    <Tooltip content={<PieTooltipContent />} />
+                  </PieChart>
+                </ResponsiveContainer>
+                <div className="pie-legend">
+                  {data.slice(0, 6).map((c, i) => {
+                    const pct = total > 0 ? ((c.amount / total) * 100).toFixed(0) : 0;
+                    return (
+                      <div key={i} className="legend-item">
+                        <span
+                          className="legend-dot"
+                          style={{
+                            background: `linear-gradient(135deg, ${c.color}, ${c.color}88)`,
+                            boxShadow: `0 0 6px ${c.color}55`,
+                          }}
+                        />
+                        <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{c.name}</span>
+                        <span style={{ fontSize: 10, color: 'var(--text-muted)', marginRight: 4 }}>{pct}%</span>
+                        <span className="legend-amount">{fmt(c.amount)}</span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ) : (
+            );
+          })() : (
             <div className="empty-state" style={{ padding: 40 }}>No data yet</div>
           )}
         </div>

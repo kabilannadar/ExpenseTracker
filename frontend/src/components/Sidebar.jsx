@@ -3,12 +3,12 @@ import { useAuth } from '../context/AuthContext';
 import {
   LayoutDashboard, Receipt, Tag, TrendingUp, Wallet, PiggyBank,
   Bell, RefreshCw, CreditCard, Target, ClipboardList,
-  User, LogOut, ChevronLeft, ChevronRight, Landmark, X, Coins
+  User, LogOut,  ChevronLeft, ChevronRight, Landmark, X, Coins, Megaphone
 } from 'lucide-react';
 import { useState } from 'react';
 import './Sidebar.css';
 
-import avatarLogo from '../assets/ExpenseTracker_Avatar_Transparent.png';
+const avatarLogo = 'https://ik.imagekit.io/kabi10/tr:q-auto,f-auto/ExpenseTracker_Avatar_Transparent.png';
 
 const navItems = [
   { to: '/', icon: LayoutDashboard, label: 'Dashboard' },
@@ -25,6 +25,7 @@ const navItems = [
   { to: '/emis', icon: Landmark, label: 'EMIs' },
   { to: '/audit-logs', icon: ClipboardList, label: 'Audit Logs' },
   { to: '/profile', icon: User, label: 'Profile' },
+  { to: '/updates', icon: Megaphone, label: 'Updates', mobileOnly: true },
 ];
 
 export default function Sidebar({ isOpen, onClose }) {
@@ -48,12 +49,14 @@ export default function Sidebar({ isOpen, onClose }) {
 
       {/* Nav */}
       <nav className="sidebar-nav">
-        {navItems.map(({ to, icon: Icon, label }) => (
+        {navItems.map(({ to, icon: Icon, label, mobileOnly }) => (
           <NavLink
             key={to}
             to={to}
             end={to === '/'}
-            className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+            className={({ isActive }) =>
+              `nav-item ${isActive ? 'active' : ''} ${mobileOnly ? 'mobile-nav-only' : ''}`
+            }
             title={collapsed ? label : undefined}
             onClick={onClose}
           >

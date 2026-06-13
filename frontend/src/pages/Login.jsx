@@ -4,7 +4,7 @@ import { authApi, userApi, getApiError } from '../api'; // patched
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 import { Eye, EyeOff, LogIn } from 'lucide-react';
-import signupLogo from '../assets/ExpenseTracker_signup-removebg-preview.png';
+const signupLogo = 'https://ik.imagekit.io/kabi10/tr:q-auto,f-auto/ExpenseTracker_signup-removebg-preview.png';
 import './Auth.css';
 
 
