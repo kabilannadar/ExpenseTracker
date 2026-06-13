@@ -270,9 +270,48 @@ button {
   display: flex;
   flex-direction: column;
   padding: 28px 32px;
-  overflow-y: auto;
   gap: 24px;
   animation: fadeIn 0.3s ease;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-footer {
+  height: 76px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  background: var(--bg-surface);
+  flex-shrink: 0;
+}
+
+.app-footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.app-footer-author {
+  color: var(--accent-primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.app-footer-author:hover {
+  color: var(--accent-secondary);
+  text-shadow: 0 0 8px var(--accent-primary-glow);
 }
 
 .page-header {
@@ -527,32 +566,36 @@ tbody tr:hover {
 
 /* Mobile Header, Overlay and Modal responsiveness */
 .mobile-header {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 0 16px;
   background: var(--bg-surface);
   border-bottom: 1px solid var(--border);
-  height: 56px;
+  height: 84px;
   position: sticky;
   top: 0;
   z-index: 500;
+  position: relative;
 }
 
 .menu-toggle {
   background: transparent;
   color: var(--text-primary);
   border: none;
-  padding: 8px;
+  padding: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   border-radius: var(--radius-sm);
+  flex-shrink: 0;
 }
 .menu-toggle:hover {
   background: var(--bg-hover);
 }
+
+
 
 .mobile-logo {
   font-size: 15px;
@@ -561,6 +604,24 @@ tbody tr:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.mobile-header-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1.35);
+  height: 64px;
+  width: auto;
+  max-width: 60%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.35));
+  pointer-events: none;
+  transition: filter var(--transition), transform var(--transition);
+}
+
+[data-theme="light"] .mobile-header-logo {
+  filter: invert(1) hue-rotate(180deg) drop-shadow(0 2px 8px rgba(0,0,0,0.12));
 }
 
 .mobile-avatar {
@@ -585,9 +646,19 @@ tbody tr:hover {
   animation: fadeIn 0.2s ease;
 }
 
+/* Hide menu toggle on desktop - sidebar always visible */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+  .mobile-only {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .mobile-header {
-    display: flex;
+    /* already flex on all sizes, nothing to override */
   }
 }
 

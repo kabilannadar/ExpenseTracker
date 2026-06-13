@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Sidebar from './components/Sidebar';
 import { Menu } from 'lucide-react';
+import bannerLogo from './assets/ExpenseTracker_Banner_Transparent.png';
 import Dashboard from './pages/Dashboard';
 import Expenses from './pages/Expenses';
 import Income from './pages/Income';
@@ -48,29 +49,39 @@ function ProtectedLayout() {
 
       <main style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column', minWidth: 0 }}>
         <header className="mobile-header">
-          <button className="menu-toggle" onClick={() => setSidebarOpen(true)} title="Open Menu">
-            <Menu size={20} />
-          </button>
-          <span className="mobile-logo">ExpenseTracker</span>
-          <div className="mobile-avatar">{user.name?.[0]?.toUpperCase()}</div>
+          <span className="mobile-only">
+            <button className="menu-toggle" onClick={() => setSidebarOpen(true)} title="Open Menu">
+              <Menu size={22} />
+            </button>
+          </span>
+          <img src={bannerLogo} alt="ExpenseTracker" className="mobile-header-logo" />
         </header>
 
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/expenses" element={<Expenses />} />
-          <Route path="/income" element={<Income />} />
-          <Route path="/debt" element={<Debt />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/budget" element={<Budget />} />
-          <Route path="/savings" element={<Savings />} />
-          <Route path="/goals" element={<Goals />} />
-          <Route path="/reminders" element={<Reminders />} />
-          <Route path="/recurring" element={<Recurring />} />
-          <Route path="/subscriptions" element={<Subscriptions />} />
-          <Route path="/emis" element={<EMI />} />
-          <Route path="/audit-logs" element={<AuditLogs />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/expenses" element={<Expenses />} />
+            <Route path="/income" element={<Income />} />
+            <Route path="/debt" element={<Debt />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/budget" element={<Budget />} />
+            <Route path="/savings" element={<Savings />} />
+            <Route path="/goals" element={<Goals />} />
+            <Route path="/reminders" element={<Reminders />} />
+            <Route path="/recurring" element={<Recurring />} />
+            <Route path="/subscriptions" element={<Subscriptions />} />
+            <Route path="/emis" element={<EMI />} />
+            <Route path="/audit-logs" element={<AuditLogs />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+
+          <footer className="app-footer">
+            <div className="app-footer-content">
+              <span>© {new Date().getFullYear()} ExpenseTracker. All rights reserved.</span>
+              <span>Created by <a href="https://portfolio.r-r-kabilan0435.workers.dev/" target="_blank" rel="noopener noreferrer" className="app-footer-author">Kabilan Rethinaswamy</a></span>
+            </div>
+          </footer>
+        </div>
       </main>
     </div>
   );

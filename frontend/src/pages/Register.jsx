@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 import { UserPlus } from 'lucide-react';
 import './Auth.css';
+import signupLogo from '../assets/ExpenseTracker_signup-removebg-preview.png';
 
 export default function Register() {
   const { login } = useAuth();
@@ -34,9 +35,11 @@ export default function Register() {
   return (
     <div className="auth-page">
       <div className="auth-bg" />
-      <div className="auth-card">
-        <h1 className="auth-title">Create account</h1>
-        <p className="auth-sub">Start tracking your expenses today</p>
+      <div className="auth-container">
+        <img src={signupLogo} alt="ExpenseTracker Logo" className="auth-banner-logo" />
+        <div className="auth-card">
+          <h1 className="auth-title" style={{ fontSize: '20px', marginTop: '4px', marginBottom: '4px' }}>Create account</h1>
+          <p className="auth-sub" style={{ marginBottom: '24px' }}>Start tracking your expenses today</p>
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
@@ -81,6 +84,7 @@ export default function Register() {
         </p>
       </div>
     </div>
+  </div>
   );
 }
 

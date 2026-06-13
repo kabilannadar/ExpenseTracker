@@ -4,7 +4,9 @@ import { authApi, userApi, getApiError } from '../api'; // patched
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 import { Eye, EyeOff, LogIn } from 'lucide-react';
+import signupLogo from '../assets/ExpenseTracker_signup-removebg-preview.png';
 import './Auth.css';
+
 
 export default function Login() {
   const { login } = useAuth();
@@ -34,9 +36,11 @@ export default function Login() {
   return (
     <div className="auth-page">
       <div className="auth-bg" />
-      <div className="auth-card">
-        <h1 className="auth-title">Welcome back</h1>
-        <p className="auth-sub">Sign in to your ExpenseTracker</p>
+      <div className="auth-container">
+        <img src={signupLogo} alt="ExpenseTracker Logo" className="auth-banner-logo" />
+        <div className="auth-card">
+          <h1 className="auth-title" style={{ fontSize: '20px', marginTop: '4px', marginBottom: '4px' }}>Welcome back</h1>
+          <p className="auth-sub" style={{ marginBottom: '24px' }}>Sign in to your account</p>
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
@@ -75,6 +79,7 @@ export default function Login() {
         </p>
       </div>
     </div>
+  </div>
   );
 }
 
