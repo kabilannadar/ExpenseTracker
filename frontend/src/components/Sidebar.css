@@ -19,10 +19,15 @@
 .sidebar-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 20px 16px;
+  justify-content: center;
+  height: 84px;
+  padding: 0 16px;
   border-bottom: 1px solid var(--border);
-  min-height: 64px;
+  position: relative;
+}
+
+.sidebar.collapsed .sidebar-logo {
+  padding: 0;
 }
 
 .logo-icon {
@@ -40,15 +45,35 @@
   box-shadow: var(--shadow-accent);
 }
 
-.logo-text {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text-primary);
-  white-space: nowrap;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.sidebar-banner-logo {
+  height: 64px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.35));
+  transition: filter var(--transition), transform var(--transition);
+  transform: scale(1.65);
+}
+
+[data-theme="light"] .sidebar-banner-logo {
+  filter: invert(1) hue-rotate(180deg) drop-shadow(0 2px 10px rgba(0,0,0,0.12));
+}
+
+.sidebar-banner-logo-collapsed {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+  transition: filter var(--transition), transform var(--transition);
+  transform: scale(1.4);
+}
+
+[data-theme="light"] .sidebar-banner-logo-collapsed {
+  filter: invert(1) hue-rotate(180deg) drop-shadow(0 2px 6px rgba(0,0,0,0.1));
 }
 
 .sidebar-nav {
@@ -95,11 +120,18 @@
 }
 
 .sidebar-footer {
-  padding: 12px 10px;
+  height: 76px;
+  padding: 0 16px;
   border-top: 1px solid var(--border);
   display: flex;
   align-items: center;
   gap: 8px;
+  box-sizing: border-box;
+}
+
+.sidebar.collapsed .sidebar-footer {
+  padding: 0;
+  justify-content: center;
 }
 
 .sidebar-user {
@@ -217,10 +249,13 @@
   color: var(--text-muted);
   border: none;
   padding: 4px;
-  margin-left: auto;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .mobile-close-btn:hover {
   color: var(--text-primary);

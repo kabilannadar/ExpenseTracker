@@ -8,10 +8,7 @@ import {
 import { useState } from 'react';
 import './Sidebar.css';
 
-import logoIconDark from '../assets/logo-icon-dark.jpg';
-import logoIconLight from '../assets/logo-icon-light.png';
-import bannerDark from '../assets/banner-dark.png';
-import bannerLightTagline from '../assets/banner-light-tagline.png';
+import avatarLogo from '../assets/ExpenseTracker_Avatar_Transparent.png';
 
 const navItems = [
   { to: '/', icon: LayoutDashboard, label: 'Dashboard' },
@@ -34,17 +31,15 @@ export default function Sidebar({ isOpen, onClose }) {
   const { user, logout } = useAuth();
   const [collapsed, setCollapsed] = useState(false);
 
-  const isDark = user ? user.dark_mode : true;
-  const logoBanner = isDark ? bannerDark : bannerLightTagline;
-  const logoIcon = isDark ? logoIconDark : logoIconLight;
 
   return (
     <aside className={`sidebar ${collapsed ? 'collapsed' : ''} ${isOpen ? 'mobile-open' : ''}`}>
-      <div className="sidebar-logo" style={{ display: 'flex', alignItems: 'center', justifyContent: collapsed ? 'center' : 'flex-start', minHeight: 64, padding: collapsed ? '20px 14px' : '16px' }}>
-        {collapsed ? (
-          <img src={logoIcon} alt="Logo" style={{ width: 32, height: 32, borderRadius: 8, objectFit: 'cover' }} />
-        ) : (
-          <img src={logoBanner} alt="ExpenseTracker Logo" style={{ height: 32, objectFit: 'contain', maxWidth: '100%' }} />
+      <div className="sidebar-logo">
+        {!collapsed && (
+          <img src={avatarLogo} alt="ExpenseTracker" className="sidebar-banner-logo" />
+        )}
+        {collapsed && (
+          <img src={avatarLogo} alt="ExpenseTracker" className="sidebar-banner-logo-collapsed" />
         )}
         <button className="mobile-close-btn" onClick={onClose} title="Close Sidebar">
           <X size={18} />

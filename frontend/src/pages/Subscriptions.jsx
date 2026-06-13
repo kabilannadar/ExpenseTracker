@@ -88,7 +88,7 @@ export default function Subscriptions() {
           </div>
         </div>
         <div className="flex justify-between" style={{ fontSize: 13 }}>
-          <span style={{ fontWeight: 700, color: 'var(--accent-primary)', fontSize: 18, whiteSpace: 'nowrap' }}>{fmt(s.amount)}<span style={{ fontSize: 12, color: 'var(--text-muted)', fontWeight: 400 }}>{CYCLE_LABELS[s.billing_cycle] || '/mo'}</span></span>
+          <span style={{ fontWeight: 700, color: 'var(--accent-primary)', fontSize: 18 }}>{fmt(s.amount)}<span style={{ fontSize: 12, color: 'var(--text-muted)', fontWeight: 400 }}>{CYCLE_LABELS[s.billing_cycle] || '/mo'}</span></span>
           {expiringSoon
             ? <span className="badge badge-warning">Expires in {daysLeft}d</span>
             : s.end_date
@@ -107,7 +107,7 @@ export default function Subscriptions() {
           <h1 className="page-title">Subscriptions</h1>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 6, alignItems: 'center' }}>
             {cycleTotals.map(ct => (
-              <span key={ct.cycle} style={{ background: 'var(--surface-2)', border: '1px solid var(--border)', borderRadius: 20, padding: '3px 12px', fontSize: 13, color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>
+              <span key={ct.cycle} style={{ background: 'var(--surface-2)', border: '1px solid var(--border)', borderRadius: 20, padding: '3px 12px', fontSize: 13, color: 'var(--text-muted)' }}>
                 <span style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>{fmt(ct.total)}</span>{CYCLE_SUFFIX[ct.cycle]}
               </span>
             ))}
@@ -168,8 +168,8 @@ export default function Subscriptions() {
             if (cycleSubs.length === 0) return null;
             return (
               <div key={cycle}>
-                <h2 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-                  <span style={{ textTransform: 'capitalize', whiteSpace: 'nowrap' }}>{cycle} Subscriptions</span>
+                <h2 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <span style={{ textTransform: 'capitalize' }}>{cycle} Subscriptions</span>
                   <span className="badge badge-accent" style={{ fontSize: '10px', padding: '1px 6px' }}>{cycleSubs.length}</span>
                 </h2>
                 <div className="grid-2">
