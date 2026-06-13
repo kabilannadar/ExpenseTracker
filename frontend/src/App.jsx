@@ -4,8 +4,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Sidebar from './components/Sidebar';
-import { Menu } from 'lucide-react';
-import bannerLogo from './assets/ExpenseTracker_Banner_Transparent.png';
+import { Menu, Megaphone } from 'lucide-react';
+const bannerLogo = 'https://ik.imagekit.io/kabi10/tr:q-auto,f-auto/ExpenseTracker_Banner_Transparent.png';
 import Dashboard from './pages/Dashboard';
 import Expenses from './pages/Expenses';
 import Income from './pages/Income';
@@ -22,6 +22,8 @@ import AuditLogs from './pages/AuditLogs';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Updates from './pages/Updates';
+import UpdatesPanel from './components/UpdatesPanel';
 import './index.css';
 
 const queryClient = new QueryClient({
@@ -31,6 +33,7 @@ const queryClient = new QueryClient({
 function ProtectedLayout() {
   const { user, loading } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [updatesOpen, setUpdatesOpen] = useState(false);
 
   if (loading) return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', color: 'var(--text-muted)' }}>
@@ -55,6 +58,22 @@ function ProtectedLayout() {
             </button>
           </span>
           <img src={bannerLogo} alt="ExpenseTracker" className="mobile-header-logo" />
+
+          {/* Updates button — desktop only, right-aligned */}
+          <div className="desktop-only header-updates-wrapper">
+            <button
+              id="header-updates-btn"
+              className={`header-updates-btn ${updatesOpen ? 'active' : ''}`}
+              onClick={() => setUpdatesOpen(o => !o)}
+              title="Updates &amp; Bug Fixes"
+            >
+              <Megaphone size={15} />
+              <span>Updates</span>
+            </button>
+            {updatesOpen && (
+              <UpdatesPanel onClose={() => setUpdatesOpen(false)} />
+            )}
+          </div>
         </header>
 
         <div className="main-content">
@@ -73,6 +92,7 @@ function ProtectedLayout() {
             <Route path="/emis" element={<EMI />} />
             <Route path="/audit-logs" element={<AuditLogs />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/updates" element={<Updates />} />
           </Routes>
 
           <footer className="app-footer">

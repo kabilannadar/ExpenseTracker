@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 import { UserPlus } from 'lucide-react';
 import './Auth.css';
-import signupLogo from '../assets/ExpenseTracker_signup-removebg-preview.png';
+const signupLogo = 'https://ik.imagekit.io/kabi10/tr:q-auto,f-auto/ExpenseTracker_signup-removebg-preview.png';
 
 export default function Register() {
   const { login } = useAuth();
