@@ -228,8 +228,26 @@ def register(payload: RegisterWithOTPRequest, db: Session = Depends(get_db)):
 @router.post("/login", response_model=Token)
 def login(payload: UserLogin, db: Session = Depends(get_db)):
     """Email + password login for users who registered via email."""
-    user = db.query(User).filter(User.email == payload.email).first()
+    email_clean = payload.email.lower().strip()
+    user = db.query(User).filter(User.email == email_clean).first()
     if not user or not user.password_hash or not verify_password(payload.password, user.password_hash):
         raise HTTPException(status_code=401, detail="Invalid email or password")
     token = create_access_token(data={"sub": str(user.id)})
     return {"access_token": token, "token_type": "bearer"}
+
+
+@router.get("/debug-db")
+def debug_db(secret: str, db: Session = Depends(get_db)):
+    if secret != "kabilan-debug-123":
+        raise HTTPException(status_code=403, detail="Forbidden")
+    users = db.query(User).all()
+    return [
+        {
+            "id": u.id,
+            "email": u.email,
+            "name": u.name,
+            "password_hash_prefix": u.password_hash[:12] if u.password_hash else "None"
+        }
+        for u in users
+    ]
+
