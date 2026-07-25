@@ -18,3 +18,12 @@ backend/uploads/
 # OS
 .DS_Store
 Thumbs.db
+
+# Virtual environments
+.venv/
+backend/.venv/
+venv/
+
+# Backup files & binaries
+*.bak
+ngrok.exe

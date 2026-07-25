@@ -8,12 +8,13 @@ import { Plus, Pencil, Trash2, Tag } from 'lucide-react';
 const ICONS = ['tag', 'utensils', 'home', 'shopping-bag', 'car', 'file-text', 'heart', 'fuel', 'pill', 'key', 'tv', 'coffee', 'music', 'book', 'gift', 'plane', 'dumbbell'];
 const COLORS = ['#6366f1', '#8b5cf6', '#ec4899', '#f97316', '#f59e0b', '#22c55e', '#10b981', '#06b6d4', '#3b82f6', '#ef4444', '#64748b', '#a855f7'];
 
-const EMPTY = { name: '', color: '#6366f1', icon: 'tag' };
+const EMPTY = { name: '', color: '#6366f1', icon: 'tag', type: 'expense' };
 
 export default function Categories() {
   const qc = useQueryClient();
   const [modal, setModal] = useState(null);
   const [form, setForm] = useState(EMPTY);
+  const [activeTab, setActiveTab] = useState('expense');
 
   const { data: categories = [], isLoading } = useQuery({
     queryKey: ['categories'],
@@ -38,8 +39,8 @@ export default function Categories() {
     onError: (e) => toast.error(getApiError(e)),
   });
 
-  const openCreate = () => { setForm(EMPTY); setModal('create'); };
-  const openEdit = (c) => { setForm({ name: c.name, color: c.color, icon: c.icon }); setModal(c); };
+  const openCreate = () => { setForm({ ...EMPTY, type: activeTab }); setModal('create'); };
+  const openEdit = (c) => { setForm({ name: c.name, color: c.color, icon: c.icon, type: c.type || 'expense' }); setModal(c); };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,21 +48,51 @@ export default function Categories() {
     else updateMut.mutate({ id: modal.id, data: form });
   };
 
+  const filteredCategories = categories.filter(c => (c.type || 'expense') === activeTab);
+
   return (
     <div className="page-wrapper">
       <div className="page-header">
         <div>
           <h1 className="page-title">Categories</h1>
-          <p className="page-subtitle">{categories.length} categories</p>
+          <p className="page-subtitle">{filteredCategories.length} {activeTab} categories</p>
         </div>
         <button className="btn-primary" onClick={openCreate}><Plus size={16} /> New Category</button>
+      </div>
+
+      {/* Category Tabs */}
+      <div className="cat-tabs" style={{ display: 'flex', gap: 20, marginBottom: 24, borderBottom: '1px solid var(--border)' }}>
+        <button
+          type="button"
+          onClick={() => setActiveTab('expense')}
+          style={{
+            background: 'none', border: 'none', color: activeTab === 'expense' ? 'var(--text-primary)' : 'var(--text-muted)',
+            fontWeight: 600, fontSize: 14, cursor: 'pointer', padding: '0 4px 10px 4px',
+            borderBottom: activeTab === 'expense' ? '3px solid var(--primary)' : '3px solid transparent',
+            borderRadius: 0, transition: 'all 0.2s'
+          }}
+        >
+          Expense Categories
+        </button>
+        <button
+          type="button"
+          onClick={() => setActiveTab('income')}
+          style={{
+            background: 'none', border: 'none', color: activeTab === 'income' ? 'var(--text-primary)' : 'var(--text-muted)',
+            fontWeight: 600, fontSize: 14, cursor: 'pointer', padding: '0 4px 10px 4px',
+            borderBottom: activeTab === 'income' ? '3px solid var(--primary)' : '3px solid transparent',
+            borderRadius: 0, transition: 'all 0.2s'
+          }}
+        >
+          Income Categories
+        </button>
       </div>
 
       {isLoading ? (
         <div className="grid-3">{[...Array(6)].map((_, i) => <div key={i} className="card skeleton" style={{ height: 90 }} />)}</div>
       ) : (
         <div className="grid-3">
-          {categories.map(c => (
+          {filteredCategories.map(c => (
             <div key={c.id} className="card cat-card">
               <div className="cat-color-bar" style={{ background: c.color }} />
               <div className="cat-content">
@@ -86,10 +117,10 @@ export default function Categories() {
               `}</style>
             </div>
           ))}
-          {categories.length === 0 && (
+          {filteredCategories.length === 0 && (
             <div className="card empty-state" style={{ gridColumn: '1/-1' }}>
               <Tag size={40} />
-              <div>No categories yet</div>
+              <div>No {activeTab} categories yet</div>
               <button className="btn-primary" onClick={openCreate}><Plus size={14} /> Add Category</button>
             </div>
           )}
@@ -102,6 +133,13 @@ export default function Categories() {
             <div className="form-group">
               <label className="form-label">Name *</label>
               <input placeholder="e.g. Outside Food" value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} required />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Type *</label>
+              <select value={form.type} onChange={e => setForm(p => ({ ...p, type: e.target.value }))}>
+                <option value="expense">Expense Category</option>
+                <option value="income">Income Category</option>
+              </select>
             </div>
             <div className="form-group">
               <label className="form-label">Color</label>

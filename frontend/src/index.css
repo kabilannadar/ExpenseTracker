@@ -118,7 +118,7 @@ input, textarea, select {
   border-radius: var(--radius-sm);
   padding: 10px 14px;
   font-size: 14px;
-  transition: var(--transition);
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
   outline: none;
   width: 100%;
 }
@@ -203,7 +203,7 @@ button {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 20px;
-  transition: var(--transition);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
@@ -350,8 +350,19 @@ button {
   .page-wrapper { padding: 20px 16px; }
 }
 
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 600px) {
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .page-wrapper {
+    padding: 16px 12px;
+    gap: 16px;
+  }
 }
 
 /* Table */
@@ -673,6 +684,38 @@ tbody tr:hover {
   /* mobile-only already handled by .mobile-only + .menu-toggle rules above */
 }
 
+/* ── Header Live Clock (desktop) ───────────────────────────── */
+.header-clock {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+@media (max-width: 1250px) {
+  .header-clock .clock-date,
+  .header-clock .clock-separator {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-clock,
+  .header-divider {
+    display: none !important;
+  }
+}
+
 /* ── Header Updates button (desktop) ───────────────────────────── */
 .header-updates-wrapper {
   position: relative;
@@ -952,31 +995,28 @@ tbody tr:hover {
   right: 0;
   width: 420px;
   max-height: 540px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(30, 30, 46, 0.95), rgba(20, 20, 35, 0.95)) !important;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: var(--radius-xl);
-  box-shadow: 0 20px 60px -10px rgba(0,0,0,0.5), 0 0 0 1px rgba(99,102,241,0.08);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(99, 102, 241, 0.15);
   z-index: 200;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  animation: upanel-in 0.2s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  animation: upanel-in 0.25s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
 }
 
-.upanel-accent-bar {
-  height: 3px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6, #a78bfa);
-  flex-shrink: 0;
-}
 
 .upanel-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px 13px;
-  border-bottom: 1px solid var(--border);
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   flex-shrink: 0;
-  background: var(--bg-elevated);
+  background: rgba(18, 18, 29, 0.85) !important;
+  backdrop-filter: blur(10px);
 }
 
 .upanel-header-left {
@@ -986,21 +1026,22 @@ tbody tr:hover {
 }
 
 .upanel-icon-wrap {
-  width: 30px;
-  height: 30px;
-  border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, rgba(99,102,241,0.25), rgba(139,92,246,0.25));
-  border: 1px solid rgba(99,102,241,0.3);
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0, 136, 204, 0.2), rgba(99, 102, 241, 0.2));
+  border: 1px solid rgba(99, 102, 241, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #a5b4fc;
   flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.15);
 }
 
 .upanel-title {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 750;
   color: var(--text-primary);
   line-height: 1.2;
 }
@@ -1017,7 +1058,7 @@ tbody tr:hover {
 .upanel-close {
   background: none;
   border: none;
-  padding: 5px;
+  padding: 6px;
   border-radius: var(--radius-sm);
   color: var(--text-muted);
   cursor: pointer;
@@ -1027,24 +1068,92 @@ tbody tr:hover {
   transition: var(--transition);
 }
 .upanel-close:hover {
-  background: var(--bg-hover);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--text-primary);
 }
 
 .upanel-body {
+  position: relative;
   overflow-y: auto;
   flex: 1;
-  padding: 14px 16px;
+  padding: 16px 16px 16px 36px !important;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
+
+
 
 /* ── Release block ── */
 .upanel-release {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+}
+
+.upanel-entries {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.upanel-entries::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: -12px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary, #6366f1), #0088cc, rgba(0, 136, 204, 0.2));
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.upanel-release:hover .upanel-entries::before {
+  opacity: 0.6;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.3), 0 0 18px rgba(0, 136, 204, 0.2);
+}
+
+.upanel-release:last-child .upanel-entries::before {
+  display: none;
+}
+
+.upanel-release-dot {
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  min-height: 12px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #0f0f1a;
+  border: 2px solid var(--border);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.03), 0 0 8px rgba(255, 255, 255, 0.1);
+  z-index: 10;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.upanel-release:hover .upanel-release-dot {
+  border-color: #0088cc;
+  box-shadow: 0 0 0 6px rgba(0, 136, 204, 0.18), 0 0 16px rgba(0, 136, 204, 0.8);
+}
+
+.upanel-release:first-child .upanel-release-dot {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15), 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+.upanel-release:first-child:hover .upanel-release-dot {
+  border-color: #0088cc;
+  box-shadow: 0 0 0 6px rgba(0, 136, 204, 0.18), 0 0 16px rgba(0, 136, 204, 0.8);
 }
 
 .upanel-release-header {
@@ -1057,22 +1166,23 @@ tbody tr:hover {
 .upanel-release-left {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
 }
 
 .upanel-version {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.3px;
 }
 
 .upanel-release-badge {
-  padding: 2px 8px;
+  padding: 2px 9px;
   border-radius: var(--radius-full);
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .upanel-date {
@@ -1081,72 +1191,82 @@ tbody tr:hover {
   white-space: nowrap;
 }
 
-/* ── Entry card ── */
-.upanel-entries {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+
 
 .upanel-entry {
   display: flex;
-  gap: 10px;
-  padding: 11px 13px;
-  border-radius: var(--radius-md);
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  transition: var(--transition);
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.015) !important;
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* Horizontal branch connector line */
+.upanel-entry::after {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 1px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  transition: all 0.25s ease;
 }
 
 .upanel-entry:hover {
-  border-color: var(--border-active);
-  background: var(--bg-hover);
+  transform: translateX(4px);
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 0 10px rgba(99, 102, 241, 0.05);
 }
 
-.upanel-entry-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+.upanel-entry:hover::after {
+  border-top: 1px solid var(--entry-color, var(--primary));
+  box-shadow: 0 -1px 8px var(--entry-color, var(--primary));
 }
 
 .upanel-entry-body {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   flex: 1;
   min-width: 0;
 }
 
 .upanel-entry-top {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 8px;
 }
 
 .upanel-entry-title {
-  font-size: 12.5px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   color: var(--text-primary);
   line-height: 1.3;
 }
 
 .upanel-entry-type {
-  padding: 2px 7px;
-  border-radius: var(--radius-full);
-  font-size: 10px;
-  font-weight: 700;
+  font-size: 9px;
+  font-weight: 800;
   white-space: nowrap;
   flex-shrink: 0;
+  text-transform: uppercase;
+  color: var(--entry-color, var(--text-muted)) !important;
+  opacity: 0.85;
+  letter-spacing: 0.03em;
 }
 
 .upanel-entry-detail {
   font-size: 11.5px;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   line-height: 1.55;
   margin: 0;
 }
@@ -1155,13 +1275,14 @@ tbody tr:hover {
 .upanel-footer {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 10px 13px;
-  border-radius: var(--radius-md);
-  background: rgba(99,102,241,0.05);
-  border: 1px solid rgba(99,102,241,0.12);
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.18);
   font-size: 11.5px;
   color: var(--text-muted);
+  backdrop-filter: blur(5px);
 }
 
 .upanel-footer svg {
@@ -1171,6 +1292,6 @@ tbody tr:hover {
 
 /* Divider between releases */
 .upanel-release + .upanel-release {
-  padding-top: 18px;
-  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }

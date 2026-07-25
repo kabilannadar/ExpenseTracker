@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { incomeApi, getApiError } from '../api';
+import { incomeApi, categoriesApi, getApiError } from '../api';
 import Modal from '../components/Modal';
 import StatCard from '../components/StatCard';
 import toast from 'react-hot-toast';
@@ -8,19 +8,25 @@ import { Plus, Pencil, Trash2, TrendingUp, Wallet } from 'lucide-react';
 import { format } from 'date-fns';
 
 const fmt = (n) => `₹${Number(n || 0).toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
-const SOURCES = ['salary', 'freelancing', 'gifts', 'cable', 'other'];
-const EMPTY = { source: 'salary', amount: '', date: format(new Date(), 'yyyy-MM-dd'), payment_method: 'cash', note: '' };
-const SOURCE_COLORS = { salary: 'success', freelancing: 'info', gifts: 'warning', cable: 'accent', other: 'accent' };
+const EMPTY = { category_id: '', amount: '', date: format(new Date(), 'yyyy-MM-dd'), payment_method: 'cash', note: '' };
 
 export default function Income() {
   const qc = useQueryClient();
   const [modal, setModal] = useState(null);
   const [form, setForm] = useState(EMPTY);
 
-  const { data: income = [], isLoading } = useQuery({
+  const { data: income = [], isLoading: isIncomeLoading } = useQuery({
     queryKey: ['income'],
     queryFn: () => incomeApi.getAll().then(r => r.data),
   });
+
+  const { data: categories = [], isLoading: isCategoriesLoading } = useQuery({
+    queryKey: ['categories'],
+    queryFn: () => categoriesApi.getAll().then(r => r.data),
+  });
+
+  const isLoading = isIncomeLoading || isCategoriesLoading;
+  const incomeCategories = categories.filter(c => c.type === 'income');
 
   const createMut = useMutation({
     mutationFn: (d) => incomeApi.create(d),
@@ -40,18 +46,46 @@ export default function Income() {
     onError: (e) => toast.error(getApiError(e)),
   });
 
-  const openCreate = () => { setForm(EMPTY); setModal('create'); };
-  const openEdit = (i) => { setForm({ source: i.source, amount: i.amount, date: i.date, payment_method: i.payment_method || 'cash', note: i.note || '' }); setModal(i); };
+  const openCreate = () => {
+    const defaultCat = incomeCategories.find(c => c.is_default) || incomeCategories[0];
+    setForm({
+      category_id: defaultCat ? defaultCat.id : '',
+      amount: '',
+      date: format(new Date(), 'yyyy-MM-dd'),
+      payment_method: 'cash',
+      note: ''
+    });
+    setModal('create');
+  };
+  const openEdit = (i) => {
+    setForm({
+      category_id: i.category_id || '',
+      amount: i.amount,
+      date: i.date,
+      payment_method: i.payment_method || 'cash',
+      note: i.note || ''
+    });
+    setModal(i);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const payload = { ...form, amount: parseFloat(form.amount) };
+    const payload = {
+      category_id: parseInt(form.category_id),
+      amount: parseFloat(form.amount),
+      date: form.date,
+      payment_method: form.payment_method,
+      note: form.note
+    };
     if (modal === 'create') createMut.mutate(payload);
     else updateMut.mutate({ id: modal.id, data: payload });
   };
 
   const totalIncome = income.reduce((s, i) => s + i.amount, 0);
-  const bySource = SOURCES.map(s => ({ source: s, total: income.filter(i => i.source === s).reduce((a, i) => a + i.amount, 0) }));
+  const bySource = incomeCategories.map(cat => ({
+    category: cat,
+    total: income.filter(i => i.category_id === cat.id).reduce((a, i) => a + i.amount, 0)
+  }));
 
   return (
     <div className="page-wrapper">
@@ -64,8 +98,8 @@ export default function Income() {
       </div>
 
       <div className="stat-grid">
-        {bySource.map(({ source, total }) => (
-          <StatCard key={source} title={source.charAt(0).toUpperCase() + source.slice(1)} value={fmt(total)} icon={TrendingUp} color={SOURCE_COLORS[source]} />
+        {bySource.map(({ category, total }) => (
+          <StatCard key={category.id} title={category.name} value={fmt(total)} icon={TrendingUp} color={category.color} />
         ))}
       </div>
 
@@ -94,7 +128,18 @@ export default function Income() {
               {income.map(i => (
                 <tr key={i.id}>
                   <td style={{ color: 'var(--text-muted)', fontSize: 13 }}>{format(new Date(i.date), 'dd MMM yyyy')}</td>
-                  <td><span className={`badge badge-${SOURCE_COLORS[i.source]}`}>{i.source}</span></td>
+                  <td>
+                    <span 
+                      className="badge" 
+                      style={{ 
+                        background: (i.category?.color || '#6b7280') + '22', 
+                        color: i.category?.color || '#6b7280',
+                        border: `1px solid ${(i.category?.color || '#6b7280')}44`
+                      }}
+                    >
+                      {i.category?.name || i.source || 'Other'}
+                    </span>
+                  </td>
                   <td><span className="badge badge-info">{i.payment_method ? i.payment_method.toUpperCase() : 'CASH'}</span></td>
                   <td style={{ color: 'var(--text-muted)', fontSize: 13, maxWidth: 140 }}>
                     {i.note ? (
@@ -127,9 +172,12 @@ export default function Income() {
           <form onSubmit={handleSubmit}>
             <div className="grid-2">
               <div className="form-group">
-                <label className="form-label">Source *</label>
-                <select value={form.source} onChange={e => setForm(p => ({ ...p, source: e.target.value }))}>
-                  {SOURCES.map(s => <option key={s} value={s}>{s.charAt(0).toUpperCase() + s.slice(1)}</option>)}
+                <label className="form-label">Category *</label>
+                <select value={form.category_id} onChange={e => setForm(p => ({ ...p, category_id: e.target.value }))} required>
+                  <option value="" disabled>Select Category</option>
+                  {incomeCategories.map(c => (
+                    <option key={c.id} value={c.id}>{c.name}</option>
+                  ))}
                 </select>
               </div>
               <div className="form-group">

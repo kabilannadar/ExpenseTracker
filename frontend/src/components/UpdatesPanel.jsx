@@ -39,9 +39,6 @@ export default function UpdatesPanel({ onClose }) {
       role="dialog"
       aria-label="Updates & Bug Fixes"
     >
-      {/* ── Gradient accent bar at top ── */}
-      <div className="upanel-accent-bar" />
-
       {/* ── Header ── */}
       <div className="upanel-header">
         <div className="upanel-header-left">
@@ -68,7 +65,8 @@ export default function UpdatesPanel({ onClose }) {
           return (
             <div key={ri} className="upanel-release">
               {/* Release header */}
-              <div className="upanel-release-header">
+              <div className="upanel-release-header" style={{ position: 'relative' }}>
+                <div className="upanel-release-dot" style={{ borderColor: ri === 0 ? 'var(--primary)' : 'var(--border)' }} />
                 <div className="upanel-release-left">
                   <span className="upanel-version">{release.version}</span>
                   <span
@@ -88,13 +86,11 @@ export default function UpdatesPanel({ onClose }) {
                   const ts = TYPE_STYLE[entry.type] || TYPE_STYLE.chore;
                   const typeLabel = TYPE_LABELS[entry.type] || entry.type;
                   return (
-                    <div key={ei} className="upanel-entry">
-                      <div
-                        className="upanel-entry-icon"
-                        style={{ background: `${entry.color}18`, color: entry.color }}
-                      >
-                        <Icon size={13} />
-                      </div>
+                    <div 
+                      key={ei} 
+                      className="upanel-entry" 
+                      style={{ '--entry-color': entry.color }}
+                    >
                       <div className="upanel-entry-body">
                         <div className="upanel-entry-top">
                           <span className="upanel-entry-title">{entry.title}</span>

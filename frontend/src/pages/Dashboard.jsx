@@ -1,14 +1,17 @@
-import { useQuery } from '@tanstack/react-query';
-import { analyticsApi } from '../api';
+import { useState } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { analyticsApi, telegramApi, expensesApi, getApiError } from '../api';
 import StatCard from '../components/StatCard';
 import AnnouncementTicker from '../components/AnnouncementTicker';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import {
   PieChart, Pie, Cell, Sector, Tooltip, ResponsiveContainer,
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Legend
 } from 'recharts';
 import {
   Wallet, TrendingDown, TrendingUp, Calendar,
-  Flame, Zap, Target, ArrowRight, AlertTriangle
+  Flame, Zap, Target, ArrowRight, AlertTriangle, Send, Upload, RefreshCw
 } from 'lucide-react';
 import { format } from 'date-fns';
 import './Dashboard.css';
@@ -28,10 +31,38 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 export default function Dashboard() {
-  const { data: stats, isLoading } = useQuery({
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  const [importing, setImporting] = useState(false);
+
+  const { data: stats, isLoading: isStatsLoading } = useQuery({
     queryKey: ['dashboard'],
     queryFn: () => analyticsApi.getDashboard().then(r => r.data),
   });
+
+  const { data: tgStatus } = useQuery({
+    queryKey: ['telegramStatus'],
+    queryFn: () => telegramApi.getStatus().then(r => r.data),
+  });
+
+  const handleImportCsv = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    
+    setImporting(true);
+    try {
+      const res = await expensesApi.importCsv(file);
+      toast.success(res.data?.message || 'Imported expenses successfully!');
+      queryClient.invalidateQueries();
+    } catch (err) {
+      toast.error(getApiError(err, 'Failed to import CSV.'));
+    } finally {
+      setImporting(false);
+      e.target.value = '';
+    }
+  };
+
+  const isLoading = isStatsLoading;
 
   if (isLoading) return (
     <div className="page-wrapper">
@@ -52,12 +83,78 @@ export default function Dashboard() {
       <div className="page-header">
         <div>
           <h1 className="page-title">Dashboard</h1>
-          <p className="page-subtitle">{format(new Date(), 'EEEE, d MMMM yyyy')}</p>
         </div>
       </div>
 
       {/* Announcement Ticker — EMI & Reminder alerts */}
       <AnnouncementTicker />
+
+      {/* Onboarding CSV Import for new accounts */}
+      {stats && stats.recent_expenses?.length === 0 && (
+        <div className="card bot-promo-card animate-in" style={{ border: '1px solid rgba(99, 102, 241, 0.2)', background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(16, 185, 129, 0.08))' }}>
+          <div className="bot-promo-glow" style={{ background: 'radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(99, 102, 241, 0) 70%)' }} />
+          <div className="bot-promo-content">
+            <div className="bot-promo-icon-wrap" style={{ background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(16, 185, 129, 0.25))' }}>
+              <Upload size={22} className="bot-promo-icon" style={{ color: 'var(--accent-primary)' }} />
+            </div>
+            <div className="bot-promo-text">
+              <h3 className="bot-promo-title">Welcome to ExpenseTracker!</h3>
+              <p className="bot-promo-desc">
+                Log your first expense to get started, or <strong>import previous data</strong> from an exported CSV file to restore your transactions and categories.
+              </p>
+            </div>
+            <div style={{ display: 'flex', gap: 12, flexShrink: 0 }}>
+              <input
+                type="file"
+                accept=".csv"
+                id="dashboard-import-csv"
+                style={{ display: 'none' }}
+                onChange={handleImportCsv}
+                disabled={importing}
+              />
+              <button
+                className="btn-primary bot-promo-btn"
+                style={{ background: 'linear-gradient(135deg, var(--accent-primary), #10b981) !important', boxShadow: '0 4px 14px rgba(99, 102, 241, 0.3) !important' }}
+                onClick={() => document.getElementById('dashboard-import-csv').click()}
+                disabled={importing}
+              >
+                {importing ? (
+                  <>
+                    <RefreshCw size={14} className="animate-spin" /> Importing...
+                  </>
+                ) : (
+                  <>
+                    Import CSV <ArrowRight size={15} />
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {tgStatus && !tgStatus.linked && (
+        <div className="card bot-promo-card animate-in">
+          <div className="bot-promo-glow" />
+          <div className="bot-promo-content">
+            <div className="bot-promo-icon-wrap">
+              <Send size={22} className="bot-promo-icon" />
+            </div>
+            <div className="bot-promo-text">
+              <h3 className="bot-promo-title">Track Expenses Instantly via Telegram!</h3>
+              <p className="bot-promo-desc">
+                Log payments, income, budgets, and reminders in real-time by chatting with the new <strong>ExpenseTracker Bot</strong>.
+              </p>
+            </div>
+            <button 
+              className="btn-primary bot-promo-btn"
+              onClick={() => navigate('/telegram')}
+            >
+              Get Started <ArrowRight size={15} />
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* KPI Cards */}
       <div className="stat-grid">

@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import {
   LayoutDashboard, Receipt, Tag, TrendingUp, Wallet, PiggyBank,
   Bell, RefreshCw, CreditCard, Target, ClipboardList,
-  User, LogOut,  ChevronLeft, ChevronRight, Landmark, X, Coins, Megaphone
+  User, LogOut,  ChevronLeft, ChevronRight, Landmark, X, Coins, Megaphone, Send, HelpCircle, MessageSquare, Percent
 } from 'lucide-react';
 import { useState } from 'react';
 import './Sidebar.css';
@@ -14,6 +14,7 @@ const navItems = [
   { to: '/', icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/expenses', icon: Receipt, label: 'Expenses' },
   { to: '/income', icon: TrendingUp, label: 'Income' },
+  { to: '/loans', icon: Percent, label: 'Loans' },
   { to: '/debt', icon: Coins, label: 'Debt' },
   { to: '/categories', icon: Tag, label: 'Categories' },
   { to: '/budget', icon: Wallet, label: 'Budget' },
@@ -23,8 +24,11 @@ const navItems = [
   { to: '/recurring', icon: RefreshCw, label: 'Recurring' },
   { to: '/subscriptions', icon: CreditCard, label: 'Subscriptions' },
   { to: '/emis', icon: Landmark, label: 'EMIs' },
+  { to: '/telegram', icon: Send, label: 'ExpenseTracker Bot' },
   { to: '/audit-logs', icon: ClipboardList, label: 'Audit Logs' },
   { to: '/profile', icon: User, label: 'Profile' },
+  { to: '/help', icon: HelpCircle, label: 'Help & FAQ' },
+  { to: '/support', icon: MessageSquare, label: 'Support & Feedback' },
   { to: '/updates', icon: Megaphone, label: 'Updates', mobileOnly: true },
 ];
 

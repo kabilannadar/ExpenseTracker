@@ -1,18 +1,19 @@
 {
-  "name": "frontend",
-  "private": true,
+  "name": "et_f",
   "version": "0.0.0",
+  "private": true,
+  "description": "",
+  "license": "ISC",
+  "author": "",
   "type": "module",
+  "main": "vite.config.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
-  "devDependencies": {
-    "typescript": "~6.0.2",
-    "vite": "^8.0.12"
-  },
   "dependencies": {
+    "@react-oauth/google": "^0.13.5",
     "@tanstack/react-query": "^5.101.0",
     "axios": "^1.17.0",
     "date-fns": "^4.4.0",
@@ -21,5 +22,9 @@
     "react-hot-toast": "^2.6.0",
     "react-router-dom": "^7.17.0",
     "recharts": "^3.8.1"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.2",
+    "vite": "^8.0.12"
   }
 }

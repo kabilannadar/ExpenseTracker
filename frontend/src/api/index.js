@@ -37,7 +37,9 @@ export default api;
 
 // Auth
 export const authApi = {
-  register: (data) => api.post('/api/auth/register', data),
+  googleLogin: (token) => api.post('/api/auth/google-login', { token }),
+  sendOtp: (email) => api.post('/api/auth/send-otp', { email }),
+  register: (data) => api.post('/api/auth/register', data),   // data includes otp field
   login: (data) => api.post('/api/auth/login', data),
 };
 
@@ -65,6 +67,11 @@ export const expensesApi = {
     const form = new FormData();
     form.append('file', file);
     return api.post(`/api/expenses/${id}/attachment`, form);
+  },
+  importCsv: (file) => {
+    const form = new FormData();
+    form.append('file', file);
+    return api.post('/api/expenses/import-csv', form);
   },
 };
 
@@ -156,3 +163,14 @@ export const savingsApi = {
   delete: (id) => api.delete(`/api/savings/${id}`),
 };
 
+// Telegram
+export const telegramApi = {
+  getStatus: () => api.get('/api/telegram/status'),
+  link: (chat_id) => api.post('/api/telegram/link', { chat_id }),
+  unlink: () => api.delete('/api/telegram/unlink'),
+};
+
+// Feedback
+export const feedbackApi = {
+  submit: (data) => api.post('/api/feedback/', data),
+};

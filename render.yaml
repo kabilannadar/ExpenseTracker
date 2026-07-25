@@ -1,4 +1,5 @@
 services:
+  # ── FastAPI backend ─────────────────────────────────────────────────────────
   - type: web
     name: expensetracker-api
     runtime: python
@@ -17,4 +18,6 @@ services:
       - key: UPLOAD_DIR
         value: /tmp/uploads
       - key: FRONTEND_URL
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
         sync: false

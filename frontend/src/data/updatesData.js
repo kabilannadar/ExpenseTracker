@@ -24,6 +24,106 @@ export const TYPE_LABELS = {
 
 export const RELEASES = [
   {
+    version: 'v2.1.0',
+    date: 'July 25, 2026',
+    label: 'Feature & UX Polish',
+    labelColor: 'success',
+    entries: [
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Unified Loans & Liabilities Tracker',
+        detail: 'Launched a standalone Loans Tracking page featuring aggregate debt counters, a month-by-month Amortization Calculator with printable schedules, a "Save to Track" logging system, and direct manual EMI entry forms in the page header.',
+      },
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Premium Support & Feedback Portal',
+        detail: 'Designed a two-column support center with star rating selectors, live database ticket logging, and SMTP-based automated email dispatch to notification administrators.',
+      },
+      {
+        type: 'style',
+        icon: Sparkles,
+        color: '#8b5cf6',
+        title: 'Navigation & Button Polish',
+        detail: 'Repositioned Loans above Debt in the main sidebar for better visual hierarchy and updated secondary Auth action buttons with sleek, solid borders instead of dotted lines.',
+      },
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Google Sign-In & Registration',
+        detail: 'Implemented full Google OAuth2 authentication flow, enabling users to register new accounts and sign in securely with a single click. Integrates seamlessly with local SQLite schemas.',
+      }
+    ],
+  },
+  {
+    version: 'v2.0.0',
+    date: 'July 24, 2026',
+    label: 'Major Feature Release',
+    labelColor: 'primary',
+    entries: [
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'ExpenseTracker Bot Integration',
+        detail: 'Introduced the brand-new ExpenseTracker Bot for Telegram! Link your account to log expenses, track budgets, record income, and configure reminders via real-time messages.',
+      },
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Bot Setup Guide & Connection Verification',
+        detail: 'Created a detailed step-by-step Telegram Setup page containing BotFather configuration guides, Chat ID retrieval, webhook connections, and a quick-reference bot command sheet.',
+      },
+      {
+        type: 'style',
+        icon: Sparkles,
+        color: '#8b5cf6',
+        title: 'Dashboard Companion Bot Promo Banner',
+        detail: 'Added a premium, glowing glassmorphic promo banner on the main Dashboard to prioritize Telegram Bot setup. Highlights bot integration for new/unlinked users.',
+      },
+      {
+        type: 'style',
+        icon: Sparkles,
+        color: '#8b5cf6',
+        title: 'Dedicated Help & FAQ Section',
+        detail: 'Designed a brand-new Help & FAQ center featuring interactive question accordions, step-by-step guides, support contact forms, and updated bot commands.',
+      },
+      {
+        type: 'style',
+        icon: Sparkles,
+        color: '#8b5cf6',
+        title: 'Unified Sidebar Branding',
+        detail: 'Renamed "Telegram Bot" navigation links to "ExpenseTracker Bot" across the app and repositioned it directly above "Audit Logs" to improve visibility and page hierarchy.',
+      },
+      {
+        type: 'chore',
+        icon: Package,
+        color: '#64748b',
+        title: 'Performance & Bundle Size Optimization',
+        detail: 'Replaced static pages with React.lazy dynamic chunk loading, reducing the initial bundle size by 62% for significantly faster first page loads.',
+      },
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Custom Income Categories',
+        detail: 'Migrated all legacy hardcoded "cable" source entries to "other". Implemented custom income categories support, allowing you to define, edit, and categorize income sources with custom colors and names.',
+      },
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Global Header Live Clock Widget',
+        detail: 'Moved the date format from the Dashboard subheader to the global desktop navigation bar and added a dynamic, live-ticking clock with tabular digit layouts to prevent screen jitter.',
+      }
+    ],
+  },
+  {
     version: 'v1.6.0',
     date: 'June 13, 2026',
     label: 'UI & CDN Update',

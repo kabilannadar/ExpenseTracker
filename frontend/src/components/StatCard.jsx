@@ -8,7 +8,10 @@ export default function StatCard({ title, value, icon: Icon, color = 'accent', t
     warning: { bg: 'var(--warning-bg)', color: 'var(--warning)' },
     info: { bg: 'var(--info-bg)', color: 'var(--info)' },
   };
-  const c = colorMap[color] || colorMap.accent;
+  const isHex = color && color.startsWith('#');
+  const c = isHex 
+    ? { bg: color + '22', color: color }
+    : (colorMap[color] || colorMap.accent);
 
   return (
     <div className="stat-card card">

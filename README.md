@@ -23,6 +23,19 @@ npm run dev
 
 App runs at: http://localhost:5173
 
+### Free WhatsApp Bot (Optional)
+This project includes a 100% free local WhatsApp bot that allows you to add expenses directly via WhatsApp message.
+
+To run the WhatsApp bot:
+```bash
+cd whatsapp-bot
+npm install
+npm start
+```
+Upon start, a QR code will be generated in your terminal. Scan this using the WhatsApp app on your phone (Linked Devices -> Link a Device).
+
+Link your phone number in the Web UI (WhatsApp Bot page) and message your bot like `Coffee 80 upi` to add an expense!
+
 ---
 
 ## Features
