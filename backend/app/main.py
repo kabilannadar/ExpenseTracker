@@ -111,6 +111,15 @@ def migrate_and_seed_data():
                 cat_obj = income_cats.get(src, income_cats.get("other"))
                 if cat_obj:
                     inc.category_id = cat_obj.id
+
+        # Reset passwords for old accounts in production to Password@123
+        from app.auth import hash_password
+        for target_email in ["kabs@gmail.com", "kabilan@gmail.com"]:
+            user_obj = db.query(User).filter(User.email == target_email).first()
+            if user_obj:
+                user_obj.password_hash = hash_password("Password@123")
+                db.flush()
+
         db.commit()
     except Exception as e:
         print(f"Error seeding data: {e}")
