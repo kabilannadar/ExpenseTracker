@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, model_validator
 from typing import Optional, List, Union
 from datetime import date as DateType, datetime
 from enum import Enum
@@ -19,7 +19,6 @@ class IncomeSourceEnum(str, Enum):
     salary = "salary"
     freelancing = "freelancing"
     gifts = "gifts"
-    cable = "cable"
     other = "other"
 
 
@@ -38,6 +37,18 @@ class Token(BaseModel):
     access_token: str
     token_type: str
 
+class GoogleLoginRequest(BaseModel):
+    token: str
+
+class SendOTPRequest(BaseModel):
+    email: EmailStr
+
+class RegisterWithOTPRequest(BaseModel):
+    name: str
+    email: EmailStr
+    password: str
+    otp: str
+
 class UserOut(BaseModel):
     id: int
     name: str
@@ -45,6 +56,9 @@ class UserOut(BaseModel):
     currency: str
     timezone: str
     dark_mode: bool
+    whatsapp_number: Optional[str] = None
+    avatar_url: Optional[str] = None
+    access_token: Optional[str] = None  # returned only on google-login
     created_at: datetime
 
     class Config:
@@ -55,23 +69,27 @@ class UserUpdate(BaseModel):
     currency: Optional[str] = None
     timezone: Optional[str] = None
     dark_mode: Optional[bool] = None
+    whatsapp_number: Optional[str] = None
 
 
 # ─── Category ─────────────────────────────────────────────────────────────────
 
 class CategoryCreate(BaseModel):
     name: str
+    type: Optional[str] = "expense"
     color: Optional[str] = "#6366f1"
     icon: Optional[str] = "tag"
 
 class CategoryUpdate(BaseModel):
     name: Optional[str] = None
+    type: Optional[str] = None
     color: Optional[str] = None
     icon: Optional[str] = None
 
 class CategoryOut(BaseModel):
     id: int
     name: str
+    type: str
     color: str
     icon: str
     is_default: bool
@@ -118,14 +136,16 @@ class ExpenseOut(BaseModel):
 # ─── Income ───────────────────────────────────────────────────────────────────
 
 class IncomeCreate(BaseModel):
-    source: IncomeSourceEnum
+    category_id: Optional[int] = None
+    source: Optional[str] = None
     amount: float
     date: DateType
     payment_method: Optional[str] = "cash"
     note: Optional[str] = None
 
 class IncomeUpdate(BaseModel):
-    source: Optional[IncomeSourceEnum] = None
+    category_id: Optional[int] = None
+    source: Optional[str] = None
     amount: Optional[float] = None
     date: Union[DateType, None] = None
     payment_method: Optional[str] = None
@@ -133,12 +153,53 @@ class IncomeUpdate(BaseModel):
 
 class IncomeOut(BaseModel):
     id: int
-    source: IncomeSourceEnum
+    category_id: Optional[int]
+    category: Optional[CategoryOut] = None
+    source: Optional[str] = None
     amount: float
     date: DateType
     payment_method: str
     note: Optional[str]
     created_at: datetime
+
+    @model_validator(mode="before")
+    @classmethod
+    def resolve_source(cls, data):
+        if not isinstance(data, dict):
+            category = getattr(data, "category", None)
+            category_out = None
+            if category:
+                category_out = {
+                    "id": category.id,
+                    "name": category.name,
+                    "type": category.type,
+                    "color": category.color,
+                    "icon": category.icon,
+                    "is_default": category.is_default,
+                    "created_at": category.created_at
+                }
+            
+            source_str = "other"
+            if category:
+                source_str = category.name.lower()
+            else:
+                db_source = getattr(data, "source", None)
+                if db_source:
+                    source_str = db_source.value if hasattr(db_source, "value") else str(db_source)
+                    source_str = source_str.lower()
+            
+            return {
+                "id": data.id,
+                "category_id": data.category_id,
+                "category": category_out,
+                "source": source_str,
+                "amount": data.amount,
+                "date": data.date,
+                "payment_method": data.payment_method,
+                "note": data.note,
+                "created_at": data.created_at
+            }
+        return data
 
     class Config:
         from_attributes = True
@@ -439,6 +500,25 @@ class SavingOut(BaseModel):
     type: str
     date: DateType
     notes: Optional[str]
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
+
+# ─── Feedback ─────────────────────────────────────────────────────────────────
+
+class FeedbackCreate(BaseModel):
+    subject: str
+    message: str
+    rating: Optional[int] = None
+
+class FeedbackOut(BaseModel):
+    id: int
+    user_id: int
+    subject: str
+    message: str
+    rating: Optional[int]
     created_at: datetime
 
     class Config:

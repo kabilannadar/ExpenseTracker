@@ -24,6 +24,13 @@ def get_filtered_expenses(db, user_id, date_filter, date_from, date_to):
         query = query.filter(Expense.date >= start, Expense.date <= today)
     elif date_filter == "this_month":
         query = query.filter(extract("month", Expense.date) == today.month, extract("year", Expense.date) == today.year)
+    elif date_filter in ("last_month", "previous_month"):
+        first_day_this_month = today.replace(day=1)
+        last_day_last_month = first_day_this_month - timedelta(days=1)
+        first_day_last_month = last_day_last_month.replace(day=1)
+        query = query.filter(Expense.date >= first_day_last_month, Expense.date <= last_day_last_month)
+    elif date_filter in ("all", "all_time"):
+        pass
     elif date_filter == "custom" and date_from and date_to:
         query = query.filter(Expense.date >= date_from, Expense.date <= date_to)
     return query.all()

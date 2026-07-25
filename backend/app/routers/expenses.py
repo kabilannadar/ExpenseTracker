@@ -1,12 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Query
 from sqlalchemy.orm import Session
-from sqlalchemy import and_
+from sqlalchemy import and_, func
 from typing import List, Optional
-from datetime import date
-import os, shutil, uuid
+from datetime import date, datetime
+import os, shutil, uuid, csv, io
 
 from app.database import get_db
-from app.models import Expense, AuditLog, User
+from app.models import Expense, AuditLog, User, Category
 from app.schemas import ExpenseCreate, ExpenseUpdate, ExpenseOut
 from app.auth import get_current_user
 
@@ -91,3 +91,117 @@ async def upload_attachment(expense_id: int, file: UploadFile = File(...), db: S
     expense.attachment_path = f"/uploads/{filename}"
     db.commit()
     return {"attachment_path": expense.attachment_path}
+
+
+@router.post("/import-csv")
+async def import_csv(
+    file: UploadFile = File(...),
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    if not file.filename.endswith('.csv'):
+        raise HTTPException(status_code=400, detail="Only CSV files are allowed.")
+    
+    contents = await file.read()
+    try:
+        decoded = contents.decode("utf-8")
+    except UnicodeDecodeError:
+        try:
+            decoded = contents.decode("latin-1")
+        except Exception:
+            raise HTTPException(status_code=400, detail="Could not decode the CSV file. Please make sure it is in UTF-8 or Latin-1 format.")
+            
+    f = io.StringIO(decoded)
+    reader = csv.DictReader(f)
+    
+    fieldnames = reader.fieldnames
+    if not fieldnames:
+        raise HTTPException(status_code=400, detail="CSV file is empty or has no headers.")
+        
+    normalized_headers = {name.lower().strip().replace(" ", "_"): name for name in fieldnames}
+    
+    required = ["date", "title", "amount"]
+    missing = [r for r in required if r not in normalized_headers]
+    if missing:
+        raise HTTPException(status_code=400, detail=f"Missing required columns in CSV: {', '.join(missing)}")
+        
+    date_col = normalized_headers["date"]
+    title_col = normalized_headers["title"]
+    amount_col = normalized_headers["amount"]
+    category_col = normalized_headers.get("category")
+    payment_method_col = normalized_headers.get("payment_method") or normalized_headers.get("payment_method".replace("_", " "))
+    note_col = normalized_headers.get("note")
+    
+    user_categories = db.query(Category).filter(Category.user_id == current_user.id).all()
+    category_map = {cat.name.lower().strip(): cat for cat in user_categories}
+    
+    imported_count = 0
+    expenses_to_add = []
+    
+    for row_idx, row in enumerate(reader, start=1):
+        date_val = row.get(date_col)
+        title_val = row.get(title_col)
+        amount_val = row.get(amount_col)
+        category_val = row.get(category_col) if category_col else "Other"
+        payment_method_val = row.get(payment_method_col) if payment_method_col else "cash"
+        note_val = row.get(note_col) or ""
+        
+        if not date_val or not title_val or not amount_val:
+            continue
+            
+        try:
+            amount = float(str(amount_val).replace(",", "").strip())
+        except ValueError:
+            raise HTTPException(status_code=400, detail=f"Row {row_idx}: Invalid amount value '{amount_val}'.")
+            
+        parsed_date = None
+        for fmt_str in ("%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y", "%Y/%m/%d"):
+            try:
+                parsed_date = datetime.strptime(date_val.strip(), fmt_str).date()
+                break
+            except ValueError:
+                continue
+        if not parsed_date:
+            raise HTTPException(status_code=400, detail=f"Row {row_idx}: Invalid date value '{date_val}'. Supported formats include YYYY-MM-DD.")
+            
+        category_name = category_val.strip()
+        cat_key = category_name.lower()
+        if not cat_key:
+            cat_key = "other"
+            category_name = "Other"
+            
+        if cat_key in category_map:
+            cat_obj = category_map[cat_key]
+        else:
+            cat_obj = Category(
+                user_id=current_user.id,
+                name=category_name,
+                type="expense",
+                color="#6366f1",
+                icon="tag"
+            )
+            db.add(cat_obj)
+            db.commit()
+            db.refresh(cat_obj)
+            category_map[cat_key] = cat_obj
+            
+        expense = Expense(
+            user_id=current_user.id,
+            category_id=cat_obj.id,
+            title=title_val.strip(),
+            amount=amount,
+            date=parsed_date,
+            payment_method=payment_method_val.strip() if payment_method_val else "cash",
+            note=note_val.strip() if note_val else None,
+            is_deleted=False
+        )
+        expenses_to_add.append(expense)
+        imported_count += 1
+        
+    if expenses_to_add:
+        db.add_all(expenses_to_add)
+        db.commit()
+        log_action(db, current_user.id, "added", None, f"Imported {imported_count} expenses from CSV file")
+        db.commit()
+        
+    return {"message": f"Successfully imported {imported_count} expenses.", "count": imported_count}
