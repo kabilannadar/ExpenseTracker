@@ -8,7 +8,6 @@ A full-stack personal finance tracker built with **FastAPI** (backend) + **React
 ```bash
 cd backend
 pip install -r requirements.txt
-cp .env.example .env
 uvicorn app.main:app --reload --port 8000
 ```
 
