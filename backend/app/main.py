@@ -19,47 +19,52 @@ with engine.connect() as conn:
         conn.execute(text("ALTER TABLE emis ADD COLUMN loan_platform VARCHAR(100)"))
         conn.commit()
     except Exception:
-        pass
+        conn.rollback()
     try:
         conn.execute(text("ALTER TABLE income ADD COLUMN payment_method VARCHAR(50) DEFAULT 'cash'"))
         conn.commit()
     except Exception:
-        pass
+        conn.rollback()
     try:
         conn.execute(text("ALTER TABLE savings ADD COLUMN type VARCHAR(20) DEFAULT 'credit'"))
         conn.commit()
     except Exception:
-        pass
+        conn.rollback()
     try:
         conn.execute(text("ALTER TABLE users ADD COLUMN whatsapp_number VARCHAR(20)"))
         conn.commit()
     except Exception:
-        pass
+        conn.rollback()
     try:
         conn.execute(text("ALTER TABLE users ADD COLUMN telegram_chat_id VARCHAR(50)"))
         conn.commit()
     except Exception:
-        pass
+        conn.rollback()
     try:
         conn.execute(text("UPDATE income SET source = 'other' WHERE source = 'cable'"))
         conn.commit()
     except Exception:
-        pass
+        conn.rollback()
     try:
         conn.execute(text("ALTER TABLE categories ADD COLUMN type VARCHAR(20) DEFAULT 'expense'"))
         conn.commit()
     except Exception:
-        pass
+        conn.rollback()
     try:
         conn.execute(text("ALTER TABLE income ADD COLUMN category_id INTEGER REFERENCES categories(id)"))
         conn.commit()
     except Exception:
-        pass
+        conn.rollback()
     try:
         conn.execute(text("ALTER TABLE users ADD COLUMN avatar_url VARCHAR(500)"))
         conn.commit()
     except Exception:
-        pass
+        conn.rollback()
+    try:
+        conn.execute(text("ALTER TABLE expenses ADD COLUMN source VARCHAR(50) DEFAULT 'web'"))
+        conn.commit()
+    except Exception:
+        conn.rollback()
 
 # Run data migrations and seed default income categories
 from sqlalchemy.orm import sessionmaker
