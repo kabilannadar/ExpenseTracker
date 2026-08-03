@@ -344,6 +344,12 @@ export default function TelegramSetup() {
                 gap: 8,
                 textDecoration: 'none',
                 background: 'linear-gradient(135deg, #0088cc, #2497d4)',
+                borderRadius: 'var(--radius-sm)',
+                padding: '10px 18px',
+                fontSize: '14px',
+                fontWeight: 500,
+                boxShadow: '0 4px 14px rgba(0, 136, 204, 0.3)',
+                transition: 'var(--transition)',
               }}
             >
               <ExternalLink size={14} /> Open Bot in Telegram
