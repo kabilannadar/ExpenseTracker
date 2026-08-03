@@ -511,6 +511,7 @@ async def telegram_webhook(request: Request, db: Session = Depends(get_db)):
             payment_method=parsed.payment_method,
             category_id=category_id,
             note=parsed.note,
+            source="telegram",
         )
         db.add(expense)
         db.commit()
@@ -526,6 +527,7 @@ async def telegram_webhook(request: Request, db: Session = Depends(get_db)):
         db.commit()
 
         cat_name = parsed.suggested_category.title() if parsed.suggested_category else "Uncategorized"
+        frontend_url = os.getenv("FRONTEND_URL", "https://expensetrackertn.vercel.app")
         send_telegram_reply(
             chat_id,
             f"✅ *Expense Added!*\n\n"
@@ -533,7 +535,7 @@ async def telegram_webhook(request: Request, db: Session = Depends(get_db)):
             f"📅 {expense.date.strftime('%d %b %Y')}  💳 {expense.payment_method.upper()}\n"
             f"🏷️ {cat_name}"
             f"{note_str}\n\n"
-            f"_View all expenses in the app._"
+            f"🔗 [Open Dashboard]({frontend_url})"
         )
         return {"status": "success", "expense_id": expense.id}
 

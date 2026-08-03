@@ -127,6 +127,7 @@ class ExpenseOut(BaseModel):
     attachment_path: Optional[str]
     category_id: Optional[int]
     category: Optional[CategoryOut]
+    source: Optional[str] = "web"
     created_at: datetime
 
     class Config:

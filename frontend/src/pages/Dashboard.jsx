@@ -365,7 +365,12 @@ export default function Dashboard() {
               <div key={e.id} className="recent-item">
                 <div className="recent-dot" style={{ background: e.category?.color || '#6b7280' }} />
                 <div className="recent-info">
-                  <div className="recent-title">{e.title}</div>
+                  <div className="recent-title" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    {e.title}
+                    {e.source === 'telegram' && (
+                      <Send size={11} style={{ color: '#38bdf8', transform: 'rotate(-45deg)' }} title="Logged via Telegram" />
+                    )}
+                  </div>
                   <div className="recent-meta">{e.category?.name || 'Uncategorized'} · {format(new Date(e.date), 'dd MMM')}</div>
                 </div>
                 <div className="recent-amount">-{fmt(e.amount)}</div>
