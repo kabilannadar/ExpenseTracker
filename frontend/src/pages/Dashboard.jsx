@@ -11,7 +11,7 @@ import {
 } from 'recharts';
 import {
   Wallet, TrendingDown, TrendingUp, Calendar,
-  Flame, Zap, Target, ArrowRight, AlertTriangle, Send, Upload, RefreshCw, X
+  Flame, Zap, Target, ArrowRight, AlertTriangle, Send, Upload, RefreshCw
 } from 'lucide-react';
 import { format } from 'date-fns';
 import './Dashboard.css';
@@ -110,7 +110,7 @@ export default function Dashboard() {
       {showWelcome && stats && stats.recent_expenses?.length === 0 && (
         <div className="card bot-promo-card animate-in" style={{ border: '1px solid rgba(99, 102, 241, 0.2)', background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(16, 185, 129, 0.08))' }}>
           <button className="bot-promo-close" onClick={handleDismissWelcome} aria-label="Dismiss">
-            <X size={15} />
+            &times;
           </button>
           <div className="bot-promo-glow" style={{ background: 'radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(99, 102, 241, 0) 70%)' }} />
           <div className="bot-promo-content">
@@ -156,7 +156,7 @@ export default function Dashboard() {
       {showTgPromo && tgStatus && !tgStatus.linked && (
         <div className="card bot-promo-card animate-in">
           <button className="bot-promo-close" onClick={handleDismissTgPromo} aria-label="Dismiss">
-            <X size={15} />
+            &times;
           </button>
           <div className="bot-promo-glow" />
           <div className="bot-promo-content">

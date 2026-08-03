@@ -228,7 +228,7 @@
   right: 12px;
   background: rgba(255, 255, 255, 0.08);
   border: none;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   border-radius: 50%;
   width: 26px;
   height: 26px;
@@ -240,6 +240,9 @@
   pointer-events: none;
   transition: all 0.2s ease;
   z-index: 10;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0;
 }
 
 .bot-promo-close:hover {
