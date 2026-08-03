@@ -11,7 +11,7 @@ import {
 } from 'recharts';
 import {
   Wallet, TrendingDown, TrendingUp, Calendar,
-  Flame, Zap, Target, ArrowRight, AlertTriangle, Send, Upload, RefreshCw
+  Flame, Zap, Target, ArrowRight, AlertTriangle, Send, Upload, RefreshCw, X
 } from 'lucide-react';
 import { format } from 'date-fns';
 import './Dashboard.css';
@@ -34,6 +34,23 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [importing, setImporting] = useState(false);
+
+  const [showWelcome, setShowWelcome] = useState(() => {
+    return localStorage.getItem('dismiss_welcome_banner') !== 'true';
+  });
+  const [showTgPromo, setShowTgPromo] = useState(() => {
+    return localStorage.getItem('dismiss_tg_promo_banner') !== 'true';
+  });
+
+  const handleDismissWelcome = () => {
+    localStorage.setItem('dismiss_welcome_banner', 'true');
+    setShowWelcome(false);
+  };
+
+  const handleDismissTgPromo = () => {
+    localStorage.setItem('dismiss_tg_promo_banner', 'true');
+    setShowTgPromo(false);
+  };
 
   const { data: stats, isLoading: isStatsLoading } = useQuery({
     queryKey: ['dashboard'],
@@ -90,8 +107,11 @@ export default function Dashboard() {
       <AnnouncementTicker />
 
       {/* Onboarding CSV Import for new accounts */}
-      {stats && stats.recent_expenses?.length === 0 && (
+      {showWelcome && stats && stats.recent_expenses?.length === 0 && (
         <div className="card bot-promo-card animate-in" style={{ border: '1px solid rgba(99, 102, 241, 0.2)', background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(16, 185, 129, 0.08))' }}>
+          <button className="bot-promo-close" onClick={handleDismissWelcome} aria-label="Dismiss">
+            <X size={15} />
+          </button>
           <div className="bot-promo-glow" style={{ background: 'radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(99, 102, 241, 0) 70%)' }} />
           <div className="bot-promo-content">
             <div className="bot-promo-icon-wrap" style={{ background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(16, 185, 129, 0.25))' }}>
@@ -133,8 +153,11 @@ export default function Dashboard() {
         </div>
       )}
 
-      {tgStatus && !tgStatus.linked && (
+      {showTgPromo && tgStatus && !tgStatus.linked && (
         <div className="card bot-promo-card animate-in">
+          <button className="bot-promo-close" onClick={handleDismissTgPromo} aria-label="Dismiss">
+            <X size={15} />
+          </button>
           <div className="bot-promo-glow" />
           <div className="bot-promo-content">
             <div className="bot-promo-icon-wrap">
