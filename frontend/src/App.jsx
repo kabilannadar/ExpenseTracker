@@ -63,8 +63,12 @@ function ProtectedLayout() {
 
   // Dynamically load chatbot widget only for authenticated users
   useEffect(() => {
+    const hn = window.location.hostname;
+    const isLocal = hn === 'localhost' || hn === '127.0.0.1' || hn.startsWith('192.168.') || hn.startsWith('10.') || hn.startsWith('172.');
     const script = document.createElement('script');
-    script.src = 'https://moneycommandai-assistant.vercel.app/widget.js';
+    script.src = isLocal 
+      ? `http://localhost:5173/widget.js?t=${new Date().getTime()}` 
+      : 'https://moneycommandai-assistant.vercel.app/widget.js';
     script.async = true;
     document.body.appendChild(script);
 

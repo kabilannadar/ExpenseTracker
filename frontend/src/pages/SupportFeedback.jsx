@@ -56,7 +56,7 @@ export default function SupportFeedback() {
           </div>
           <h2 style={{ fontSize: '22px', fontWeight: 700, marginBottom: '12px', color: 'var(--text-primary)' }}>Feedback Submitted!</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: 1.6, marginBottom: '28px' }}>
-            Your request has been successfully recorded in the database, and a notification email has been dispatched to the administrator. We appreciate your feedback!
+            Your request has been successfully recorded, and a notification email has been dispatched to the administrator. We appreciate your feedback!
           </p>
           <button onClick={handleReset} className="btn-primary" style={{ padding: '10px 24px' }}>
             Send Another Message

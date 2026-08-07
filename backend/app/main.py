@@ -208,7 +208,6 @@ app.include_router(feedback.router)
 app.include_router(telegram_router.router)
 app.include_router(telegram_router.webhook_router)
 
-
 @app.on_event("startup")
 async def setup_telegram_webhook():
     import httpx
