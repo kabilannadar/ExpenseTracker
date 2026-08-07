@@ -40,6 +40,13 @@ export const RELEASES = [
         type: 'feat',
         icon: Rocket,
         color: '#3b82f6',
+        title: 'HTTPS Resend Mail Pipeline Integration',
+        detail: 'Migrated support feedback and OTP mail dispatches from standard SMTP to Resend API over HTTPS, resolving production network blocks and ensuring instant delivery of alerts and codes.',
+      },
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
         title: 'Telegram Source Tracing & Indicators',
         detail: 'Introduced source tracking for logged entries. Transactions added via the Telegram Bot now automatically display a custom paper-plane indicator on the main dashboard transaction log.',
       },

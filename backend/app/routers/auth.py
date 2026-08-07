@@ -80,45 +80,11 @@ def send_otp_email(to_email: str, otp: str):
     msg.attach(MIMEText(html, "html"))
 
     context = ssl.create_default_context()
-    
-    # Check for Resend API Key first (bypasses blocked SMTP ports on Render free tier)
-    resend_api_key = os.getenv("RESEND_API_KEY")
-    if resend_api_key:
-        print(f"[OTP Email] Sending OTP to {to_email} via Resend API...")
-        import httpx
-        try:
-            response = httpx.post(
-                "https://api.resend.com/emails",
-                headers={
-                    "Authorization": f"Bearer {resend_api_key}",
-                    "Content-Type": "application/json",
-                },
-                json={
-                    "from": "ExpenseTracker <onboarding@resend.dev>",
-                    "to": to_email,
-                    "subject": "Your ExpenseTracker Verification Code",
-                    "html": html,
-                },
-                timeout=10.0
-            )
-            if response.status_code in [200, 201]:
-                print(f"[OTP Email] OTP sent successfully via Resend: {response.json()}")
-            else:
-                print(f"[OTP Email] Resend API error ({response.status_code}): {response.text}")
-        except Exception as e:
-            print(f"[OTP Email] Resend connection error: {e}")
-        return
-
-    # Fallback to SMTP
-    try:
-        with smtplib.SMTP(smtp_host, smtp_port, timeout=10) as server:
-            server.ehlo()
-            server.starttls(context=context)
-            server.login(smtp_user, smtp_password)
-            server.sendmail(smtp_from, to_email, msg.as_string())
-            print(f"[OTP Email] OTP sent successfully via SMTP to {to_email}")
-    except Exception as e:
-        print(f"[OTP Email] Error sending SMTP email: {e}")
+    with smtplib.SMTP(smtp_host, smtp_port) as server:
+        server.ehlo()
+        server.starttls(context=context)
+        server.login(smtp_user, smtp_password)
+        server.sendmail(smtp_from, to_email, msg.as_string())
 
 
 # ─── Google Sign-In (Primary Auth) ───────────────────────────────────────────
