@@ -61,6 +61,28 @@ function ProtectedLayout() {
     return () => clearInterval(timer);
   }, []);
 
+  // Dynamically load chatbot widget only for authenticated users
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://moneycommandai-assistant.vercel.app/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Remove the script tag
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+      // Remove any injected chatbot iframe from the DOM
+      const iframes = document.querySelectorAll('iframe');
+      iframes.forEach(iframe => {
+        if (iframe.title === 'MoneyCommandAI Assistant' || iframe.src.includes('moneycommandai-assistant')) {
+          iframe.remove();
+        }
+      });
+    };
+  }, []);
+
   if (loading) return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', color: 'var(--text-muted)' }}>
       Loading...
