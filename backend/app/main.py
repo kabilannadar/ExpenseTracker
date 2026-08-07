@@ -209,6 +209,26 @@ app.include_router(telegram_router.router)
 app.include_router(telegram_router.webhook_router)
 
 
+@app.on_event("startup")
+async def setup_telegram_webhook():
+    import httpx
+    token = os.getenv("TELEGRAM_BOT_TOKEN")
+    backend_url = os.getenv("RENDER_EXTERNAL_URL") or os.getenv("BACKEND_URL")
+    if token and backend_url:
+        webhook_url = f"{backend_url.rstrip('/')}/telegram/webhook"
+        try:
+            async with httpx.AsyncClient() as client:
+                r = await client.post(
+                    f"https://api.telegram.org/bot{token}/setWebhook",
+                    json={"url": webhook_url},
+                    timeout=10.0
+                )
+                r.raise_for_status()
+                print(f"[Telegram Webhook] Successfully registered: {webhook_url}")
+        except Exception as e:
+            print(f"[Telegram Webhook] Failed to register: {e}")
+
+
 @app.get("/")
 def root():
     return {"message": "ExpenseTracker API is running", "docs": "/docs"}

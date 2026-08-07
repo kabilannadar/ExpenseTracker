@@ -331,19 +331,17 @@ export default function TelegramSetup() {
             <h3 style={{ fontSize: 14, fontWeight: 700, marginBottom: 14, color: 'var(--text-secondary)', alignSelf: 'flex-start' }}>
               Bot Profile
             </h3>
-            {!tgLinked && (
-              <img
-                src="/telegram-qr.png"
-                alt="Telegram Bot QR Code"
-                style={{
-                  width: 140,
-                  height: 140,
-                  borderRadius: 10,
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                  marginBottom: 16
-                }}
-              />
-            )}
+            <img
+              src="/telegram-qr.png"
+              alt="Telegram Bot QR Code"
+              style={{
+                width: 140,
+                height: 140,
+                borderRadius: 10,
+                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                marginBottom: 16
+              }}
+            />
             <a
               id="telegram-open-btn"
               href={`https://t.me/${tgBotUsername}`}
