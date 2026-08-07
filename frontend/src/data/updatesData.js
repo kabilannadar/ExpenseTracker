@@ -24,6 +24,49 @@ export const TYPE_LABELS = {
 
 export const RELEASES = [
   {
+    version: 'v2.2.0',
+    date: 'August 7, 2026',
+    label: 'Chatbot & Telegram Release',
+    labelColor: 'primary',
+    entries: [
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Dynamic Chatbot Assistant Integration',
+        detail: 'Integrated the production-hosted MoneyCommandAI assistant widget directly inside the app. The floating chatbot is always available on your dashboard to help configure your budgets and resolve queries in real-time.',
+      },
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Telegram Source Tracing & Indicators',
+        detail: 'Introduced source tracking for logged entries. Transactions added via the Telegram Bot now automatically display a custom paper-plane indicator on the main dashboard transaction log.',
+      },
+      {
+        type: 'style',
+        icon: Sparkles,
+        color: '#8b5cf6',
+        title: 'Dismissable Dashboard Welcome Banners',
+        detail: 'Added subtle, interactive close (X) buttons to the dashboard welcome card and the Telegram connection promo banners so you can clear them from view once read.',
+      },
+      {
+        type: 'style',
+        icon: Sparkles,
+        color: '#8b5cf6',
+        title: 'Clean Auth Page Layouts',
+        detail: 'Configured the chatbot assistant widget to load only after a user successfully logs in and automatically clean up on logout, keeping the Login and Registration screens clean and distraction-free.',
+      },
+      {
+        type: 'style',
+        icon: Sparkles,
+        color: '#8b5cf6',
+        title: 'Polished Telegram Setup & Permanent QR Code',
+        detail: 'Polished the Telegram Bot setup screen with updated instructions and button layouts to match the application theme, keeping the QR code permanently visible for easy scanning.',
+      }
+    ],
+  },
+  {
     version: 'v2.1.0',
     date: 'July 25, 2026',
     label: 'Feature & UX Polish',
