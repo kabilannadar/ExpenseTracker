@@ -995,11 +995,11 @@ tbody tr:hover {
   right: 0;
   width: 420px;
   max-height: 540px;
-  background: linear-gradient(135deg, rgba(30, 30, 46, 0.95), rgba(20, 20, 35, 0.95)) !important;
+  background: var(--bg-card) !important;
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid var(--border) !important;
   border-radius: var(--radius-xl);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.15), 0 0 0 1px var(--border-active);
   z-index: 200;
   display: flex;
   flex-direction: column;
@@ -1013,9 +1013,9 @@ tbody tr:hover {
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border) !important;
   flex-shrink: 0;
-  background: rgba(18, 18, 29, 0.85) !important;
+  background: var(--bg-surface) !important;
   backdrop-filter: blur(10px);
 }
 
@@ -1199,8 +1199,8 @@ tbody tr:hover {
   gap: 6px;
   padding: 12px 14px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.015) !important;
-  border: 1px solid rgba(255, 255, 255, 0.04) !important;
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border) !important;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
@@ -1214,16 +1214,16 @@ tbody tr:hover {
   transform: translateY(-50%);
   width: 20px;
   height: 1px;
-  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  border-top: 1px dashed var(--border);
   pointer-events: none;
   transition: all 0.25s ease;
 }
 
 .upanel-entry:hover {
   transform: translateX(4px);
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  background: rgba(255, 255, 255, 0.04) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 0 10px rgba(99, 102, 241, 0.05);
+  border-color: var(--border-active) !important;
+  background: var(--bg-hover) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 0 10px rgba(99, 102, 241, 0.05);
 }
 
 .upanel-entry:hover::after {
@@ -1293,5 +1293,5 @@ tbody tr:hover {
 /* Divider between releases */
 .upanel-release + .upanel-release {
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border);
 }

@@ -99,6 +99,7 @@ class Expense(Base):
     payment_method = Column(String(50), default="cash")
     note = Column(Text, nullable=True)
     attachment_path = Column(String(500), nullable=True)
+    source = Column(String(50), default="web", nullable=False)
     is_deleted = Column(Boolean, default=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())

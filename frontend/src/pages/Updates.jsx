@@ -9,7 +9,7 @@ export default function Updates() {
           position: relative;
           padding-left: 36px;
           margin-left: 10px;
-          border-left: 2px dashed rgba(255, 255, 255, 0.08);
+          border-left: 2px dashed var(--border);
           display: flex;
           flex-direction: column;
           gap: 40px;
@@ -24,7 +24,7 @@ export default function Updates() {
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: var(--bg-main, #0f0f1a);
+          background: var(--bg-base);
           border: 4px solid var(--primary, #6366f1);
           box-shadow: 0 0 14px var(--primary);
           z-index: 10;
@@ -39,9 +39,9 @@ export default function Updates() {
           display: flex;
           gap: 18px;
           padding: 20px;
-          background: linear-gradient(135deg, rgba(30, 30, 46, 0.7), rgba(20, 20, 35, 0.7)) !important;
+          background: var(--bg-card) !important;
           backdrop-filter: blur(12px);
-          border: 1px solid rgba(255, 255, 255, 0.05) !important;
+          border: 1px solid var(--border) !important;
           border-radius: 16px !important;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           position: relative;
@@ -60,8 +60,8 @@ export default function Updates() {
         }
         .update-card:hover {
           transform: translateX(6px) translateY(-2px);
-          border-color: rgba(255, 255, 255, 0.12) !important;
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 20px var(--card-accent-glow);
+          border-color: var(--border-active) !important;
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1), 0 0 20px var(--card-accent-glow);
         }
         .update-card:hover::before {
           width: 6px;

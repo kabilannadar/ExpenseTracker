@@ -124,7 +124,7 @@
 .bot-promo-card {
   position: relative;
   overflow: hidden;
-  padding: 24px;
+  padding: 24px 44px 24px 24px;
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(0, 136, 204, 0.08));
   border: 1px solid rgba(0, 136, 204, 0.2);
   box-shadow: 0 8px 32px 0 rgba(0, 136, 204, 0.05);
@@ -211,6 +211,9 @@
 }
 
 @media (max-width: 768px) {
+  .bot-promo-card {
+    padding: 24px !important;
+  }
   .bot-promo-content {
     flex-direction: column;
     align-items: flex-start;
@@ -220,4 +223,42 @@
     width: 100%;
     justify-content: center;
   }
+  .bot-promo-close {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
+.bot-promo-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: var(--text-secondary);
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 10;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0;
+}
+
+.bot-promo-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+  transform: scale(1.05);
+}
+
+.bot-promo-card:hover .bot-promo-close {
+  opacity: 1;
+  pointer-events: auto;
 }

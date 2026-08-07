@@ -327,10 +327,23 @@ export default function TelegramSetup() {
           </div>
 
           {/* Bot Link Card */}
-          <div className="card" style={{ padding: '18px 22px' }}>
-            <h3 style={{ fontSize: 14, fontWeight: 700, marginBottom: 14, color: 'var(--text-secondary)' }}>
+          <div className="card" style={{ padding: '18px 22px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <h3 style={{ fontSize: 14, fontWeight: 700, marginBottom: 14, color: 'var(--text-secondary)', alignSelf: 'flex-start' }}>
               Bot Profile
             </h3>
+            {!tgLinked && (
+              <img
+                src="/telegram-qr.png"
+                alt="Telegram Bot QR Code"
+                style={{
+                  width: 140,
+                  height: 140,
+                  borderRadius: 10,
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                  marginBottom: 16
+                }}
+              />
+            )}
             <a
               id="telegram-open-btn"
               href={`https://t.me/${tgBotUsername}`}
@@ -344,6 +357,13 @@ export default function TelegramSetup() {
                 gap: 8,
                 textDecoration: 'none',
                 background: 'linear-gradient(135deg, #0088cc, #2497d4)',
+                borderRadius: 'var(--radius-sm)',
+                padding: '10px 18px',
+                fontSize: '14px',
+                fontWeight: 500,
+                width: '100%',
+                boxShadow: '0 4px 14px rgba(0, 136, 204, 0.3)',
+                transition: 'var(--transition)',
               }}
             >
               <ExternalLink size={14} /> Open Bot in Telegram

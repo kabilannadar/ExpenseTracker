@@ -35,6 +35,23 @@ export default function Dashboard() {
   const queryClient = useQueryClient();
   const [importing, setImporting] = useState(false);
 
+  const [showWelcome, setShowWelcome] = useState(() => {
+    return localStorage.getItem('dismiss_welcome_banner') !== 'true';
+  });
+  const [showTgPromo, setShowTgPromo] = useState(() => {
+    return localStorage.getItem('dismiss_tg_promo_banner') !== 'true';
+  });
+
+  const handleDismissWelcome = () => {
+    localStorage.setItem('dismiss_welcome_banner', 'true');
+    setShowWelcome(false);
+  };
+
+  const handleDismissTgPromo = () => {
+    localStorage.setItem('dismiss_tg_promo_banner', 'true');
+    setShowTgPromo(false);
+  };
+
   const { data: stats, isLoading: isStatsLoading } = useQuery({
     queryKey: ['dashboard'],
     queryFn: () => analyticsApi.getDashboard().then(r => r.data),
@@ -90,8 +107,23 @@ export default function Dashboard() {
       <AnnouncementTicker />
 
       {/* Onboarding CSV Import for new accounts */}
-      {stats && stats.recent_expenses?.length === 0 && (
-        <div className="card bot-promo-card animate-in" style={{ border: '1px solid rgba(99, 102, 241, 0.2)', background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(16, 185, 129, 0.08))' }}>
+      {showWelcome && stats && stats.recent_expenses?.length === 0 && (
+        <div 
+          className="card bot-promo-card animate-in" 
+          style={{ 
+            border: '1px solid rgba(99, 102, 241, 0.2)', 
+            background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(16, 185, 129, 0.08))',
+            paddingRight: '48px'
+          }}
+        >
+          <button 
+            className="bot-promo-close" 
+            onClick={handleDismissWelcome} 
+            aria-label="Dismiss"
+            style={{ top: '8px', right: '8px' }}
+          >
+            &times;
+          </button>
           <div className="bot-promo-glow" style={{ background: 'radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(99, 102, 241, 0) 70%)' }} />
           <div className="bot-promo-content">
             <div className="bot-promo-icon-wrap" style={{ background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(16, 185, 129, 0.25))' }}>
@@ -133,8 +165,16 @@ export default function Dashboard() {
         </div>
       )}
 
-      {tgStatus && !tgStatus.linked && (
-        <div className="card bot-promo-card animate-in">
+      {showTgPromo && tgStatus && !tgStatus.linked && (
+        <div className="card bot-promo-card animate-in" style={{ paddingRight: '48px' }}>
+          <button 
+            className="bot-promo-close" 
+            onClick={handleDismissTgPromo} 
+            aria-label="Dismiss"
+            style={{ top: '8px', right: '8px' }}
+          >
+            &times;
+          </button>
           <div className="bot-promo-glow" />
           <div className="bot-promo-content">
             <div className="bot-promo-icon-wrap">
@@ -365,7 +405,12 @@ export default function Dashboard() {
               <div key={e.id} className="recent-item">
                 <div className="recent-dot" style={{ background: e.category?.color || '#6b7280' }} />
                 <div className="recent-info">
-                  <div className="recent-title">{e.title}</div>
+                  <div className="recent-title" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    {e.title}
+                    {e.source === 'telegram' && (
+                      <Send size={11} style={{ color: '#38bdf8', transform: 'rotate(-45deg)' }} title="Logged via Telegram" />
+                    )}
+                  </div>
                   <div className="recent-meta">{e.category?.name || 'Uncategorized'} · {format(new Date(e.date), 'dd MMM')}</div>
                 </div>
                 <div className="recent-amount">-{fmt(e.amount)}</div>
