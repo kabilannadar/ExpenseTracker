@@ -55,7 +55,7 @@ export const RELEASES = [
         icon: Rocket,
         color: '#3b82f6',
         title: 'Google Sign-In & Registration',
-        detail: 'Implemented full Google OAuth2 authentication flow, enabling users to register new accounts and sign in securely with a single click. Integrates seamlessly with local SQLite schemas.',
+        detail: 'Implemented full Google OAuth2 authentication flow, enabling users to register new accounts and sign in securely with a single click.',
       }
     ],
   },
