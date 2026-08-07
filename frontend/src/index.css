@@ -307,6 +307,8 @@ button {
   font-weight: 500;
   text-decoration: none;
   transition: var(--transition);
+  position: relative;
+  z-index: 1000000; /* lifts the link above the chatbot iframe */
 }
 
 .app-footer-author:hover {
