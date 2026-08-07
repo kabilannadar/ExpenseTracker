@@ -26,7 +26,7 @@ export const RELEASES = [
   {
     version: 'v2.2.0',
     date: 'August 7, 2026',
-    label: 'Chatbot & Telegram Release',
+    label: 'Smart AI Chatbot Release',
     labelColor: 'primary',
     entries: [
       {

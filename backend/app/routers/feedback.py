@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, BackgroundTasks
 from sqlalchemy.orm import Session
 import smtplib, ssl, os
 from email.mime.multipart import MIMEMultipart
@@ -12,27 +12,9 @@ from app.auth import get_current_user
 router = APIRouter(prefix="/api/feedback", tags=["Feedback"])
 
 def send_feedback_email(user_email: str, user_name: str, subject: str, message: str, rating: int):
-    smtp_host = os.getenv("SMTP_HOST", "smtp.gmail.com")
-    smtp_port = int(os.getenv("SMTP_PORT", 587))
-    smtp_user = os.getenv("SMTP_USER", "")
-    smtp_password = os.getenv("SMTP_PASSWORD", "")
-    smtp_from = os.getenv("SMTP_FROM", smtp_user)
+    # Fetch admin recipient address
+    admin_email = os.getenv("ADMIN_EMAIL")
     
-    # Send feedback to ADMIN_EMAIL or fall back to smtp_user
-    admin_email = os.getenv("ADMIN_EMAIL", smtp_user)
-    if not admin_email:
-        print("[Feedback Email] Admin email not configured. Suppressing email.")
-        return
-
-    if not smtp_user or not smtp_password:
-        print(f"[Feedback Email] SMTP not configured. Feedback from {user_name} ({user_email}):\nSubject: {subject}\nRating: {rating}/5\nMessage: {message}")
-        return
-
-    msg = MIMEMultipart("alternative")
-    msg["Subject"] = f"New ExpenseTracker Feedback: {subject}"
-    msg["From"] = f"ExpenseTracker Support <{smtp_from}>"
-    msg["To"] = admin_email
-
     html = f"""
     <div style="font-family:Inter,sans-serif;max-width:600px;margin:0 auto;padding:32px;background:#0f0f11;color:#e2e8f0;border-radius:16px;border:1px solid #2d2d3a;">
       <h2 style="font-size:22px;font-weight:700;margin:0 0 16px;color:#fff;">New Support/Feedback Concern</h2>
@@ -47,11 +29,63 @@ def send_feedback_email(user_email: str, user_name: str, subject: str, message: 
     </div>
     """
 
+    # Check for Resend API Key first (bypasses blocked SMTP ports on Render free tier)
+    resend_api_key = os.getenv("RESEND_API_KEY")
+    if resend_api_key:
+        recipient = admin_email or "r.r.kabilan0335@gmail.com"
+        print(f"[Feedback Email] Sending via Resend API to {recipient}...")
+        import httpx
+        try:
+            response = httpx.post(
+                "https://api.resend.com/emails",
+                headers={
+                    "Authorization": f"Bearer {resend_api_key}",
+                    "Content-Type": "application/json",
+                },
+                json={
+                    "from": "ExpenseTracker <onboarding@resend.dev>",
+                    "to": recipient,
+                    "subject": f"New ExpenseTracker Feedback: {subject}",
+                    "html": html,
+                },
+                timeout=10.0
+            )
+            if response.status_code in [200, 201]:
+                print(f"[Feedback Email] Email successfully sent via Resend: {response.json()}")
+            else:
+                print(f"[Feedback Email] Resend API error ({response.status_code}): {response.text}")
+        except Exception as e:
+            print(f"[Feedback Email] Resend connection error: {e}")
+        return
+
+    # Fallback to standard SMTP (Local development)
+    smtp_host = os.getenv("SMTP_HOST", "smtp.gmail.com")
+    smtp_port = int(os.getenv("SMTP_PORT", 587))
+    smtp_user = os.getenv("SMTP_USER", "")
+    smtp_password = os.getenv("SMTP_PASSWORD", "")
+    smtp_from = os.getenv("SMTP_FROM", smtp_user)
+    
+    if not admin_email:
+        admin_email = smtp_user
+
+    if not admin_email:
+        print("[Feedback Email] Admin email not configured. Suppressing email.")
+        return
+
+    if not smtp_user or not smtp_password:
+        print(f"[Feedback Email] SMTP not configured. Feedback from {user_name} ({user_email}):\nSubject: {subject}\nRating: {rating}/5\nMessage: {message}")
+        return
+
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = f"New ExpenseTracker Feedback: {subject}"
+    msg["From"] = f"ExpenseTracker Support <{smtp_from}>"
+    msg["To"] = admin_email
+
     msg.attach(MIMEText(html, "html"))
 
     context = ssl.create_default_context()
     try:
-        with smtplib.SMTP(smtp_host, smtp_port) as server:
+        with smtplib.SMTP(smtp_host, smtp_port, timeout=10) as server:
             server.ehlo()
             server.starttls(context=context)
             server.login(smtp_user, smtp_password)
@@ -62,6 +96,7 @@ def send_feedback_email(user_email: str, user_name: str, subject: str, message: 
 @router.post("/", response_model=FeedbackOut, status_code=status.HTTP_201_CREATED)
 def create_feedback(
     payload: FeedbackCreate,
+    background_tasks: BackgroundTasks,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
@@ -75,8 +110,9 @@ def create_feedback(
     db.commit()
     db.refresh(feedback)
     
-    # Send email notification asynchronously/synchronously in route
-    send_feedback_email(
+    # Send email notification asynchronously in the background
+    background_tasks.add_task(
+        send_feedback_email,
         user_email=current_user.email,
         user_name=current_user.name,
         subject=feedback.subject,

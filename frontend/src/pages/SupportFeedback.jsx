@@ -245,7 +245,7 @@ export default function SupportFeedback() {
               disabled={submitting}
             >
               <Send size={15} />
-              {submitting ? 'Sending...' : 'Submit Support Request'}
+              {submitting ? 'Sending...' : 'Share your thoughts with us'}
             </button>
           </form>
         </div>
