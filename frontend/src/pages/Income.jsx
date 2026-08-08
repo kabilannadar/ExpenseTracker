@@ -8,7 +8,7 @@ import { Plus, Pencil, Trash2, TrendingUp, Wallet } from 'lucide-react';
 import { format } from 'date-fns';
 
 const fmt = (n) => `₹${Number(n || 0).toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
-const EMPTY = { category_id: '', amount: '', date: format(new Date(), 'yyyy-MM-dd'), payment_method: 'cash', note: '' };
+const EMPTY = { category_id: '', amount: '', date: format(new Date(), 'yyyy-MM-dd'), payment_method: 'upi', note: '' };
 
 export default function Income() {
   const qc = useQueryClient();
@@ -52,7 +52,7 @@ export default function Income() {
       category_id: defaultCat ? defaultCat.id : '',
       amount: '',
       date: format(new Date(), 'yyyy-MM-dd'),
-      payment_method: 'cash',
+      payment_method: 'upi',
       note: ''
     });
     setModal('create');
@@ -62,7 +62,7 @@ export default function Income() {
       category_id: i.category_id || '',
       amount: i.amount,
       date: i.date,
-      payment_method: i.payment_method || 'cash',
+      payment_method: i.payment_method || 'upi',
       note: i.note || ''
     });
     setModal(i);

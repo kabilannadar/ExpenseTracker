@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { telegramApi, getApiError } from '../api';
 import toast from 'react-hot-toast';
@@ -144,6 +144,7 @@ const styles = {
 export default function TelegramSetup() {
   const qc = useQueryClient();
   const [telegramChatId, setTelegramChatId] = useState('');
+  const autoLinkedRef = useRef(false);
 
   // ── Telegram Queries & Mutations ──────────────────────────────────────────
   const { data: tgStatusData, isLoading: tgStatusLoading } = useQuery({
@@ -175,7 +176,8 @@ export default function TelegramSetup() {
     const queryParams = new URLSearchParams(window.location.search);
     const urlChatId = queryParams.get('chat_id') || sessionStorage.getItem('pending_telegram_chat_id');
 
-    if (urlChatId && !tgStatusLoading && !tgLinked && !tgLinkMut.isPending && !tgLinkMut.isSuccess) {
+    if (urlChatId && !autoLinkedRef.current && !tgStatusLoading && !tgLinked) {
+      autoLinkedRef.current = true;
       setTelegramChatId(urlChatId);
       tgLinkMut.mutate(urlChatId);
     }

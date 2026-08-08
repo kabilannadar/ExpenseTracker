@@ -106,7 +106,7 @@ class ExpenseCreate(BaseModel):
     amount: float
     date: DateType
     category_id: Optional[int] = None
-    payment_method: Optional[str] = "cash"
+    payment_method: Optional[str] = "upi"
     note: Optional[str] = None
 
 class ExpenseUpdate(BaseModel):
@@ -141,7 +141,7 @@ class IncomeCreate(BaseModel):
     source: Optional[str] = None
     amount: float
     date: DateType
-    payment_method: Optional[str] = "cash"
+    payment_method: Optional[str] = "upi"
     note: Optional[str] = None
 
 class IncomeUpdate(BaseModel):

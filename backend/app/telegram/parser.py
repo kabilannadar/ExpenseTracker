@@ -246,7 +246,7 @@ def parse_expense_message(body: str) -> Optional[ParsedStatement]:
                 break
 
     # 6. Extract Payment Method from after_amount
-    payment_method = frequency_str if statement_type == "recurring" else "cash"
+    payment_method = frequency_str if statement_type == "recurring" else "upi"
     after_words = after_amount.split()
 
     if after_words and statement_type != "recurring":

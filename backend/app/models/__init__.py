@@ -96,7 +96,7 @@ class Expense(Base):
     title = Column(String(200), nullable=False)
     amount = Column(Float, nullable=False)
     date = Column(Date, nullable=False)
-    payment_method = Column(String(50), default="cash")
+    payment_method = Column(String(50), default="upi")
     note = Column(Text, nullable=True)
     attachment_path = Column(String(500), nullable=True)
     source = Column(String(50), default="web", nullable=False)
@@ -117,7 +117,7 @@ class Income(Base):
     source = Column(SAEnum(IncomeSourceEnum), nullable=True)
     amount = Column(Float, nullable=False)
     date = Column(Date, nullable=False)
-    payment_method = Column(String(50), default="cash")
+    payment_method = Column(String(50), default="upi")
     note = Column(Text, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 

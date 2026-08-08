@@ -9,6 +9,7 @@ from app.database import get_db
 from app.models import Expense, AuditLog, User, Category
 from app.schemas import ExpenseCreate, ExpenseUpdate, ExpenseOut
 from app.auth import get_current_user
+from app.services.notifications import check_and_notify_budget
 
 router = APIRouter(prefix="/api/expenses", tags=["Expenses"])
 UPLOAD_DIR = os.getenv("UPLOAD_DIR", "./uploads")
@@ -50,6 +51,10 @@ def create_expense(payload: ExpenseCreate, db: Session = Depends(get_db), curren
     db.refresh(expense)
     log_action(db, current_user.id, "added", expense.id, f"Added '{expense.title}' ₹{expense.amount}")
     db.commit()
+    
+    # Check budget limits and notify
+    check_and_notify_budget(db, current_user, expense)
+    
     return expense
 
 
@@ -64,6 +69,10 @@ def update_expense(expense_id: int, payload: ExpenseUpdate, db: Session = Depend
     db.refresh(expense)
     log_action(db, current_user.id, "edited", expense.id, f"Edited '{expense.title}' ₹{expense.amount}")
     db.commit()
+    
+    # Check budget limits and notify
+    check_and_notify_budget(db, current_user, expense)
+    
     return expense
 
 

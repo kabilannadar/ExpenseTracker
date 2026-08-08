@@ -61,6 +61,16 @@ function ProtectedLayout() {
     return () => clearInterval(timer);
   }, []);
 
+  // Invalidate all React Query queries to update dashboard charts when a transaction is logged from the chatbot widget
+  useEffect(() => {
+    const handleLogged = () => {
+      console.log('[App.jsx] Chatbot transaction log detected, refreshing queries...');
+      queryClient.invalidateQueries();
+    };
+    window.addEventListener('moneycommandai-transaction-logged', handleLogged);
+    return () => window.removeEventListener('moneycommandai-transaction-logged', handleLogged);
+  }, []);
+
   // Dynamically load chatbot widget only for authenticated users
   useEffect(() => {
     const hn = window.location.hostname;

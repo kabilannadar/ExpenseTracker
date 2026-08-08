@@ -1,70 +1,17 @@
-# Connected to Neon DB Cloud Instance - env reload triggered
-from fastapi import FastAPI
+from datetime import datetime, timezone
+from fastapi import FastAPI, Depends, Response, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import os
+from sqlalchemy import text
+from sqlalchemy.orm import Session
 
-from app.database import engine
+from app.database import engine, get_db
 from app.models import Base
-from app.routers import auth, categories, expenses, income, budgets, reminders, recurring, subscriptions, goals, audit_logs, users, export, analytics, emis, debts, savings, feedback
+from app.routers import auth, categories, expenses, income, budgets, reminders, recurring, subscriptions, goals, audit_logs, users, export, analytics, emis, debts, savings, feedback, cron
 from app.telegram import router as telegram_router
 
-# Create all DB tables
-Base.metadata.create_all(bind=engine)
-
-# Run schema migrations for SQLite (add columns if missing)
-from sqlalchemy import text
-with engine.connect() as conn:
-    try:
-        conn.execute(text("ALTER TABLE emis ADD COLUMN loan_platform VARCHAR(100)"))
-        conn.commit()
-    except Exception:
-        conn.rollback()
-    try:
-        conn.execute(text("ALTER TABLE income ADD COLUMN payment_method VARCHAR(50) DEFAULT 'cash'"))
-        conn.commit()
-    except Exception:
-        conn.rollback()
-    try:
-        conn.execute(text("ALTER TABLE savings ADD COLUMN type VARCHAR(20) DEFAULT 'credit'"))
-        conn.commit()
-    except Exception:
-        conn.rollback()
-    try:
-        conn.execute(text("ALTER TABLE users ADD COLUMN whatsapp_number VARCHAR(20)"))
-        conn.commit()
-    except Exception:
-        conn.rollback()
-    try:
-        conn.execute(text("ALTER TABLE users ADD COLUMN telegram_chat_id VARCHAR(50)"))
-        conn.commit()
-    except Exception:
-        conn.rollback()
-    try:
-        conn.execute(text("UPDATE income SET source = 'other' WHERE source = 'cable'"))
-        conn.commit()
-    except Exception:
-        conn.rollback()
-    try:
-        conn.execute(text("ALTER TABLE categories ADD COLUMN type VARCHAR(20) DEFAULT 'expense'"))
-        conn.commit()
-    except Exception:
-        conn.rollback()
-    try:
-        conn.execute(text("ALTER TABLE income ADD COLUMN category_id INTEGER REFERENCES categories(id)"))
-        conn.commit()
-    except Exception:
-        conn.rollback()
-    try:
-        conn.execute(text("ALTER TABLE users ADD COLUMN avatar_url VARCHAR(500)"))
-        conn.commit()
-    except Exception:
-        conn.rollback()
-    try:
-        conn.execute(text("ALTER TABLE expenses ADD COLUMN source VARCHAR(50) DEFAULT 'web'"))
-        conn.commit()
-    except Exception:
-        conn.rollback()
+# Database tables and migrations are now managed via Alembic.
 
 # Run data migrations and seed default income categories
 from sqlalchemy.orm import sessionmaker
@@ -205,6 +152,7 @@ app.include_router(emis.router)
 app.include_router(debts.router)
 app.include_router(savings.router)
 app.include_router(feedback.router)
+app.include_router(cron.router)
 app.include_router(telegram_router.router)
 app.include_router(telegram_router.webhook_router)
 
@@ -230,7 +178,40 @@ async def setup_telegram_webhook():
 
 @app.get("/")
 def root():
-    return {"message": "ExpenseTracker API is running", "docs": "/docs"}
+    return {"message": "ExpenseTracker API is running", "docs": "/docs", "health": "/health"}
+
+
+@app.get("/health", tags=["Health"])
+@app.head("/health", tags=["Health"])
+@app.get("/api/health", tags=["Health"])
+@app.head("/api/health", tags=["Health"])
+def health_check(response: Response, db: Session = Depends(get_db)):
+    """
+    Lightweight health check endpoint for UptimeRobot and load balancers.
+    Performs a fast DB ping to ensure connectivity and keeps Render active.
+    """
+    db_ok = True
+    error_detail = None
+    try:
+        db.execute(text("SELECT 1"))
+    except Exception as e:
+        db_ok = False
+        error_detail = str(e)
+        response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
+
+    return {
+        "status": "healthy" if db_ok else "unhealthy",
+        "service": "ExpenseTracker API",
+        "database": "connected" if db_ok else f"disconnected: {error_detail}",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+    }
+
+
+@app.get("/ping", tags=["Health"])
+@app.head("/ping", tags=["Health"])
+def ping():
+    """Ultra-fast ping endpoint without database check."""
+    return {"status": "ok", "pong": True}
 
 
 

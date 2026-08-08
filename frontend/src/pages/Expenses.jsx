@@ -10,7 +10,7 @@ const fmt = (n) => `₹${Number(n).toLocaleString('en-IN', { maximumFractionDigi
 
 const PAYMENT_METHODS = ['cash', 'upi', 'card', 'netbanking', 'wallet', 'other'];
 
-const EMPTY_FORM = { title: '', amount: '', date: format(new Date(), 'yyyy-MM-dd'), category_id: '', payment_method: 'cash', note: '' };
+const EMPTY_FORM = { title: '', amount: '', date: format(new Date(), 'yyyy-MM-dd'), category_id: '', payment_method: 'upi', note: '' };
 
 export default function Expenses() {
   const qc = useQueryClient();

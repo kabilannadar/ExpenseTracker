@@ -24,6 +24,56 @@ export const TYPE_LABELS = {
 
 export const RELEASES = [
   {
+    version: 'v2.2.1',
+    date: 'August 8, 2026',
+    label: 'Major Automation Features',
+    labelColor: 'success',
+    entries: [
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Budget Alerts (Telegram + Email)',
+        detail: 'Instant automated alerts delivered via Telegram Bot and Resend Email whenever spending crosses 80% warning and 100% limit thresholds for category and global budgets, with built-in spam prevention.',
+      },
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Recurring Transactions Automation',
+        detail: 'Scheduled cron engine that automatically logs recurring transactions into the expense ledger when due, rolls over next due dates, and sends confirmation summaries.',
+      },
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Bill & EMI Reminders (Telegram + Email)',
+        detail: 'Proactive 3-day advance reminders for upcoming bill reminders, loan EMI payments, and subscription renewals delivered directly to your Telegram chat and email.',
+      },
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Chatbot Expense Logging & Telegram Sync',
+        detail: 'Enhanced natural language expense logging via Telegram bot and web chatbot with smart auto-categorization, UPI default payment mode, and cross-environment account linking.',
+      },
+      {
+        type: 'fix',
+        icon: Shield,
+        color: '#22c55e',
+        title: 'Fix Render Cold Starts / Uptime Monitoring',
+        detail: 'Implemented high-speed `/health` (with database connectivity ping) and `/ping` endpoints for UptimeRobot monitoring, eliminating 30-50s cold-start delays on Render free tier.',
+      },
+      {
+        type: 'chore',
+        icon: Package,
+        color: '#8b5cf6',
+        title: 'Alembic Database Migrations',
+        detail: 'Integrated Alembic schema migration environment for structured, reliable database version tracking and smooth production deployment rollouts.',
+      }
+    ],
+  },
+  {
     version: 'v2.2.0',
     date: 'August 7, 2026',
     label: 'Smart AI Chatbot Release',
