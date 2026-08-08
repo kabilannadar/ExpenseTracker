@@ -73,6 +73,9 @@ function ProtectedLayout() {
 
   // Dynamically load chatbot widget only for authenticated users
   useEffect(() => {
+    const apiBase = import.meta.env.VITE_API_URL || '';
+    window.__EXPENSE_TRACKER_API_URL__ = apiBase;
+
     const hn = window.location.hostname;
     const isLocal = hn === 'localhost' || hn === '127.0.0.1' || hn.startsWith('192.168.') || hn.startsWith('10.') || hn.startsWith('172.');
     const script = document.createElement('script');
@@ -80,6 +83,9 @@ function ProtectedLayout() {
       ? `http://localhost:5173/widget.js?t=${new Date().getTime()}` 
       : 'https://moneycommandai-assistant.vercel.app/widget.js';
     script.async = true;
+    if (apiBase) {
+      script.setAttribute('data-api-base', apiBase);
+    }
     document.body.appendChild(script);
 
     return () => {
