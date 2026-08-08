@@ -14,12 +14,14 @@ from app.models import (
     Reminder, EMI, Subscription, AuditActionEnum, FrequencyEnum
 )
 
+import threading
+
 logger = logging.getLogger(__name__)
 
 # ─── Dispatchers ──────────────────────────────────────────────────────────────
 
-def send_telegram_notification(chat_id: str, text_message: str):
-    """Sends a markdown message to a linked Telegram Chat ID."""
+def _sync_send_telegram(chat_id: str, text_message: str):
+    """Internal synchronous Telegram message sender."""
     token = os.getenv("TELEGRAM_BOT_TOKEN")
     if not token or not chat_id:
         return
@@ -36,8 +38,13 @@ def send_telegram_notification(chat_id: str, text_message: str):
         logger.error(f"[Notifications] Failed to send Telegram notification to {chat_id}: {e}")
 
 
-def send_email_notification(to_email: str, subject: str, html_content: str):
-    """Sends a transactional HTML email via Resend API (primary) or SMTP (fallback)."""
+def send_telegram_notification(chat_id: str, text_message: str):
+    """Dispatches Telegram notification in background thread so request never blocks."""
+    threading.Thread(target=_sync_send_telegram, args=(chat_id, text_message), daemon=True).start()
+
+
+def _sync_send_email(to_email: str, subject: str, html_content: str):
+    """Internal synchronous transactional HTML email dispatcher via Resend API / SMTP."""
     if not to_email:
         return
 
@@ -93,6 +100,11 @@ def send_email_notification(to_email: str, subject: str, html_content: str):
         logger.info(f"[Notifications] Fallback email sent via SMTP to {to_email}")
     except Exception as e:
         logger.error(f"[Notifications] Fallback SMTP failed to send email to {to_email}: {e}")
+
+
+def send_email_notification(to_email: str, subject: str, html_content: str):
+    """Dispatches email notification in background thread so request never blocks."""
+    threading.Thread(target=_sync_send_email, args=(to_email, subject, html_content), daemon=True).start()
 
 
 # ─── Budget Alert Check ────────────────────────────────────────────────────────
