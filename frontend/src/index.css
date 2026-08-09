@@ -344,7 +344,7 @@ button {
   gap: 16px;
 }
 
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
 @media (max-width: 900px) {
@@ -1297,3 +1297,107 @@ tbody tr:hover {
   padding-top: 20px;
   border-top: 1px solid var(--border);
 }
+
+/* ── Onboarding Tour (driver.js custom theme) ── */
+.driver-popover.driverjs-theme {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-lg), 0 0 24px rgba(99, 102, 241, 0.1) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  padding: 18px 20px !important;
+  max-width: 320px !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-title {
+  color: var(--text-primary) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 8px !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-description {
+  color: var(--text-secondary) !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-close-btn {
+  color: var(--text-muted) !important;
+  font-size: 18px !important;
+  transition: var(--transition) !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-close-btn:hover {
+  color: var(--text-primary) !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-footer {
+  margin-top: 14px !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-btn {
+  background: var(--bg-hover) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+  text-shadow: none !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 6px 12px !important;
+  transition: var(--transition) !important;
+  cursor: pointer !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-btn:hover {
+  background: var(--bg-active) !important;
+  border-color: rgba(99, 102, 241, 0.4) !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-next-btn {
+  background: var(--accent-gradient) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: var(--shadow-accent) !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-next-btn:hover {
+  opacity: 0.9 !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-prev-btn {
+  background: transparent !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-secondary) !important;
+}
+
+.driver-popover.driverjs-theme .driver-popover-prev-btn:hover:not(:disabled) {
+  background: var(--bg-hover) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Disabled buttons styling (improves Previous button visibility on Step 1) */
+.driver-popover.driverjs-theme .driver-popover-btn:disabled,
+.driver-popover.driverjs-theme .driver-popover-btn[disabled],
+.driver-popover.driverjs-theme .driver-popover-btn.driver-popover-btn-disabled {
+  color: var(--text-muted) !important;
+  opacity: 0.35 !important;
+  background: transparent !important;
+  border-color: var(--border) !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+
+/* Popover Arrow styling for driver.js v1.x (prevents square shape) */
+.driver-popover.driverjs-theme .driver-popover-arrow {
+  background-color: var(--bg-card) !important;
+}
+

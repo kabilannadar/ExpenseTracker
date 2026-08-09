@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { analyticsApi, telegramApi, expensesApi, getApiError } from '../api';
 import StatCard from '../components/StatCard';
@@ -11,9 +11,11 @@ import {
 } from 'recharts';
 import {
   Wallet, TrendingDown, TrendingUp, Calendar,
-  Flame, Zap, Target, ArrowRight, AlertTriangle, Send, Upload, RefreshCw
+  Flame, Zap, Target, ArrowRight, AlertTriangle, Send, Upload, RefreshCw, HelpCircle
 } from 'lucide-react';
 import { format } from 'date-fns';
+import { driver } from 'driver.js';
+import 'driver.js/dist/driver.css';
 import './Dashboard.css';
 
 const fmt = (n) => `₹${Number(n || 0).toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
@@ -79,6 +81,200 @@ export default function Dashboard() {
     }
   };
 
+  const handleStartTour = () => {
+    const isMobile = window.innerWidth <= 768;
+    const driverObj = driver({
+      showProgress: true,
+      animate: true,
+      popoverClass: 'driverjs-theme',
+      onDestroyed: () => {
+        window.dispatchEvent(new CustomEvent('close-sidebar'));
+      },
+      steps: [
+        {
+          element: '.page-title',
+          popover: {
+            title: 'Welcome to ExpenseTracker! 👋',
+            description: 'Your personal finance command center. Let us take a quick 1-minute tour to help you get started.',
+            side: 'bottom',
+            align: 'start'
+          }
+        },
+        {
+          element: '.stat-grid',
+          popover: {
+            title: 'Financial KPIs 📊',
+            description: 'Track your total expenses, monthly income, net savings, and spending streaks at a glance.',
+            side: 'bottom',
+            align: 'start'
+          }
+        },
+        ...(stats?.monthly_budget ? [{
+          element: '.budget-card',
+          popover: {
+            title: 'Monthly Budget Limit 🎯',
+            description: 'Stay on track! Check your real-time budget utilization progress so you never overspend.',
+            side: 'top',
+            align: 'start'
+          }
+        }] : []),
+        {
+          element: '.chart-title',
+          popover: {
+            title: 'Visual Analytics 📈',
+            description: 'Understand your spending habits over time and view your expense distribution by category.',
+            side: 'top',
+            align: 'start'
+          },
+          onHighlightStarted: () => {
+            // Close sidebar if user clicks "Previous" from the sidebar steps
+            window.dispatchEvent(new CustomEvent('close-sidebar'));
+          }
+        },
+        {
+          element: '.nav-item-expenses',
+          popover: {
+            title: 'Cashflow Tracking 💸',
+            description: 'Manually add expenses and income, assign custom categories, select payment methods, and filter records.',
+            side: isMobile ? 'bottom' : 'right',
+            align: 'start'
+          },
+          onHighlightStarted: (element) => {
+            // Ensure sidebar is open to display this and subsequent navigation steps
+            window.dispatchEvent(new CustomEvent('open-sidebar'));
+            // Scroll element into view after drawer transition
+            setTimeout(() => {
+              element?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 150);
+          }
+        },
+        {
+          element: '.nav-item-loans',
+          popover: {
+            title: 'Loans, Debt & EMIs 🏛️',
+            description: 'Keep tabs on loans you borrow or lend out. Track interest rates, upcoming EMIs, and pending outstanding debts.',
+            side: isMobile ? 'bottom' : 'right',
+            align: 'start'
+          },
+          onHighlightStarted: (element) => {
+            element?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        },
+        {
+          element: '.nav-item-budget',
+          popover: {
+            title: 'Budgets & Categories 🎯',
+            description: 'Set custom spending categories and monthly limits. Stay within your boundaries to save more.',
+            side: isMobile ? 'bottom' : 'right',
+            align: 'start'
+          },
+          onHighlightStarted: (element) => {
+            element?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        },
+        {
+          element: '.nav-item-savings',
+          popover: {
+            title: 'Savings & Wealth Goals 📈',
+            description: 'Set aside money for specific savings pools and track milestones toward goals like buying a house or car.',
+            side: isMobile ? 'bottom' : 'right',
+            align: 'start'
+          },
+          onHighlightStarted: (element) => {
+            element?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        },
+        {
+          element: '.nav-item-subscriptions',
+          popover: {
+            title: 'Bills, Reminders & Recurring ⏰',
+            description: 'Manage active subscriptions (Netflix, Spotify), set repeating expenses, and receive payment alerts.',
+            side: isMobile ? 'bottom' : 'right',
+            align: 'start'
+          },
+          onHighlightStarted: (element) => {
+            element?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        },
+        {
+          element: '.nav-item-telegram',
+          popover: {
+            title: 'Instant Telegram Bot 🤖',
+            description: 'Link your Telegram account to chat with our AI Bot. Log entries on-the-go with natural text (e.g. "spent 120 on juice") and sync in real-time.',
+            side: isMobile ? 'bottom' : 'right',
+            align: 'start'
+          },
+          onHighlightStarted: (element) => {
+            element?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        },
+        {
+          element: '.nav-item-profile',
+          popover: {
+            title: 'Settings & Security ⚙️',
+            description: 'Toggle Dark Mode, access audit logs for security, and export full reports (PDF or Excel).',
+            side: isMobile ? 'bottom' : 'right',
+            align: 'start'
+          },
+          onHighlightStarted: (element) => {
+            element?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        },
+        {
+          element: '.nav-item-help',
+          popover: {
+            title: 'Help & FAQ 📚',
+            description: 'Read the detailed FAQ to resolve common questions and get step-by-step guides.',
+            side: isMobile ? 'bottom' : 'right',
+            align: 'start'
+          },
+          onHighlightStarted: (element) => {
+            element?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        },
+        {
+          element: '.nav-item-support',
+          popover: {
+            title: 'Support & Feedback 💬',
+            description: 'Send feature requests, bug reports, and feedback directly to our development team.',
+            side: isMobile ? 'bottom' : 'right',
+            align: 'start'
+          },
+          onHighlightStarted: (element) => {
+            element?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        },
+        ...(document.querySelector('.install-app-btn') ? [{
+          element: '.install-app-btn',
+          popover: {
+            title: 'Install as an App 📱',
+            description: 'Install ExpenseTracker directly onto your desktop or mobile device home screen for quick offline access.',
+            side: isMobile ? 'bottom' : 'right',
+            align: 'start'
+          },
+          onHighlightStarted: (element) => {
+            element?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }] : [])
+      ]
+    });
+
+    driverObj.drive();
+  };
+
+  useEffect(() => {
+    if (stats) {
+      const tourCompleted = localStorage.getItem('et_onboarding_tour_completed');
+      if (tourCompleted !== 'true') {
+        const timer = setTimeout(() => {
+          handleStartTour();
+          localStorage.setItem('et_onboarding_tour_completed', 'true');
+        }, 1200);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [stats]);
+
   const isLoading = isStatsLoading;
 
   if (isLoading) return (
@@ -101,6 +297,16 @@ export default function Dashboard() {
         <div>
           <h1 className="page-title">Dashboard</h1>
         </div>
+        <button
+          id="dashboard-tour-btn"
+          className="btn-secondary"
+          onClick={handleStartTour}
+          style={{ padding: '6px 12px', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '6px' }}
+          title="Take a quick onboarding tour"
+        >
+          <HelpCircle size={14} />
+          <span>Quick Tour</span>
+        </button>
       </div>
 
       {/* Announcement Ticker — EMI & Reminder alerts */}
@@ -336,37 +542,39 @@ export default function Dashboard() {
 
             return (
               <div className="pie-container">
-                <ResponsiveContainer width="50%" height={210}>
-                  <PieChart>
-                    <defs>
-                      {data.map((entry, i) => (
-                        <linearGradient key={i} id={`pieGrad-${i}`} x1="0" y1="0" x2="1" y2="1">
-                          <stop offset="0%"   stopColor={entry.color} stopOpacity={1}   />
-                          <stop offset="100%" stopColor={entry.color} stopOpacity={0.55}/>
-                        </linearGradient>
-                      ))}
-                    </defs>
-                    <Pie
-                      data={data}
-                      cx="50%" cy="50%"
-                      innerRadius={52} outerRadius={82}
-                      dataKey="amount" nameKey="name"
-                      paddingAngle={3}
-                      activeShape={ActiveShape}
-                    >
-                      {data.map((entry, i) => (
-                        <Cell
-                          key={i}
-                          fill={`url(#pieGrad-${i})`}
-                          stroke={entry.color}
-                          strokeWidth={1.5}
-                          strokeOpacity={0.4}
-                        />
-                      ))}
-                    </Pie>
-                    <Tooltip content={<PieTooltipContent />} />
-                  </PieChart>
-                </ResponsiveContainer>
+                <div className="pie-chart-wrap">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <defs>
+                        {data.map((entry, i) => (
+                          <linearGradient key={i} id={`pieGrad-${i}`} x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%"   stopColor={entry.color} stopOpacity={1}   />
+                            <stop offset="100%" stopColor={entry.color} stopOpacity={0.55}/>
+                          </linearGradient>
+                        ))}
+                      </defs>
+                      <Pie
+                        data={data}
+                        cx="50%" cy="50%"
+                        innerRadius="50%" outerRadius="80%"
+                        dataKey="amount" nameKey="name"
+                        paddingAngle={3}
+                        activeShape={ActiveShape}
+                      >
+                        {data.map((entry, i) => (
+                          <Cell
+                            key={i}
+                            fill={`url(#pieGrad-${i})`}
+                            stroke={entry.color}
+                            strokeWidth={1.5}
+                            strokeOpacity={0.4}
+                          />
+                        ))}
+                      </Pie>
+                      <Tooltip content={<PieTooltipContent />} />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
                 <div className="pie-legend">
                   {data.slice(0, 6).map((c, i) => {
                     const pct = total > 0 ? ((c.amount / total) * 100).toFixed(0) : 0;
@@ -379,8 +587,8 @@ export default function Dashboard() {
                             boxShadow: `0 0 6px ${c.color}55`,
                           }}
                         />
-                        <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{c.name}</span>
-                        <span style={{ fontSize: 10, color: 'var(--text-muted)', marginRight: 4 }}>{pct}%</span>
+                        <span className="legend-name">{c.name}</span>
+                        <span className="legend-pct">({pct}%)</span>
                         <span className="legend-amount">{fmt(c.amount)}</span>
                       </div>
                     );

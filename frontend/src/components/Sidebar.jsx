@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { usePWA } from '../context/PWAContext';
 import {
   LayoutDashboard, Receipt, Tag, TrendingUp, Wallet, PiggyBank,
   Bell, RefreshCw, CreditCard, Target, ClipboardList,
-  User, LogOut,  ChevronLeft, ChevronRight, Landmark, X, Coins, Megaphone, Send, HelpCircle, MessageSquare, Percent
+  User, LogOut, ChevronLeft, ChevronRight, Landmark, X, Coins, Megaphone, Send, HelpCircle, MessageSquare, Percent, Download
 } from 'lucide-react';
 import { useState } from 'react';
 import './Sidebar.css';
@@ -34,6 +35,7 @@ const navItems = [
 
 export default function Sidebar({ isOpen, onClose }) {
   const { user, logout } = useAuth();
+  const { isInstallable, installApp } = usePWA();
   const [collapsed, setCollapsed] = useState(false);
 
 
@@ -59,7 +61,7 @@ export default function Sidebar({ isOpen, onClose }) {
             to={to}
             end={to === '/'}
             className={({ isActive }) =>
-              `nav-item ${isActive ? 'active' : ''} ${mobileOnly ? 'mobile-nav-only' : ''}`
+              `nav-item nav-item-${to.replace('/', '') || 'dashboard'} ${isActive ? 'active' : ''} ${mobileOnly ? 'mobile-nav-only' : ''}`
             }
             title={collapsed ? label : undefined}
             onClick={onClose}
@@ -69,6 +71,21 @@ export default function Sidebar({ isOpen, onClose }) {
           </NavLink>
         ))}
       </nav>
+
+      {/* Install App Button */}
+      {isInstallable && (
+        <div className="sidebar-install-wrapper">
+          <button
+            id="sidebar-install-btn"
+            className="install-app-btn"
+            onClick={installApp}
+            title="Install ExpenseTracker App"
+          >
+            <Download size={16} className="install-app-icon" />
+            {!collapsed && <span>Install App</span>}
+          </button>
+        </div>
+      )}
 
       {/* User + Logout */}
       <div className="sidebar-footer">

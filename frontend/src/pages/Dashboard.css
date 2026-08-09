@@ -26,15 +26,25 @@
 
 .pie-container {
   display: flex;
+  flex: 1;                  /* Fill remaining card height after the title */
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  gap: 24px;
+}
+
+.pie-chart-wrap {
+  /* Scales with card but never larger than 200px */
+  width: min(45%, 200px);
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
 }
 
 .pie-legend {
-  flex: 1;
+  width: 180px;      /* Fixed compact legend — never stretches */
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .legend-item {
@@ -43,6 +53,7 @@
   gap: 8px;
   font-size: 12px;
   color: var(--text-secondary);
+  white-space: nowrap;
 }
 
 .legend-dot {
@@ -52,10 +63,24 @@
   flex-shrink: 0;
 }
 
+.legend-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.legend-pct {
+  font-size: 10px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
 .legend-amount {
-  margin-left: auto;
   font-weight: 600;
   color: var(--text-primary);
+  flex-shrink: 0;
+  margin-left: 4px;
 }
 
 .recent-list {
@@ -107,16 +132,18 @@
 @media (max-width: 600px) {
   .pie-container {
     flex-direction: column;
-    align-items: stretch;
-    gap: 20px;
+    align-items: center;
+    gap: 12px;
+    min-height: 0;
   }
-  .pie-container .recharts-responsive-container {
-    width: 100% !important;
-    height: 180px !important;
-    margin: 0 auto;
+  .pie-chart-wrap {
+    width: 180px !important;
+    aspect-ratio: 1 / 1 !important;
+    flex: none !important;
   }
   .pie-legend {
-    width: 100%;
+    width: 100% !important;
+    max-width: 240px !important;
   }
 }
 
@@ -262,3 +289,24 @@
   opacity: 1;
   pointer-events: auto;
 }
+
+/* Pie card: flex column so pie-container can grow and center vertically */
+.card:has(.pie-container) {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+}
+
+@container (max-width: 400px) {
+  .pie-legend {
+    display: none !important;
+  }
+  .pie-container {
+    justify-content: center;
+  }
+  .pie-chart-wrap {
+    width: min(80%, 220px) !important;
+  }
+}
+
+

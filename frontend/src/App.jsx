@@ -79,34 +79,106 @@ function ProtectedLayout() {
     return () => window.removeEventListener('moneycommandai-transaction-logged', handleLogged);
   }, []);
 
-  // Dynamically load chatbot widget only for authenticated users
+  // Listen to global open/close sidebar events (used by onboarding tour)
+  useEffect(() => {
+    const openHandler = () => setSidebarOpen(true);
+    const closeHandler = () => setSidebarOpen(false);
+    window.addEventListener('open-sidebar', openHandler);
+    window.addEventListener('close-sidebar', closeHandler);
+    return () => {
+      window.removeEventListener('open-sidebar', openHandler);
+      window.removeEventListener('close-sidebar', closeHandler);
+    };
+  }, []);
+
+  // Dynamically load chatbot widget only for authenticated users with port fallback
   useEffect(() => {
     const apiBase = import.meta.env.VITE_API_URL || '';
     window.__EXPENSE_TRACKER_API_URL__ = apiBase;
 
-    const hn = window.location.hostname;
-    const isLocal = hn === 'localhost' || hn === '127.0.0.1' || hn.startsWith('192.168.') || hn.startsWith('10.') || hn.startsWith('172.');
-    const script = document.createElement('script');
-    script.src = isLocal 
-      ? `http://localhost:5173/widget.js?t=${new Date().getTime()}` 
-      : 'https://moneycommandai-assistant.vercel.app/widget.js';
-    script.async = true;
-    if (apiBase) {
-      script.setAttribute('data-api-base', apiBase);
-    }
-    document.body.appendChild(script);
+    const loadScript = (url, skipCheck = false) => {
+      return new Promise(async (resolve, reject) => {
+        if (!skipCheck) {
+          try {
+            // Check if the script URL is actually responsive and returns javascript (not html fallback)
+            const res = await fetch(url, { method: 'HEAD' });
+            const contentType = res.headers.get('content-type') || '';
+            if (!res.ok || contentType.includes('text/html')) {
+              reject(new Error('HTML fallback or 404'));
+              return;
+            }
+          } catch (e) {
+            reject(e);
+            return;
+          }
+        }
+
+        const script = document.createElement('script');
+        script.src = url;
+        script.async = true;
+        if (apiBase) {
+          script.setAttribute('data-api-base', apiBase);
+        }
+        script.onload = () => resolve(script);
+        script.onerror = () => {
+          script.remove();
+          reject(new Error('Load error'));
+        };
+        document.body.appendChild(script);
+      });
+    };
+
+    const initWidget = async () => {
+      const hn = window.location.hostname;
+      const isLocal = hn === 'localhost' || hn === '127.0.0.1' || hn.startsWith('192.168.') || hn.startsWith('10.') || hn.startsWith('172.');
+      
+      let scriptRef = null;
+
+      if (isLocal) {
+        // Try local ports first
+        try {
+          scriptRef = await loadScript(`http://localhost:5173/widget.js?t=${new Date().getTime()}`, false);
+          console.log('[App] Chatbot loaded from localhost:5173');
+          return scriptRef;
+        } catch (e) {
+          try {
+            scriptRef = await loadScript(`http://localhost:5174/widget.js?t=${new Date().getTime()}`, false);
+            console.log('[App] Chatbot loaded from localhost:5174');
+            return scriptRef;
+          } catch (err) {
+            console.log('[App] Local chatbot servers offline. Falling back to prod.');
+          }
+        }
+      }
+
+      // Load production (skip fetch check to avoid CORS blocks on Vercel headers)
+      try {
+        scriptRef = await loadScript('https://moneycommandai-assistant.vercel.app/widget.js', true);
+        console.log('[App] Chatbot loaded from production Vercel');
+        return scriptRef;
+      } catch (e) {
+        console.error('[App] Failed to load chatbot widget.');
+      }
+    };
+
+    const scriptPromise = initWidget();
 
     return () => {
-      // Remove the script tag
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-      // Remove any injected chatbot iframe from the DOM
-      const iframes = document.querySelectorAll('iframe');
-      iframes.forEach(iframe => {
-        if (iframe.title === 'MoneyCommandAI Assistant' || iframe.src.includes('moneycommandai-assistant')) {
-          iframe.remove();
+      scriptPromise.then((script) => {
+        if (script && document.body.contains(script)) {
+          document.body.removeChild(script);
         }
+        // Remove any injected chatbot iframe from the DOM
+        const iframes = document.querySelectorAll('iframe');
+        iframes.forEach(iframe => {
+          if (
+            iframe.title === 'MoneyCommandAI Assistant' || 
+            iframe.src.includes('moneycommandai-assistant') ||
+            iframe.src.includes('chatbotf-production')
+          ) {
+            iframe.remove();
+          }
+        });
       });
     };
   }, []);

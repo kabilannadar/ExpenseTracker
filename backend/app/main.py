@@ -87,7 +87,7 @@ os.makedirs(os.getenv("UPLOAD_DIR", "./uploads"), exist_ok=True)
 app = FastAPI(
     title="ExpenseTracker API",
     description="Personal finance tracker — track expenses, income, goals, and more.",
-    version="1.0.0",
+    version="2.3.0",
 )
 
 FRONTEND_URL = os.getenv("FRONTEND_URL", "")

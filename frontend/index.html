@@ -2,13 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="https://ik.imagekit.io/kabi10/tr:q-auto,f-auto/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="ExpenseTracker - Personal finance tracker for expenses, income, budgets, and goals." />
-    <title>ExpenseTrackerTN Personal Finance</title>
+
+    <!-- Primary Meta -->
+    <title>ExpenseTracker – Personal Finance</title>
+    <meta name="description" content="ExpenseTracker - Track expenses, income, budgets, goals, EMIs and more — all in one place." />
+
+    <!-- Open Graph / Facebook / Telegram -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://expensetrackertn.vercel.app/" />
+    <meta property="og:title" content="ExpenseTracker – Personal Finance" />
+    <meta property="og:description" content="Track expenses, income, budgets, goals, EMIs and more — all in one place." />
+    <meta property="og:image" content="https://expensetrackertn.vercel.app/icon-512.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://expensetrackertn.vercel.app/" />
+    <meta property="twitter:title" content="ExpenseTracker – Personal Finance" />
+    <meta property="twitter:description" content="Track expenses, income, budgets, goals, EMIs and more — all in one place." />
+    <meta property="twitter:image" content="https://expensetrackertn.vercel.app/icon-512.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://ik.imagekit.io/kabi10/ExpenseTracker_Avatar.png" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Theme Color (browser chrome color on Android) -->
+    <meta name="theme-color" content="#6366f1" />
+
+    <!-- Apple PWA (iOS Add-to-Home-Screen) -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ExpenseTracker" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+
+    <!-- Microsoft Tile (Edge / Windows) -->
+    <meta name="msapplication-TileColor" content="#6366f1" />
+    <meta name="msapplication-TileImage" content="/icon-192.png" />
+
+    <!-- Early PWA Event Capture -->
+    <script>
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        window.deferredPrompt = e;
+        window.dispatchEvent(new CustomEvent('pwa-installable'));
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
+

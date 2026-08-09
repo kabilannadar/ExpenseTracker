@@ -24,6 +24,42 @@ export const TYPE_LABELS = {
 
 export const RELEASES = [
   {
+    version: 'v2.3.0',
+    date: 'August 9, 2026',
+    label: 'Desktop and Mobile App',
+    labelColor: 'primary',
+    entries: [
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'App Installation (PWA)',
+        detail: 'Fully implemented Progressive Web App (PWA) support, registering the app version as v2.3.0 under desktop system settings, enabling custom standalone installation options directly from the sidebar.',
+      },
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Interactive Onboarding Tour',
+        detail: 'Added a guided, step-by-step onboarding walkthrough of the main Dashboard features using driver.js to introduce new users to statistics, transaction tools, and category cap charts.',
+      },
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Improved Chatbot Responses',
+        detail: 'Trained and overhauled the MoneyCommandAI system prompts and knowledge base to converse in a simple, friendly, and non-robotic tone, completely removing computational jargon.',
+      },
+      {
+        type: 'fix',
+        icon: Wrench,
+        color: '#22c55e',
+        title: 'Fixed Dashboard Pie Chart',
+        detail: 'Resolved a rendering glitch in the spending breakdown donut chart where slices would occasionally overlap or fail to scale correctly on window resize.',
+      }
+    ],
+  },
+  {
     version: 'v2.2.1',
     date: 'August 8, 2026',
     label: 'Major Automation Features',

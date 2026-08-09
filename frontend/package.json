@@ -1,6 +1,6 @@
 {
   "name": "et_f",
-  "version": "0.0.0",
+  "version": "2.3.0",
   "private": true,
   "description": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "@tanstack/react-query": "^5.101.0",
     "axios": "^1.17.0",
     "date-fns": "^4.4.0",
+    "driver.js": "^1.8.0",
     "imagekitio-react": "^4.3.0",
     "lucide-react": "^1.17.0",
     "react-hot-toast": "^2.6.0",
