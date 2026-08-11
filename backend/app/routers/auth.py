@@ -1,7 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-import smtplib, ssl, secrets, os
+import smtplib, ssl, secrets, os, time
 from datetime import datetime, timedelta
+from collections import defaultdict
+from threading import Lock
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -11,6 +13,13 @@ from app.schemas import UserRegister, UserLogin, Token, UserOut, GoogleLoginRequ
 from app.auth import hash_password, verify_password, create_access_token, verify_google_token
 
 router = APIRouter(prefix="/api/auth", tags=["Auth"])
+
+# ─── OTP Rate Limiting ────────────────────────────────────────────────────────
+# Simple in-memory cooldown: one OTP per email per 60 seconds.
+# This resets on server restart, which is fine for free-tier single-instance deployments.
+_otp_last_sent: dict[str, float] = defaultdict(float)
+_otp_lock = Lock()
+OTP_COOLDOWN_SECONDS = 60
 
 DEFAULT_CATEGORIES = [
     {"name": "Outside Food", "color": "#f97316", "icon": "utensils"},
@@ -137,7 +146,7 @@ def google_login(payload: GoogleLoginRequest, db: Session = Depends(get_db)):
     return {
         "id": user.id, "name": user.name, "email": user.email,
         "currency": user.currency, "timezone": user.timezone,
-        "dark_mode": user.dark_mode, "whatsapp_number": user.whatsapp_number,
+        "dark_mode": user.dark_mode,
         "avatar_url": user.avatar_url, "created_at": user.created_at,
         "access_token": token,
     }
@@ -150,8 +159,21 @@ def send_otp(payload: SendOTPRequest, db: Session = Depends(get_db)):
     """
     Send a 6-digit OTP to the given email for registration verification.
     Replaces any previous unused OTP for that email.
+    Rate-limited to one request per 60 seconds per email address.
     """
     email = payload.email.lower().strip()
+
+    # ── Rate limiting ──
+    with _otp_lock:
+        now = time.monotonic()
+        last_sent = _otp_last_sent[email]
+        if now - last_sent < OTP_COOLDOWN_SECONDS:
+            remaining = int(OTP_COOLDOWN_SECONDS - (now - last_sent))
+            raise HTTPException(
+                status_code=429,
+                detail=f"Please wait {remaining} seconds before requesting another code."
+            )
+        _otp_last_sent[email] = now
 
     # Reject if email is already registered
     existing = db.query(User).filter(User.email == email).first()
@@ -175,7 +197,7 @@ def send_otp(payload: SendOTPRequest, db: Session = Depends(get_db)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to send email: {str(e)}")
 
-    return {"message": "Verification code sent. Check your inbox (and spam folder)."}
+    return {"message": "Verification code sent. Check your inbox (and spam folder.)"}
 
 
 @router.post("/register", response_model=UserOut, status_code=status.HTTP_201_CREATED)
@@ -219,7 +241,7 @@ def register(payload: RegisterWithOTPRequest, db: Session = Depends(get_db)):
     return {
         "id": user.id, "name": user.name, "email": user.email,
         "currency": user.currency, "timezone": user.timezone,
-        "dark_mode": user.dark_mode, "whatsapp_number": user.whatsapp_number,
+        "dark_mode": user.dark_mode,
         "avatar_url": user.avatar_url, "created_at": user.created_at,
         "access_token": token,
     }
@@ -238,7 +260,13 @@ def login(payload: UserLogin, db: Session = Depends(get_db)):
 
 @router.get("/debug-db")
 def debug_db(secret: str, db: Session = Depends(get_db)):
-    if secret != "kabilan-debug-123":
+    """
+    Debug endpoint — lists registered users.
+    Protected by the DEBUG_SECRET environment variable.
+    Set DEBUG_SECRET in your .env to enable this endpoint.
+    """
+    debug_secret = os.getenv("DEBUG_SECRET", "")
+    if not debug_secret or secret != debug_secret:
         raise HTTPException(status_code=403, detail="Forbidden")
     users = db.query(User).all()
     return [

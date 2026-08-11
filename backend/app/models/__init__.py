@@ -32,7 +32,6 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(100), nullable=False)
     email = Column(String(255), unique=True, index=True, nullable=False)
-    whatsapp_number = Column(String(20), nullable=True, unique=True)
     telegram_chat_id = Column(String(50), nullable=True, unique=True)
     password_hash = Column(String(255), nullable=True)  # nullable for Google-auth users
     avatar_url = Column(String(500), nullable=True)
@@ -53,7 +52,6 @@ class User(Base):
     emis = relationship("EMI", back_populates="user", cascade="all, delete-orphan")
     debts = relationship("Debt", back_populates="user", cascade="all, delete-orphan")
     savings = relationship("Saving", back_populates="user", cascade="all, delete-orphan")
-    bot_session = relationship("UserBotSession", back_populates="user", uselist=False, cascade="all, delete-orphan")
 
 
 class EmailVerification(Base):
@@ -275,49 +273,6 @@ class Saving(Base):
     user = relationship("User", back_populates="savings")
 
 
-class WhatsAppSession(Base):
-    __tablename__ = "whatsapp_sessions"
-
-    id = Column(String(100), primary_key=True, index=True)
-    data = Column(Text, nullable=False)  # Stores base64 encoded data
-    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
-
-
-class BotState(Base):
-    """
-    Key-value store for bot runtime state (multi-worker safe).
-    Kept for backward compat. New per-user state is in UserBotSession.
-    """
-    __tablename__ = "bot_state"
-
-    key = Column(String(100), primary_key=True)
-    value = Column(Text, nullable=True)
-    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
-
-
-class UserBotSession(Base):
-    """
-    Per-user WhatsApp bot session.
-
-    Each app user can independently connect their own WhatsApp account.
-    The bot (bot.js) maintains one Baileys socket per user in a Map<userId, socket>.
-    Auth state (creds + signal keys) is persisted here so sessions survive restarts.
-
-    Status lifecycle:  disconnected → connecting → connected → disconnected
-    """
-    __tablename__ = "user_bot_sessions"
-
-    user_id         = Column(Integer, ForeignKey("users.id"), primary_key=True)
-    phone_number    = Column(String(20), nullable=True)        # connected WA number (auto-set)
-    creds_data      = Column(Text, nullable=True)              # base64 JSON: Baileys creds
-    keys_data       = Column(Text, nullable=True)              # base64 JSON: Baileys signal keys
-    pairing_code    = Column(String(20), nullable=True)        # 8-char pairing code
-    pairing_expires = Column(DateTime(timezone=True), nullable=True)
-    status          = Column(String(20), default="disconnected")  # disconnected/connecting/connected
-    updated_at      = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
-
-    user = relationship("User", back_populates="bot_session")
-
 
 class Feedback(Base):
     __tablename__ = "feedbacks"
@@ -330,3 +285,4 @@ class Feedback(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     user = relationship("User")
+

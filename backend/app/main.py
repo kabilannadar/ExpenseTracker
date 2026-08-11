@@ -1,15 +1,20 @@
 from datetime import datetime, timezone
-from fastapi import FastAPI, Depends, Response, status
+from fastapi import FastAPI, Depends, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 import os
+import uuid
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from app.database import engine, get_db
 from app.models import Base
+from app.logger import get_logger
 from app.routers import auth, categories, expenses, income, budgets, reminders, recurring, subscriptions, goals, audit_logs, users, export, analytics, emis, debts, savings, feedback, cron
 from app.telegram import router as telegram_router
+
+log = get_logger()
 
 # Database tables and migrations are now managed via Alembic.
 
@@ -106,27 +111,53 @@ app.add_middleware(
 )
 
 import traceback
-from datetime import datetime
-from fastapi import Request
 
 @app.middleware("http")
-async def log_exceptions_middleware(request: Request, call_next):
+async def structured_error_middleware(request: Request, call_next):
+    """
+    Production error middleware.
+
+    - Attaches a unique request_id to every request.
+    - Catches unhandled exceptions and logs structured details to stdout.
+    - Returns a safe, generic 500 JSON response — never exposes stack traces to clients.
+    """
+    request_id = str(uuid.uuid4())[:8]  # short 8-char prefix is enough for log correlation
+    request.state.request_id = request_id
+
     try:
-        return await call_next(request)
-    except Exception as e:
+        response = await call_next(request)
+        return response
+    except Exception as exc:
         tb = traceback.format_exc()
-        # Write to the absolute path of the brain folder so the parent agent can read it
-        log_path = r"C:\Users\rrkab\.gemini\antigravity-ide\brain\5d6dad1b-429d-4e4c-93f7-cf8562907f62\backend_error.log"
+
+        # Try to extract user_id from the JWT in Authorization header (best-effort)
+        user_id = "-"
         try:
-            with open(log_path, "a", encoding="utf-8") as f:
-                f.write(f"\n--- EXCEPTION AT {datetime.now()} ---\n")
-                f.write(f"URL: {request.url}\n")
-                f.write(tb)
-                f.write("="*80 + "\n")
+            from jose import jwt as _jwt
+            from app.auth import SECRET_KEY, ALGORITHM
+            auth_header = request.headers.get("authorization", "")
+            if auth_header.startswith("Bearer "):
+                payload = _jwt.decode(auth_header[7:], SECRET_KEY, algorithms=[ALGORITHM])
+                user_id = payload.get("sub", "-")
         except Exception:
             pass
-        print(f"[ERROR LOGGER] Exception captured: {e}")
-        raise e
+
+        log.error(
+            f"Unhandled exception: {type(exc).__name__}: {exc}\n{tb}",
+            extra={
+                "request_id": request_id,
+                "user_id": user_id,
+                "endpoint": f"{request.method} {request.url.path}",
+            },
+        )
+
+        return JSONResponse(
+            status_code=500,
+            content={
+                "detail": "An unexpected error occurred. Please try again.",
+                "request_id": request_id,  # user can share this to help with debugging
+            },
+        )
 
 
 # Mount uploads for static serving

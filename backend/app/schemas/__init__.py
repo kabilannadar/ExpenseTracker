@@ -56,7 +56,6 @@ class UserOut(BaseModel):
     currency: str
     timezone: str
     dark_mode: bool
-    whatsapp_number: Optional[str] = None
     avatar_url: Optional[str] = None
     access_token: Optional[str] = None  # returned only on google-login
     created_at: datetime
@@ -69,7 +68,6 @@ class UserUpdate(BaseModel):
     currency: Optional[str] = None
     timezone: Optional[str] = None
     dark_mode: Optional[bool] = None
-    whatsapp_number: Optional[str] = None
 
 
 # ─── Category ─────────────────────────────────────────────────────────────────

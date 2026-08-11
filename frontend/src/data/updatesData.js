@@ -24,6 +24,28 @@ export const TYPE_LABELS = {
 
 export const RELEASES = [
   {
+    version: 'v2.3.1',
+    date: 'August 11, 2026',
+    label: 'Official Landing Page & Infrastructure',
+    labelColor: 'primary',
+    entries: [
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Official Landing Page Launch',
+        detail: 'Created and launched the official product landing page showcasing core features, interactive product previews, Telegram bot integration, and quick onboarding access.',
+      },
+      {
+        type: 'chore',
+        icon: Shield,
+        color: '#22c55e',
+        title: 'Custom Cronjobs Keep-Alive System',
+        detail: 'Replaced UptimeRobot with custom automated cronjobs to periodically trigger health ping endpoints, keeping backend services active and eliminating cold starts.',
+      },
+    ],
+  },
+  {
     version: 'v2.3.0',
     date: 'August 9, 2026',
     label: 'Desktop and Mobile App',

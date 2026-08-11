@@ -1,0 +1,43 @@
+name: Backend CI
+
+on:
+  push:
+    branches: ["main", "dev"]
+    paths:
+      - "backend/**"
+      - ".github/workflows/ci.yml"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "backend/**"
+
+jobs:
+  test:
+    name: Run pytest
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: backend/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        env:
+          # Use development mode so SECRET_KEY fallback is allowed
+          ENVIRONMENT: development
+          # Use in-memory SQLite — no DB setup needed
+          DATABASE_URL: sqlite:///:memory:
+        run: pytest tests/ -v --tb=short
