@@ -12,6 +12,40 @@ const TYPE_STYLE = {
   chore: { bg: 'rgba(100,116,139,0.12)', border: 'rgba(100,116,139,0.22)', text: '#94a3b8' },
 };
 
+function formatDetail(text) {
+  if (!text || typeof text !== 'string') return text;
+  const parts = text.split(/(https?:\/\/[^\s]+)/);
+  return parts.map((part, i) => {
+    if (part.startsWith('http://') || part.startsWith('https://')) {
+      const cleanUrl = part.replace(/[.,;!?]+$/, '');
+      const trailing = part.slice(cleanUrl.length);
+      return (
+        <span key={i}>
+          <a
+            href={cleanUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: '#818cf8',
+              textDecoration: 'underline',
+              textUnderlineOffset: '2px',
+              fontWeight: 600,
+              cursor: 'pointer',
+              wordBreak: 'break-all',
+              position: 'relative',
+              zIndex: 2,
+            }}
+          >
+            {cleanUrl}
+          </a>
+          {trailing}
+        </span>
+      );
+    }
+    return part;
+  });
+}
+
 export default function UpdatesPanel({ onClose }) {
   const panelRef = useRef(null);
 
@@ -105,7 +139,7 @@ export default function UpdatesPanel({ onClose }) {
                             {typeLabel}
                           </span>
                         </div>
-                        <p className="upanel-entry-detail">{entry.detail}</p>
+                        <p className="upanel-entry-detail">{formatDetail(entry.detail)}</p>
                       </div>
                     </div>
                   );

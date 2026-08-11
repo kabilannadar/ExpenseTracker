@@ -5,7 +5,7 @@
 //  • Navigations      → Network-first, fall back to cached index.html
 // ─────────────────────────────────────────────────────────────────────────────
 
-const CACHE_NAME = 'et-shell-v2.3.0';
+const CACHE_NAME = 'et-shell-v2.3.1';
 
 // App shell — only the minimum needed for offline render
 const SHELL_ASSETS = [

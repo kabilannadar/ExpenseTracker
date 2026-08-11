@@ -1,7 +1,7 @@
 {
-  "name": "ExpenseTracker – Personal Finance",
+  "name": "ExpenseTracker",
   "short_name": "ExpenseTracker",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Track expenses, income, budgets, goals, EMIs and more — all in one place.",
   "start_url": "/",
   "display": "standalone",

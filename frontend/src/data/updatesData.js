@@ -26,7 +26,7 @@ export const RELEASES = [
   {
     version: 'v2.3.1',
     date: 'August 11, 2026',
-    label: 'Official Landing Page & Infrastructure',
+    label: 'Landing Page & Server Maintenance',
     labelColor: 'primary',
     entries: [
       {
@@ -34,7 +34,7 @@ export const RELEASES = [
         icon: Rocket,
         color: '#3b82f6',
         title: 'Official Landing Page Launch',
-        detail: 'Created and launched the official product landing page showcasing core features, interactive product previews, Telegram bot integration, and quick onboarding access.',
+        detail: 'Created and launched the official product landing page showcasing core features, interactive product previews, Telegram bot integration, and quick onboarding access. Check it out at https://expensetrackerbykabs.vercel.app/',
       },
       {
         type: 'chore',

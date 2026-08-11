@@ -1,6 +1,40 @@
 import { GitCommit, Megaphone, Calendar } from 'lucide-react';
 import { RELEASES, BADGE_COLORS, TYPE_LABELS } from '../data/updatesData';
 
+function formatDetail(text) {
+  if (!text || typeof text !== 'string') return text;
+  const parts = text.split(/(https?:\/\/[^\s]+)/);
+  return parts.map((part, i) => {
+    if (part.startsWith('http://') || part.startsWith('https://')) {
+      const cleanUrl = part.replace(/[.,;!?]+$/, '');
+      const trailing = part.slice(cleanUrl.length);
+      return (
+        <span key={i}>
+          <a
+            href={cleanUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: 'var(--accent-primary, #6366f1)',
+              textDecoration: 'underline',
+              textUnderlineOffset: '3px',
+              fontWeight: 600,
+              cursor: 'pointer',
+              wordBreak: 'break-all',
+              position: 'relative',
+              zIndex: 2,
+            }}
+          >
+            {cleanUrl}
+          </a>
+          {trailing}
+        </span>
+      );
+    }
+    return part;
+  });
+}
+
 export default function Updates() {
   return (
     <div className="page-wrapper" style={{ padding: '32px 24px', maxWidth: '1000px', margin: '0 auto' }}>
@@ -205,7 +239,7 @@ export default function Updates() {
                             margin: 0,
                           }}
                         >
-                          {entry.detail}
+                          {formatDetail(entry.detail)}
                         </p>
                       </div>
                     </div>

@@ -13,6 +13,7 @@ __pycache__/
 # Backend specific
 backend/.env
 backend/expense_tracker.db
+*.db
 backend/uploads/
 
 # OS

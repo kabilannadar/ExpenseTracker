@@ -79,6 +79,48 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+}
+
+*:focus {
+  outline: none;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+button, a, input, select, textarea, [role="button"], label, svg {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  -webkit-touch-callout: none;
+}
+
+/* Allow text selection inside form inputs and selectable text blocks */
+input, textarea, [contenteditable="true"], .selectable, code {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+}
+
+button, a, [role="button"] {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+button:focus, button:active,
+a:focus, a:active,
+[role="button"]:focus, [role="button"]:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
 }
 
 html {
@@ -149,6 +191,10 @@ button {
   align-items: center;
   gap: 8px;
   padding: 10px 18px;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .btn-primary {
@@ -1179,12 +1225,16 @@ tbody tr:hover {
 }
 
 .upanel-release-badge {
-  padding: 2px 9px;
+  padding: 3px 9px;
   border-radius: var(--radius-full);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
 }
 
 .upanel-date {
