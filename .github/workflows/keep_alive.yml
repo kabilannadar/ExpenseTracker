@@ -1,0 +1,22 @@
+name: Wake up Render Services
+
+on:
+  schedule:
+    # Runs every 10 minutes between 2:30 AM UTC and 8:30 PM UTC (8:00 AM to 2:00 AM IST)
+    - cron: '30/10 2-20 * * *'
+  workflow_dispatch: # Allows you to trigger it manually from GitHub UI
+
+jobs:
+  keep_alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run keep-alive script
+        run: python backend/keep_alive.py
