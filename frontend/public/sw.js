@@ -5,22 +5,22 @@
 //  • Navigations      → Network-first, fall back to cached index.html
 // ─────────────────────────────────────────────────────────────────────────────
 
-const CACHE_NAME = 'et-shell-v2.3.5-bypass-dev';
+const CACHE_NAME = 'et-shell-v2.3.2-bypass-dev';
 
 // App shell — only the minimum needed for offline render
 const SHELL_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/manifest.json?v=2.3.1',
+  '/manifest.json?v=2.3.2',
   '/icon-192.png',
-  '/icon-192.png?v=2.3.1',
+  '/icon-192.png?v=2.3.2',
   '/icon-512.png',
-  '/icon-512.png?v=2.3.1',
+  '/icon-512.png?v=2.3.2',
   '/icon-192-maskable.png',
-  '/icon-192-maskable.png?v=2.3.1',
+  '/icon-192-maskable.png?v=2.3.2',
   '/icon-512-maskable.png',
-  '/icon-512-maskable.png?v=2.3.1',
+  '/icon-512-maskable.png?v=2.3.2',
   '/favicon.png',
   '/favicon.ico',
 ];
