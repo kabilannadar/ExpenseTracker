@@ -24,6 +24,28 @@ export const TYPE_LABELS = {
 
 export const RELEASES = [
   {
+    version: 'v2.4.0',
+    date: 'August 14, 2026',
+    label: 'Google Profile & iOS Touch Polish',
+    labelColor: 'success',
+    entries: [
+      {
+        type: 'feat',
+        icon: Rocket,
+        color: '#3b82f6',
+        title: 'Google Profile & Custom Avatar Upload',
+        detail: 'Fully integrated user profile avatars. Google Sign-In users now automatically sync and display their Google profile pictures, while all users can upload custom avatar photos with instant backend storage. Long names in the sidebar now scroll smoothly with a new dynamic marquee component to prevent layout overflow.',
+      },
+      {
+        type: 'style',
+        icon: Sparkles,
+        color: '#8b5cf6',
+        title: 'iOS Safari & Mobile Responsive Polish',
+        detail: 'Polished the mobile experience by removing sticky touch hover animations using media queries, forcing a 16px minimum font size to block iOS Safari auto-zoom on inputs, and adopting dynamic viewport height (dvh) to prevent layout shifting. Also optimized modals, tables, and multi-column grid layouts for seamless use on small screens.',
+      }
+    ],
+  },
+  {
     version: 'v2.3.1',
     date: 'August 11, 2026',
     label: 'Landing Page & Server Maintenance',
