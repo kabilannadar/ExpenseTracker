@@ -24,7 +24,7 @@ export const TYPE_LABELS = {
 
 export const RELEASES = [
   {
-    version: 'v2.4.0',
+    version: 'v2.3.2',
     date: 'August 14, 2026',
     label: 'Google Profile & iOS Touch Polish',
     labelColor: 'success',
