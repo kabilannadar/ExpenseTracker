@@ -352,3 +352,21 @@ body.driver-active .sidebar .sidebar-install-wrapper:has(.install-app-btn.driver
   background: var(--bg-hover) !important;
 }
 
+/* ── Username Marquee Scrolling Animation ── */
+.user-name.marquee-active {
+  animation: marquee-scroll 9s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  0%, 15% {
+    transform: translateX(0);
+  }
+  75%, 90% {
+    transform: translateX(var(--scroll-dist, -50px));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+

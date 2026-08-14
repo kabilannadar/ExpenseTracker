@@ -5,7 +5,7 @@
 //  • Navigations      → Network-first, fall back to cached index.html
 // ─────────────────────────────────────────────────────────────────────────────
 
-const CACHE_NAME = 'et-shell-v2.3.4';
+const CACHE_NAME = 'et-shell-v2.3.5-bypass-dev';
 
 // App shell — only the minimum needed for offline render
 const SHELL_ASSETS = [
@@ -53,6 +53,17 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
+
+  // Bypass cache completely for local development environments
+  if (
+    url.hostname === 'localhost' || 
+    url.hostname === '127.0.0.1' || 
+    url.hostname.startsWith('192.168.') || 
+    url.hostname.startsWith('10.') || 
+    url.hostname.startsWith('172.')
+  ) {
+    return;
+  }
 
   // 1. Never cache API calls or external OAuth — always live
   if (

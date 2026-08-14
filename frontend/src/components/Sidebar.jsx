@@ -6,8 +6,61 @@ import {
   Bell, RefreshCw, CreditCard, Target, ClipboardList,
   User, LogOut, ChevronLeft, ChevronRight, Landmark, X, Coins, Megaphone, Send, HelpCircle, MessageSquare, Percent, Download
 } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Sidebar.css';
+
+function MarqueeText({ text }) {
+  const containerRef = useRef(null);
+  const textRef = useRef(null);
+  const [isMarquee, setIsMarquee] = useState(false);
+  const [scrollDist, setScrollDist] = useState(0);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const textEl = textRef.current;
+    if (!container || !textEl) return;
+
+    setIsMarquee(false);
+
+    const checkOverflow = () => {
+      const containerWidth = container.offsetWidth;
+      const textWidth = textEl.scrollWidth;
+
+      if (textWidth > containerWidth) {
+        setIsMarquee(true);
+        setScrollDist(containerWidth - textWidth - 8);
+      } else {
+        setIsMarquee(false);
+      }
+    };
+
+    const timer = setTimeout(checkOverflow, 200);
+    window.addEventListener('resize', checkOverflow);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', checkOverflow);
+    };
+  }, [text]);
+
+  return (
+    <div 
+      ref={containerRef} 
+      style={{ overflow: 'hidden', whiteSpace: 'nowrap', width: '100%' }}
+    >
+      <span 
+        ref={textRef} 
+        className={`user-name ${isMarquee ? 'marquee-active' : ''}`}
+        style={{ 
+          display: 'inline-block', 
+          whiteSpace: 'nowrap',
+          '--scroll-dist': `${scrollDist}px`
+        }}
+      >
+        {text}
+      </span>
+    </div>
+  );
+}
 
 const avatarLogo = 'https://ik.imagekit.io/kabi10/tr:q-auto,f-auto/ExpenseTracker_Avatar_Transparent.png';
 
@@ -36,7 +89,10 @@ const navItems = [
 export default function Sidebar({ isOpen, onClose }) {
   const { user, logout } = useAuth();
   const { isInstallable, installApp } = usePWA();
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.innerWidth > 768 && window.innerWidth <= 1024;
+  });
 
 
   return (
@@ -91,10 +147,15 @@ export default function Sidebar({ isOpen, onClose }) {
       <div className="sidebar-footer">
         {!collapsed && user && (
           <div className="sidebar-user">
-            <div className="user-avatar">{user.name?.[0]?.toUpperCase()}</div>
-            <div>
-              <div className="user-name">{user.name}</div>
-              <div className="user-email">{user.email}</div>
+            <div className="user-avatar" style={{ overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {user.avatar_url ? (
+                <img src={user.avatar_url} alt={user.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              ) : (
+                user.name?.[0]?.toUpperCase()
+              )}
+            </div>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <MarqueeText text={user.name} />
             </div>
           </div>
         )}

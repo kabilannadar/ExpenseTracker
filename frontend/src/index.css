@@ -1451,3 +1451,121 @@ tbody tr:hover {
   background-color: var(--bg-card) !important;
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+   iOS Safari Mobile Responsive and Interaction Fixes
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* 1. Prevent iOS Auto-Zoom on inputs by forcing min-size of 16px */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* 2. Global Tappable Elements and Safe Areas for Clickable elements */
+label, .form-label, .sidebar-overlay, .btn-icon, .close-btn, .menu-toggle, .nav-item, [role="button"] {
+  cursor: pointer !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* 3. Disable hover translations and sticky hover states on touch screens */
+@media (hover: none) {
+  button:hover, 
+  .btn-primary:hover, 
+  .btn-secondary:hover, 
+  .btn-danger:hover, 
+  .btn-icon:hover,
+  .card:hover,
+  .nav-item:hover,
+  .header-updates-btn:hover,
+  .bot-promo-card:hover,
+  .recent-item:hover,
+  tbody tr:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background-color: initial !important; /* Let it fallback to base colors */
+  }
+  
+  /* Retain text color hover overrides if needed, but remove translate/animations that cause sticky taps */
+  .btn-primary:hover {
+    background: var(--accent-gradient) !important;
+  }
+  
+  .btn-secondary:hover {
+    background: var(--bg-elevated) !important;
+    border-color: var(--border) !important;
+  }
+
+  .btn-danger:hover {
+    background: var(--danger-bg) !important;
+    color: var(--danger) !important;
+  }
+  
+  .btn-icon:hover {
+    background: var(--bg-elevated) !important;
+    color: var(--text-secondary) !important;
+  }
+
+  .card:hover {
+    border-color: var(--border) !important;
+  }
+  
+  .nav-item:hover {
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+  }
+
+  .nav-item.active:hover {
+    background: var(--accent-gradient) !important;
+    color: white !important;
+  }
+}
+
+/* 4. Fix sidebar overlay tap recognition and pointer events */
+.sidebar-overlay {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+/* 5. Modern mobile viewport heights using dvh (Dynamic Viewport Height) */
+body, #root, .sidebar, .sidebar-overlay, .modal-overlay {
+  min-height: 100dvh;
+  min-height: -webkit-fill-available;
+}
+
+/* 6. Spacing fixes for small screens */
+@media (max-width: 480px) {
+  /* Form spacing improvements */
+  .form-group {
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  
+  /* Prevent horizontal scrolling on card components */
+  .card {
+    padding: 16px 12px !important;
+  }
+  
+  /* Prevent tables from overflowing containers */
+  .table-wrapper {
+    margin: 0 -4px;
+    border-radius: var(--radius-md);
+  }
+  
+  /* Make sure modal content matches mobile spacing */
+  .modal {
+    padding: 20px 14px !important;
+    margin: 10px;
+    max-height: 85dvh;
+  }
+}
+
+/* 7. Prevent form input squishing in modals on mobile/tablet viewports */
+@media (max-width: 550px) {
+  .modal .grid-2,
+  .modal .grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+

@@ -4,13 +4,24 @@ import './index.css'
 import App from './App.jsx'
 import { PWAProvider } from './context/PWAContext.jsx'
 
-// Register Service Worker
-if ('serviceWorker' in navigator) {
+// Register Service Worker only in production to prevent caching local development assets
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
       .register('/sw.js', { scope: '/' })
       .then((reg) => console.log('[SW] Registered, scope:', reg.scope))
       .catch((err) => console.warn('[SW] Registration failed:', err));
+  });
+} else if (import.meta.env.DEV && 'serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    for (let registration of registrations) {
+      registration.unregister().then((success) => {
+        if (success) {
+          console.log('[SW] Unregistered active service worker for development mode');
+          window.location.reload(); // Reload once to fetch fresh assets from network
+        }
+      });
+    }
   });
 }
 

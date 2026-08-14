@@ -47,6 +47,11 @@ export const authApi = {
 export const userApi = {
   getMe: () => api.get('/api/users/me'),
   updateMe: (data) => api.put('/api/users/me', data),
+  uploadAvatar: (file) => {
+    const form = new FormData();
+    form.append('file', file);
+    return api.post('/api/users/me/avatar', form);
+  },
 };
 
 // Categories

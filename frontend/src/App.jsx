@@ -298,6 +298,31 @@ function AppRoutes() {
 
 
 export default function App() {
+  useEffect(() => {
+    const handleLabelClick = (e) => {
+      const label = e.target.closest('label');
+      if (!label) return;
+
+      // If the label is already linked or contains the input, let native browser action handle it
+      if (label.htmlFor || label.getAttribute('for')) return;
+      if (label.querySelector('input, select, textarea')) return;
+
+      // Find sibling inputs inside form-group or adjacent layout
+      const parent = label.closest('.form-group') || label.parentElement;
+      if (parent) {
+        const input = parent.querySelector('input, select, textarea');
+        if (input) {
+          input.focus();
+          if (input.type === 'checkbox' || input.type === 'radio') {
+            input.click();
+          }
+        }
+      }
+    };
+    document.addEventListener('click', handleLabelClick);
+    return () => document.removeEventListener('click', handleLabelClick);
+  }, []);
+
   return (
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID || ''}>
       <QueryClientProvider client={queryClient}>

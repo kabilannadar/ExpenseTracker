@@ -68,6 +68,7 @@ class UserUpdate(BaseModel):
     currency: Optional[str] = None
     timezone: Optional[str] = None
     dark_mode: Optional[bool] = None
+    avatar_url: Optional[str] = None
 
 
 # ─── Category ─────────────────────────────────────────────────────────────────

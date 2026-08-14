@@ -216,26 +216,9 @@ def root():
 @app.head("/health", tags=["Health"])
 @app.get("/api/health", tags=["Health"])
 @app.head("/api/health", tags=["Health"])
-def health_check(response: Response, db: Session = Depends(get_db)):
-    """
-    Lightweight health check endpoint for UptimeRobot and load balancers.
-    Performs a fast DB ping to ensure connectivity and keeps Render active.
-    """
-    db_ok = True
-    error_detail = None
-    try:
-        db.execute(text("SELECT 1"))
-    except Exception as e:
-        db_ok = False
-        error_detail = str(e)
-        response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
+async def health_check():
+    return {"status": "ok"}
 
-    return {
-        "status": "healthy" if db_ok else "unhealthy",
-        "service": "ExpenseTracker API",
-        "database": "connected" if db_ok else f"disconnected: {error_detail}",
-        "timestamp": datetime.now(timezone.utc).isoformat(),
-    }
 
 
 @app.get("/ping", tags=["Health"])

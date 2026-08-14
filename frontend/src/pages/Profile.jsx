@@ -23,6 +23,30 @@ export default function Profile() {
   const queryClient = useQueryClient();
   const [importing, setImporting] = useState(false);
   const [form, setForm] = useState({ name: user?.name || '', currency: user?.currency || 'INR', timezone: user?.timezone || 'Asia/Kolkata', dark_mode: user?.dark_mode ?? true });
+  const [avatarUploading, setAvatarUploading] = useState(false);
+
+  const handleAvatarUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      toast.error('Please select an image file.');
+      return;
+    }
+
+    setAvatarUploading(true);
+    const toastId = toast.loading('Uploading profile picture...');
+    try {
+      const res = await userApi.uploadAvatar(file);
+      updateUser(res.data);
+      toast.success('Profile picture updated! 🎉', { id: toastId });
+    } catch (err) {
+      toast.error(getApiError(err, 'Failed to upload profile picture.'), { id: toastId });
+    } finally {
+      setAvatarUploading(false);
+      e.target.value = '';
+    }
+  };
   const [exportFilter, setExportFilter] = useState('this_month');
   const [customDateFrom, setCustomDateFrom] = useState('');
   const [customDateTo, setCustomDateTo] = useState('');
@@ -90,7 +114,45 @@ export default function Profile() {
         {/* Profile Settings */}
         <div className="card">
           <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
-            <div className="profile-avatar">{user?.name?.[0]?.toUpperCase()}</div>
+            <div style={{ position: 'relative' }}>
+              <div className="profile-avatar" style={{ overflow: 'hidden' }}>
+                {user?.avatar_url ? (
+                  <img src={user.avatar_url} alt={user.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                ) : (
+                  user?.name?.[0]?.toUpperCase()
+                )}
+              </div>
+              <label 
+                htmlFor="avatar-upload-input" 
+                style={{
+                  position: 'absolute',
+                  bottom: -2,
+                  right: -2,
+                  background: 'var(--accent-primary)',
+                  color: 'white',
+                  borderRadius: '50%',
+                  width: '24px',
+                  height: '24px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  boxShadow: 'var(--shadow-sm)',
+                  border: '2px solid var(--bg-card)'
+                }}
+                title="Upload Profile Picture"
+              >
+                <Upload size={12} />
+              </label>
+              <input 
+                id="avatar-upload-input"
+                type="file"
+                accept="image/*"
+                onChange={handleAvatarUpload}
+                style={{ display: 'none' }}
+                disabled={avatarUploading}
+              />
+            </div>
             <div>
               <div style={{ fontWeight: 700, fontSize: 18 }}>{user?.name}</div>
               <div style={{ color: 'var(--text-muted)', fontSize: 13 }}>{user?.email}</div>
