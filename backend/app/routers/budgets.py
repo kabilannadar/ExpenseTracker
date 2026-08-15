@@ -77,7 +77,7 @@ def update_budget(budget_id: int, payload: BudgetUpdate, db: Session = Depends(g
     budget = db.query(Budget).filter(Budget.id == budget_id, Budget.user_id == current_user.id).first()
     if not budget:
         raise HTTPException(404, "Budget not found")
-    for k, v in payload.model_dump(exclude_none=True).items():
+    for k, v in payload.model_dump(exclude_unset=True).items():
         setattr(budget, k, v)
     db.commit()
     db.refresh(budget)

@@ -35,7 +35,7 @@ def update_category(cat_id: int, payload: CategoryUpdate, db: Session = Depends(
     cat = db.query(Category).filter(Category.id == cat_id, Category.user_id == current_user.id).first()
     if not cat:
         raise HTTPException(404, "Category not found")
-    for k, v in payload.model_dump(exclude_none=True).items():
+    for k, v in payload.model_dump(exclude_unset=True).items():
         setattr(cat, k, v)
     db.commit()
     db.refresh(cat)

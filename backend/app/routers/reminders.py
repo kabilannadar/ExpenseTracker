@@ -35,7 +35,7 @@ def update_reminder(reminder_id: int, payload: ReminderUpdate, db: Session = Dep
     reminder = db.query(Reminder).filter(Reminder.id == reminder_id, Reminder.user_id == current_user.id).first()
     if not reminder:
         raise HTTPException(404, "Reminder not found")
-    for k, v in payload.model_dump(exclude_none=True).items():
+    for k, v in payload.model_dump(exclude_unset=True).items():
         setattr(reminder, k, v)
     db.commit()
     db.refresh(reminder)

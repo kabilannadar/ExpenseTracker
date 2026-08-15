@@ -39,7 +39,7 @@ def update_goal(goal_id: int, payload: GoalUpdate, db: Session = Depends(get_db)
     goal = db.query(Goal).filter(Goal.id == goal_id, Goal.user_id == current_user.id).first()
     if not goal:
         raise HTTPException(404, "Goal not found")
-    for k, v in payload.model_dump(exclude_none=True).items():
+    for k, v in payload.model_dump(exclude_unset=True).items():
         setattr(goal, k, v)
     db.commit()
     db.refresh(goal)

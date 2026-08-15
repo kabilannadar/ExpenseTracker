@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
+  color-scheme: dark;
   /* Color Palette — Dark Mode Default */
   --bg-base: #0a0a0f;
   --bg-surface: #111118;
@@ -59,6 +60,7 @@
 
 /* Light Mode */
 [data-theme="light"] {
+  color-scheme: light;
   --bg-base: #f8fafc;
   --bg-surface: #f1f5f9;
   --bg-elevated: #ffffff;
@@ -172,6 +174,36 @@ input:focus, textarea:focus, select:focus {
 
 input::placeholder, textarea::placeholder {
   color: var(--text-muted);
+}
+
+/* Date Input fixes for iOS Safari and Dark Mode */
+input[type="date"] {
+  min-height: 42px;
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Date input WebKit fields styling to prevent black-on-black text in dark mode */
+input[type="date"]::-webkit-datetime-edit,
+input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  color: var(--text-primary);
+}
+
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+  color: var(--text-muted);
+}
+
+/* Brighten fields when a value is selected */
+input[type="date"]:not(:invalid)::-webkit-datetime-edit-month-field,
+input[type="date"]:not(:invalid)::-webkit-datetime-edit-day-field,
+input[type="date"]:not(:invalid)::-webkit-datetime-edit-year-field {
+  color: var(--text-primary);
 }
 
 select option {
@@ -465,11 +497,13 @@ tbody tr:hover {
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(4px);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: flex-start;
   z-index: 1000;
   padding: 16px;
   animation: fadeIn 0.15s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .modal {
@@ -483,6 +517,7 @@ tbody tr:hover {
   overflow-y: auto;
   box-shadow: var(--shadow-lg);
   animation: fadeIn 0.2s ease;
+  margin: auto;
 }
 
 .modal-header {
@@ -1555,8 +1590,8 @@ body, #root, .sidebar, .sidebar-overlay, .modal-overlay {
   /* Make sure modal content matches mobile spacing */
   .modal {
     padding: 20px 14px !important;
-    margin: 10px;
-    max-height: 85dvh;
+    margin: 20px auto !important;
+    max-height: calc(100dvh - 40px);
   }
 }
 
@@ -1566,6 +1601,37 @@ body, #root, .sidebar, .sidebar-overlay, .modal-overlay {
   .modal .grid-3 {
     grid-template-columns: 1fr !important;
   }
+}
+
+/* Filter group & labels styling */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  width: 100%;
+}
+
+.filter-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-left: 2px;
+}
+
+/* Hide chatbot widget when modal or mobile sidebar is open to prevent overlapping */
+body:has(.modal-overlay) iframe[title="MoneyCommandAI Assistant"],
+body:has(.modal-overlay) iframe[src*="moneycommandai-assistant"],
+body:has(.modal-overlay) iframe[src*="chatbotf-production"],
+body:has(.sidebar-overlay) iframe[title="MoneyCommandAI Assistant"],
+body:has(.sidebar-overlay) iframe[src*="moneycommandai-assistant"],
+body:has(.sidebar-overlay) iframe[src*="chatbotf-production"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 

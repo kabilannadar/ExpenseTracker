@@ -111,7 +111,7 @@ def update_income(income_id: int, payload: IncomeUpdate, db: Session = Depends(g
     if not inc:
         raise HTTPException(404, "Income record not found")
         
-    dump = payload.model_dump(exclude_none=True)
+    dump = payload.model_dump(exclude_unset=True)
     
     if "category_id" in dump or "source" in dump:
         cat_id, source_enum = resolve_income_category_and_source(

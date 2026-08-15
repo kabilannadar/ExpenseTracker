@@ -87,31 +87,49 @@ export default function Expenses() {
       {/* Filters */}
       <div className="card" style={{ padding: '16px 20px' }}>
         <div className="filter-grid">
-          <div className="input-with-icon" style={{ position: 'relative' }}>
-            <Search size={14} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', pointerEvents: 'none' }} />
-            <input style={{ paddingLeft: 36 }} placeholder="Search..." value={filters.q} onChange={e => setFilters(p => ({ ...p, q: e.target.value }))} />
+          <div className="filter-group">
+            <span className="filter-label">Search</span>
+            <div className="input-with-icon" style={{ position: 'relative' }}>
+              <Search size={14} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', pointerEvents: 'none' }} />
+              <input style={{ paddingLeft: 36 }} placeholder="Search..." value={filters.q} onChange={e => setFilters(p => ({ ...p, q: e.target.value }))} />
+            </div>
           </div>
-          <select value={filters.category_id} onChange={e => setFilters(p => ({ ...p, category_id: e.target.value }))}>
-            <option value="">All Categories</option>
-            {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
-          </select>
-          <select value={filters.payment_method} onChange={e => setFilters(p => ({ ...p, payment_method: e.target.value }))}>
-            <option value="">All Payments</option>
-            {PAYMENT_METHODS.map(m => <option key={m} value={m}>{m.toUpperCase()}</option>)}
-          </select>
-          <input type="date" value={filters.date_from} onChange={e => setFilters(p => ({ ...p, date_from: e.target.value }))} />
-          <input type="date" value={filters.date_to} onChange={e => setFilters(p => ({ ...p, date_to: e.target.value }))} />
-          <div style={{ position: 'relative' }}>
-            <ArrowUpDown size={14} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', pointerEvents: 'none' }} />
-            <select style={{ paddingLeft: 34 }} value={sort} onChange={e => setSort(e.target.value)}>
-              <option value="date_desc">Newest First</option>
-              <option value="date_asc">Oldest First</option>
-              <option value="amount_desc">Highest Amount</option>
-              <option value="amount_asc">Lowest Amount</option>
+          <div className="filter-group">
+            <span className="filter-label">Category</span>
+            <select value={filters.category_id} onChange={e => setFilters(p => ({ ...p, category_id: e.target.value }))}>
+              <option value="">All Categories</option>
+              {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
             </select>
           </div>
+          <div className="filter-group">
+            <span className="filter-label">Payment Method</span>
+            <select value={filters.payment_method} onChange={e => setFilters(p => ({ ...p, payment_method: e.target.value }))}>
+              <option value="">All Payments</option>
+              {PAYMENT_METHODS.map(m => <option key={m} value={m}>{m.toUpperCase()}</option>)}
+            </select>
+          </div>
+          <div className="filter-group">
+            <span className="filter-label">From Date</span>
+            <input type="date" value={filters.date_from} onChange={e => setFilters(p => ({ ...p, date_from: e.target.value }))} />
+          </div>
+          <div className="filter-group">
+            <span className="filter-label">To Date</span>
+            <input type="date" value={filters.date_to} onChange={e => setFilters(p => ({ ...p, date_to: e.target.value }))} />
+          </div>
+          <div className="filter-group">
+            <span className="filter-label">Sort By</span>
+            <div style={{ position: 'relative' }}>
+              <ArrowUpDown size={14} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', pointerEvents: 'none' }} />
+              <select style={{ paddingLeft: 34 }} value={sort} onChange={e => setSort(e.target.value)}>
+                <option value="date_desc">Newest First</option>
+                <option value="date_asc">Oldest First</option>
+                <option value="amount_desc">Highest Amount</option>
+                <option value="amount_asc">Lowest Amount</option>
+              </select>
+            </div>
+          </div>
           {(Object.values(filters).some(Boolean) || sort !== 'date_desc') && (
-            <button className="btn-secondary" onClick={() => { setFilters({ q: '', category_id: '', payment_method: '', date_from: '', date_to: '' }); setSort('date_desc'); }}>
+            <button className="btn-secondary" style={{ alignSelf: 'end', height: 42, marginBottom: 2 }} onClick={() => { setFilters({ q: '', category_id: '', payment_method: '', date_from: '', date_to: '' }); setSort('date_desc'); }}>
               <X size={14} /> Clear
             </button>
           )}

@@ -5,7 +5,7 @@
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100dvh;
   position: sticky;
   top: 0;
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -220,7 +220,7 @@
     z-index: 1000;
     background: var(--bg-card);
     transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 100vh;
+    height: 100dvh;
     box-shadow: var(--shadow-lg);
   }
 

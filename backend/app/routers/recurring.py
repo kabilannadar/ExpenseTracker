@@ -35,7 +35,7 @@ def update_recurring(txn_id: int, payload: RecurringUpdate, db: Session = Depend
     txn = db.query(RecurringTransaction).filter(RecurringTransaction.id == txn_id, RecurringTransaction.user_id == current_user.id).first()
     if not txn:
         raise HTTPException(404, "Recurring transaction not found")
-    for k, v in payload.model_dump(exclude_none=True).items():
+    for k, v in payload.model_dump(exclude_unset=True).items():
         setattr(txn, k, v)
     db.commit()
     db.refresh(txn)

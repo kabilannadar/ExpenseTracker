@@ -35,7 +35,7 @@ def update_saving(saving_id: int, payload: SavingUpdate, db: Session = Depends(g
     saving = db.query(Saving).filter(Saving.id == saving_id, Saving.user_id == current_user.id).first()
     if not saving:
         raise HTTPException(404, "Savings record not found")
-    for k, v in payload.model_dump(exclude_none=True).items():
+    for k, v in payload.model_dump(exclude_unset=True).items():
         setattr(saving, k, v)
     db.commit()
     db.refresh(saving)

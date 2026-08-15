@@ -63,7 +63,7 @@ def update_expense(expense_id: int, payload: ExpenseUpdate, db: Session = Depend
     expense = db.query(Expense).filter(Expense.id == expense_id, Expense.user_id == current_user.id, Expense.is_deleted == False).first()
     if not expense:
         raise HTTPException(404, "Expense not found")
-    for k, v in payload.model_dump(exclude_none=True).items():
+    for k, v in payload.model_dump(exclude_unset=True).items():
         setattr(expense, k, v)
     db.commit()
     db.refresh(expense)

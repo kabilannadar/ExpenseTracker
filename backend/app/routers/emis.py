@@ -35,7 +35,7 @@ def update_emi(emi_id: int, payload: EMIUpdate, db: Session = Depends(get_db), c
     emi = db.query(EMI).filter(EMI.id == emi_id, EMI.user_id == current_user.id).first()
     if not emi:
         raise HTTPException(404, "EMI not found")
-    for k, v in payload.model_dump(exclude_none=True).items():
+    for k, v in payload.model_dump(exclude_unset=True).items():
         setattr(emi, k, v)
     db.commit()
     db.refresh(emi)

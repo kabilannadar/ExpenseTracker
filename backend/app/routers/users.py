@@ -23,11 +23,11 @@ def get_me(current_user: User = Depends(get_current_user)):
 
 @router.put("/me", response_model=UserOut)
 def update_me(payload: UserUpdate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
-    for k, v in payload.model_dump(exclude_none=True).items():
+    for k, v in payload.model_dump(exclude_unset=True).items():
         setattr(current_user, k, v)
     db.commit()
     db.refresh(current_user)
-    updated_fields = ", ".join(payload.model_dump(exclude_none=True).keys())
+    updated_fields = ", ".join(payload.model_dump(exclude_unset=True).keys())
     log_action(db, current_user.id, "edited", current_user.id, f"Updated profile/settings: {updated_fields}")
     db.commit()
     return current_user

@@ -35,7 +35,7 @@ def update_subscription(sub_id: int, payload: SubscriptionUpdate, db: Session = 
     sub = db.query(Subscription).filter(Subscription.id == sub_id, Subscription.user_id == current_user.id).first()
     if not sub:
         raise HTTPException(404, "Subscription not found")
-    for k, v in payload.model_dump(exclude_none=True).items():
+    for k, v in payload.model_dump(exclude_unset=True).items():
         setattr(sub, k, v)
     db.commit()
     db.refresh(sub)

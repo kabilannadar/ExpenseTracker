@@ -38,7 +38,7 @@ def update_debt(debt_id: int, payload: DebtUpdate, db: Session = Depends(get_db)
     debt = db.query(Debt).filter(Debt.id == debt_id, Debt.user_id == current_user.id).first()
     if not debt:
         raise HTTPException(404, "Debt record not found")
-    for k, v in payload.model_dump(exclude_none=True).items():
+    for k, v in payload.model_dump(exclude_unset=True).items():
         setattr(debt, k, v)
     
     # Auto-adjust is_paid status based on remaining amount
