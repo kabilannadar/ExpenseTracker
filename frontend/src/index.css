@@ -1634,4 +1634,13 @@ body:has(.sidebar-overlay) iframe[src*="chatbotf-production"] {
   pointer-events: none !important;
 }
 
+/* Fix chatbot widget iframe background and color-scheme mismatch (prevents white layer on dark theme) */
+iframe[title="MoneyCommandAI Assistant"],
+iframe[src*="moneycommandai-assistant"],
+iframe[src*="chatbotf-production"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  color-scheme: normal !important;
+}
+
 
