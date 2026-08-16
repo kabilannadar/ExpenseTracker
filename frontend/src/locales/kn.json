@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+    "expenses": "ವೆಚ್ಚಗಳು",
+    "income": "ಆದಾಯ",
+    "loans": "ಸಾಲಗಳು",
+    "debt": "ಸಾಲ",
+    "categories": "ವರ್ಗಗಳು",
+    "budget": "ಬಜೆಟ್",
+    "savings": "ಉಳಿತಾಯ",
+    "goals": "ಗುರಿಗಳು",
+    "reminders": "ಜ್ಞಾಪನೆಗಳು",
+    "recurring": "ಮರುಕಳಿಸುವ",
+    "subscriptions": "ಚಂದಾದಾರಿಕೆಗಳು",
+    "emis": "EMI ಗಳು",
+    "telegram": "ಖರ್ಚು ಟ್ರಾಕರ್ ಬಾಟ್",
+    "audit_logs": "ಆಡಿಟ್ ದಾಖಲೆಗಳು",
+    "profile": "ಪ್ರೊಫೈಲ್",
+    "help": "ಸಹಾಯ ಮತ್ತು FAQ",
+    "support": "ಬೆಂಬಲ ಮತ್ತು ಪ್ರತಿಕ್ರಿಯೆ",
+    "updates": "ನವೀಕರಣಗಳು"
+  },
+  "common": {
+    "logout": "ಲಾಗ್ಔಟ್",
+    "install_app": "ಅಪ್ಲಿಕೇಶನ್ ಸ್ಥಾಪಿಸಿ",
+    "created_by": "ಇವರಿಂದ ರಚಿಸಲಾಗಿದೆ",
+    "all_rights_reserved": "ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",
+    "loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ...",
+    "welcome": "ExpenseTracker ಗೆ ಸುಸ್ವಾಗತ!",
+    "save": "ಬದಲಾವಣೆಗಳನ್ನು ಉಳಿಸಿ"
+  },
+  "headers": {
+    "dashboard_title": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+    "dashboard_subtitle": "ಹಣಕಾಸಿನ ಅವಲೋಕನ",
+    "expenses_title": "ವೆಚ್ಚಗಳು",
+    "expenses_subtitle": "ನಿಮ್ಮ ಖರ್ಚುಗಳನ್ನು ನಿರ್ವಹಿಸಿ",
+    "income_title": "ಆದಾಯ",
+    "income_subtitle": "ನಿಮ್ಮ ಗಳಿಕೆಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ",
+    "profile_title": "ಪ್ರೊಫೈಲ್",
+    "profile_subtitle": "ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ"
+  }
+}

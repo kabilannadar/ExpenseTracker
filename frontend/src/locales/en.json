@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "expenses": "Expenses",
+    "income": "Income",
+    "loans": "Loans",
+    "debt": "Debt",
+    "categories": "Categories",
+    "budget": "Budget",
+    "savings": "Savings",
+    "goals": "Goals",
+    "reminders": "Reminders",
+    "recurring": "Recurring",
+    "subscriptions": "Subscriptions",
+    "emis": "EMIs",
+    "telegram": "ExpenseTracker Bot",
+    "audit_logs": "Audit Logs",
+    "profile": "Profile",
+    "help": "Help & FAQ",
+    "support": "Support & Feedback",
+    "updates": "Updates"
+  },
+  "common": {
+    "logout": "Logout",
+    "install_app": "Install App",
+    "created_by": "Created by",
+    "all_rights_reserved": "All rights reserved.",
+    "loading": "Loading...",
+    "welcome": "Welcome to ExpenseTracker!",
+    "save": "Save Changes"
+  },
+  "headers": {
+    "dashboard_title": "Dashboard",
+    "dashboard_subtitle": "Financial overview",
+    "expenses_title": "Expenses",
+    "expenses_subtitle": "Manage your expenditures",
+    "income_title": "Income",
+    "income_subtitle": "Track your earnings",
+    "profile_title": "Profile",
+    "profile_subtitle": "Manage your account settings"
+  }
+}

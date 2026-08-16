@@ -5,7 +5,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { useTranslation } from 'react-i18next';
 import Sidebar from './components/Sidebar';
+import LanguageSelector from './components/LanguageSelector';
 import { Menu, Megaphone } from 'lucide-react';
 const bannerLogo = 'https://ik.imagekit.io/kabi10/tr:q-auto,f-auto/ExpenseTracker_Banner_Transparent.png';
 
@@ -61,6 +63,44 @@ function ProtectedLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [updatesOpen, setUpdatesOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
+  const { t, i18n } = useTranslation();
+
+  // Dynamic SEO meta tags and doc lang update on language toggle
+  useEffect(() => {
+    const activeLang = i18n.language || 'en';
+    document.documentElement.lang = activeLang;
+
+    const localizedTitles = {
+      en: "ExpenseTracker - Personal Finance & Budget Manager",
+      hi: "ExpenseTracker - व्यक्तिगत वित्त और बजट प्रबंधक",
+      ta: "ExpenseTracker - தனிப்பட்ட நிதி மற்றும் வரவுசெலவு மேலாளர்",
+      te: "ExpenseTracker - వ్యక్తిగత ఫైనాన్స్ & బడ్జెట్ మేనేజర్",
+      kn: "ExpenseTracker - ವೈಯಕ್ತಿಕ ಹಣಕಾಸು ಮತ್ತು ಬಜೆಟ್ ವ್ಯವಸ್ಥಾಪಕ",
+      ml: "ExpenseTracker - വ്യക്തിഗത ധനകാര്യവും ബജറ്റ് മാനേജരും",
+      mr: "ExpenseTracker - वैयक्तिक वित्त आणि बजेट व्यवस्थापक",
+      gu: "ExpenseTracker - વ્યક્તિગત નાણાં અને બજેટ મેનેજર",
+      bn: "ExpenseTracker - ব্যক্তিগত অর্থ ও বাজেট ম্যানেজার"
+    };
+
+    const localizedDescriptions = {
+      en: "Track expenses, income, budgets, goals, EMIs, and reminders — all in one place.",
+      hi: "खर्च, आय, बजट, लक्ष्य, ईएमआई और अनुस्मारक ट्रैक करें - सब कुछ एक ही स्थान पर।",
+      ta: "செலவுகள், வருமானம், வரவுசெலவுத் திட்டங்கள், இலக்குகள், ஈஎம்ஐக்கள் மற்றும் நினைவூட்டல்களைக் கண்காணிக்கவும் - அனைத்தும் ஒரே இடத்தில்.",
+      te: "ఖర్చులు, ఆదాయం, బడ్జెట్లు, లక్ష్యాలు, EMIలు మరియు రిమైండర్లను ట్రాక్ చేయండి - అన్నీ ఒకే చోట.",
+      kn: "ವೆಚ್ಚಗಳು, ಆದಾಯ, ಬಜೆಟ್ಗಳು, ಗುರಿಗಳು, ಇಎಂಐಗಳು ಮತ್ತು ಜ್ಞಾಪನೆಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ - ಎಲ್ಲವೂ ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ.",
+      ml: "ചെലവുകൾ, വരുമാനം, ബജറ്റുകൾ, ലക്ഷ്യങ്ങൾ, ഇഎംഐകൾ, ഓർമ്മപ്പെടുത്തലുകൾ എന്നിവ ട്രാക്ക് ചെയ്യുക - എല്ലാം ഒരിടത്ത്.",
+      mr: "खर्च, उत्पन्न, बजेट, ध्येये, ईएमआय आणि स्मरणपत्रे ट्रॅक करा - सर्व एकाच ठिकाणी.",
+      gu: "ખર્ચ, આવક, બજેટ, લક્ષ્યો, EMI અને રીમાઇન્ડર્સ ટ્રૅક કરો - બધું એક જ જગ્યાએ.",
+      bn: "খরચ, আয়, বাজেট, লক্ষ্য, ইএমআই এবং অনুস্মারক ট্র্যাক করুন - সব এক জায়গায়।"
+    };
+
+    document.title = localizedTitles[activeLang] || localizedTitles.en;
+    
+    const descMeta = document.querySelector('meta[name="description"]');
+    if (descMeta) {
+      descMeta.setAttribute('content', localizedDescriptions[activeLang] || localizedDescriptions.en);
+    }
+  }, [i18n.language]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -236,6 +276,9 @@ function ProtectedLayout() {
 
           {/* Desktop Right Utilities Section */}
           <div className="desktop-only header-right-section" style={{ display: 'flex', alignItems: 'center', gap: '14px', marginLeft: 'auto', zIndex: 10 }}>
+            <LanguageSelector />
+            <div className="header-divider" style={{ width: '1px', height: '16px', background: 'var(--border)' }} />
+            
             {/* Live Date & Time Clock */}
             <div className="header-clock">
               <span className="clock-date">{format(currentTime, 'EEEE, d MMMM yyyy')}</span>
@@ -295,8 +338,8 @@ function ProtectedLayout() {
 
           <footer className="app-footer">
             <div className="app-footer-content">
-              <span>© {new Date().getFullYear()} ExpenseTracker. All rights reserved.</span>
-              <span>Created by <a href="https://portfolio.r-r-kabilan0435.workers.dev/" target="_blank" rel="noopener noreferrer" className="app-footer-author">Kabilan Rethinaswamy</a></span>
+              <span>© {new Date().getFullYear()} ExpenseTracker. {t('common.all_rights_reserved')}</span>
+              <span>{t('common.created_by')} <a href="https://portfolio.r-r-kabilan0435.workers.dev/" target="_blank" rel="noopener noreferrer" className="app-footer-author">Kabilan Rethinaswamy</a></span>
             </div>
           </footer>
         </div>

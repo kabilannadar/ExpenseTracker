@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "dashboard": "ഡാഷ്ബോർഡ്",
+    "expenses": "ചെലവുകൾ",
+    "income": "വരുമാനം",
+    "loans": "വായ്പകൾ",
+    "debt": "കടം",
+    "categories": "വിഭാഗങ്ങൾ",
+    "budget": "ബജറ്റ്",
+    "savings": "സേവിംഗ്സ്",
+    "goals": "ലക്ഷ്യങ്ങൾ",
+    "reminders": "ഓർമ്മപ്പെടുത്തലുകൾ",
+    "recurring": "ആവർത്തിക്കുന്നു",
+    "subscriptions": "സബ്സ്ക്രിപ്ഷനുകൾ",
+    "emis": "ഇഎംഐകൾ",
+    "telegram": "എക്സ്പെൻസ്ട്രാക്കർ ബോട്ട്",
+    "audit_logs": "ഓഡിറ്റ് ലോഗുകൾ",
+    "profile": "പ്രൊഫൈൽ",
+    "help": "സഹായവും പതിവുചോദ്യങ്ങളും",
+    "support": "പിന്തുണയും പ്രതികരണവും",
+    "updates": "അപ്ഡേറ്റുകൾ"
+  },
+  "common": {
+    "logout": "പുറത്തുകടക്കുക",
+    "install_app": "ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്യുക",
+    "created_by": "സൃഷ്ടിച്ചത്",
+    "all_rights_reserved": "എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.",
+    "loading": "ലോഡ് ചെയ്യുന്നു...",
+    "welcome": "ExpenseTracker-ലേക്ക് സ്വാഗതം!",
+    "save": "മാറ്റങ്ങൾ സംരക്ഷിക്കുക"
+  },
+  "headers": {
+    "dashboard_title": "ഡാഷ്ബോർഡ്",
+    "dashboard_subtitle": "സാമ്പത്തിക അവലോകനം",
+    "expenses_title": "ചെലവുകൾ",
+    "expenses_subtitle": "നിങ്ങളുടെ ചെലവുകൾ നിയന്ത്രിക്കുക",
+    "income_title": "വരുമാനം",
+    "income_subtitle": "നിങ്ങളുടെ വരുമാനം ട്രാക്ക് ചെയ്യുക",
+    "profile_title": "പ്രൊഫൈൽ",
+    "profile_subtitle": "നിങ്ങളുടെ അക്കൗണ്ട് ക്രമീകരണങ്ങൾ നിയന്ത്രിക്കുക"
+  }
+}

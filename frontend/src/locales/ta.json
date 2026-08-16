@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "dashboard": "டாஷ்போர்டு",
+    "expenses": "செலவுகள்",
+    "income": "வருமானம்",
+    "loans": "கடன்கள்",
+    "debt": "கடன்",
+    "categories": "வகைகள்",
+    "budget": "பட்ஜெட்",
+    "savings": "சேமிப்பு",
+    "goals": "இலக்குகள்",
+    "reminders": "நினைவூட்டல்கள்",
+    "recurring": "மீண்டும் மீண்டும்",
+    "subscriptions": "சந்தாக்கள்",
+    "emis": "EMIகள்",
+    "telegram": "எக்ஸ்பென்ஸ் டிராக்கர் பாட்",
+    "audit_logs": "தணிக்கை பதிவுகள்",
+    "profile": "சுயவிவரம்",
+    "help": "உதவி & அடிக்கடி கேட்கப்படும் கேள்விகள்",
+    "support": "ஆதரவு & கருத்து",
+    "updates": "புதுப்பிப்புகள்"
+  },
+  "common": {
+    "logout": "வெளியேறு",
+    "install_app": "பயன்பாட்டை நிறுவவும்",
+    "created_by": "உருவாக்கியது",
+    "all_rights_reserved": "அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+    "loading": "ஏற்றுகிறது...",
+    "welcome": "ExpenseTrackerக்கு வரவேற்கிறோம்!",
+    "save": "மாற்றங்களைச் சேமிக்கவும்"
+  },
+  "headers": {
+    "dashboard_title": "டாஷ்போர்டு",
+    "dashboard_subtitle": "நிதி கண்ணோட்டம்",
+    "expenses_title": "செலவுகள்",
+    "expenses_subtitle": "உங்கள் செலவினங்களை நிர்வகிக்கவும்",
+    "income_title": "வருமானம்",
+    "income_subtitle": "உங்கள் வருவாயைக் கண்காணிக்கவும்",
+    "profile_title": "சுயவிவரம்",
+    "profile_subtitle": "உங்கள் கணக்கு அமைப்புகளை நிர்வகிக்கவும்"
+  }
+}

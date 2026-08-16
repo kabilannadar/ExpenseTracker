@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "dashboard": "డాష్‌బోర్డ్",
+    "expenses": "ఖర్చులు",
+    "income": "ఆదాయం",
+    "loans": "రుణాలు",
+    "debt": "అప్పు",
+    "categories": "వర్గాలు",
+    "budget": "బడ్జెట్",
+    "savings": "పొదుపు",
+    "goals": "లక్ష్యాలు",
+    "reminders": "రిమైండర్‌లు",
+    "recurring": "పునరావృతం",
+    "subscriptions": "చందాలు",
+    "emis": "EMIలు",
+    "telegram": "ExpenseTracker బాట్",
+    "audit_logs": "ఆడిట్ లాగ్‌లు",
+    "profile": "ప్రొఫైల్",
+    "help": "సహాయం & తరచుగా అడిగే ప్రశ్నలు",
+    "support": "మద్దతు & అభిప్రాయం",
+    "updates": "నవీకరణలు"
+  },
+  "common": {
+    "logout": "లాగ్అవుట్",
+    "install_app": "యాప్‌ను ఇన్‌స్టాల్ చేయండి",
+    "created_by": "ద్వారా సృష్టించబడింది",
+    "all_rights_reserved": "అన్ని హక్కులు ప్రత్యేకించబడ్డాయి.",
+    "loading": "లోడ్ అవుతోంది...",
+    "welcome": "ExpenseTrackerకి స్వాగతం!",
+    "save": "మార్పులను సేవ్ చేయండి"
+  },
+  "headers": {
+    "dashboard_title": "డాష్‌బోర్డ్",
+    "dashboard_subtitle": "ఆర్థిక అవలోకనం",
+    "expenses_title": "ఖర్చులు",
+    "expenses_subtitle": "మీ ఖర్చులను నిర్వహించండి",
+    "income_title": "ఆదాయం",
+    "income_subtitle": "మీ ఆదాయాలను ట్రాక్ చేయండి",
+    "profile_title": "ప్రొఫైల్",
+    "profile_subtitle": "మీ ఖాతా సెట్టింగ్‌లను నిర్వహించండి"
+  }
+}

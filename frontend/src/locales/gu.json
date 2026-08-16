@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "dashboard": "ડેશબોર્ડ",
+    "expenses": "ખર્ચ",
+    "income": "આવક",
+    "loans": "લોન",
+    "debt": "દેવું",
+    "categories": "શ્રેણીઓ",
+    "budget": "બજેટ",
+    "savings": "બચત",
+    "goals": "ગોલ",
+    "reminders": "રીમાઇન્ડર્સ",
+    "recurring": "રિકરિંગ",
+    "subscriptions": "સબ્સ્ક્રિપ્શન્સ",
+    "emis": "EMIs",
+    "telegram": "એક્સપેન્સટ્રેકર બોટ",
+    "audit_logs": "ઓડિટ લોગ્સ",
+    "profile": "પ્રોફાઇલ",
+    "help": "મદદ અને FAQ",
+    "support": "આધાર અને પ્રતિસાદ",
+    "updates": "અપડેટ્સ"
+  },
+  "common": {
+    "logout": "લોગઆઉટ",
+    "install_app": "એપ ઇન્સ્ટોલ કરો",
+    "created_by": "દ્વારા બનાવવામાં આવેલ છે",
+    "all_rights_reserved": "સર્વાધિકાર આરક્ષિત.",
+    "loading": "લોડ કરી રહ્યું છે...",
+    "welcome": "એક્સપેન્સટ્રેકર પર આપનું સ્વાગત છે!",
+    "save": "ફેરફારો સાચવો"
+  },
+  "headers": {
+    "dashboard_title": "ડેશબોર્ડ",
+    "dashboard_subtitle": "નાણાકીય ઝાંખી",
+    "expenses_title": "ખર્ચ",
+    "expenses_subtitle": "તમારા ખર્ચાઓનું સંચાલન કરો",
+    "income_title": "આવક",
+    "income_subtitle": "તમારી કમાણી ટ્રૅક કરો",
+    "profile_title": "પ્રોફાઇલ",
+    "profile_subtitle": "તમારી એકાઉન્ટ સેટિંગ્સ મેનેજ કરો"
+  }
+}

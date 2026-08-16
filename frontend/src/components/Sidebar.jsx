@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { usePWA } from '../context/PWAContext';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from './LanguageSelector';
 import {
   LayoutDashboard, Receipt, Tag, TrendingUp, Wallet, PiggyBank,
   Bell, RefreshCw, CreditCard, Target, ClipboardList,
@@ -89,6 +91,7 @@ const navItems = [
 export default function Sidebar({ isOpen, onClose }) {
   const { user, logout } = useAuth();
   const { isInstallable, installApp } = usePWA();
+  const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState(() => {
     if (typeof window === 'undefined') return false;
     return window.innerWidth > 768 && window.innerWidth <= 1024;
@@ -128,7 +131,7 @@ export default function Sidebar({ isOpen, onClose }) {
             onClick={onClose}
           >
             <Icon size={18} />
-            {!collapsed && <span>{label}</span>}
+            {!collapsed && <span>{t(`nav.${to.replace('/', '').replace('-', '_') || 'dashboard'}`)}</span>}
           </NavLink>
         ))}
       </nav>
@@ -145,6 +148,13 @@ export default function Sidebar({ isOpen, onClose }) {
             <Download size={16} className="install-app-icon" />
             {!collapsed && <span>Install App</span>}
           </button>
+        </div>
+      )}
+
+      {/* Language Selector */}
+      {!collapsed && (
+        <div style={{ padding: '12px 16px', display: 'flex', justifyContent: 'center', borderTop: '1px solid var(--border)', background: 'rgba(0,0,0,0.02)' }}>
+          <LanguageSelector />
         </div>
       )}
 

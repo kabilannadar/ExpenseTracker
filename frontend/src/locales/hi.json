@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "dashboard": "डैशबोर्ड",
+    "expenses": "खर्च",
+    "income": "आय",
+    "loans": "ऋण",
+    "debt": "ऋृण",
+    "categories": "श्रेणियाँ",
+    "budget": "बजट",
+    "savings": "बचत",
+    "goals": "लक्ष्य",
+    "reminders": "अनुस्मारक",
+    "recurring": "पुनरावर्ती",
+    "subscriptions": "सदस्यता",
+    "emis": "ईएमआई",
+    "telegram": "एक्सपेंसट्रैकर बॉट",
+    "audit_logs": "ऑडिट लॉग",
+    "profile": "प्रोफ़ाइल",
+    "help": "सहायता एवं अक्सर पूछे जाने वाले प्रश्न",
+    "support": "समर्थन एवं प्रतिक्रिया",
+    "updates": "अपडेट"
+  },
+  "common": {
+    "logout": "लॉग आउट",
+    "install_app": "एप्लिकेशन इंस्टॉल करो",
+    "created_by": "के द्वारा बनाई गई",
+    "all_rights_reserved": "सर्वाधिकार सुरक्षित।",
+    "loading": "लोड हो रहा है...",
+    "welcome": "एक्सपेंसट्रैकर में आपका स्वागत है!",
+    "save": "परिवर्तनों को सुरक्षित करें"
+  },
+  "headers": {
+    "dashboard_title": "डैशबोर्ड",
+    "dashboard_subtitle": "वित्तीय सिंहावलोकन",
+    "expenses_title": "खर्च",
+    "expenses_subtitle": "अपने खर्चों का प्रबंधन करें",
+    "income_title": "आय",
+    "income_subtitle": "अपनी कमाई पर नज़र रखें",
+    "profile_title": "प्रोफ़ाइल",
+    "profile_subtitle": "अपनी खाता सेटिंग प्रबंधित करें"
+  }
+}

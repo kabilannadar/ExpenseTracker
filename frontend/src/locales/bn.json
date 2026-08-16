@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "dashboard": "ড্যাশবোর্ড",
+    "expenses": "খরচ",
+    "income": "আয়",
+    "loans": "ঋণ",
+    "debt": "ঋণ",
+    "categories": "ক্যাটাগরি",
+    "budget": "বাজেট",
+    "savings": "সঞ্চয়",
+    "goals": "গোল",
+    "reminders": "অনুস্মারক",
+    "recurring": "পুনরাবৃত্ত",
+    "subscriptions": "সদস্যতা",
+    "emis": "ইএমআই",
+    "telegram": "ExpenseTracker বট",
+    "audit_logs": "অডিট লগ",
+    "profile": "প্রোফাইল",
+    "help": "সাহায্য এবং FAQ",
+    "support": "সমর্থন এবং প্রতিক্রিয়া",
+    "updates": "আপডেট"
+  },
+  "common": {
+    "logout": "লগআউট",
+    "install_app": "অ্যাপ ইনস্টল করুন",
+    "created_by": "দ্বারা নির্মিত",
+    "all_rights_reserved": "সর্বস্বত্ব সংরক্ষিত",
+    "loading": "লোড হচ্ছে...",
+    "welcome": "ExpenseTracker এ স্বাগতম!",
+    "save": "পরিবর্তনগুলি সংরক্ষণ করুন"
+  },
+  "headers": {
+    "dashboard_title": "ড্যাশবোর্ড",
+    "dashboard_subtitle": "আর্থিক ওভারভিউ",
+    "expenses_title": "খরচ",
+    "expenses_subtitle": "আপনার খরচ পরিচালনা করুন",
+    "income_title": "আয়",
+    "income_subtitle": "আপনার উপার্জন ট্র্যাক",
+    "profile_title": "প্রোফাইল",
+    "profile_subtitle": "আপনার অ্যাকাউন্ট সেটিংস পরিচালনা করুন"
+  }
+}

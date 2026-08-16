@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "dashboard": "डॅशबोर्ड",
+    "expenses": "खर्च",
+    "income": "उत्पन्न",
+    "loans": "कर्ज",
+    "debt": "कर्ज",
+    "categories": "श्रेण्या",
+    "budget": "बजेट",
+    "savings": "बचत",
+    "goals": "गोल",
+    "reminders": "स्मरणपत्रे",
+    "recurring": "आवर्ती",
+    "subscriptions": "सदस्यता",
+    "emis": "ईएमआय",
+    "telegram": "ExpenseTracker बॉट",
+    "audit_logs": "ऑडिट नोंदी",
+    "profile": "प्रोफाइल",
+    "help": "मदत आणि वारंवार विचारले जाणारे प्रश्न",
+    "support": "समर्थन आणि अभिप्राय",
+    "updates": "अपडेट्स"
+  },
+  "common": {
+    "logout": "लॉगआउट करा",
+    "install_app": "ॲप इंस्टॉल करा",
+    "created_by": "यांनी तयार केले",
+    "all_rights_reserved": "सर्व हक्क राखीव.",
+    "loading": "लोड करत आहे...",
+    "welcome": "ExpenseTracker मध्ये आपले स्वागत आहे!",
+    "save": "बदल जतन करा"
+  },
+  "headers": {
+    "dashboard_title": "डॅशबोर्ड",
+    "dashboard_subtitle": "आर्थिक विहंगावलोकन",
+    "expenses_title": "खर्च",
+    "expenses_subtitle": "तुमच्या खर्चाचे व्यवस्थापन करा",
+    "income_title": "उत्पन्न",
+    "income_subtitle": "तुमच्या कमाईचा मागोवा घ्या",
+    "profile_title": "प्रोफाइल",
+    "profile_subtitle": "तुमची खाते सेटिंग्ज व्यवस्थापित करा"
+  }
+}
