@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 import { emisApi, debtsApi, getApiError } from '../api';
 import Modal from '../components/Modal';
 import toast from 'react-hot-toast';
@@ -10,6 +11,7 @@ const fmt = (n) => `₹${Number(n || 0).toLocaleString('en-IN', { maximumFractio
 const fmtDecimal = (n) => `₹${Number(n || 0).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
 export default function Loans() {
+  const { t } = useTranslation();
   const qc = useQueryClient();
 
   // Queries
@@ -397,7 +399,7 @@ export default function Loans() {
             <div style={{ color: 'var(--text-muted)', padding: '20px 0', textAlign: 'center' }}>Loading loans...</div>
           ) : emis.length === 0 ? (
             <div style={{ color: 'var(--text-muted)', padding: '40px 0', textAlign: 'center' }}>
-              No active loans being tracked. Use the calculator on the left and click <strong>"Save to Track"</strong> to list them here.
+              {t('No active loans being tracked. Use the calculator on the left and click')} <strong>"{t('Save to Track')}"</strong> {t('to list them here.')}
             </div>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>

@@ -353,7 +353,8 @@ body.driver-active .sidebar .sidebar-install-wrapper:has(.install-app-btn.driver
 }
 
 /* ── Username Marquee Scrolling Animation ── */
-.user-name.marquee-active {
+.user-name.marquee-active,
+.marquee-active {
   animation: marquee-scroll 9s linear infinite;
 }
 

@@ -11,7 +11,7 @@ import {
 import { useState, useEffect, useRef } from 'react';
 import './Sidebar.css';
 
-function MarqueeText({ text }) {
+function MarqueeText({ text, className = '' }) {
   const containerRef = useRef(null);
   const textRef = useRef(null);
   const [isMarquee, setIsMarquee] = useState(false);
@@ -51,7 +51,7 @@ function MarqueeText({ text }) {
     >
       <span 
         ref={textRef} 
-        className={`user-name ${isMarquee ? 'marquee-active' : ''}`}
+        className={`${className} ${isMarquee ? 'marquee-active' : ''}`}
         style={{ 
           display: 'inline-block', 
           whiteSpace: 'nowrap',
@@ -130,8 +130,12 @@ export default function Sidebar({ isOpen, onClose }) {
             title={collapsed ? label : undefined}
             onClick={onClose}
           >
-            <Icon size={18} />
-            {!collapsed && <span>{t(`nav.${to.replace('/', '').replace('-', '_') || 'dashboard'}`)}</span>}
+            <Icon size={18} style={{ flexShrink: 0 }} />
+            {!collapsed && (
+              <div style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center' }}>
+                <MarqueeText text={t(`nav.${to.replace('/', '').replace('-', '_') || 'dashboard'}`)} />
+              </div>
+            )}
           </NavLink>
         ))}
       </nav>
@@ -176,7 +180,7 @@ export default function Sidebar({ isOpen, onClose }) {
               )}
             </div>
             <div style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center', height: '32px' }}>
-              <MarqueeText text={user.name} />
+              <MarqueeText text={user.name} className="user-name" />
             </div>
           </div>
         )}

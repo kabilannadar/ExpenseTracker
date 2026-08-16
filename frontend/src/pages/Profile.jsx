@@ -4,6 +4,7 @@ import { userApi, exportApi, expensesApi, getApiError } from '../api';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 import { User, Moon, Sun, Download, Save, Upload, RefreshCw } from 'lucide-react';
+import LanguageSelector from '../components/LanguageSelector';
 import './Profile.css';
 
 const TIMEZONES = ['Asia/Kolkata', 'UTC', 'America/New_York', 'America/Chicago', 'America/Los_Angeles', 'Europe/London', 'Europe/Paris', 'Asia/Tokyo', 'Australia/Sydney'];
@@ -204,6 +205,10 @@ export default function Profile() {
                   <Moon size={16} /> Dark
                 </button>
               </div>
+            </div>
+            <div className="form-group">
+              <label className="form-label">Language</label>
+              <LanguageSelector variant="form" />
             </div>
             <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center' }} disabled={updateMut.isPending}>
               <Save size={16} /> Save Changes

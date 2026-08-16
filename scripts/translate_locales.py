@@ -30,7 +30,7 @@ def save_translated_locales(lang, translated_data):
     print(f"Saved {lang}.json")
 
 # Flatten nested JSON dictionary for batch translation
-def flatten_dict(d, parent_key='', sep='.'):
+def flatten_dict(d, parent_key='', sep='__JSON_SEP__'):
     items = []
     for k, v in d.items():
         new_key = f"{parent_key}{sep}{k}" if parent_key else k
@@ -41,7 +41,7 @@ def flatten_dict(d, parent_key='', sep='.'):
     return dict(items)
 
 # Reconstruct nested JSON from flattened dict
-def unflatten_dict(d, sep='.'):
+def unflatten_dict(d, sep='__JSON_SEP__'):
     result = {}
     for key, value in d.items():
         parts = key.split(sep)
@@ -64,16 +64,10 @@ def main():
 
     print(f"Found {len(sentences)} strings to translate.")
 
-    # Try to import torch and transformers for IndicTrans2
+    # Try to import torch and transformers for IndicTrans2 local inference
     try:
         import torch
         from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
-        try:
-            from IndicTransToolkit.processor import IndicProcessor
-        except ImportError:
-            print("IndicTransToolkit not found. Attempting to install it...")
-            os.system("pip install git+https://github.com/VarunGumma/IndicTransToolkit.git")
-            from IndicTransToolkit.processor import IndicProcessor
 
         model_name = "ai4bharat/indictrans2-en-indic-1B"
         print(f"Loading tokenizer and model '{model_name}' with device_map='auto'...")
@@ -85,13 +79,11 @@ def main():
             device_map="auto"
         )
         
-        ip = IndicProcessor(inference=True)
-        
         for lang_code, target_lang in LANG_MAPPING.items():
-            print(f"Translating to {lang_code} ({target_lang})...")
+            print(f"Translating to {lang_code} ({target_lang}) locally using Hugging Face model...")
             
-            # Batch process translation
-            batch = ip.preprocess_batch(sentences, src_lang="eng_Latn", tgt_lang=target_lang)
+            # Format inputs manually for IndicTrans2 (source prefix and target prefix)
+            batch = [f"<eng_Latn> <{target_lang}> {sent}" for sent in sentences]
             inputs = tokenizer(batch, padding="longest", return_tensors="pt").to(model.device)
             
             with torch.no_grad():
@@ -107,7 +99,7 @@ def main():
             with tokenizer.as_target_tokenizer():
                 decoded_preds = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
                 
-            final_translations = ip.postprocess_batch(decoded_preds, lang=target_lang)
+            final_translations = [pred.strip() for pred in decoded_preds]
             
             # Create the translated dictionary
             translated_flat = {k: v for k, v in zip(keys, final_translations)}
@@ -124,6 +116,9 @@ def main():
             os.system("pip install mtranslate")
             from mtranslate import translate
 
+        import time
+        import random
+
         # Translate API codes
         API_CODES = {
             "hi": "hi", "ta": "ta", "te": "te", "kn": "kn", "ml": "ml", "mr": "mr", "gu": "gu", "bn": "bn"
@@ -131,9 +126,41 @@ def main():
 
         for lang_code, api_lang in API_CODES.items():
             print(f"Translating to {lang_code} using fallback API...")
+            
+            # Load existing translations to reuse them and prevent rate limits
+            existing_data = {}
+            out_file = os.path.join(LOCALES_DIR, f"{lang_code}.json")
+            if os.path.exists(out_file):
+                try:
+                    with open(out_file, "r", encoding="utf-8") as f:
+                        existing_data = json.load(f)
+                except Exception as ex:
+                    print(f"  Warning loading existing {lang_code}.json: {ex}")
+            
+            flat_existing = flatten_dict(existing_data)
             translated_flat = {}
+
             for k, text in flat_en.items():
-                translated_flat[k] = translate(text, api_lang, "en")
+                # Reuse if already translated and is not identical to English (or if it's nav key / header key that matches but is verified)
+                if k in flat_existing and flat_existing[k] and flat_existing[k] != text:
+                    translated_flat[k] = flat_existing[k]
+                else:
+                    # Translate with retry and backoff
+                    translated_text = text
+                    retries = 3
+                    for attempt in range(retries):
+                        try:
+                            time.sleep(0.3 + random.random() * 0.1) # Sleep to avoid rate limits
+                            res = translate(text, api_lang, "en")
+                            if res:
+                                translated_text = res
+                                break
+                        except Exception as tx:
+                            print(f"  Error translating '{text}' to {lang_code} (attempt {attempt+1}/{retries}): {tx}")
+                            time.sleep(1.5 * (attempt + 1))
+                    
+                    translated_flat[k] = translated_text
+            
             translated_data = unflatten_dict(translated_flat)
             save_translated_locales(lang_code, translated_data)
 

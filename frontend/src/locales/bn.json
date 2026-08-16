@@ -38,5 +38,727 @@
     "income_subtitle": "আপনার উপার্জন ট্র্যাক",
     "profile_title": "প্রোফাইল",
     "profile_subtitle": "আপনার অ্যাকাউন্ট সেটিংস পরিচালনা করুন"
+  },
+  "ui": {
+    "Current savings rate": "বর্তমান সঞ্চয় হার",
+    "Expected": "প্রত্যাশিত",
+    "savings_advisory_text": "আর্থিক উপদেষ্টারা আপনার মাসিক আয়ের 20% একটি স্ট্যান্ডার্ড লক্ষ্য সঞ্চয় হারের সুপারিশ করেন। আপনার প্রকৃত বাজেট মোট সীমার মধ্যে রাখা নিশ্চিত করতে সাহায্য করে যে আপনি আপনার অনুমানকৃত সঞ্চয় লক্ষ্য {{goal}} পূরণ করেছেন।",
+    "This Month's Expenses": "এই মাসের খরচ",
+    "Monthly Income": "মাসিক আয়",
+    "Net Savings": "নেট সেভিংস",
+    "Expense Over Budget": "বাজেটের বেশি ব্যয়",
+    "Spending Streak": "খরচ স্ট্রীক",
+    "Largest Expense": "সবচেয়ে বড় খরচ",
+    "Monthly Trend": "মাসিক প্রবণতা",
+    "Spending by Category": "বিভাগ অনুযায়ী খরচ",
+    "Quick Tour": "দ্রুত সফর",
+    "Track Expenses Instantly via Telegram!": "টেলিগ্রামের মাধ্যমে তাৎক্ষণিকভাবে খরচ ট্র্যাক করুন!",
+    "Get Started": "শুরু করুন",
+    "Add Expense": "খরচ যোগ করুন",
+    "Edit Expense": "ব্যয় সম্পাদনা করুন",
+    "Title *": "শিরোনাম *",
+    "Amount (₹) *": "পরিমাণ (₹) *",
+    "Date *": "তারিখ *",
+    "Category": "শ্রেণী",
+    "Uncategorized": "অশ্রেণীভুক্ত",
+    "Payment Method": "পেমেন্ট পদ্ধতি",
+    "Note": "দ্রষ্টব্য",
+    "Cancel": "বাতিল করুন",
+    "Save Changes": "পরিবর্তনগুলি সংরক্ষণ করুন",
+    "SEARCH": "অনুসন্ধান করুন",
+    "CATEGORY": "CATEGORY",
+    "PAYMENT METHOD": "পেমেন্ট পদ্ধতি",
+    "FROM DATE": "তারিখ থেকে",
+    "TO DATE": "TO DATE",
+    "SORT BY": "সাজান",
+    "All Categories": "সমস্ত বিভাগ",
+    "All Payments": "সমস্ত পেমেন্ট",
+    "Newest First": "নতুন প্রথম",
+    "Oldest First": "প্রাচীনতম প্রথম",
+    "Highest Amount": "সর্বোচ্চ পরিমাণ",
+    "Lowest Amount": "সর্বনিম্ন পরিমাণ",
+    "Clear": "পরিষ্কার",
+    "Category (leave empty for global budget)": "বিভাগ (বিশ্বব্যাপী বাজেটের জন্য খালি রাখুন)",
+    "Monthly Limit (₹)": "মাসিক সীমা (₹)",
+    "Weekly Limit (₹)": "সাপ্তাহিক সীমা (₹)",
+    "Set Budget": "বাজেট সেট করুন",
+    "Set your first budget": "আপনার প্রথম বাজেট সেট করুন",
+    "Save Budget": "বাজেট সংরক্ষণ করুন",
+    "Per-Category Budgets": "প্রতি-বিভাগের বাজেট",
+    "e": {
+      "g": {
+        " 50000": "যেমন 50000",
+        " 12000": "যেমন 12000",
+        " Outside Food": "যেমন বাইরের খাবার",
+        " HDFC Credit Card, Friend John": "যেমন এইচডিএফসি ক্রেডিট কার্ড, বন্ধু জন",
+        " 20000": "যেমন 20000",
+        " 12": "যেমন 12",
+        " 2500": "যেমন 2500",
+        " Home Loan, Car Loan": "যেমন হোম লোন, গাড়ি লোন",
+        " HDFC, SBI, Navi, Cred": "যেমন এইচডিএফসি, এসবিআই, নাভি, ক্রেড",
+        " 500000": "যেমন 500000",
+        " 8": {
+          "5": "যেমন 8.5"
+        },
+        " Lunch at restaurant": "যেমন রেস্টুরেন্টে লাঞ্চ",
+        " Emergency Fund": "যেমন জরুরী তহবিল",
+        " HDFC Bank, SBI": "যেমন এইচডিএফসি ব্যাঙ্ক, এসবিআই",
+        " 7": {
+          "5": "যেমন 7.5"
+        },
+        " Petrol": "যেমন পেট্রোল",
+        " Pay electricity bill": "যেমন বিদ্যুৎ বিল পরিশোধ করুন",
+        " HDFC Savings Account, Mutual Fund SIP": "যেমন এইচডিএফসি সেভিংস অ্যাকাউন্ট, মিউচুয়াল ফান্ড এসআইপি",
+        " Netflix, Spotify": "যেমন নেটফ্লিক্স, স্পটিফাই",
+        " Streaming, SaaS": "যেমন স্ট্রিমিং, SaaS",
+        " 182736495": "যেমন 182736495"
+      }
+    },
+    "Name *": "নাম*",
+    "Type *": "প্রকার *",
+    "Color": "রঙ",
+    "New Category": "নতুন বিভাগ",
+    "Add Category": "বিভাগ যোগ করুন",
+    "Recent Expenses": "সাম্প্রতিক খরচ",
+    "Take a quick onboarding tour": "একটি দ্রুত অনবোর্ডিং সফর নিন",
+    "Logged via Telegram": "টেলিগ্রামের মাধ্যমে লগ করা হয়েছে",
+    "Welcome to ExpenseTracker! 👋": "ExpenseTracker এ স্বাগতম! 👋",
+    "Financial KPIs 📊": "আর্থিক KPIs 📊",
+    "Monthly Budget Limit 🎯": "মাসিক বাজেটের সীমা 🎯",
+    "Visual Analytics 📈": "ভিজ্যুয়াল অ্যানালিটিক্স 📈",
+    "Cashflow Tracking 💸": "ক্যাশফ্লো ট্র্যাকিং 💸",
+    "Loans, Debt & EMIs 🏛️": "ঋণ, ঋণ এবং EMI 🏛️",
+    "Budgets & Categories 🎯": "বাজেট এবং বিভাগ 🎯",
+    "Savings & Wealth Goals 📈": "সঞ্চয় এবং সম্পদ লক্ষ্য 📈",
+    "Bills, Reminders & Recurring ⏰": "বিল, অনুস্মারক এবং পুনরাবৃত্ত ⏰",
+    "Instant Telegram Bot 🤖": "ইন্সট্যান্ট টেলিগ্রাম বট 🤖",
+    "Settings & Security ⚙️": "সেটিংস এবং নিরাপত্তা ⚙️",
+    "Help & FAQ 📚": "সাহায্য এবং FAQ 📚",
+    "Support & Feedback 💬": "সমর্থন এবং প্রতিক্রিয়া 💬",
+    "Install as an App 📱": "একটি অ্যাপ হিসেবে ইনস্টল করুন 📱",
+    "Creditor / Lender Name *": "পাওনাদার / ঋণদাতার নাম *",
+    "Original Owed Amount (₹) *": "মূল পাওনা পরিমাণ (₹) *",
+    "Amount Paid (₹) *": "প্রদত্ত পরিমাণ (₹) *",
+    "Remaining Debt (calculated)": "অবশিষ্ট ঋণ (গণনা করা)",
+    "Interest Rate (% p": {
+      "a": {
+        ")": "সুদের হার (% p.a)",
+        ") *": "সুদের হার (% p.a.) *"
+      }
+    },
+    "Minimum Monthly Payment (₹)": "ন্যূনতম মাসিক পেমেন্ট (₹)",
+    "Next Payment Due Date": "পরবর্তী পেমেন্টের শেষ তারিখ",
+    "Notes": "নোট",
+    "Add Debt": "ঋণ যোগ করুন",
+    "Add your first debt record": "আপনার প্রথম ঋণ রেকর্ড যোগ করুন",
+    "Debt Tracker": "ঋণ ট্র্যাকার",
+    "Optional descriptions or details": {
+      "": {
+        "": {
+          "": "ঐচ্ছিক বর্ণনা বা বিবরণ..."
+        }
+      }
+    },
+    "Edit": "সম্পাদনা করুন",
+    "Delete": "মুছে দিন",
+    "Loan Title *": "ঋণ শিরোনাম *",
+    "Loan Platform / Lender": "ঋণ প্ল্যাটফর্ম / ঋণদাতা",
+    "Loan Type *": "ঋণের ধরন *",
+    "Payment Method *": "পেমেন্ট পদ্ধতি *",
+    "Principal Amount (₹) *": "মূল পরিমাণ (₹) *",
+    "Start Date *": "শুরুর তারিখ *",
+    "End Date *": "শেষ তারিখ *",
+    "Total Tenure (months) *": "মোট মেয়াদ (মাস) *",
+    "Remaining Months *": "বাকি মাস *",
+    "Payment Due Date *": "পেমেন্টের শেষ তারিখ *",
+    "Calculated EMI Amount (₹) *": "গণনা করা ইএমআই পরিমাণ (₹) *",
+    "Add Loan EMI": "লোন ইএমআই যোগ করুন",
+    "Add your first loan": "আপনার প্রথম ঋণ যোগ করুন",
+    "Save Loan": "ঋণ সংরক্ষণ করুন",
+    "EMI Tracker": "ইএমআই ট্র্যাকার",
+    "Loan details, account numbers, etc": {
+      "": "ঋণ বিবরণ, অ্যাকাউন্ট নম্বর, ইত্যাদি"
+    },
+    "Add your first expense": "আপনার প্রথম খরচ যোগ করুন",
+    "Search": "অনুসন্ধান করুন",
+    "Optional note": {
+      "": {
+        "": {
+          "": "ঐচ্ছিক নোট..."
+        }
+      }
+    },
+    "From Date": "তারিখ থেকে",
+    "To Date": "তারিখ থেকে",
+    "Sort By": "অনুসারে সাজান",
+    "Goal Title *": "গোলের শিরোনাম *",
+    "Target Amount (₹) *": "লক্ষ্য পরিমাণ (₹) *",
+    "Saved So Far (₹)": "এখন পর্যন্ত সংরক্ষিত (₹)",
+    "Deadline (optional)": "সময়সীমা (ঐচ্ছিক)",
+    "New Goal": "নতুন লক্ষ্য",
+    "Add Goal": "লক্ষ্য যোগ করুন",
+    "Help & Knowledge Base": "সাহায্য ও জ্ঞানের ভিত্তি",
+    "Category *": "বিভাগ *",
+    "Method / Type *": "পদ্ধতি / প্রকার *",
+    "Add Income": "আয় যোগ করুন",
+    "Loan Amount (Principal) *": "ঋণের পরিমাণ (প্রধান) *",
+    "Annual Interest Rate (%) *": "বার্ষিক সুদের হার (%) *",
+    "Tenure (Months) *": "মেয়াদ (মাস) *",
+    "Loan Type": "ঋণের ধরন",
+    "Lender / Platform": "ঋণদাতা / প্ল্যাটফর্ম",
+    "Principal *": "অধ্যক্ষ *",
+    "Interest % *": "সুদ % *",
+    "Months *": "মাস *",
+    "Monthly EMI *": "মাসিক ইএমআই *",
+    "Add Loan": "ঋণ যোগ করুন",
+    "Save to Track": "ট্র্যাক সংরক্ষণ করুন",
+    "Confirm & Save": "নিশ্চিত করুন এবং সংরক্ষণ করুন",
+    "Loans & Liabilities": "ঋণ ও দায়",
+    "Calculated automatically": "স্বয়ংক্রিয়ভাবে গণনা করা হয়",
+    "Stop tracking loan": "ঋণ ট্র্যাকিং বন্ধ করুন",
+    "Calculated Loan": "গণনাকৃত ঋণ",
+    "Email": "ইমেইল",
+    "Password": "পাসওয়ার্ড",
+    "Welcome back": "আবার স্বাগতম",
+    "you@example": {
+      "com": "you@example.com"
+    },
+    "Sign in with email & password": "ইমেল এবং পাসওয়ার্ড দিয়ে সাইন ইন করুন",
+    "Continue with Google": "Google এর সাথে চালিয়ে যান",
+    "Full Name": "পুরো নাম",
+    "Currency": "মুদ্রা",
+    "Timezone": "টাইমজোন",
+    "Theme": "থিম",
+    "Language": "ভাষা",
+    "Date Range": "তারিখ পরিসীমা",
+    "From": "থেকে",
+    "To": "প্রতি",
+    "Upload Profile Picture": "প্রোফাইল ছবি আপলোড করুন",
+    "Frequency": "ফ্রিকোয়েন্সি",
+    "Next Due Date *": "পরবর্তী শেষ তারিখ *",
+    "Add Recurring": "পুনরাবৃত্ত যোগ করুন",
+    "Add one": "একটি যোগ করুন",
+    "Save": "সংরক্ষণ করুন",
+    "Create account": "অ্যাকাউন্ট তৈরি করুন",
+    "Sign up with email": "ইমেইল দিয়ে সাইন আপ করুন",
+    "Verify your email": "আপনার ইমেল যাচাই করুন",
+    "Your name": "তোমার নাম",
+    "Min": {
+      " 6 characters": "মিন. 6টি অক্ষর"
+    },
+    "Date & Time *": "তারিখ ও সময়*",
+    "Description": "বর্ণনা",
+    "Add Reminder": "অনুস্মারক যোগ করুন",
+    "UPCOMING": "আসন্ন",
+    "DONE": "সম্পন্ন",
+    "Additional details": {
+      "": {
+        "": {
+          "": "অতিরিক্ত বিবরণ..."
+        }
+      }
+    },
+    "Title / Account *": "শিরোনাম / অ্যাকাউন্ট *",
+    "Transaction Type *": "লেনদেনের ধরন *",
+    "Log Savings": "লগ সঞ্চয়",
+    "Savings Analysis": "সঞ্চয় বিশ্লেষণ",
+    "Optional description": {
+      "": {
+        "": {
+          "": "ঐচ্ছিক বর্ণনা..."
+        }
+      }
+    },
+    "Projected Savings": "প্রজেক্টেড সেভিংস",
+    "Actual Savings": "প্রকৃত সঞ্চয়",
+    "Logged Savings": "লগ সঞ্চয়",
+    "Total Monthly Income": "মোট মাসিক আয়",
+    "Expected/Projected Savings:": "প্রত্যাশিত/প্রকল্পিত সঞ্চয়:",
+    "Actual Savings to Date:": "তারিখ থেকে প্রকৃত সঞ্চয়:",
+    "Budget Variance:": "বাজেটের পার্থক্য:",
+    "Amount *": "পরিমাণ *",
+    "Billing Cycle": "বিলিং চক্র",
+    "Type": "টাইপ",
+    "End Date": "শেষ তারিখ",
+    "Features / Notes": "বৈশিষ্ট্য / নোট",
+    "Add Subscription": "সদস্যতা যোগ করুন",
+    "What's included": {
+      "": {
+        "": {
+          "": "কি অন্তর্ভুক্ত করা হয়েছে..."
+        }
+      }
+    },
+    "Subject *": "বিষয় *",
+    "Detailed Concern *": "বিস্তারিত উদ্বেগ *",
+    "Rating (Optional)": "রেটিং (ঐচ্ছিক)",
+    "Send Another Message": "অন্য বার্তা পাঠান",
+    "Feedback Submitted!": "প্রতিক্রিয়া জমা দেওয়া!",
+    "How can we help you?": "আমরা কিভাবে আপনাকে সাহায্য করতে পারি?",
+    "Report Bug": "বাগ রিপোর্ট করুন",
+    "Suggest Feature": "বৈশিষ্ট্য প্রস্তাব করুন",
+    "Account Concerns": "অ্যাকাউন্ট উদ্বেগ",
+    "General Inquiries": "সাধারণ অনুসন্ধান",
+    "Data Export & Backup": "ডেটা এক্সপোর্ট এবং ব্যাকআপ",
+    "Security & Privacy": "নিরাপত্তা এবং গোপনীয়তা",
+    "Send Feedback": "প্রতিক্রিয়া পাঠান",
+    "Brief summary of concern": "উদ্বেগের সংক্ষিপ্ত সারাংশ",
+    "What seems to be the issue? Or how can we make ExpenseTracker better?": "সমস্যা কি বলে মনে হচ্ছে? অথবা কিভাবে আমরা ExpenseTracker কে আরও ভালো করতে পারি?",
+    "Telegram Chat ID": "টেলিগ্রাম চ্যাট আইডি",
+    "Text to Track": "ট্র্যাক করার জন্য পাঠ্য",
+    "Bot Connection Status": "বট সংযোগের স্থিতি",
+    "Bot Profile": "বট প্রোফাইল",
+    "Why use our bot?": "কেন আমাদের বট ব্যবহার?",
+    "Example Chat": "উদাহরণ চ্যাট",
+    "How to set up": "কিভাবে সেট আপ করবেন",
+    "Open ExpenseTracker Bot": "ExpenseTracker বট খুলুন",
+    "Get Chat ID": "চ্যাট আইডি পান",
+    "Link Account": "অ্যাকাউন্ট লিঙ্ক করুন",
+    "Start Tracking!": "ট্র্যাকিং শুরু করুন!",
+    "System Updates": "সিস্টেম আপডেট",
+    "Copy Command": "কপি কমান্ড",
+    "Change Language": "ভাষা পরিবর্তন করুন",
+    "Close Sidebar": "সাইডবার বন্ধ করুন",
+    "Install ExpenseTracker App": "ExpenseTracker অ্যাপ ইনস্টল করুন",
+    "Close": "বন্ধ",
+    "Track activity and changes across the application": "অ্যাপ্লিকেশান জুড়ে কার্যকলাপ এবং পরিবর্তনগুলি ট্র্যাক করুন",
+    "No activity in this section yet": "এই বিভাগে এখনও কোন কার্যকলাপ",
+    "Time": "সময়",
+    "Action": "অ্যাকশন",
+    "Details": "বিস্তারিত",
+    "All Activities": "সমস্ত কার্যকলাপ",
+    "Transactions & Loans": "লেনদেন এবং ঋণ",
+    "Budgets & Goals": "বাজেট এবং লক্ষ্য",
+    "Schedules & Reminders": "সময়সূচী এবং অনুস্মারক",
+    "System Settings": "সিস্টেম সেটিংস",
+    "Set monthly and weekly spending limits": "মাসিক এবং সাপ্তাহিক ব্যয়ের সীমা নির্ধারণ করুন",
+    "Global Budget": "বিশ্বব্যাপী বাজেট",
+    "Applies to categories without specific budgets": "নির্দিষ্ট বাজেট ছাড়া বিভাগে প্রযোজ্য",
+    "Monthly Progress": "মাসিক অগ্রগতি",
+    "Weekly Progress": "সাপ্তাহিক অগ্রগতি",
+    "Monthly": "মাসিক",
+    "Weekly": "সাপ্তাহিক",
+    "No budgets set yet": "এখনো কোনো বাজেট সেট করা হয়নি",
+    "Global (all categories)": "বিশ্বব্যাপী (সমস্ত বিভাগ)",
+    "Budget set!": "বাজেট সেট!",
+    "Budget updated!": "বাজেট আপডেট!",
+    "Budget removed": "বাজেট সরানো হয়েছে",
+    "Remove global budget?": "বিশ্বব্যাপী বাজেট সরাতে চান?",
+    "Unknown": "অজানা",
+    "Remove?": "সরান?",
+    "Edit Budget": "বাজেট সম্পাদনা করুন",
+    "Default": "ডিফল্ট",
+    "Expense Category": "ব্যয় বিভাগ",
+    "Income Category": "আয় বিভাগ",
+    "Category created!": "ক্যাটাগরি তৈরি!",
+    "Category updated!": "বিভাগ আপডেট করা হয়েছে!",
+    "Category deleted": "বিভাগ মুছে ফেলা হয়েছে",
+    "Edit Category": "বিভাগ সম্পাদনা করুন",
+    "Create": "তৈরি করুন",
+    "import previous data": "পূর্ববর্তী ডেটা আমদানি করুন",
+    "Monthly Budget": "মাসিক বাজেট",
+    "No data yet": "এখনো কোনো তথ্য নেই",
+    "No recent expenses": "কোন সাম্প্রতিক খরচ",
+    "Imported expenses successfully!": "সফলভাবে আমদানি ব্যয়!",
+    "Failed to import CSV": {
+      "": "CSV আমদানি করতে ব্যর্থ হয়েছে৷"
+    },
+    "Previous": "আগের",
+    "Dismiss": "খারিজ",
+    "Monitor loans, liabilities, and repayment progress": "ঋণ, দায় এবং পরিশোধের অগ্রগতি নিরীক্ষণ করুন",
+    "Total Borrowed": "মোট ধার করা হয়েছে",
+    "Original debt size": "মূল ঋণের আকার",
+    "Active Balance": "সক্রিয় ব্যালেন্স",
+    "Remaining outstanding": "অসামান্য রয়ে গেছে",
+    "Total Paid Off": "মোট পরিশোধ বন্ধ",
+    "Settled debt amount": "নিষ্পত্তিকৃত ঋণের পরিমাণ",
+    "Active Accounts": "সক্রিয় অ্যাকাউন্ট",
+    "Accounts to pay off": "হিসাব পরিশোধ বন্ধ",
+    "No debts tracked currently": "বর্তমানে ট্র্যাক করা কোনো ঋণ নেই",
+    "Settled": "নিষ্পত্তি হয়েছে",
+    "Active": "সক্রিয়",
+    "Remaining Balance": "অবশিষ্ট ব্যালেন্স",
+    "Original Amount": "মূল পরিমাণ",
+    "Interest Rate": "সুদের হার",
+    "Min Payment": "ন্যূনতম পেমেন্ট",
+    "Debt recorded successfully!": "ঋণ সফলভাবে রেকর্ড!",
+    "Debt updated successfully!": "ঋণ সফলভাবে আপডেট!",
+    "Debt record deleted": "ঋণ রেকর্ড মুছে ফেলা হয়েছে",
+    "No date set": "তারিখ নির্ধারণ করা হয়নি",
+    "Edit Debt": "ঋণ সম্পাদনা করুন",
+    "Manage your loans, mortgages, and monthly installments": "আপনার ঋণ, বন্ধকী, এবং মাসিক কিস্তি পরিচালনা করুন",
+    "Monthly EMI Outflow": "মাসিক ইএমআই আউটফ্লো",
+    "Across all active EMIs": "সমস্ত সক্রিয় ইএমআই জুড়ে",
+    "Total Borrowed Principal": "মোট ধার করা অধ্যক্ষ",
+    "Total initial loan portfolio": "মোট প্রাথমিক ঋণ পোর্টফোলিও",
+    "Total Paid EMI Amount": "মোট প্রদত্ত ইএমআই পরিমাণ",
+    "Cumulatively paid so far": "এখন পর্যন্ত ক্রমবর্ধমান অর্থ প্রদান করা হয়েছে",
+    "Active Loans": "সক্রিয় ঋণ",
+    "Currently tracking": "বর্তমানে ট্র্যাকিং",
+    "No active EMIs tracked yet": "এখনও কোনো সক্রিয় EMI ট্র্যাক করা হয়নি৷",
+    "Monthly EMI": "মাসিক ইএমআই",
+    "Principal Amount": "মূল পরিমাণ",
+    "Pay Via": "এর মাধ্যমে অর্থ প্রদান করুন",
+    "Housing / Home Loan": "হাউজিং / হোম লোন",
+    "Vehicle / Car Loan": "যানবাহন/গাড়ি ঋণ",
+    "Household Items Loan": "গৃহস্থালী আইটেম ঋণ",
+    "Education Loan": "শিক্ষা ঋণ",
+    "Personal Loan": "ব্যক্তিগত ঋণ",
+    "Business Loan": "ব্যবসা ঋণ",
+    "Gold Loan": "গোল্ড লোন",
+    "Other Loan": "অন্যান্য ঋণ",
+    "Bank Transfer": "ব্যাঙ্ক ট্রান্সফার",
+    "Auto-Debit": "অটো-ডেবিট",
+    "UPI": "ইউপিআই",
+    "Advance Payment": "অগ্রিম পেমেন্ট",
+    "Credit Card": "ক্রেডিট কার্ড",
+    "Debit Card": "ডেবিট কার্ড",
+    "Cash": "নগদ",
+    "Other": "অন্যান্য",
+    "Housing": "হাউজিং",
+    "EMI Loan added successfully!": "EMI ঋণ সফলভাবে যোগ করা হয়েছে!",
+    "EMI Loan updated!": "ইএমআই লোন আপডেট!",
+    "EMI Loan deleted": "ইএমআই লোন মুছে ফেলা হয়েছে",
+    "Edit Loan EMI": "ঋণ EMI সম্পাদনা করুন",
+    "Vehicle": "যানবাহন",
+    "Household Items": "গৃহস্থালী আইটেম",
+    "Education": "শিক্ষা",
+    "Personal": "ব্যক্তিগত",
+    "Business": "ব্যবসা",
+    "Gold": "সোনা",
+    "No expenses found": "কোন খরচ পাওয়া যায়নি",
+    "Date": "তারিখ",
+    "Title": "শিরোনাম",
+    "Payment": "পেমেন্ট",
+    "Amount": "পরিমাণ",
+    "Actions": "কর্ম",
+    "Expense added!": "খরচ যোগ!",
+    "Expense updated!": "খরচ আপডেট!",
+    "Expense deleted": "খরচ মুছে ফেলা হয়েছে",
+    "Delete this expense?": "এই খরচ মুছে ফেলবেন?",
+    "Track your financial goals": "আপনার আর্থিক লক্ষ্য ট্র্যাক",
+    "No goals yet": "এখনো কোনো গোল হয়নি",
+    "Goal created!": "গোল তৈরি!",
+    "Goal updated!": "লক্ষ্য আপডেট!",
+    "Goal deleted": "লক্ষ্য মুছে ফেলা হয়েছে",
+    "Delete goal?": "লক্ষ্য মুছবেন?",
+    "Edit Goal": "লক্ষ্য সম্পাদনা করুন",
+    "Create Goal": "লক্ষ্য তৈরি করুন",
+    "Frequently asked questions and Telegram bot setup guides": "প্রায়শই জিজ্ঞাসিত প্রশ্ন এবং টেলিগ্রাম বট সেটআপ গাইড",
+    "No income records yet": "এখনও কোন আয় রেকর্ড",
+    "Source": "উৎস",
+    "Method": "পদ্ধতি",
+    "Select Category": "বিভাগ নির্বাচন করুন",
+    "Income added!": "আয় যোগ!",
+    "Income updated!": "আয় আপডেট!",
+    "Income deleted": "আয় মুছে ফেলা হয়েছে",
+    "CASH": "নগদ",
+    "Delete?": "মুছবেন?",
+    "Edit Income": "আয় সম্পাদনা করুন",
+    "Unified view of your active loans, installments, and amortization calculator": {
+      "": "আপনার সক্রিয় ঋণ, কিস্তি, এবং পরিশোধ ক্যালকুলেটরের ইউনিফাইড ভিউ।"
+    },
+    "Monthly Outflow (EMI)": "মাসিক বহিঃপ্রবাহ (EMI)",
+    "Active Liabilities": "সক্রিয় দায়বদ্ধতা",
+    "Total Interest": "মোট সুদ",
+    "Total Payable Amount": "মোট প্রদেয় পরিমাণ",
+    "Month": "মাস",
+    "Principal": "প্রিন্সিপাল",
+    "Interest": "সুদ",
+    "Balance": "ভারসাম্য",
+    "Loading loans": {
+      "": {
+        "": {
+          "": "ঋণ লোড হচ্ছে..."
+        }
+      }
+    },
+    "\"Save to Track\"": "\"ট্র্যাক করতে সংরক্ষণ করুন\"",
+    "Loan deleted successfully": {
+      "": "ঋণ সফলভাবে মুছে ফেলা হয়েছে."
+    },
+    "Calculated loan added to your tracking list!": "আপনার ট্র্যাকিং তালিকায় যোগ করা ঋণ!",
+    "Please enter a loan title": {
+      "": "একটি ঋণ শিরোনাম লিখুন দয়া করে."
+    },
+    "Please enter a valid principal amount": {
+      "": "অনুগ্রহ করে একটি বৈধ মূল পরিমাণ লিখুন।"
+    },
+    "Please enter a valid interest rate": {
+      "": "একটি বৈধ সুদের হার লিখুন."
+    },
+    "Please enter a valid tenure": {
+      "": "একটি বৈধ মেয়াদ লিখুন."
+    },
+    "Please enter a valid monthly EMI": {
+      "": "একটি বৈধ মাসিক ইএমআই লিখুন."
+    },
+    "No platform": "প্ল্যাটফর্ম নেই",
+    "Delete tracking for this loan?": "এই ঋণের জন্য ট্র্যাকিং মুছে ফেলবেন?",
+    "Save Calculated Loan": "গণনাকৃত ঋণ সংরক্ষণ করুন",
+    "Add Tracked Loan": "ট্র্যাক করা ঋণ যোগ করুন",
+    "or": "বা",
+    "Sign up": "সাইন আপ করুন",
+    "M0 0h48v48H0z": "M0 0h48v48H0z",
+    "Google sign-in failed": {
+      "": "Google সাইন-ইন ব্যর্থ হয়েছে৷"
+    },
+    "Google sign-in was cancelled or failed": {
+      "": "Google সাইন-ইন বাতিল বা ব্যর্থ হয়েছে৷"
+    },
+    "Welcome back!": "আবার স্বাগতম!",
+    "Login failed": "লগইন ব্যর্থ হয়েছে",
+    "ExpenseTracker Logo": "ExpenseTracker লোগো",
+    "Signing in": {
+      "": {
+        "": {
+          "": "সাইন ইন করা হচ্ছে..."
+        }
+      }
+    },
+    "Sign In": "সাইন ইন করুন",
+    "Account Info": "অ্যাকাউন্ট তথ্য",
+    "Asia/Kolkata', 'UTC',": "এশিয়া/কলকাতা', 'UTC',",
+    "America/Chicago',": "আমেরিকা/শিকাগো',",
+    "Europe/London', 'Europe/Paris', 'Asia/Tokyo',": "ইউরোপ/লন্ডন', 'ইউরোপ/প্যারিস', 'এশিয়া/টোকিও',",
+    "INR', 'USD', 'EUR', 'GBP', 'JPY', 'AUD', 'CAD": "INR', 'USD', 'EUR', 'GBP', 'JPY', 'AUD', 'CAD",
+    "Today": "আজ",
+    "This Week": "এই সপ্তাহে",
+    "This Month": "এই মাসে",
+    "Last Month": "গত মাসে",
+    "All Time": "সব সময়",
+    "Custom Range": "কাস্টম পরিসীমা",
+    "INR": "INR",
+    "Asia/Kolkata": "এশিয়া/কলকাতা",
+    "Please select an image file": {
+      "": "একটি ইমেজ ফাইল নির্বাচন করুন."
+    },
+    "Uploading profile picture": {
+      "": {
+        "": {
+          "": "প্রোফাইল ছবি আপলোড করা হচ্ছে..."
+        }
+      }
+    },
+    "Failed to upload profile picture": {
+      "": "প্রোফাইল ছবি আপলোড করতে ব্যর্থ হয়েছে."
+    },
+    "Profile updated!": "প্রোফাইল আপডেট!",
+    "Please select both From and To dates for custom range": {
+      "": "কাস্টম পরিসরের জন্য অনুগ্রহ করে থেকে এবং তারিখ উভয়ই নির্বাচন করুন৷"
+    },
+    "Download started!": "ডাউনলোড শুরু!",
+    "Export failed": "রপ্তানি ব্যর্থ হয়েছে",
+    "Auto-repeating transactions": "স্বয়ংক্রিয় পুনরাবৃত্তি লেনদেন",
+    "No recurring transactions": "কোন পুনরাবৃত্ত লেনদেন",
+    "None": "কোনোটিই নয়",
+    "Recurring transaction added!": "পুনরাবৃত্ত লেনদেন যোগ করা হয়েছে!",
+    "Updated!": "আপডেট করা হয়েছে!",
+    "Removed": "সরানো হয়েছে",
+    "Edit Recurring": "পুনরাবৃত্ত সম্পাদনা করুন",
+    "Start tracking your expenses today": "আজ আপনার খরচ ট্র্যাকিং শুরু করুন",
+    "Sign in": "সাইন ইন করুন",
+    "We'll send a verification code to confirm your email": "আপনার ইমেল নিশ্চিত করতে আমরা একটি যাচাইকরণ কোড পাঠাব",
+    "Backspace": "ব্যাকস্পেস",
+    "Google sign-up failed": {
+      "": "Google সাইন আপ ব্যর্থ হয়েছে৷"
+    },
+    "Google sign-up was cancelled or failed": {
+      "": "Google সাইন আপ বাতিল বা ব্যর্থ হয়েছে."
+    },
+    "Password must be at least 6 characters": {
+      "": "পাসওয়ার্ড কমপক্ষে 6 অক্ষরের হতে হবে।"
+    },
+    "Verification code sent! Check your inbox": {
+      "": "যাচাইকরণ কোড পাঠানো হয়েছে! আপনার ইনবক্স চেক করুন."
+    },
+    "Failed to send OTP": {
+      "": "OTP পাঠাতে ব্যর্থ হয়েছে।"
+    },
+    "Please enter the full 6-digit code": {
+      "": "অনুগ্রহ করে সম্পূর্ণ 6-সংখ্যার কোড লিখুন।"
+    },
+    "Verification failed": {
+      " Check your code": {
+        "": "যাচাইকরণ ব্যর্থ হয়েছে৷ আপনার কোড চেক করুন."
+      }
+    },
+    "New code sent!": "নতুন কোড পাঠানো হয়েছে!",
+    "Failed to resend": {
+      "": "পুনরায় পাঠাতে ব্যর্থ হয়েছে৷"
+    },
+    "Registering": {
+      "": {
+        "": {
+          "": "নিবন্ধন করা হচ্ছে..."
+        }
+      }
+    },
+    "Sign up with Google": "Google এর সাথে সাইন আপ করুন",
+    "Sending code": {
+      "": {
+        "": {
+          "": "কোড পাঠানো হচ্ছে..."
+        }
+      }
+    },
+    "Send Verification Code": "যাচাইকরণ কোড পাঠান",
+    "Creating account": {
+      "": {
+        "": {
+          "": "অ্যাকাউন্ট তৈরি করা হচ্ছে..."
+        }
+      }
+    },
+    "Verify & Create Account": "যাচাই করুন এবং অ্যাকাউন্ট তৈরি করুন",
+    "Resend code": "কোড আবার পাঠান",
+    "No reminders": "কোন অনুস্মারক",
+    "Reminder set!": "অনুস্মারক সেট!",
+    "Reminder removed": "অনুস্মারক সরানো হয়েছে",
+    "Edit Reminder": "অনুস্মারক সম্পাদনা করুন",
+    "Savings Health Dashboard": "সঞ্চয় স্বাস্থ্য ড্যাশবোর্ড",
+    "Savings Progress": "সঞ্চয় অগ্রগতি",
+    "Savings Reconciliation": "সঞ্চয় পুনর্মিলন",
+    "Income Breakdown by Source": "উৎস দ্বারা আয় ব্রেকডাউন",
+    "Budget Limits & Allocation": "বাজেটের সীমা এবং বরাদ্দ",
+    "Logged Savings Ledger": "লগড সেভিংস লেজার",
+    "Title/Account": "শিরোনাম/অ্যাকাউন্ট",
+    "Deposit / Add (+)": "জমা / যোগ করুন (+)",
+    "Withdrawal / Use (-)": "প্রত্যাহার / ব্যবহার (-)",
+    "MMMM yyyy": "MMMM yyyy",
+    "Savings logged!": "সঞ্চয় লগ!",
+    "Savings log updated!": "সঞ্চয় লগ আপডেট করা হয়েছে!",
+    "Savings log deleted": "সঞ্চয় লগ মুছে ফেলা হয়েছে",
+    "Unsatisfactory": "অসন্তোষজনক",
+    "Excellent Savings Rate!": "চমৎকার সঞ্চয় হার!",
+    "Good Savings Rate!": "ভাল সঞ্চয় হার!",
+    "Average Savings Rate": "গড় সঞ্চয় হার",
+    "Total Income - Global Budget": "মোট আয় - বৈশ্বিক বাজেট",
+    "Total Income - Actual Expenses": "মোট আয় - প্রকৃত খরচ",
+    "Explicitly logged savings": "স্পষ্টভাবে লগ সঞ্চয়",
+    "Sum of monthly income": "মাসিক আয়ের সমষ্টি",
+    "Under Budget": "বাজেটের অধীনে",
+    "Over Budget": "ওভার বাজেট",
+    "WITHDRAWAL (-)": "প্রত্যাহার (-)",
+    "Delete savings transaction?": "সঞ্চয় লেনদেন মুছে ফেলবেন?",
+    "Log Savings Transaction": "লগ সঞ্চয় লেনদেন",
+    "Edit Savings Log": "সঞ্চয় লগ সম্পাদনা করুন",
+    "Log Transaction": "লগ লেনদেন",
+    "No subscriptions yet": "এখনো কোনো সদস্যতা নেই",
+    "Daily": "দৈনিক",
+    "Yearly": "বার্ষিক",
+    "Subscription added!": "সদস্যতা যোগ করা হয়েছে!",
+    "All Cycles": "সব সাইকেল",
+    "Edit Subscription": "সদস্যতা সম্পাদনা করুন",
+    "Get support, report technical issues, or request new features directly from our administrators": {
+      "": "সরাসরি আমাদের প্রশাসকদের কাছ থেকে সহায়তা পান, প্রযুক্তিগত সমস্যা রিপোর্ট করুন বা নতুন বৈশিষ্ট্যের অনুরোধ করুন।"
+    },
+    "Found an error or issue? Let us know so we can fix it": {
+      "": "একটি ত্রুটি বা সমস্যা পাওয়া গেছে? আমাদের জানান যাতে আমরা এটি ঠিক করতে পারি।"
+    },
+    "Want a new dashboard view or tracking tool? Share your thoughts": {
+      "": "একটি নতুন ড্যাশবোর্ড ভিউ বা ট্র্যাকিং টুল চান? আপনার চিন্তা শেয়ার করুন."
+    },
+    "Get help with authentication changes or importing issues": {
+      "": "প্রমাণীকরণ পরিবর্তন বা আমদানি সংক্রান্ত সমস্যাগুলির জন্য সহায়তা পান৷"
+    },
+    "Ask questions about subscriptions, interest calculations, or layout metrics": {
+      "": "সাবস্ক্রিপশন, সুদের গণনা বা লেআউট মেট্রিক্স সম্পর্কে প্রশ্ন জিজ্ঞাসা করুন।"
+    },
+    "Get help retrieving backup data, CSV templates, or deleting your history": {
+      "": "ব্যাকআপ ডেটা, CSV টেমপ্লেট পুনরুদ্ধার বা আপনার ইতিহাস মুছে ফেলার জন্য সহায়তা পান।"
+    },
+    "Report vulnerabilities, request account deletions, or configure key parameters": {
+      "": "দুর্বলতা রিপোর্ট করুন, অ্যাকাউন্ট মুছে ফেলার অনুরোধ করুন, বা কী প্যারামিটার কনফিগার করুন।"
+    },
+    "Fill in details to open a ticket/submission": {
+      "": "একটি টিকিট/জমা খুলতে বিস্তারিত পূরণ করুন।"
+    },
+    "Please fill in both the subject and concern message": {
+      "": "বিষয় এবং উদ্বেগ বার্তা উভয় পূরণ করুন."
+    },
+    "Your concern has been submitted successfully": {
+      "": "আপনার উদ্বেগ সফলভাবে জমা দেওয়া হয়েছে."
+    },
+    "Failed to submit feedback": {
+      "": "প্রতিক্রিয়া জমা দিতে ব্যর্থ হয়েছে."
+    },
+    "Sending": {
+      "": {
+        "": {
+          "": "পাঠানো হচ্ছে..."
+        }
+      }
+    },
+    "Share your thoughts with us": "আমাদের সাথে আপনার চিন্তা শেয়ার করুন",
+    "Log expenses easily using Telegram": "টেলিগ্রাম ব্যবহার করে সহজেই খরচ লগ করুন",
+    "Checking status…": "স্থিতি পরীক্ষা করা হচ্ছে...",
+    "Always Active": "সর্বদা সক্রিয়",
+    "Secure Ledger": "নিরাপদ লেজার",
+    "Lunch 450 card": "লাঞ্চ 450 কার্ড",
+    "Expense Added!": "খরচ যোগ করা হয়েছে!",
+    "Spent 1200 groceries yesterday": "গতকাল 1200টি মুদি খরচ করেছেন",
+    "Telegram bot linked successfully!": "টেলিগ্রাম বট সফলভাবে লিঙ্ক করা হয়েছে!",
+    "Telegram bot unlinked": {
+      "": "টেলিগ্রাম বট লিঙ্কমুক্ত করা হয়েছে।"
+    },
+    "Connected": "সংযুক্ত",
+    "Disconnected": "সংযোগ বিচ্ছিন্ন",
+    "Link your Telegram account below": "নীচে আপনার টেলিগ্রাম অ্যাকাউন্ট লিঙ্ক করুন",
+    "Telegram Bot QR Code": "টেলিগ্রাম বট কিউআর কোড",
+    "Type that Chat ID into the panel on the left and click Link": {
+      "": "বাম দিকের প্যানেলে সেই চ্যাট আইডি টাইপ করুন এবং লিঙ্কে ক্লিক করুন।"
+    },
+    "Send expense texts directly to the bot and watch them log!": "বটকে সরাসরি ব্যয়ের পাঠ্য পাঠান এবং তাদের লগ দেখুন!",
+    "Discover what is new, optimized, and fixed in ExpenseTracker": "ExpenseTracker-এ নতুন, অপ্টিমাইজ করা এবং স্থির কী আছে তা আবিষ্কার করুন",
+    "OVERDUE": "ওভারডিউ",
+    "TODAY": "আজ",
+    "TOMORROW": "কাল",
+    "Urgent": "জরুরী",
+    "Upcoming": "আসন্ন",
+    "&lt;type?&gt; &lt;title&gt; &lt;amount&gt; &lt;payment_mode?&gt; &lt;note?&gt;": "&lt;টাইপ?&gt; &lt;শিরোনাম&gt; &lt;পরিমাণ&gt; &lt;পেমেন্ট_মোড?&gt; &lt;টীকা?&gt;",
+    "note:": "নোট:",
+    "Expense (Default)": "খরচ (ডিফল্ট)",
+    "Pizza 150": {
+      "50 upi for lunch": "দুপুরের খাবারের জন্য পিৎজা 150.50 upi"
+    },
+    "Logs an expense with decimal amount, UPI payment, and note": "দশমিক পরিমাণ, UPI পেমেন্ট, এবং নোট সহ একটি খরচ লগ করুন",
+    "Logs income source with payment method and note": "অর্থপ্রদানের পদ্ধতি এবং নোট সহ আয়ের উৎস লগ করুন",
+    "Creates custom category with hex color and icon name": "হেক্স রঙ এবং আইকন নামের সাথে কাস্টম বিভাগ তৈরি করে",
+    "Sets category monthly limit (or use": "বিভাগ মাসিক সীমা সেট করে (বা ব্যবহার করুন",
+    "Recurring Expense": "পুনরাবৃত্ত ব্যয়",
+    "Adds automated weekly or monthly recurring expense": "স্বয়ংক্রিয় সাপ্তাহিক বা মাসিক পুনরাবৃত্ত খরচ যোগ করে",
+    "Savings Goal": "সঞ্চয় লক্ষ্য",
+    "Creates a financial goal with target amount": "লক্ষ্য পরিমাণের সাথে একটি আর্থিক লক্ষ্য তৈরি করে",
+    "Subscription": "সাবস্ক্রিপশন",
+    "Tracks monthly software or streaming subscriptions": "মাসিক সফ্টওয়্যার বা স্ট্রিমিং সদস্যতা ট্র্যাক করে",
+    "EMI": "ইএমআই",
+    "Logs loan EMI payment schedule and method": "লগ লোন ইএমআই পেমেন্ট সময়সূচী এবং পদ্ধতি",
+    "Logs money borrowed or owed to creditors": "পাওনাদারদের কাছে ধার করা বা পাওনা টাকা লগ করে",
+    "Reminder": "অনুস্মারক",
+    "Schedules payment reminder for a specific date": "একটি নির্দিষ্ট তারিখের জন্য সময়সূচী প্রদান অনুস্মারক",
+    "How do I connect my Telegram account?": "আমি কিভাবে আমার টেলিগ্রাম অ্যাকাউন্ট সংযুক্ত করব?",
+    "Click": "ক্লিক করুন",
+    "What is the syntax for logging entries via Telegram?": "টেলিগ্রামের মাধ্যমে লগিং এন্ট্রির জন্য সিনট্যাক্স কি?",
+    "Coffee 80": {
+      "50 upi team break": "কফি 80.50 ইউপি টিম ব্রেক"
+    },
+    "Do I need to type": "আমি কি টাইপ করতে হবে",
+    "Dinner 450": {
+      "25 card": "ডিনার 450.25 কার্ড"
+    },
+    "How do I reconnect or get my Chat ID if I unlink?": "যদি আমি আনলিঙ্ক করি তাহলে আমি কীভাবে পুনরায় সংযোগ করব বা আমার চ্যাট আইডি পাব?",
+    "General": "সাধারণ",
+    "How do category & monthly budget alerts work?": "কিভাবে বিভাগ এবং মাসিক বাজেট সতর্কতা কাজ করে?",
+    "Set monthly limits under Budget or via Telegram (": "বাজেটের অধীনে বা টেলিগ্রামের মাধ্যমে মাসিক সীমা নির্ধারণ করুন (",
+    "How do I export my data to CSV or Excel?": "আমি কিভাবে আমার ডেটা CSV বা Excel এ রপ্তানি করব?",
+    "Security": "নিরাপত্তা",
+    "Is my financial data safe and private?": "আমার আর্থিক তথ্য নিরাপদ এবং ব্যক্তিগত?",
+    "Copied command!": "কপি কমান্ড!",
+    "English": "ইংরেজি",
+    "ExpenseTracker": "এক্সপেন্স ট্র্যাকার",
+    "What's New": "নতুন কি",
+    "Escape": "পলায়ন",
+    "Updates & Bug Fixes": "আপডেট এবং বাগ ফিক্স"
   }
 }

@@ -8,6 +8,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import { useTranslation } from 'react-i18next';
 import Sidebar from './components/Sidebar';
 import LanguageSelector from './components/LanguageSelector';
+import { translateDOM, startTranslationObserver } from './utils/translator';
 import { Menu, Megaphone } from 'lucide-react';
 const bannerLogo = 'https://ik.imagekit.io/kabi10/tr:q-auto,f-auto/ExpenseTracker_Banner_Transparent.png';
 
@@ -390,6 +391,14 @@ export default function App() {
     };
     document.addEventListener('click', handleLabelClick);
     return () => document.removeEventListener('click', handleLabelClick);
+  }, []);
+
+  useEffect(() => {
+    const activeLang = localStorage.getItem('i18nextLng') || 'en';
+    if (activeLang !== 'en') {
+      translateDOM(activeLang);
+      startTranslationObserver(activeLang);
+    }
   }, []);
 
   return (

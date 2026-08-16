@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 import { incomeApi, budgetsApi, analyticsApi, savingsApi, getApiError } from '../api';
 import StatCard from '../components/StatCard';
 import Modal from '../components/Modal';
@@ -10,6 +11,7 @@ import { PiggyBank, TrendingUp, Wallet, Coins, CircleAlert, Plus, Pencil, Trash2
 const fmt = (n) => `₹${Number(n || 0).toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
 
 export default function Savings() {
+  const { t } = useTranslation();
   const qc = useQueryClient();
   const today = new Date();
   const currentMonthName = format(today, 'MMMM yyyy');
@@ -189,7 +191,7 @@ export default function Savings() {
                 </span>
               </div>
               <div style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 8 }}>
-                Current savings rate: <strong>{savingsRate.toFixed(1)}%</strong> (Expected: {expectedSavingsRate.toFixed(1)}%)
+                {t('Current savings rate')}: <strong>{savingsRate.toFixed(1)}%</strong> ({t('Expected')}: {expectedSavingsRate.toFixed(1)}%)
               </div>
               <div className="progress-bar" style={{ height: 10 }}>
                 <div
@@ -201,11 +203,11 @@ export default function Savings() {
                 />
               </div>
             </div>
-
+ 
             <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start', background: 'var(--bg-elevated)', padding: 12, borderRadius: 'var(--radius-md)' }}>
               <CircleAlert size={18} style={{ color: 'var(--text-muted)', marginTop: 2, flexShrink: 0 }} />
               <div style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                Financial advisers recommend a standard target savings rate of **20%** of your monthly income. Keeping your actual budget under total limits helps ensure you meet your projected savings goal of **{fmt(expectedSavings)}**.
+                {t('savings_advisory_text', { goal: fmt(expectedSavings) })}
               </div>
             </div>
           </div>

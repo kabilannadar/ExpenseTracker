@@ -38,5 +38,727 @@
     "income_subtitle": "നിങ്ങളുടെ വരുമാനം ട്രാക്ക് ചെയ്യുക",
     "profile_title": "പ്രൊഫൈൽ",
     "profile_subtitle": "നിങ്ങളുടെ അക്കൗണ്ട് ക്രമീകരണങ്ങൾ നിയന്ത്രിക്കുക"
+  },
+  "ui": {
+    "Current savings rate": "നിലവിലെ സേവിംഗ്സ് നിരക്ക്",
+    "Expected": "പ്രതീക്ഷിച്ചത്",
+    "savings_advisory_text": "നിങ്ങളുടെ പ്രതിമാസ വരുമാനത്തിൻ്റെ 20% എന്ന സ്റ്റാൻഡേർഡ് ടാർഗെറ്റ് സേവിംഗ്സ് നിരക്ക് സാമ്പത്തിക ഉപദേഷ്ടാക്കൾ ശുപാർശ ചെയ്യുന്നു. നിങ്ങളുടെ യഥാർത്ഥ ബഡ്ജറ്റ് മൊത്തം പരിധിക്ക് കീഴിൽ നിലനിർത്തുന്നത്, നിങ്ങളുടെ പ്രൊജക്റ്റ് ചെയ്ത സേവിംഗ്സ് ലക്ഷ്യമായ {{ലക്ഷ്യം}} കൈവരിക്കുന്നുവെന്ന് ഉറപ്പാക്കാൻ സഹായിക്കുന്നു.",
+    "This Month's Expenses": "ഈ മാസത്തെ ചെലവുകൾ",
+    "Monthly Income": "പ്രതിമാസ വരുമാനം",
+    "Net Savings": "നെറ്റ് സേവിംഗ്സ്",
+    "Expense Over Budget": "ബജറ്റിനേക്കാൾ ചെലവ്",
+    "Spending Streak": "ചെലവഴിക്കൽ സ്ട്രീക്ക്",
+    "Largest Expense": "ഏറ്റവും വലിയ ചെലവ്",
+    "Monthly Trend": "പ്രതിമാസ ട്രെൻഡ്",
+    "Spending by Category": "വിഭാഗമനുസരിച്ച് ചെലവഴിക്കുന്നു",
+    "Quick Tour": "ദ്രുത ടൂർ",
+    "Track Expenses Instantly via Telegram!": "ടെലിഗ്രാം വഴി ചെലവുകൾ തൽക്ഷണം ട്രാക്ക് ചെയ്യുക!",
+    "Get Started": "ആരംഭിക്കുക",
+    "Add Expense": "ചെലവ് ചേർക്കുക",
+    "Edit Expense": "ചെലവ് എഡിറ്റ് ചെയ്യുക",
+    "Title *": "തലക്കെട്ട് *",
+    "Amount (₹) *": "തുക (₹) *",
+    "Date *": "തീയതി *",
+    "Category": "വിഭാഗം",
+    "Uncategorized": "വർഗ്ഗീകരിക്കാത്തത്",
+    "Payment Method": "പണമടയ്ക്കൽ രീതി",
+    "Note": "കുറിപ്പ്",
+    "Cancel": "റദ്ദാക്കുക",
+    "Save Changes": "മാറ്റങ്ങൾ സംരക്ഷിക്കുക",
+    "SEARCH": "തിരയുക",
+    "CATEGORY": "വിഭാഗം",
+    "PAYMENT METHOD": "പണമടയ്ക്കൽ രീതി",
+    "FROM DATE": "തീയതി മുതൽ",
+    "TO DATE": "തീയതി",
+    "SORT BY": "ഇങ്ങനെ അടുക്കുക",
+    "All Categories": "എല്ലാ വിഭാഗങ്ങളും",
+    "All Payments": "എല്ലാ പേയ്‌മെൻ്റുകളും",
+    "Newest First": "ഏറ്റവും പുതിയത് ആദ്യം",
+    "Oldest First": "ഏറ്റവും പഴയ ആദ്യ",
+    "Highest Amount": "ഏറ്റവും ഉയർന്ന തുക",
+    "Lowest Amount": "ഏറ്റവും കുറഞ്ഞ തുക",
+    "Clear": "ക്ലിയർ",
+    "Category (leave empty for global budget)": "വിഭാഗം (ആഗോള ബജറ്റിനായി ശൂന്യമായി വിടുക)",
+    "Monthly Limit (₹)": "പ്രതിമാസ പരിധി (₹)",
+    "Weekly Limit (₹)": "പ്രതിവാര പരിധി (₹)",
+    "Set Budget": "ബജറ്റ് സജ്ജമാക്കുക",
+    "Set your first budget": "നിങ്ങളുടെ ആദ്യ ബജറ്റ് സജ്ജമാക്കുക",
+    "Save Budget": "ബജറ്റ് സംരക്ഷിക്കുക",
+    "Per-Category Budgets": "ഓരോ വിഭാഗത്തിനും ബജറ്റുകൾ",
+    "e": {
+      "g": {
+        " 50000": "ഉദാ. 50000",
+        " 12000": "ഉദാ. 12000",
+        " Outside Food": "ഉദാ. പുറത്ത് ഭക്ഷണം",
+        " HDFC Credit Card, Friend John": "ഉദാ. HDFC ക്രെഡിറ്റ് കാർഡ്, സുഹൃത്ത് ജോൺ",
+        " 20000": "ഉദാ. 20000",
+        " 12": "ഉദാ. 12",
+        " 2500": "ഉദാ. 2500",
+        " Home Loan, Car Loan": "ഉദാ. ഹോം ലോൺ, കാർ ലോൺ",
+        " HDFC, SBI, Navi, Cred": "ഉദാ. HDFC, SBI, Navi, Cred",
+        " 500000": "ഉദാ. 500000",
+        " 8": {
+          "5": "ഉദാ. 8.5"
+        },
+        " Lunch at restaurant": "ഉദാ. ഭക്ഷണശാലയിൽ ഉച്ചഭക്ഷണം",
+        " Emergency Fund": "ഉദാ. എമർജൻസി ഫണ്ട്",
+        " HDFC Bank, SBI": "ഉദാ. എച്ച്ഡിഎഫ്സി ബാങ്ക്, എസ്ബിഐ",
+        " 7": {
+          "5": "ഉദാ. 7.5"
+        },
+        " Petrol": "ഉദാ. പെട്രോൾ",
+        " Pay electricity bill": "ഉദാ. വൈദ്യുതി ബിൽ അടയ്ക്കുക",
+        " HDFC Savings Account, Mutual Fund SIP": "ഉദാ. എച്ച്ഡിഎഫ്സി സേവിംഗ്സ് അക്കൗണ്ട്, മ്യൂച്വൽ ഫണ്ട് എസ്ഐപി",
+        " Netflix, Spotify": "ഉദാ. Netflix, Spotify",
+        " Streaming, SaaS": "ഉദാ. സ്ട്രീമിംഗ്, SaaS",
+        " 182736495": "ഉദാ. 182736495"
+      }
+    },
+    "Name *": "പേര് *",
+    "Type *": "തരം *",
+    "Color": "നിറം",
+    "New Category": "പുതിയ വിഭാഗം",
+    "Add Category": "വിഭാഗം ചേർക്കുക",
+    "Recent Expenses": "സമീപകാല ചെലവുകൾ",
+    "Take a quick onboarding tour": "പെട്ടെന്നുള്ള ഓൺബോർഡിംഗ് ടൂർ നടത്തുക",
+    "Logged via Telegram": "ടെലിഗ്രാം വഴി ലോഗിൻ ചെയ്തു",
+    "Welcome to ExpenseTracker! 👋": "ExpenseTracker-ലേക്ക് സ്വാഗതം! 👋",
+    "Financial KPIs 📊": "സാമ്പത്തിക കെപിഐകൾ 📊",
+    "Monthly Budget Limit 🎯": "പ്രതിമാസ ബജറ്റ് പരിധി 🎯",
+    "Visual Analytics 📈": "വിഷ്വൽ അനലിറ്റിക്സ് 📈",
+    "Cashflow Tracking 💸": "പണമൊഴുക്ക് ട്രാക്കിംഗ് 💸",
+    "Loans, Debt & EMIs 🏛️": "ലോണുകൾ, കടം & ഇഎംഐകൾ 🏛️",
+    "Budgets & Categories 🎯": "ബജറ്റുകളും വിഭാഗങ്ങളും 🎯",
+    "Savings & Wealth Goals 📈": "സേവിംഗ്സ് & സമ്പത്ത് ലക്ഷ്യങ്ങൾ 📈",
+    "Bills, Reminders & Recurring ⏰": "ബില്ലുകൾ, ഓർമ്മപ്പെടുത്തലുകൾ & ആവർത്തന ⏰",
+    "Instant Telegram Bot 🤖": "തൽക്ഷണ ടെലിഗ്രാം ബോട്ട്",
+    "Settings & Security ⚙️": "ക്രമീകരണവും സുരക്ഷയും ⚙️",
+    "Help & FAQ 📚": "സഹായവും പതിവുചോദ്യങ്ങളും 📚",
+    "Support & Feedback 💬": "പിന്തുണയും ഫീഡ്‌ബാക്കും 💬",
+    "Install as an App 📱": "ഒരു ആപ്പ് ആയി ഇൻസ്റ്റാൾ ചെയ്യുക 📱",
+    "Creditor / Lender Name *": "കടക്കാരൻ / കടം കൊടുക്കുന്നയാളുടെ പേര് *",
+    "Original Owed Amount (₹) *": "യഥാർത്ഥ കുടിശ്ശിക തുക (₹) *",
+    "Amount Paid (₹) *": "അടച്ച തുക (₹) *",
+    "Remaining Debt (calculated)": "ശേഷിക്കുന്ന കടം (കണക്കെടുത്തത്)",
+    "Interest Rate (% p": {
+      "a": {
+        ")": "പലിശ നിരക്ക് (% p.a.)",
+        ") *": "പലിശ നിരക്ക് (% p.a.) *"
+      }
+    },
+    "Minimum Monthly Payment (₹)": "കുറഞ്ഞ പ്രതിമാസ പേയ്‌മെൻ്റ് (₹)",
+    "Next Payment Due Date": "അടുത്ത പേയ്‌മെൻ്റ് അവസാന തീയതി",
+    "Notes": "കുറിപ്പുകൾ",
+    "Add Debt": "കടം ചേർക്കുക",
+    "Add your first debt record": "നിങ്ങളുടെ ആദ്യ കടം റെക്കോർഡ് ചേർക്കുക",
+    "Debt Tracker": "ഡെറ്റ് ട്രാക്കർ",
+    "Optional descriptions or details": {
+      "": {
+        "": {
+          "": "ഓപ്ഷണൽ വിവരണങ്ങൾ അല്ലെങ്കിൽ വിശദാംശങ്ങൾ..."
+        }
+      }
+    },
+    "Edit": "എഡിറ്റ് ചെയ്യുക",
+    "Delete": "ഇല്ലാതാക്കുക",
+    "Loan Title *": "വായ്പയുടെ പേര് *",
+    "Loan Platform / Lender": "ലോൺ പ്ലാറ്റ്ഫോം / ലെൻഡർ",
+    "Loan Type *": "വായ്പ തരം *",
+    "Payment Method *": "പണമടയ്ക്കൽ രീതി *",
+    "Principal Amount (₹) *": "പ്രധാന തുക (₹) *",
+    "Start Date *": "ആരംഭിക്കുന്ന തീയതി *",
+    "End Date *": "അവസാന തീയതി *",
+    "Total Tenure (months) *": "ആകെ കാലാവധി (മാസങ്ങൾ) *",
+    "Remaining Months *": "ശേഷിക്കുന്ന മാസങ്ങൾ*",
+    "Payment Due Date *": "പേയ്‌മെൻ്റ് അവസാന തീയതി *",
+    "Calculated EMI Amount (₹) *": "കണക്കാക്കിയ EMI തുക (₹) *",
+    "Add Loan EMI": "ലോൺ EMI ചേർക്കുക",
+    "Add your first loan": "നിങ്ങളുടെ ആദ്യ വായ്പ ചേർക്കുക",
+    "Save Loan": "വായ്പ ലാഭിക്കുക",
+    "EMI Tracker": "EMI ട്രാക്കർ",
+    "Loan details, account numbers, etc": {
+      "": "ലോൺ വിശദാംശങ്ങൾ, അക്കൗണ്ട് നമ്പറുകൾ മുതലായവ."
+    },
+    "Add your first expense": "നിങ്ങളുടെ ആദ്യ ചെലവ് ചേർക്കുക",
+    "Search": "തിരയുക",
+    "Optional note": {
+      "": {
+        "": {
+          "": "ഓപ്ഷണൽ കുറിപ്പ്..."
+        }
+      }
+    },
+    "From Date": "തീയതി മുതൽ",
+    "To Date": "തീയതി",
+    "Sort By": "ഇങ്ങനെ അടുക്കുക",
+    "Goal Title *": "ലക്ഷ്യ ശീർഷകം *",
+    "Target Amount (₹) *": "ടാർഗെറ്റ് തുക (₹) *",
+    "Saved So Far (₹)": "ഇതുവരെ സംരക്ഷിച്ചത് (₹)",
+    "Deadline (optional)": "സമയപരിധി (ഓപ്ഷണൽ)",
+    "New Goal": "പുതിയ ലക്ഷ്യം",
+    "Add Goal": "ലക്ഷ്യം ചേർക്കുക",
+    "Help & Knowledge Base": "സഹായവും വിജ്ഞാന അടിത്തറയും",
+    "Category *": "വിഭാഗം *",
+    "Method / Type *": "രീതി / തരം *",
+    "Add Income": "വരുമാനം ചേർക്കുക",
+    "Loan Amount (Principal) *": "ലോൺ തുക (പ്രിൻസിപ്പൽ) *",
+    "Annual Interest Rate (%) *": "വാർഷിക പലിശ നിരക്ക് (%) *",
+    "Tenure (Months) *": "കാലാവധി (മാസങ്ങൾ) *",
+    "Loan Type": "വായ്പ തരം",
+    "Lender / Platform": "കടം കൊടുക്കുന്നയാൾ / പ്ലാറ്റ്ഫോം",
+    "Principal *": "പ്രിൻസിപ്പൽ *",
+    "Interest % *": "പലിശ % *",
+    "Months *": "മാസങ്ങൾ*",
+    "Monthly EMI *": "പ്രതിമാസ EMI*",
+    "Add Loan": "ലോൺ ചേർക്കുക",
+    "Save to Track": "ട്രാക്കിലേക്ക് സംരക്ഷിക്കുക",
+    "Confirm & Save": "സ്ഥിരീകരിച്ച് സംരക്ഷിക്കുക",
+    "Loans & Liabilities": "വായ്പകളും ബാധ്യതകളും",
+    "Calculated automatically": "യാന്ത്രികമായി കണക്കാക്കുന്നു",
+    "Stop tracking loan": "ലോൺ ട്രാക്ക് ചെയ്യുന്നത് നിർത്തുക",
+    "Calculated Loan": "കണക്കാക്കിയ വായ്പ",
+    "Email": "ഇമെയിൽ",
+    "Password": "രഹസ്യവാക്ക്",
+    "Welcome back": "തിരികെ സ്വാഗതം",
+    "you@example": {
+      "com": "you@example.com"
+    },
+    "Sign in with email & password": "ഇമെയിലും പാസ്‌വേഡും ഉപയോഗിച്ച് സൈൻ ഇൻ ചെയ്യുക",
+    "Continue with Google": "Google-ൽ തുടരുക",
+    "Full Name": "പൂർണ്ണമായ പേര്",
+    "Currency": "കറൻസി",
+    "Timezone": "സമയമേഖല",
+    "Theme": "തീം",
+    "Language": "ഭാഷ",
+    "Date Range": "തീയതി ശ്രേണി",
+    "From": "നിന്ന്",
+    "To": "ലേക്ക്",
+    "Upload Profile Picture": "പ്രൊഫൈൽ ചിത്രം അപ്‌ലോഡ് ചെയ്യുക",
+    "Frequency": "ആവൃത്തി",
+    "Next Due Date *": "അടുത്ത അവസാന തീയതി *",
+    "Add Recurring": "ആവർത്തിക്കുന്നത് ചേർക്കുക",
+    "Add one": "ഒന്ന് ചേർക്കുക",
+    "Save": "സംരക്ഷിക്കുക",
+    "Create account": "അക്കൗണ്ട് സൃഷ്ടിക്കുക",
+    "Sign up with email": "ഇമെയിൽ ഉപയോഗിച്ച് സൈൻ അപ്പ് ചെയ്യുക",
+    "Verify your email": "നിങ്ങളുടെ ഇമെയിൽ പരിശോധിക്കുക",
+    "Your name": "നിങ്ങളുടെ പേര്",
+    "Min": {
+      " 6 characters": "മിനി. 6 പ്രതീകങ്ങൾ"
+    },
+    "Date & Time *": "തീയതിയും സമയവും *",
+    "Description": "വിവരണം",
+    "Add Reminder": "ഓർമ്മപ്പെടുത്തൽ ചേർക്കുക",
+    "UPCOMING": "വരാനിരിക്കുന്ന",
+    "DONE": "ചെയ്തു",
+    "Additional details": {
+      "": {
+        "": {
+          "": "കൂടുതൽ വിശദാംശങ്ങൾ..."
+        }
+      }
+    },
+    "Title / Account *": "പേര് / അക്കൗണ്ട് *",
+    "Transaction Type *": "ഇടപാട് തരം *",
+    "Log Savings": "ലോഗ് സേവിംഗ്സ്",
+    "Savings Analysis": "സേവിംഗ്സ് വിശകലനം",
+    "Optional description": {
+      "": {
+        "": {
+          "": "ഓപ്ഷണൽ വിവരണം..."
+        }
+      }
+    },
+    "Projected Savings": "പ്രൊജക്റ്റഡ് സേവിംഗ്സ്",
+    "Actual Savings": "യഥാർത്ഥ സേവിംഗ്സ്",
+    "Logged Savings": "ലോഗ്ഡ് സേവിംഗ്സ്",
+    "Total Monthly Income": "മൊത്തം പ്രതിമാസ വരുമാനം",
+    "Expected/Projected Savings:": "പ്രതീക്ഷിക്കുന്ന/പ്രൊജക്റ്റ് ചെയ്യുന്ന സമ്പാദ്യം:",
+    "Actual Savings to Date:": "നാളിതുവരെയുള്ള യഥാർത്ഥ സമ്പാദ്യം:",
+    "Budget Variance:": "ബജറ്റ് വ്യത്യാസം:",
+    "Amount *": "തുക *",
+    "Billing Cycle": "ബില്ലിംഗ് സൈക്കിൾ",
+    "Type": "ടൈപ്പ് ചെയ്യുക",
+    "End Date": "അവസാന തീയതി",
+    "Features / Notes": "സവിശേഷതകൾ / കുറിപ്പുകൾ",
+    "Add Subscription": "സബ്സ്ക്രിപ്ഷൻ ചേർക്കുക",
+    "What's included": {
+      "": {
+        "": {
+          "": "എന്താണ് ഉൾപ്പെടുത്തിയിരിക്കുന്നത്..."
+        }
+      }
+    },
+    "Subject *": "വിഷയം *",
+    "Detailed Concern *": "വിശദമായ ആശങ്ക *",
+    "Rating (Optional)": "റേറ്റിംഗ് (ഓപ്ഷണൽ)",
+    "Send Another Message": "മറ്റൊരു സന്ദേശം അയയ്ക്കുക",
+    "Feedback Submitted!": "ഫീഡ്‌ബാക്ക് സമർപ്പിച്ചു!",
+    "How can we help you?": "ഞങ്ങൾക്ക് നിങ്ങളെ എങ്ങനെ സഹായിക്കാനാകും?",
+    "Report Bug": "ബഗ് റിപ്പോർട്ട് ചെയ്യുക",
+    "Suggest Feature": "സവിശേഷത നിർദ്ദേശിക്കുക",
+    "Account Concerns": "അക്കൗണ്ട് ആശങ്കകൾ",
+    "General Inquiries": "പൊതുവായ അന്വേഷണങ്ങൾ",
+    "Data Export & Backup": "ഡാറ്റ എക്‌സ്‌പോർട്ടും ബാക്കപ്പും",
+    "Security & Privacy": "സുരക്ഷയും സ്വകാര്യതയും",
+    "Send Feedback": "ഫീഡ്‌ബാക്ക് അയയ്‌ക്കുക",
+    "Brief summary of concern": "ആശങ്കയുടെ സംക്ഷിപ്ത സംഗ്രഹം",
+    "What seems to be the issue? Or how can we make ExpenseTracker better?": "എന്താണ് പ്രശ്നം എന്ന് തോന്നുന്നു? അല്ലെങ്കിൽ നമുക്ക് എങ്ങനെ ExpenseTracker മികച്ചതാക്കാം?",
+    "Telegram Chat ID": "ടെലിഗ്രാം ചാറ്റ് ഐഡി",
+    "Text to Track": "ട്രാക്ക് ചെയ്യാൻ വാചകം",
+    "Bot Connection Status": "ബോട്ട് കണക്ഷൻ നില",
+    "Bot Profile": "ബോട്ട് പ്രൊഫൈൽ",
+    "Why use our bot?": "എന്തുകൊണ്ടാണ് ഞങ്ങളുടെ ബോട്ട് ഉപയോഗിക്കുന്നത്?",
+    "Example Chat": "ഉദാഹരണം ചാറ്റ്",
+    "How to set up": "എങ്ങനെ സജ്ജീകരിക്കാം",
+    "Open ExpenseTracker Bot": "ExpenseTracker ബോട്ട് തുറക്കുക",
+    "Get Chat ID": "ചാറ്റ് ഐഡി നേടുക",
+    "Link Account": "അക്കൗണ്ട് ലിങ്ക് ചെയ്യുക",
+    "Start Tracking!": "ട്രാക്കിംഗ് ആരംഭിക്കുക!",
+    "System Updates": "സിസ്റ്റം അപ്ഡേറ്റുകൾ",
+    "Copy Command": "കമാൻഡ് പകർത്തുക",
+    "Change Language": "ഭാഷ മാറ്റുക",
+    "Close Sidebar": "സൈഡ്‌ബാർ അടയ്ക്കുക",
+    "Install ExpenseTracker App": "ExpenseTracker ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്യുക",
+    "Close": "അടയ്ക്കുക",
+    "Track activity and changes across the application": "ആപ്ലിക്കേഷനിലുടനീളം പ്രവർത്തനങ്ങളും മാറ്റങ്ങളും ട്രാക്ക് ചെയ്യുക",
+    "No activity in this section yet": "ഈ വിഭാഗത്തിൽ ഇതുവരെ പ്രവർത്തനങ്ങളൊന്നുമില്ല",
+    "Time": "സമയം",
+    "Action": "ആക്ഷൻ",
+    "Details": "വിശദാംശങ്ങൾ",
+    "All Activities": "എല്ലാ പ്രവർത്തനങ്ങളും",
+    "Transactions & Loans": "ഇടപാടുകളും വായ്പകളും",
+    "Budgets & Goals": "ബജറ്റുകളും ലക്ഷ്യങ്ങളും",
+    "Schedules & Reminders": "ഷെഡ്യൂളുകളും ഓർമ്മപ്പെടുത്തലുകളും",
+    "System Settings": "സിസ്റ്റം ക്രമീകരണങ്ങൾ",
+    "Set monthly and weekly spending limits": "പ്രതിമാസ, പ്രതിവാര ചെലവ് പരിധി നിശ്ചയിക്കുക",
+    "Global Budget": "ആഗോള ബജറ്റ്",
+    "Applies to categories without specific budgets": "പ്രത്യേക ബജറ്റുകളില്ലാത്ത വിഭാഗങ്ങൾക്ക് ബാധകമാണ്",
+    "Monthly Progress": "പ്രതിമാസ പുരോഗതി",
+    "Weekly Progress": "പ്രതിവാര പുരോഗതി",
+    "Monthly": "പ്രതിമാസ",
+    "Weekly": "പ്രതിവാരം",
+    "No budgets set yet": "ഇതുവരെ ബജറ്റുകളൊന്നും നിശ്ചയിച്ചിട്ടില്ല",
+    "Global (all categories)": "ആഗോള (എല്ലാ വിഭാഗങ്ങളും)",
+    "Budget set!": "ബജറ്റ് സെറ്റ്!",
+    "Budget updated!": "ബജറ്റ് അപ്ഡേറ്റ് ചെയ്തു!",
+    "Budget removed": "ബജറ്റ് നീക്കം ചെയ്തു",
+    "Remove global budget?": "ആഗോള ബജറ്റ് നീക്കം ചെയ്യണോ?",
+    "Unknown": "അജ്ഞാതം",
+    "Remove?": "നീക്കം ചെയ്യണോ?",
+    "Edit Budget": "ബജറ്റ് എഡിറ്റ് ചെയ്യുക",
+    "Default": "സ്ഥിരസ്ഥിതി",
+    "Expense Category": "ചെലവ് വിഭാഗം",
+    "Income Category": "വരുമാന വിഭാഗം",
+    "Category created!": "വിഭാഗം സൃഷ്ടിച്ചു!",
+    "Category updated!": "വിഭാഗം അപ്‌ഡേറ്റ് ചെയ്‌തു!",
+    "Category deleted": "വിഭാഗം ഇല്ലാതാക്കി",
+    "Edit Category": "വിഭാഗം എഡിറ്റ് ചെയ്യുക",
+    "Create": "സൃഷ്ടിക്കുക",
+    "import previous data": "മുമ്പത്തെ ഡാറ്റ ഇറക്കുമതി ചെയ്യുക",
+    "Monthly Budget": "പ്രതിമാസ ബജറ്റ്",
+    "No data yet": "ഇതുവരെ ഡാറ്റയില്ല",
+    "No recent expenses": "സമീപകാല ചെലവുകളൊന്നുമില്ല",
+    "Imported expenses successfully!": "ഇറക്കുമതി ചെലവുകൾ വിജയകരമായി!",
+    "Failed to import CSV": {
+      "": "CSV ഇറക്കുമതി ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു."
+    },
+    "Previous": "മുമ്പത്തെ",
+    "Dismiss": "പിരിച്ചുവിടുക",
+    "Monitor loans, liabilities, and repayment progress": "വായ്പകൾ, ബാധ്യതകൾ, തിരിച്ചടവ് പുരോഗതി എന്നിവ നിരീക്ഷിക്കുക",
+    "Total Borrowed": "ആകെ കടമെടുത്തത്",
+    "Original debt size": "യഥാർത്ഥ കടത്തിൻ്റെ വലുപ്പം",
+    "Active Balance": "സജീവ ബാലൻസ്",
+    "Remaining outstanding": "ബാക്കിയുള്ളത്",
+    "Total Paid Off": "മൊത്തം അടച്ചു തീർത്തു",
+    "Settled debt amount": "അടച്ച കടം തുക",
+    "Active Accounts": "സജീവ അക്കൗണ്ടുകൾ",
+    "Accounts to pay off": "അടയ്‌ക്കാനുള്ള അക്കൗണ്ടുകൾ",
+    "No debts tracked currently": "നിലവിൽ കടങ്ങളൊന്നും ട്രാക്ക് ചെയ്തിട്ടില്ല",
+    "Settled": "സ്ഥിരതാമസമാക്കി",
+    "Active": "സജീവമാണ്",
+    "Remaining Balance": "ബാക്കിയുള്ള ബാലൻസ്",
+    "Original Amount": "യഥാർത്ഥ തുക",
+    "Interest Rate": "പലിശ നിരക്ക്",
+    "Min Payment": "മിനിമം പേയ്മെൻ്റ്",
+    "Debt recorded successfully!": "കടം വിജയകരമായി രേഖപ്പെടുത്തി!",
+    "Debt updated successfully!": "കടം വിജയകരമായി അപ്ഡേറ്റ് ചെയ്തു!",
+    "Debt record deleted": "കടത്തിൻ്റെ രേഖ ഇല്ലാതാക്കി",
+    "No date set": "തീയതി നിശ്ചയിച്ചിട്ടില്ല",
+    "Edit Debt": "കടം എഡിറ്റ് ചെയ്യുക",
+    "Manage your loans, mortgages, and monthly installments": "നിങ്ങളുടെ ലോണുകൾ, മോർട്ട്ഗേജുകൾ, പ്രതിമാസ തവണകൾ എന്നിവ കൈകാര്യം ചെയ്യുക",
+    "Monthly EMI Outflow": "പ്രതിമാസ EMI ഔട്ട്‌ഫ്ലോ",
+    "Across all active EMIs": "സജീവമായ എല്ലാ EMI-കളിലും",
+    "Total Borrowed Principal": "ആകെ കടമെടുത്ത പ്രിൻസിപ്പൽ",
+    "Total initial loan portfolio": "മൊത്തം പ്രാഥമിക വായ്പാ പോർട്ട്ഫോളിയോ",
+    "Total Paid EMI Amount": "അടച്ച ആകെ EMI തുക",
+    "Cumulatively paid so far": "സഞ്ചിതമായി ഇതുവരെ അടച്ചു",
+    "Active Loans": "സജീവ വായ്പകൾ",
+    "Currently tracking": "നിലവിൽ ട്രാക്കിംഗ്",
+    "No active EMIs tracked yet": "സജീവമായ ഇഎംഐകളൊന്നും ഇതുവരെ ട്രാക്ക് ചെയ്തിട്ടില്ല",
+    "Monthly EMI": "പ്രതിമാസ ഇഎംഐ",
+    "Principal Amount": "പ്രിൻസിപ്പൽ തുക",
+    "Pay Via": "വഴി പണമടയ്ക്കുക",
+    "Housing / Home Loan": "ഭവന / ഭവന വായ്പ",
+    "Vehicle / Car Loan": "വാഹനം / കാർ ലോൺ",
+    "Household Items Loan": "വീട്ടുപകരണങ്ങൾക്കുള്ള വായ്പ",
+    "Education Loan": "വിദ്യാഭ്യാസ വായ്പ",
+    "Personal Loan": "വ്യക്തിഗത വായ്പ",
+    "Business Loan": "ബിസിനസ് ലോൺ",
+    "Gold Loan": "സ്വർണ്ണ വായ്പ",
+    "Other Loan": "മറ്റ് വായ്പ",
+    "Bank Transfer": "ബാങ്ക് ട്രാൻസ്ഫർ",
+    "Auto-Debit": "ഓട്ടോ-ഡെബിറ്റ്",
+    "UPI": "യുപിഐ",
+    "Advance Payment": "മുൻകൂർ പേയ്മെൻ്റ്",
+    "Credit Card": "ക്രെഡിറ്റ് കാർഡ്",
+    "Debit Card": "ഡെബിറ്റ് കാർഡ്",
+    "Cash": "പണം",
+    "Other": "മറ്റുള്ളവ",
+    "Housing": "പാർപ്പിടം",
+    "EMI Loan added successfully!": "EMI ലോൺ ചേർത്തു!",
+    "EMI Loan updated!": "EMI ലോൺ അപ്ഡേറ്റ് ചെയ്തു!",
+    "EMI Loan deleted": "EMI ലോൺ ഇല്ലാതാക്കി",
+    "Edit Loan EMI": "ലോൺ EMI എഡിറ്റ് ചെയ്യുക",
+    "Vehicle": "വാഹനം",
+    "Household Items": "വീട്ടുപകരണങ്ങൾ",
+    "Education": "വിദ്യാഭ്യാസം",
+    "Personal": "വ്യക്തിപരം",
+    "Business": "ബിസിനസ്സ്",
+    "Gold": "സ്വർണ്ണം",
+    "No expenses found": "ചെലവുകളൊന്നും കണ്ടെത്തിയില്ല",
+    "Date": "തീയതി",
+    "Title": "തലക്കെട്ട്",
+    "Payment": "പേയ്മെൻ്റ്",
+    "Amount": "തുക",
+    "Actions": "പ്രവർത്തനങ്ങൾ",
+    "Expense added!": "ചെലവ് ചേർത്തു!",
+    "Expense updated!": "ചെലവ് അപ്ഡേറ്റ് ചെയ്തു!",
+    "Expense deleted": "ചെലവ് ഇല്ലാതാക്കി",
+    "Delete this expense?": "ഈ ചെലവ് ഇല്ലാതാക്കണോ?",
+    "Track your financial goals": "നിങ്ങളുടെ സാമ്പത്തിക ലക്ഷ്യങ്ങൾ ട്രാക്ക് ചെയ്യുക",
+    "No goals yet": "ഇതുവരെ ഗോളുകളൊന്നുമില്ല",
+    "Goal created!": "ലക്ഷ്യം സൃഷ്ടിച്ചു!",
+    "Goal updated!": "ലക്ഷ്യം അപ്ഡേറ്റ് ചെയ്തു!",
+    "Goal deleted": "ലക്ഷ്യം ഇല്ലാതാക്കി",
+    "Delete goal?": "ലക്ഷ്യം ഇല്ലാതാക്കണോ?",
+    "Edit Goal": "ലക്ഷ്യം എഡിറ്റ് ചെയ്യുക",
+    "Create Goal": "ലക്ഷ്യം സൃഷ്ടിക്കുക",
+    "Frequently asked questions and Telegram bot setup guides": "പതിവായി ചോദിക്കുന്ന ചോദ്യങ്ങളും ടെലിഗ്രാം ബോട്ട് സജ്ജീകരണ ഗൈഡുകളും",
+    "No income records yet": "ഇതുവരെ വരുമാന രേഖകളൊന്നുമില്ല",
+    "Source": "ഉറവിടം",
+    "Method": "രീതി",
+    "Select Category": "വിഭാഗം തിരഞ്ഞെടുക്കുക",
+    "Income added!": "വരുമാനം ചേർത്തു!",
+    "Income updated!": "വരുമാനം അപ്ഡേറ്റ് ചെയ്തു!",
+    "Income deleted": "വരുമാനം ഇല്ലാതാക്കി",
+    "CASH": "പണം",
+    "Delete?": "ഇല്ലാതാക്കണോ?",
+    "Edit Income": "വരുമാനം എഡിറ്റ് ചെയ്യുക",
+    "Unified view of your active loans, installments, and amortization calculator": {
+      "": "നിങ്ങളുടെ സജീവ ലോണുകൾ, തവണകൾ, അമോർട്ടൈസേഷൻ കാൽക്കുലേറ്റർ എന്നിവയുടെ ഏകീകൃത കാഴ്ച."
+    },
+    "Monthly Outflow (EMI)": "പ്രതിമാസ ഔട്ട്‌ഫ്ലോ (EMI)",
+    "Active Liabilities": "സജീവ ബാധ്യതകൾ",
+    "Total Interest": "മൊത്തം പലിശ",
+    "Total Payable Amount": "അടയ്‌ക്കേണ്ട ആകെ തുക",
+    "Month": "മാസം",
+    "Principal": "പ്രിൻസിപ്പൽ",
+    "Interest": "താൽപ്പര്യം",
+    "Balance": "ബാലൻസ്",
+    "Loading loans": {
+      "": {
+        "": {
+          "": "ലോണുകൾ ലോഡ് ചെയ്യുന്നു..."
+        }
+      }
+    },
+    "\"Save to Track\"": "\"ട്രാക്ക് ചെയ്യാൻ സംരക്ഷിക്കുക\"",
+    "Loan deleted successfully": {
+      "": "ലോൺ വിജയകരമായി ഇല്ലാതാക്കി."
+    },
+    "Calculated loan added to your tracking list!": "കണക്കാക്കിയ വായ്പ നിങ്ങളുടെ ട്രാക്കിംഗ് ലിസ്റ്റിലേക്ക് ചേർത്തു!",
+    "Please enter a loan title": {
+      "": "ഒരു ലോൺ ടൈറ്റിൽ നൽകുക."
+    },
+    "Please enter a valid principal amount": {
+      "": "ദയവായി സാധുവായ ഒരു പ്രധാന തുക നൽകുക."
+    },
+    "Please enter a valid interest rate": {
+      "": "സാധുവായ ഒരു പലിശ നിരക്ക് നൽകുക."
+    },
+    "Please enter a valid tenure": {
+      "": "ദയവായി ഒരു സാധുവായ കാലാവധി നൽകുക."
+    },
+    "Please enter a valid monthly EMI": {
+      "": "സാധുതയുള്ള പ്രതിമാസ EMI നൽകുക."
+    },
+    "No platform": "പ്ലാറ്റ്ഫോം ഇല്ല",
+    "Delete tracking for this loan?": "ഈ ലോണിൻ്റെ ട്രാക്കിംഗ് ഇല്ലാതാക്കണോ?",
+    "Save Calculated Loan": "കണക്കാക്കിയ വായ്പ ലാഭിക്കുക",
+    "Add Tracked Loan": "ട്രാക്ക് ചെയ്ത ലോൺ ചേർക്കുക",
+    "or": "അല്ലെങ്കിൽ",
+    "Sign up": "സൈൻ അപ്പ് ചെയ്യുക",
+    "M0 0h48v48H0z": "M0 0h48v48H0z",
+    "Google sign-in failed": {
+      "": "Google സൈൻ ഇൻ പരാജയപ്പെട്ടു."
+    },
+    "Google sign-in was cancelled or failed": {
+      "": "Google സൈൻ-ഇൻ റദ്ദാക്കുകയോ പരാജയപ്പെടുകയോ ചെയ്തു."
+    },
+    "Welcome back!": "തിരികെ സ്വാഗതം!",
+    "Login failed": "ലോഗിൻ ചെയ്യുന്നത് പരാജയപ്പെട്ടു",
+    "ExpenseTracker Logo": "ExpenseTracker ലോഗോ",
+    "Signing in": {
+      "": {
+        "": {
+          "": "സൈൻ ഇൻ ചെയ്യുന്നു..."
+        }
+      }
+    },
+    "Sign In": "സൈൻ ഇൻ",
+    "Account Info": "അക്കൗണ്ട് വിവരം",
+    "Asia/Kolkata', 'UTC',": "ഏഷ്യ/കൊൽക്കത്ത', 'UTC',",
+    "America/Chicago',": "അമേരിക്ക/ഷിക്കാഗോ',",
+    "Europe/London', 'Europe/Paris', 'Asia/Tokyo',": "യൂറോപ്പ്/ലണ്ടൻ', 'യൂറോപ്പ്/പാരീസ്', 'ഏഷ്യ/ടോക്കിയോ',",
+    "INR', 'USD', 'EUR', 'GBP', 'JPY', 'AUD', 'CAD": "INR, 'USD', 'EUR', 'GBP', 'JPY', 'AUD', 'CAD",
+    "Today": "ഇന്ന്",
+    "This Week": "ഈ ആഴ്ച",
+    "This Month": "ഈ മാസം",
+    "Last Month": "കഴിഞ്ഞ മാസം",
+    "All Time": "എല്ലാ സമയത്തും",
+    "Custom Range": "ഇഷ്‌ടാനുസൃത ശ്രേണി",
+    "INR": "INR",
+    "Asia/Kolkata": "ഏഷ്യ/കൊൽക്കത്ത",
+    "Please select an image file": {
+      "": "ദയവായി ഒരു ഇമേജ് ഫയൽ തിരഞ്ഞെടുക്കുക."
+    },
+    "Uploading profile picture": {
+      "": {
+        "": {
+          "": "പ്രൊഫൈൽ ചിത്രം അപ്‌ലോഡ് ചെയ്യുന്നു..."
+        }
+      }
+    },
+    "Failed to upload profile picture": {
+      "": "പ്രൊഫൈൽ ചിത്രം അപ്‌ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു."
+    },
+    "Profile updated!": "പ്രൊഫൈൽ അപ്ഡേറ്റ് ചെയ്തു!",
+    "Please select both From and To dates for custom range": {
+      "": "ഇഷ്‌ടാനുസൃത ശ്രേണിയ്‌ക്കായി ദയവായി മുതൽ തീയതികൾ വരെ തിരഞ്ഞെടുക്കുക."
+    },
+    "Download started!": "ഡൗൺലോഡ് ആരംഭിച്ചു!",
+    "Export failed": "കയറ്റുമതി പരാജയപ്പെട്ടു",
+    "Auto-repeating transactions": "സ്വയമേവ ആവർത്തിക്കുന്ന ഇടപാടുകൾ",
+    "No recurring transactions": "ആവർത്തിച്ചുള്ള ഇടപാടുകളൊന്നുമില്ല",
+    "None": "ഒന്നുമില്ല",
+    "Recurring transaction added!": "ആവർത്തന ഇടപാട് ചേർത്തു!",
+    "Updated!": "അപ്ഡേറ്റ് ചെയ്തു!",
+    "Removed": "നീക്കം ചെയ്തു",
+    "Edit Recurring": "എഡിറ്റ് ആവർത്തിക്കുന്നു",
+    "Start tracking your expenses today": "ഇന്ന് നിങ്ങളുടെ ചെലവുകൾ ട്രാക്ക് ചെയ്യാൻ ആരംഭിക്കുക",
+    "Sign in": "സൈൻ ഇൻ",
+    "We'll send a verification code to confirm your email": "നിങ്ങളുടെ ഇമെയിൽ സ്ഥിരീകരിക്കാൻ ഞങ്ങൾ ഒരു സ്ഥിരീകരണ കോഡ് അയയ്ക്കും",
+    "Backspace": "ബാക്ക്സ്പേസ്",
+    "Google sign-up failed": {
+      "": "Google സൈൻ അപ്പ് പരാജയപ്പെട്ടു."
+    },
+    "Google sign-up was cancelled or failed": {
+      "": "Google സൈൻ അപ്പ് റദ്ദാക്കുകയോ പരാജയപ്പെടുകയോ ചെയ്തു."
+    },
+    "Password must be at least 6 characters": {
+      "": "പാസ്‌വേഡിന് കുറഞ്ഞത് 6 പ്രതീകങ്ങൾ ഉണ്ടായിരിക്കണം."
+    },
+    "Verification code sent! Check your inbox": {
+      "": "പരിശോധനാ കോഡ് അയച്ചു! നിങ്ങളുടെ ഇൻബോക്സ് പരിശോധിക്കുക."
+    },
+    "Failed to send OTP": {
+      "": "OTP അയയ്‌ക്കുന്നതിൽ പരാജയപ്പെട്ടു."
+    },
+    "Please enter the full 6-digit code": {
+      "": "ദയവായി മുഴുവൻ 6 അക്ക കോഡ് നൽകുക."
+    },
+    "Verification failed": {
+      " Check your code": {
+        "": "സ്ഥിരീകരണം പരാജയപ്പെട്ടു. നിങ്ങളുടെ കോഡ് പരിശോധിക്കുക."
+      }
+    },
+    "New code sent!": "പുതിയ കോഡ് അയച്ചു!",
+    "Failed to resend": {
+      "": "വീണ്ടും അയയ്‌ക്കുന്നതിൽ പരാജയപ്പെട്ടു."
+    },
+    "Registering": {
+      "": {
+        "": {
+          "": "രജിസ്റ്റർ ചെയ്യുന്നു..."
+        }
+      }
+    },
+    "Sign up with Google": "Google ഉപയോഗിച്ച് സൈൻ അപ്പ് ചെയ്യുക",
+    "Sending code": {
+      "": {
+        "": {
+          "": "കോഡ് അയയ്ക്കുന്നു..."
+        }
+      }
+    },
+    "Send Verification Code": "സ്ഥിരീകരണ കോഡ് അയയ്ക്കുക",
+    "Creating account": {
+      "": {
+        "": {
+          "": "അക്കൗണ്ട് സൃഷ്‌ടിക്കുന്നു..."
+        }
+      }
+    },
+    "Verify & Create Account": "പരിശോധിച്ചുറപ്പിച്ച് അക്കൗണ്ട് സൃഷ്‌ടിക്കുക",
+    "Resend code": "കോഡ് വീണ്ടും അയയ്‌ക്കുക",
+    "No reminders": "ഓർമ്മപ്പെടുത്തലുകളൊന്നുമില്ല",
+    "Reminder set!": "റിമൈൻഡർ സെറ്റ്!",
+    "Reminder removed": "റിമൈൻഡർ നീക്കം ചെയ്തു",
+    "Edit Reminder": "റിമൈൻഡർ എഡിറ്റ് ചെയ്യുക",
+    "Savings Health Dashboard": "സേവിംഗ്സ് ഹെൽത്ത് ഡാഷ്ബോർഡ്",
+    "Savings Progress": "സേവിംഗ്സ് പുരോഗതി",
+    "Savings Reconciliation": "സേവിംഗ്സ് അനുരഞ്ജനം",
+    "Income Breakdown by Source": "ഉറവിടം പ്രകാരമുള്ള വരുമാന വിഭജനം",
+    "Budget Limits & Allocation": "ബജറ്റ് പരിധികളും വിഹിതവും",
+    "Logged Savings Ledger": "ലോഗിൻ ചെയ്ത സേവിംഗ്സ് ലെഡ്ജർ",
+    "Title/Account": "പേര്/അക്കൗണ്ട്",
+    "Deposit / Add (+)": "നിക്ഷേപിക്കുക / ചേർക്കുക (+)",
+    "Withdrawal / Use (-)": "പിൻവലിക്കൽ / ഉപയോഗം (-)",
+    "MMMM yyyy": "MMMM yyyy",
+    "Savings logged!": "സേവിംഗ്സ് ലോഗ് ചെയ്തു!",
+    "Savings log updated!": "സേവിംഗ്സ് ലോഗ് അപ്ഡേറ്റ് ചെയ്തു!",
+    "Savings log deleted": "സേവിംഗ്സ് ലോഗ് ഇല്ലാതാക്കി",
+    "Unsatisfactory": "തൃപ്തികരമല്ല",
+    "Excellent Savings Rate!": "മികച്ച സേവിംഗ്സ് നിരക്ക്!",
+    "Good Savings Rate!": "നല്ല സേവിംഗ്സ് നിരക്ക്!",
+    "Average Savings Rate": "ശരാശരി സേവിംഗ്സ് നിരക്ക്",
+    "Total Income - Global Budget": "മൊത്തം വരുമാനം - ആഗോള ബജറ്റ്",
+    "Total Income - Actual Expenses": "മൊത്തം വരുമാനം - യഥാർത്ഥ ചെലവുകൾ",
+    "Explicitly logged savings": "വ്യക്തമായി ലോഗ് ചെയ്ത സമ്പാദ്യം",
+    "Sum of monthly income": "പ്രതിമാസ വരുമാനത്തിൻ്റെ ആകെത്തുക",
+    "Under Budget": "ബജറ്റിന് കീഴിൽ",
+    "Over Budget": "ബജറ്റിന് മുകളിൽ",
+    "WITHDRAWAL (-)": "പിൻവലിക്കൽ (-)",
+    "Delete savings transaction?": "സേവിംഗ്സ് ഇടപാട് ഇല്ലാതാക്കണോ?",
+    "Log Savings Transaction": "ലോഗ് സേവിംഗ്സ് ഇടപാട്",
+    "Edit Savings Log": "സേവിംഗ്സ് ലോഗ് എഡിറ്റ് ചെയ്യുക",
+    "Log Transaction": "ലോഗ് ഇടപാട്",
+    "No subscriptions yet": "ഇതുവരെ സബ്‌സ്‌ക്രിപ്‌ഷനുകളൊന്നുമില്ല",
+    "Daily": "ദിവസേന",
+    "Yearly": "വർഷം തോറും",
+    "Subscription added!": "സബ്സ്ക്രിപ്ഷൻ ചേർത്തു!",
+    "All Cycles": "എല്ലാ സൈക്കിളുകളും",
+    "Edit Subscription": "സബ്സ്ക്രിപ്ഷൻ എഡിറ്റ് ചെയ്യുക",
+    "Get support, report technical issues, or request new features directly from our administrators": {
+      "": "ഞങ്ങളുടെ അഡ്മിനിസ്ട്രേറ്റർമാരിൽ നിന്ന് നേരിട്ട് പിന്തുണ നേടുക, സാങ്കേതിക പ്രശ്നങ്ങൾ റിപ്പോർട്ട് ചെയ്യുക അല്ലെങ്കിൽ പുതിയ ഫീച്ചറുകൾ അഭ്യർത്ഥിക്കുക."
+    },
+    "Found an error or issue? Let us know so we can fix it": {
+      "": "ഒരു പിശകോ പ്രശ്നമോ കണ്ടെത്തിയോ? അത് പരിഹരിക്കാൻ ഞങ്ങളെ അറിയിക്കുക."
+    },
+    "Want a new dashboard view or tracking tool? Share your thoughts": {
+      "": "ഒരു പുതിയ ഡാഷ്‌ബോർഡ് കാഴ്ച അല്ലെങ്കിൽ ട്രാക്കിംഗ് ടൂൾ വേണോ? നിങ്ങളുടെ ചിന്തകൾ പങ്കിടുക."
+    },
+    "Get help with authentication changes or importing issues": {
+      "": "പ്രാമാണീകരണ മാറ്റങ്ങൾ അല്ലെങ്കിൽ ഇറക്കുമതി പ്രശ്നങ്ങൾ എന്നിവയിൽ സഹായം നേടുക."
+    },
+    "Ask questions about subscriptions, interest calculations, or layout metrics": {
+      "": "സബ്‌സ്‌ക്രിപ്‌ഷനുകൾ, പലിശ കണക്കുകൂട്ടലുകൾ അല്ലെങ്കിൽ ലേഔട്ട് മെട്രിക്‌സ് എന്നിവയെ കുറിച്ചുള്ള ചോദ്യങ്ങൾ ചോദിക്കുക."
+    },
+    "Get help retrieving backup data, CSV templates, or deleting your history": {
+      "": "ബാക്കപ്പ് ഡാറ്റ, CSV ടെംപ്ലേറ്റുകൾ, അല്ലെങ്കിൽ നിങ്ങളുടെ ചരിത്രം ഇല്ലാതാക്കൽ എന്നിവ വീണ്ടെടുക്കുന്നതിനുള്ള സഹായം നേടുക."
+    },
+    "Report vulnerabilities, request account deletions, or configure key parameters": {
+      "": "കേടുപാടുകൾ റിപ്പോർട്ട് ചെയ്യുക, അക്കൗണ്ട് ഇല്ലാതാക്കാൻ അഭ്യർത്ഥിക്കുക അല്ലെങ്കിൽ പ്രധാന പാരാമീറ്ററുകൾ കോൺഫിഗർ ചെയ്യുക."
+    },
+    "Fill in details to open a ticket/submission": {
+      "": "ഒരു ടിക്കറ്റ്/സമർപ്പണം തുറക്കാൻ വിശദാംശങ്ങൾ പൂരിപ്പിക്കുക."
+    },
+    "Please fill in both the subject and concern message": {
+      "": "വിഷയവും ആശങ്ക സന്ദേശവും പൂരിപ്പിക്കുക."
+    },
+    "Your concern has been submitted successfully": {
+      "": "നിങ്ങളുടെ ആശങ്ക വിജയകരമായി സമർപ്പിച്ചു."
+    },
+    "Failed to submit feedback": {
+      "": "ഫീഡ്‌ബാക്ക് സമർപ്പിക്കുന്നതിൽ പരാജയപ്പെട്ടു."
+    },
+    "Sending": {
+      "": {
+        "": {
+          "": "അയയ്ക്കുന്നു..."
+        }
+      }
+    },
+    "Share your thoughts with us": "നിങ്ങളുടെ ചിന്തകൾ ഞങ്ങളുമായി പങ്കിടുക",
+    "Log expenses easily using Telegram": "ടെലിഗ്രാം ഉപയോഗിച്ച് ചെലവുകൾ എളുപ്പത്തിൽ രേഖപ്പെടുത്തുക",
+    "Checking status…": "നില പരിശോധിക്കുന്നു...",
+    "Always Active": "എപ്പോഴും സജീവമാണ്",
+    "Secure Ledger": "സുരക്ഷിത ലെഡ്ജർ",
+    "Lunch 450 card": "ഉച്ചഭക്ഷണം 450 കാർഡ്",
+    "Expense Added!": "ചെലവ് ചേർത്തു!",
+    "Spent 1200 groceries yesterday": "ഇന്നലെ 1200 പലചരക്ക് സാധനങ്ങൾ ചെലവഴിച്ചു",
+    "Telegram bot linked successfully!": "ടെലിഗ്രാം ബോട്ട് വിജയകരമായി ലിങ്ക് ചെയ്‌തു!",
+    "Telegram bot unlinked": {
+      "": "ടെലിഗ്രാം ബോട്ട് അൺലിങ്ക് ചെയ്‌തു."
+    },
+    "Connected": "ബന്ധിപ്പിച്ചു",
+    "Disconnected": "വിച്ഛേദിച്ചു",
+    "Link your Telegram account below": "നിങ്ങളുടെ ടെലിഗ്രാം അക്കൗണ്ട് താഴെ ലിങ്ക് ചെയ്യുക",
+    "Telegram Bot QR Code": "ടെലിഗ്രാം ബോട്ട് QR കോഡ്",
+    "Type that Chat ID into the panel on the left and click Link": {
+      "": "ഇടതുവശത്തുള്ള പാനലിൽ ആ ചാറ്റ് ഐഡി ടൈപ്പ് ചെയ്ത് ലിങ്ക് ക്ലിക്ക് ചെയ്യുക."
+    },
+    "Send expense texts directly to the bot and watch them log!": "ചെലവ് ടെക്‌സ്‌റ്റുകൾ ബോട്ടിലേക്ക് നേരിട്ട് അയച്ച് അവ ലോഗ് ചെയ്യുന്നത് കാണുക!",
+    "Discover what is new, optimized, and fixed in ExpenseTracker": "ExpenseTracker-ൽ പുതിയതും ഒപ്റ്റിമൈസ് ചെയ്തതും ഉറപ്പിച്ചതും കണ്ടെത്തുക",
+    "OVERDUE": "കാലഹരണപ്പെട്ടു",
+    "TODAY": "ഇന്ന്",
+    "TOMORROW": "നാളെ",
+    "Urgent": "അടിയന്തിരം",
+    "Upcoming": "വരാനിരിക്കുന്ന",
+    "&lt;type?&gt; &lt;title&gt; &lt;amount&gt; &lt;payment_mode?&gt; &lt;note?&gt;": "&lt;തരം?&gt; &lt;ശീർഷകം&gt; &lt;തുക&gt; &lt;പേയ്‌മെൻ്റ്_മോഡ്?&gt; &lt;കുറിപ്പ്?&gt;",
+    "note:": "കുറിപ്പ്:",
+    "Expense (Default)": "ചെലവ് (സ്ഥിരസ്ഥിതി)",
+    "Pizza 150": {
+      "50 upi for lunch": "ഉച്ചഭക്ഷണത്തിന് പിസ്സ 150.50 upi"
+    },
+    "Logs an expense with decimal amount, UPI payment, and note": "ദശാംശ തുക, യുപിഐ പേയ്മെൻ്റ്, കുറിപ്പ് എന്നിവ ഉപയോഗിച്ച് ഒരു ചെലവ് രേഖപ്പെടുത്തുന്നു",
+    "Logs income source with payment method and note": "പേയ്‌മെൻ്റ് രീതിയും കുറിപ്പും ഉപയോഗിച്ച് വരുമാന സ്രോതസ്സ് രേഖപ്പെടുത്തുന്നു",
+    "Creates custom category with hex color and icon name": "ഹെക്‌സ് വർണ്ണവും ഐക്കൺ പേരും ഉപയോഗിച്ച് ഇഷ്‌ടാനുസൃത വിഭാഗം സൃഷ്‌ടിക്കുന്നു",
+    "Sets category monthly limit (or use": "വിഭാഗം പ്രതിമാസ പരിധി സജ്ജീകരിക്കുന്നു (അല്ലെങ്കിൽ ഉപയോഗം",
+    "Recurring Expense": "ആവർത്തന ചെലവ്",
+    "Adds automated weekly or monthly recurring expense": "ഓട്ടോമേറ്റഡ് പ്രതിവാര അല്ലെങ്കിൽ പ്രതിമാസ ആവർത്തന ചെലവ് ചേർക്കുന്നു",
+    "Savings Goal": "സേവിംഗ്സ് ലക്ഷ്യം",
+    "Creates a financial goal with target amount": "ടാർഗെറ്റ് തുക ഉപയോഗിച്ച് ഒരു സാമ്പത്തിക ലക്ഷ്യം സൃഷ്ടിക്കുന്നു",
+    "Subscription": "സബ്സ്ക്രിപ്ഷൻ",
+    "Tracks monthly software or streaming subscriptions": "പ്രതിമാസ സോഫ്റ്റ്‌വെയർ അല്ലെങ്കിൽ സ്ട്രീമിംഗ് സബ്‌സ്‌ക്രിപ്‌ഷനുകൾ ട്രാക്ക് ചെയ്യുന്നു",
+    "EMI": "ഇഎംഐ",
+    "Logs loan EMI payment schedule and method": "ലോൺ EMI പേയ്‌മെൻ്റ് ഷെഡ്യൂളും രീതിയും രേഖപ്പെടുത്തുന്നു",
+    "Logs money borrowed or owed to creditors": "കടം വാങ്ങിയതോ കടക്കാരോട് കടപ്പെട്ടതോ ആയ പണം ലോഗ് ചെയ്യുന്നു",
+    "Reminder": "ഓർമ്മപ്പെടുത്തൽ",
+    "Schedules payment reminder for a specific date": "ഒരു നിർദ്ദിഷ്‌ട തീയതിക്കുള്ള പേയ്‌മെൻ്റ് ഓർമ്മപ്പെടുത്തൽ ഷെഡ്യൂൾ ചെയ്യുന്നു",
+    "How do I connect my Telegram account?": "എൻ്റെ ടെലിഗ്രാം അക്കൗണ്ട് എങ്ങനെ ബന്ധിപ്പിക്കും?",
+    "Click": "ക്ലിക്ക് ചെയ്യുക",
+    "What is the syntax for logging entries via Telegram?": "ടെലിഗ്രാം വഴി എൻട്രികൾ ലോഗിൻ ചെയ്യുന്നതിനുള്ള വാക്യഘടന എന്താണ്?",
+    "Coffee 80": {
+      "50 upi team break": "കാപ്പി 80.50 upi ടീം ബ്രേക്ക്"
+    },
+    "Do I need to type": "എനിക്ക് ടൈപ്പ് ചെയ്യേണ്ടതുണ്ടോ",
+    "Dinner 450": {
+      "25 card": "അത്താഴം 450.25 കാർഡ്"
+    },
+    "How do I reconnect or get my Chat ID if I unlink?": "ഞാൻ അൺലിങ്ക് ചെയ്‌താൽ എങ്ങനെ വീണ്ടും കണക്‌റ്റ് ചെയ്യാം അല്ലെങ്കിൽ എൻ്റെ ചാറ്റ് ഐഡി നേടാം?",
+    "General": "ജനറൽ",
+    "How do category & monthly budget alerts work?": "വിഭാഗവും പ്രതിമാസ ബജറ്റ് അലേർട്ടുകളും എങ്ങനെയാണ് പ്രവർത്തിക്കുന്നത്?",
+    "Set monthly limits under Budget or via Telegram (": "ബജറ്റിന് കീഴിലോ ടെലിഗ്രാം വഴിയോ പ്രതിമാസ പരിധികൾ സജ്ജമാക്കുക (",
+    "How do I export my data to CSV or Excel?": "CSV അല്ലെങ്കിൽ Excel-ലേക്ക് എൻ്റെ ഡാറ്റ എങ്ങനെയാണ് എക്സ്പോർട്ട് ചെയ്യുക?",
+    "Security": "സുരക്ഷ",
+    "Is my financial data safe and private?": "എൻ്റെ സാമ്പത്തിക വിവരങ്ങൾ സുരക്ഷിതവും സ്വകാര്യവുമാണോ?",
+    "Copied command!": "കമാൻഡ് പകർത്തി!",
+    "English": "ഇംഗ്ലീഷ്",
+    "ExpenseTracker": "ചെലവ് ട്രാക്കർ",
+    "What's New": "പുതിയതെന്താണ്",
+    "Escape": "രക്ഷപ്പെടുക",
+    "Updates & Bug Fixes": "അപ്ഡേറ്റുകളും ബഗ് പരിഹാരങ്ങളും"
   }
 }
