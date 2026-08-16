@@ -75,16 +75,15 @@ def main():
             os.system("pip install git+https://github.com/VarunGumma/IndicTransToolkit.git")
             from IndicTransToolkit.processor import IndicProcessor
 
-        DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
         model_name = "ai4bharat/indictrans2-en-indic-1B"
-        print(f"Loading tokenizer and model '{model_name}' on {DEVICE}...")
+        print(f"Loading tokenizer and model '{model_name}' with device_map='auto'...")
         
         tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
         model = AutoModelForSeq2SeqLM.from_pretrained(
             model_name,
             trust_remote_code=True,
-            torch_dtype=torch.float16 if DEVICE == "cuda" else torch.float32
-        ).to(DEVICE)
+            device_map="auto"
+        )
         
         ip = IndicProcessor(inference=True)
         
@@ -93,7 +92,7 @@ def main():
             
             # Batch process translation
             batch = ip.preprocess_batch(sentences, src_lang="eng_Latn", tgt_lang=target_lang)
-            inputs = tokenizer(batch, padding="longest", return_tensors="pt").to(DEVICE)
+            inputs = tokenizer(batch, padding="longest", return_tensors="pt").to(model.device)
             
             with torch.no_grad():
                 generated_tokens = model.generate(
