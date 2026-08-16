@@ -37,31 +37,34 @@ Link your phone number in the Web UI (WhatsApp Bot page) and message your bot li
 
 ---
 
-## Features
+## Version History & Major Features
 
-### V1 (Core)
-- ✅ Register / Login (JWT Auth)
-- ✅ Categories CRUD (12 default categories seeded on register)
-- ✅ Expenses CRUD (search, filter by category/payment/date)
-- ✅ Income Tracking (Salary, Freelancing, Gifts, Other)
-- ✅ Monthly & Weekly Budget (global + per-category)
-- ✅ Dashboard (KPI cards, area chart, pie chart, recent expenses)
+### v1.x (Core Personal Finance)
+- **Authentication**: Secure registration and login powered by JWT token auth.
+- **Expense & Income Ledger**: Full CRUD support for logging transactions, search filters, and custom categorization.
+- **Budgets**: Flexible monthly and weekly spending limits (global limits or customized per-category caps).
+- **Dashboard**: Sleek UI with financial KPIs, interactive expense trends (Recharts), and spending distribution breakdowns.
 
-### V2 (Extended)
-- ✅ Goals (Target, Saved, Progress %)
-- ✅ Reminders (with overdue detection, mark-as-done)
-- ✅ Recurring Transactions (weekly/monthly)
-- ✅ Subscriptions (with expiry alerts)
-- ✅ Audit Logs (expense added/edited/deleted)
-- ✅ User Profile (name, currency, timezone, dark mode)
-- ✅ Export CSV / Excel (with date range filters)
-- ✅ Expense Attachments (file upload)
+### v2.0 - v2.1 (Liabilities & Integrations)
+- **ExpenseTracker Telegram Bot**: Real-time transactions, budget queries, and alerts directly from Telegram.
+- **OAuth2 Flow**: Secure single-click login with Google Sign-In integration.
+- **Loans & Liabilities Tracker**: Standalone tracking page with aggregate debt metrics and manual EMI registration.
+- **Amortization Calculator**: Interactive calculator with month-by-month schedules.
+- **Support & FAQ Center**: Live ticket logging system and interactive accordion-based knowledge base.
 
-### V3 (Planned)
-- [ ] AI Expense Entry
-- [ ] OCR for receipts
-- [ ] AI Insights
-- [ ] Telegram/WhatsApp Logging
+### v2.2 - v2.3.2 (Automations & PWA App)
+- **Smart Alerts**: Automatic warnings via Telegram and Email when global or category budgets hit 80% or 100%.
+- **Recurring Transactions**: Automated cron engine logging weekly/monthly repeating transactions and rolling over next due dates.
+- **EMI & Bill Reminders**: Proactive 3-day advance alerts for upcoming reminders and renewals.
+- **PWA Support**: Offline capability and standalone desktop/mobile installation options directly from the app interface.
+- **Interactive Onboarding Tour**: Guided step-by-step UI walkthrough using `driver.js` to assist new users.
+- **Google Profile Sync**: Sync Google avatars or upload custom profile pictures with backend storage.
+
+### v2.3.3 (Multilingual Localization & Offline i18n)
+- **9 Indic Languages Support**: 100% offline, client-side translation framework supporting:
+  - English, हिंदी (Hindi), தமிழ் (Tamil), తెలుగు (Telugu), ಕನ್ನಡ (Kannada), മലയാളം (Malayalam), मराठी (Marathi), ગુજરાતી (Gujarati), and বাংলা (Bengali).
+- **Responsive Language Selector**: Sleek, custom-designed header selector with native script names, country flag codes, and touch polish for mobile screen views.
+- **Automated Developer Pipeline**: Git pre-push hook configuration running `update_locales.js` to auto-extract, translate (via local Hugging Face IndicTrans2 model), and compile locales bundle during push.
 
 ---
 
