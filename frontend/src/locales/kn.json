@@ -85,40 +85,14 @@
     "Set your first budget": "ನಿಮ್ಮ ಮೊದಲ ಬಜೆಟ್ ಅನ್ನು ಹೊಂದಿಸಿ",
     "Save Budget": "ಬಜೆಟ್ ಉಳಿಸಿ",
     "Per-Category Budgets": "ಪ್ರತಿ-ವರ್ಗದ ಬಜೆಟ್‌ಗಳು",
-    "e": {
-      "g": {
-        " 50000": "ಉದಾ. 50000",
-        " 12000": "ಉದಾ. 12000",
-        " Outside Food": "ಉದಾ. ಹೊರಗಿನ ಆಹಾರ",
-        " HDFC Credit Card, Friend John": "ಉದಾ. HDFC ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್, ಸ್ನೇಹಿತ ಜಾನ್",
-        " 20000": "ಉದಾ. 20000",
-        " 12": "ಉದಾ. 12",
-        " 2500": "ಉದಾ. 2500",
-        " Home Loan, Car Loan": "ಉದಾ. ಗೃಹ ಸಾಲ, ಕಾರು ಸಾಲ",
-        " HDFC, SBI, Navi, Cred": "ಉದಾ. HDFC, SBI, Navi, Cred",
-        " 500000": "ಉದಾ. 500000",
-        " 8": {
-          "5": "ಉದಾ. 8.5"
-        },
-        " Lunch at restaurant": "ಉದಾ. ರೆಸ್ಟೋರೆಂಟ್‌ನಲ್ಲಿ ಊಟ",
-        " Emergency Fund": "ಉದಾ. ತುರ್ತು ನಿಧಿ",
-        " HDFC Bank, SBI": "ಉದಾ. ಎಚ್‌ಡಿಎಫ್‌ಸಿ ಬ್ಯಾಂಕ್, ಎಸ್‌ಬಿಐ",
-        " 7": {
-          "5": "ಉದಾ. 7.5"
-        },
-        " Petrol": "ಉದಾ. ಪೆಟ್ರೋಲ್",
-        " Pay electricity bill": "ಉದಾ. ವಿದ್ಯುತ್ ಬಿಲ್ ಪಾವತಿಸಿ",
-        " HDFC Savings Account, Mutual Fund SIP": "ಉದಾ. HDFC ಉಳಿತಾಯ ಖಾತೆ, ಮ್ಯೂಚುಯಲ್ ಫಂಡ್ SIP",
-        " Netflix, Spotify": "ಉದಾ. ನೆಟ್‌ಫ್ಲಿಕ್ಸ್, ಸ್ಪಾಟಿಫೈ",
-        " Streaming, SaaS": "ಉದಾ. ಸ್ಟ್ರೀಮಿಂಗ್, SaaS",
-        " 182736495": "ಉದಾ. 182736495"
-      }
-    },
+    "e.g. 50000": "ಉದಾ. 50000",
+    "e.g. 12000": "ಉದಾ. 12000",
     "Name *": "ಹೆಸರು *",
     "Type *": "ಪ್ರಕಾರ *",
     "Color": "ಬಣ್ಣ",
     "New Category": "ಹೊಸ ವರ್ಗ",
     "Add Category": "ವರ್ಗವನ್ನು ಸೇರಿಸಿ",
+    "e.g. Outside Food": "ಉದಾ. ಹೊರಗಿನ ಆಹಾರ",
     "Recent Expenses": "ಇತ್ತೀಚಿನ ವೆಚ್ಚಗಳು",
     "Take a quick onboarding tour": "ತ್ವರಿತ ಆನ್‌ಬೋರ್ಡಿಂಗ್ ಪ್ರವಾಸವನ್ನು ಕೈಗೊಳ್ಳಿ",
     "Logged via Telegram": "ಟೆಲಿಗ್ರಾಮ್ ಮೂಲಕ ಲಾಗ್ ಮಾಡಲಾಗಿದೆ",
@@ -140,25 +114,18 @@
     "Original Owed Amount (₹) *": "ಮೂಲ ಬಾಕಿ ಮೊತ್ತ (₹) *",
     "Amount Paid (₹) *": "ಪಾವತಿಸಿದ ಮೊತ್ತ (₹) *",
     "Remaining Debt (calculated)": "ಉಳಿದ ಸಾಲ (ಲೆಕ್ಕ)",
-    "Interest Rate (% p": {
-      "a": {
-        ")": "ಬಡ್ಡಿ ದರ (% p.a.)",
-        ") *": "ಬಡ್ಡಿ ದರ (% p.a.) *"
-      }
-    },
+    "Interest Rate (% p.a.)": "ಬಡ್ಡಿ ದರ (% p.a.)",
     "Minimum Monthly Payment (₹)": "ಕನಿಷ್ಠ ಮಾಸಿಕ ಪಾವತಿ (₹)",
     "Next Payment Due Date": "ಮುಂದಿನ ಪಾವತಿಯ ಅಂತಿಮ ದಿನಾಂಕ",
     "Notes": "ಟಿಪ್ಪಣಿಗಳು",
     "Add Debt": "ಸಾಲವನ್ನು ಸೇರಿಸಿ",
     "Add your first debt record": "ನಿಮ್ಮ ಮೊದಲ ಸಾಲದ ದಾಖಲೆಯನ್ನು ಸೇರಿಸಿ",
     "Debt Tracker": "ಸಾಲ ಟ್ರ್ಯಾಕರ್",
-    "Optional descriptions or details": {
-      "": {
-        "": {
-          "": "ಐಚ್ಛಿಕ ವಿವರಣೆಗಳು ಅಥವಾ ವಿವರಗಳು..."
-        }
-      }
-    },
+    "e.g. HDFC Credit Card, Friend John": "ಉದಾ. HDFC ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್, ಸ್ನೇಹಿತ ಜಾನ್",
+    "e.g. 20000": "ಉದಾ. 20000",
+    "e.g. 12.5": "ಉದಾ. 12.5",
+    "e.g. 2500": "ಉದಾ. 2500",
+    "Optional descriptions or details...": "ಐಚ್ಛಿಕ ವಿವರಣೆಗಳು ಅಥವಾ ವಿವರಗಳು...",
     "Edit": "ಸಂಪಾದಿಸು",
     "Delete": "ಅಳಿಸಿ",
     "Loan Title *": "ಸಾಲದ ಶೀರ್ಷಿಕೆ *",
@@ -166,6 +133,7 @@
     "Loan Type *": "ಸಾಲದ ಪ್ರಕಾರ *",
     "Payment Method *": "ಪಾವತಿ ವಿಧಾನ *",
     "Principal Amount (₹) *": "ಮೂಲ ಮೊತ್ತ (₹) *",
+    "Interest Rate (% p.a.) *": "ಬಡ್ಡಿ ದರ (% p.a.) *",
     "Start Date *": "ಪ್ರಾರಂಭ ದಿನಾಂಕ *",
     "End Date *": "ಅಂತಿಮ ದಿನಾಂಕ *",
     "Total Tenure (months) *": "ಒಟ್ಟು ಅಧಿಕಾರಾವಧಿ (ತಿಂಗಳು) *",
@@ -176,18 +144,16 @@
     "Add your first loan": "ನಿಮ್ಮ ಮೊದಲ ಸಾಲವನ್ನು ಸೇರಿಸಿ",
     "Save Loan": "ಸಾಲವನ್ನು ಉಳಿಸಿ",
     "EMI Tracker": "EMI ಟ್ರ್ಯಾಕರ್",
-    "Loan details, account numbers, etc": {
-      "": "ಸಾಲದ ವಿವರಗಳು, ಖಾತೆ ಸಂಖ್ಯೆಗಳು, ಇತ್ಯಾದಿ."
-    },
+    "e.g. Home Loan, Car Loan": "ಉದಾ. ಗೃಹ ಸಾಲ, ಕಾರು ಸಾಲ",
+    "e.g. HDFC, SBI, Navi, Cred": "ಉದಾ. HDFC, SBI, Navi, Cred",
+    "e.g. 500000": "ಉದಾ. 500000",
+    "e.g. 8.5": "ಉದಾ. 8.5",
+    "Loan details, account numbers, etc.": "ಸಾಲದ ವಿವರಗಳು, ಖಾತೆ ಸಂಖ್ಯೆಗಳು, ಇತ್ಯಾದಿ.",
     "Add your first expense": "ನಿಮ್ಮ ಮೊದಲ ವೆಚ್ಚವನ್ನು ಸೇರಿಸಿ",
+    "Search...": "ಹುಡುಕು...",
+    "e.g. Lunch at restaurant": "ಉದಾ. ರೆಸ್ಟೋರೆಂಟ್‌ನಲ್ಲಿ ಊಟ",
+    "Optional note...": "ಐಚ್ಛಿಕ ಟಿಪ್ಪಣಿ...",
     "Search": "ಹುಡುಕು",
-    "Optional note": {
-      "": {
-        "": {
-          "": "ಐಚ್ಛಿಕ ಟಿಪ್ಪಣಿ..."
-        }
-      }
-    },
     "From Date": "ದಿನಾಂಕದಿಂದ",
     "To Date": "ಇಲ್ಲಿಯವರೆಗೆ",
     "Sort By": "ವಿಂಗಡಿಸಿ",
@@ -197,6 +163,7 @@
     "Deadline (optional)": "ಅಂತಿಮ ದಿನಾಂಕ (ಐಚ್ಛಿಕ)",
     "New Goal": "ಹೊಸ ಗುರಿ",
     "Add Goal": "ಗುರಿ ಸೇರಿಸಿ",
+    "e.g. Emergency Fund": "ಉದಾ. ತುರ್ತು ನಿಧಿ",
     "Help & Knowledge Base": "ಸಹಾಯ ಮತ್ತು ಜ್ಞಾನದ ನೆಲೆ",
     "Category *": "ವರ್ಗ *",
     "Method / Type *": "ವಿಧಾನ / ಪ್ರಕಾರ *",
@@ -214,15 +181,16 @@
     "Save to Track": "ಟ್ರ್ಯಾಕ್ ಮಾಡಲು ಉಳಿಸಿ",
     "Confirm & Save": "ದೃಢೀಕರಿಸಿ ಮತ್ತು ಉಳಿಸಿ",
     "Loans & Liabilities": "ಸಾಲಗಳು ಮತ್ತು ಹೊಣೆಗಾರಿಕೆಗಳು",
+    "e.g. HDFC Bank, SBI": "ಉದಾ. ಎಚ್‌ಡಿಎಫ್‌ಸಿ ಬ್ಯಾಂಕ್, ಎಸ್‌ಬಿಐ",
+    "e.g. 7.5": "ಉದಾ. 7.5",
+    "e.g. 12": "ಉದಾ. 12",
     "Calculated automatically": "ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಲೆಕ್ಕಾಚಾರ",
     "Stop tracking loan": "ಸಾಲವನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡುವುದನ್ನು ನಿಲ್ಲಿಸಿ",
     "Calculated Loan": "ಲೆಕ್ಕ ಹಾಕಿದ ಸಾಲ",
     "Email": "ಇಮೇಲ್",
     "Password": "ಪಾಸ್ವರ್ಡ್",
     "Welcome back": "ಮರಳಿ ಸ್ವಾಗತ",
-    "you@example": {
-      "com": "you@example.com"
-    },
+    "you@example.com": "you@example.com",
     "Sign in with email & password": "ಇಮೇಲ್ ಮತ್ತು ಪಾಸ್‌ವರ್ಡ್‌ನೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ",
     "Continue with Google": "Google ನೊಂದಿಗೆ ಮುಂದುವರಿಯಿರಿ",
     "Full Name": "ಪೂರ್ಣ ಹೆಸರು",
@@ -239,36 +207,25 @@
     "Add Recurring": "ಮರುಕಳಿಸುವ ಸೇರಿಸಿ",
     "Add one": "ಒಂದನ್ನು ಸೇರಿಸಿ",
     "Save": "ಉಳಿಸಿ",
+    "e.g. Petrol": "ಉದಾ. ಪೆಟ್ರೋಲ್",
     "Create account": "ಖಾತೆಯನ್ನು ರಚಿಸಿ",
     "Sign up with email": "ಇಮೇಲ್ ಮೂಲಕ ಸೈನ್ ಅಪ್ ಮಾಡಿ",
     "Verify your email": "ನಿಮ್ಮ ಇಮೇಲ್ ಪರಿಶೀಲಿಸಿ",
     "Your name": "ನಿಮ್ಮ ಹೆಸರು",
-    "Min": {
-      " 6 characters": "ಕನಿಷ್ಠ 6 ಅಕ್ಷರಗಳು"
-    },
+    "Min. 6 characters": "ಕನಿಷ್ಠ 6 ಅಕ್ಷರಗಳು",
     "Date & Time *": "ದಿನಾಂಕ ಮತ್ತು ಸಮಯ *",
     "Description": "ವಿವರಣೆ",
     "Add Reminder": "ಜ್ಞಾಪನೆಯನ್ನು ಸೇರಿಸಿ",
     "UPCOMING": "ಮುಂಬರುವ",
     "DONE": "ಮುಗಿದಿದೆ",
-    "Additional details": {
-      "": {
-        "": {
-          "": "ಹೆಚ್ಚುವರಿ ವಿವರಗಳು..."
-        }
-      }
-    },
+    "e.g. Pay electricity bill": "ಉದಾ. ವಿದ್ಯುತ್ ಬಿಲ್ ಪಾವತಿಸಿ",
+    "Additional details...": "ಹೆಚ್ಚುವರಿ ವಿವರಗಳು...",
     "Title / Account *": "ಶೀರ್ಷಿಕೆ / ಖಾತೆ *",
     "Transaction Type *": "ವಹಿವಾಟಿನ ಪ್ರಕಾರ *",
     "Log Savings": "ಲಾಗ್ ಉಳಿತಾಯ",
     "Savings Analysis": "ಉಳಿತಾಯ ವಿಶ್ಲೇಷಣೆ",
-    "Optional description": {
-      "": {
-        "": {
-          "": "ಐಚ್ಛಿಕ ವಿವರಣೆ..."
-        }
-      }
-    },
+    "e.g. HDFC Savings Account, Mutual Fund SIP": "ಉದಾ. HDFC ಉಳಿತಾಯ ಖಾತೆ, ಮ್ಯೂಚುಯಲ್ ಫಂಡ್ SIP",
+    "Optional description...": "ಐಚ್ಛಿಕ ವಿವರಣೆ...",
     "Projected Savings": "ಯೋಜಿತ ಉಳಿತಾಯ",
     "Actual Savings": "ನಿಜವಾದ ಉಳಿತಾಯ",
     "Logged Savings": "ಲಾಗ್ ಮಾಡಿದ ಉಳಿತಾಯಗಳು",
@@ -282,13 +239,9 @@
     "End Date": "ಅಂತಿಮ ದಿನಾಂಕ",
     "Features / Notes": "ವೈಶಿಷ್ಟ್ಯಗಳು / ಟಿಪ್ಪಣಿಗಳು",
     "Add Subscription": "ಚಂದಾದಾರಿಕೆಯನ್ನು ಸೇರಿಸಿ",
-    "What's included": {
-      "": {
-        "": {
-          "": "ಏನು ಒಳಗೊಂಡಿದೆ..."
-        }
-      }
-    },
+    "e.g. Netflix, Spotify": "ಉದಾ. ನೆಟ್‌ಫ್ಲಿಕ್ಸ್, ಸ್ಪಾಟಿಫೈ",
+    "e.g. Streaming, SaaS": "ಉದಾ. ಸ್ಟ್ರೀಮಿಂಗ್, SaaS",
+    "What's included...": "ಏನು ಒಳಗೊಂಡಿದೆ...",
     "Subject *": "ವಿಷಯ *",
     "Detailed Concern *": "ವಿವರವಾದ ಕಾಳಜಿ *",
     "Rating (Optional)": "ರೇಟಿಂಗ್ (ಐಚ್ಛಿಕ)",
@@ -311,6 +264,7 @@
     "Why use our bot?": "ನಮ್ಮ ಬೋಟ್ ಅನ್ನು ಏಕೆ ಬಳಸಬೇಕು?",
     "Example Chat": "ಉದಾಹರಣೆ ಚಾಟ್",
     "How to set up": "ಹೇಗೆ ಹೊಂದಿಸುವುದು",
+    "e.g. 182736495": "ಉದಾ. 182736495",
     "Open ExpenseTracker Bot": "ExpenseTracker ಬಾಟ್ ತೆರೆಯಿರಿ",
     "Get Chat ID": "ಚಾಟ್ ಐಡಿ ಪಡೆಯಿರಿ",
     "Link Account": "ಖಾತೆಯನ್ನು ಲಿಂಕ್ ಮಾಡಿ",
@@ -360,9 +314,7 @@
     "No data yet": "ಇನ್ನೂ ಯಾವುದೇ ಡೇಟಾ ಇಲ್ಲ",
     "No recent expenses": "ಇತ್ತೀಚಿನ ವೆಚ್ಚಗಳಿಲ್ಲ",
     "Imported expenses successfully!": "ಆಮದು ವೆಚ್ಚಗಳು ಯಶಸ್ವಿಯಾಗಿ!",
-    "Failed to import CSV": {
-      "": "CSV ಆಮದು ಮಾಡಲು ವಿಫಲವಾಗಿದೆ."
-    },
+    "Failed to import CSV.": "CSV ಆಮದು ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.",
     "Previous": "ಹಿಂದಿನ",
     "Dismiss": "ವಜಾಗೊಳಿಸಿ",
     "Monitor loans, liabilities, and repayment progress": "ಸಾಲಗಳು, ಹೊಣೆಗಾರಿಕೆಗಳು ಮತ್ತು ಮರುಪಾವತಿಯ ಪ್ರಗತಿಯನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಿ",
@@ -455,9 +407,7 @@
     "CASH": "ನಗದು",
     "Delete?": "ಅಳಿಸುವುದೇ?",
     "Edit Income": "ಆದಾಯ ಸಂಪಾದಿಸಿ",
-    "Unified view of your active loans, installments, and amortization calculator": {
-      "": "ನಿಮ್ಮ ಸಕ್ರಿಯ ಸಾಲಗಳು, ಕಂತುಗಳು ಮತ್ತು ಭೋಗ್ಯ ಕ್ಯಾಲ್ಕುಲೇಟರ್‌ನ ಏಕೀಕೃತ ನೋಟ."
-    },
+    "Unified view of your active loans, installments, and amortization calculator.": "ನಿಮ್ಮ ಸಕ್ರಿಯ ಸಾಲಗಳು, ಕಂತುಗಳು ಮತ್ತು ಭೋಗ್ಯ ಕ್ಯಾಲ್ಕುಲೇಟರ್‌ನ ಏಕೀಕೃತ ನೋಟ.",
     "Monthly Outflow (EMI)": "ಮಾಸಿಕ ಹೊರಹರಿವು (EMI)",
     "Active Liabilities": "ಸಕ್ರಿಯ ಹೊಣೆಗಾರಿಕೆಗಳು",
     "Total Interest": "ಒಟ್ಟು ಬಡ್ಡಿ",
@@ -466,33 +416,15 @@
     "Principal": "ಪ್ರಿನ್ಸಿಪಾಲ್",
     "Interest": "ಆಸಕ್ತಿ",
     "Balance": "ಸಮತೋಲನ",
-    "Loading loans": {
-      "": {
-        "": {
-          "": "ಸಾಲಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ..."
-        }
-      }
-    },
+    "Loading loans...": "ಸಾಲಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...",
     "\"Save to Track\"": "\"ಟ್ರ್ಯಾಕ್ ಮಾಡಲು ಉಳಿಸಿ\"",
-    "Loan deleted successfully": {
-      "": "ಸಾಲವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಅಳಿಸಲಾಗಿದೆ."
-    },
+    "Loan deleted successfully.": "ಸಾಲವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಅಳಿಸಲಾಗಿದೆ.",
     "Calculated loan added to your tracking list!": "ಲೆಕ್ಕ ಹಾಕಿದ ಸಾಲವನ್ನು ನಿಮ್ಮ ಟ್ರ್ಯಾಕಿಂಗ್ ಪಟ್ಟಿಗೆ ಸೇರಿಸಲಾಗಿದೆ!",
-    "Please enter a loan title": {
-      "": "ದಯವಿಟ್ಟು ಸಾಲದ ಶೀರ್ಷಿಕೆಯನ್ನು ನಮೂದಿಸಿ."
-    },
-    "Please enter a valid principal amount": {
-      "": "ದಯವಿಟ್ಟು ಮಾನ್ಯವಾದ ಅಸಲು ಮೊತ್ತವನ್ನು ನಮೂದಿಸಿ."
-    },
-    "Please enter a valid interest rate": {
-      "": "ದಯವಿಟ್ಟು ಮಾನ್ಯವಾದ ಬಡ್ಡಿ ದರವನ್ನು ನಮೂದಿಸಿ."
-    },
-    "Please enter a valid tenure": {
-      "": "ದಯವಿಟ್ಟು ಮಾನ್ಯವಾದ ಅವಧಿಯನ್ನು ನಮೂದಿಸಿ."
-    },
-    "Please enter a valid monthly EMI": {
-      "": "ದಯವಿಟ್ಟು ಮಾನ್ಯವಾದ ಮಾಸಿಕ EMI ಅನ್ನು ನಮೂದಿಸಿ."
-    },
+    "Please enter a loan title.": "ದಯವಿಟ್ಟು ಸಾಲದ ಶೀರ್ಷಿಕೆಯನ್ನು ನಮೂದಿಸಿ.",
+    "Please enter a valid principal amount.": "ದಯವಿಟ್ಟು ಮಾನ್ಯವಾದ ಅಸಲು ಮೊತ್ತವನ್ನು ನಮೂದಿಸಿ.",
+    "Please enter a valid interest rate.": "ದಯವಿಟ್ಟು ಮಾನ್ಯವಾದ ಬಡ್ಡಿ ದರವನ್ನು ನಮೂದಿಸಿ.",
+    "Please enter a valid tenure.": "ದಯವಿಟ್ಟು ಮಾನ್ಯವಾದ ಅವಧಿಯನ್ನು ನಮೂದಿಸಿ.",
+    "Please enter a valid monthly EMI.": "ದಯವಿಟ್ಟು ಮಾನ್ಯವಾದ ಮಾಸಿಕ EMI ಅನ್ನು ನಮೂದಿಸಿ.",
     "No platform": "ವೇದಿಕೆ ಇಲ್ಲ",
     "Delete tracking for this loan?": "ಈ ಸಾಲದ ಟ್ರ್ಯಾಕಿಂಗ್ ಅನ್ನು ಅಳಿಸುವುದೇ?",
     "Save Calculated Loan": "ಲೆಕ್ಕ ಹಾಕಿದ ಸಾಲವನ್ನು ಉಳಿಸಿ",
@@ -500,22 +432,12 @@
     "or": "ಅಥವಾ",
     "Sign up": "ಸೈನ್ ಅಪ್ ಮಾಡಿ",
     "M0 0h48v48H0z": "M0 0h48v48H0z",
-    "Google sign-in failed": {
-      "": "Google ಸೈನ್-ಇನ್ ವಿಫಲವಾಗಿದೆ."
-    },
-    "Google sign-in was cancelled or failed": {
-      "": "Google ಸೈನ್-ಇನ್ ಅನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗಿದೆ ಅಥವಾ ವಿಫಲವಾಗಿದೆ."
-    },
+    "Google sign-in failed.": "Google ಸೈನ್-ಇನ್ ವಿಫಲವಾಗಿದೆ.",
+    "Google sign-in was cancelled or failed.": "Google ಸೈನ್-ಇನ್ ಅನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗಿದೆ ಅಥವಾ ವಿಫಲವಾಗಿದೆ.",
     "Welcome back!": "ಮರಳಿ ಸ್ವಾಗತ!",
     "Login failed": "ಲಾಗಿನ್ ವಿಫಲವಾಗಿದೆ",
     "ExpenseTracker Logo": "ExpenseTracker ಲೋಗೋ",
-    "Signing in": {
-      "": {
-        "": {
-          "": "ಸೈನ್ ಇನ್ ಮಾಡಲಾಗುತ್ತಿದೆ..."
-        }
-      }
-    },
+    "Signing in...": "ಸೈನ್ ಇನ್ ಮಾಡಲಾಗುತ್ತಿದೆ...",
     "Sign In": "ಸೈನ್ ಇನ್ ಮಾಡಿ",
     "Account Info": "ಖಾತೆ ಮಾಹಿತಿ",
     "Asia/Kolkata', 'UTC',": "ಏಷ್ಯಾ/ಕೋಲ್ಕತ್ತಾ', 'UTC',",
@@ -530,23 +452,11 @@
     "Custom Range": "ಕಸ್ಟಮ್ ಶ್ರೇಣಿ",
     "INR": "INR",
     "Asia/Kolkata": "ಏಷ್ಯಾ/ಕೋಲ್ಕತ್ತಾ",
-    "Please select an image file": {
-      "": "ದಯವಿಟ್ಟು ಇಮೇಜ್ ಫೈಲ್ ಆಯ್ಕೆಮಾಡಿ."
-    },
-    "Uploading profile picture": {
-      "": {
-        "": {
-          "": "ಪ್ರೊಫೈಲ್ ಚಿತ್ರವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ..."
-        }
-      }
-    },
-    "Failed to upload profile picture": {
-      "": "ಪ್ರೊಫೈಲ್ ಚಿತ್ರವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ."
-    },
+    "Please select an image file.": "ದಯವಿಟ್ಟು ಇಮೇಜ್ ಫೈಲ್ ಆಯ್ಕೆಮಾಡಿ.",
+    "Uploading profile picture...": "ಪ್ರೊಫೈಲ್ ಚಿತ್ರವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...",
+    "Failed to upload profile picture.": "ಪ್ರೊಫೈಲ್ ಚಿತ್ರವನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.",
     "Profile updated!": "ಪ್ರೊಫೈಲ್ ಅನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ!",
-    "Please select both From and To dates for custom range": {
-      "": "ಕಸ್ಟಮ್ ಶ್ರೇಣಿಗಾಗಿ ದಯವಿಟ್ಟು ಇಂದ ಮತ್ತು ದಿನಾಂಕ ಎರಡನ್ನೂ ಆಯ್ಕೆಮಾಡಿ."
-    },
+    "Please select both From and To dates for custom range.": "ಕಸ್ಟಮ್ ಶ್ರೇಣಿಗಾಗಿ ದಯವಿಟ್ಟು ಇಂದ ಮತ್ತು ದಿನಾಂಕ ಎರಡನ್ನೂ ಆಯ್ಕೆಮಾಡಿ.",
     "Download started!": "ಡೌನ್‌ಲೋಡ್ ಪ್ರಾರಂಭವಾಗಿದೆ!",
     "Export failed": "ರಫ್ತು ವಿಫಲವಾಗಿದೆ",
     "Auto-repeating transactions": "ಸ್ವಯಂ ಪುನರಾವರ್ತಿತ ವಹಿವಾಟುಗಳು",
@@ -560,56 +470,20 @@
     "Sign in": "ಸೈನ್ ಇನ್ ಮಾಡಿ",
     "We'll send a verification code to confirm your email": "ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ಖಚಿತಪಡಿಸಲು ನಾವು ಪರಿಶೀಲನೆ ಕೋಡ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ",
     "Backspace": "ಬ್ಯಾಕ್‌ಸ್ಪೇಸ್",
-    "Google sign-up failed": {
-      "": "Google ಸೈನ್-ಅಪ್ ವಿಫಲವಾಗಿದೆ."
-    },
-    "Google sign-up was cancelled or failed": {
-      "": "Google ಸೈನ್-ಅಪ್ ರದ್ದುಗೊಂಡಿದೆ ಅಥವಾ ವಿಫಲವಾಗಿದೆ."
-    },
-    "Password must be at least 6 characters": {
-      "": "ಪಾಸ್ವರ್ಡ್ ಕನಿಷ್ಠ 6 ಅಕ್ಷರಗಳಾಗಿರಬೇಕು."
-    },
-    "Verification code sent! Check your inbox": {
-      "": "ಪರಿಶೀಲನೆ ಕೋಡ್ ಕಳುಹಿಸಲಾಗಿದೆ! ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ."
-    },
-    "Failed to send OTP": {
-      "": "OTP ಕಳುಹಿಸಲು ವಿಫಲವಾಗಿದೆ."
-    },
-    "Please enter the full 6-digit code": {
-      "": "ದಯವಿಟ್ಟು ಪೂರ್ಣ 6-ಅಂಕಿಯ ಕೋಡ್ ಅನ್ನು ನಮೂದಿಸಿ."
-    },
-    "Verification failed": {
-      " Check your code": {
-        "": "ಪರಿಶೀಲನೆ ವಿಫಲವಾಗಿದೆ. ನಿಮ್ಮ ಕೋಡ್ ಪರಿಶೀಲಿಸಿ."
-      }
-    },
+    "Google sign-up failed.": "Google ಸೈನ್-ಅಪ್ ವಿಫಲವಾಗಿದೆ.",
+    "Google sign-up was cancelled or failed.": "Google ಸೈನ್-ಅಪ್ ರದ್ದುಗೊಂಡಿದೆ ಅಥವಾ ವಿಫಲವಾಗಿದೆ.",
+    "Password must be at least 6 characters.": "ಪಾಸ್ವರ್ಡ್ ಕನಿಷ್ಠ 6 ಅಕ್ಷರಗಳಾಗಿರಬೇಕು.",
+    "Verification code sent! Check your inbox.": "ಪರಿಶೀಲನೆ ಕೋಡ್ ಕಳುಹಿಸಲಾಗಿದೆ! ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ.",
+    "Failed to send OTP.": "OTP ಕಳುಹಿಸಲು ವಿಫಲವಾಗಿದೆ.",
+    "Please enter the full 6-digit code.": "ದಯವಿಟ್ಟು ಪೂರ್ಣ 6-ಅಂಕಿಯ ಕೋಡ್ ಅನ್ನು ನಮೂದಿಸಿ.",
+    "Verification failed. Check your code.": "ಪರಿಶೀಲನೆ ವಿಫಲವಾಗಿದೆ. ನಿಮ್ಮ ಕೋಡ್ ಪರಿಶೀಲಿಸಿ.",
     "New code sent!": "ಹೊಸ ಕೋಡ್ ಕಳುಹಿಸಲಾಗಿದೆ!",
-    "Failed to resend": {
-      "": "ಮರುಕಳುಹಿಸಲು ವಿಫಲವಾಗಿದೆ."
-    },
-    "Registering": {
-      "": {
-        "": {
-          "": "ನೋಂದಾಯಿಸಲಾಗುತ್ತಿದೆ..."
-        }
-      }
-    },
+    "Failed to resend.": "ಮರುಕಳುಹಿಸಲು ವಿಫಲವಾಗಿದೆ.",
+    "Registering...": "ನೋಂದಾಯಿಸಲಾಗುತ್ತಿದೆ...",
     "Sign up with Google": "Google ನೊಂದಿಗೆ ಸೈನ್ ಅಪ್ ಮಾಡಿ",
-    "Sending code": {
-      "": {
-        "": {
-          "": "ಕೋಡ್ ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ..."
-        }
-      }
-    },
+    "Sending code...": "ಕೋಡ್ ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ...",
     "Send Verification Code": "ಪರಿಶೀಲನೆ ಕೋಡ್ ಕಳುಹಿಸಿ",
-    "Creating account": {
-      "": {
-        "": {
-          "": "ಖಾತೆಯನ್ನು ರಚಿಸಲಾಗುತ್ತಿದೆ..."
-        }
-      }
-    },
+    "Creating account...": "ಖಾತೆಯನ್ನು ರಚಿಸಲಾಗುತ್ತಿದೆ...",
     "Verify & Create Account": "ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಖಾತೆಯನ್ನು ರಚಿಸಿ",
     "Resend code": "ಕೋಡ್ ಅನ್ನು ಮರುಕಳುಹಿಸಿ",
     "No reminders": "ಯಾವುದೇ ಜ್ಞಾಪನೆಗಳಿಲ್ಲ",
@@ -650,46 +524,18 @@
     "Subscription added!": "ಚಂದಾದಾರಿಕೆಯನ್ನು ಸೇರಿಸಲಾಗಿದೆ!",
     "All Cycles": "ಎಲ್ಲಾ ಸೈಕಲ್‌ಗಳು",
     "Edit Subscription": "ಚಂದಾದಾರಿಕೆಯನ್ನು ಸಂಪಾದಿಸಿ",
-    "Get support, report technical issues, or request new features directly from our administrators": {
-      "": "ಬೆಂಬಲವನ್ನು ಪಡೆಯಿರಿ, ತಾಂತ್ರಿಕ ಸಮಸ್ಯೆಗಳನ್ನು ವರದಿ ಮಾಡಿ ಅಥವಾ ನಮ್ಮ ನಿರ್ವಾಹಕರಿಂದ ನೇರವಾಗಿ ಹೊಸ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ವಿನಂತಿಸಿ."
-    },
-    "Found an error or issue? Let us know so we can fix it": {
-      "": "ದೋಷ ಅಥವಾ ಸಮಸ್ಯೆ ಕಂಡುಬಂದಿದೆಯೇ? ನಮಗೆ ತಿಳಿಸಿ ಇದರಿಂದ ನಾವು ಅದನ್ನು ಸರಿಪಡಿಸಬಹುದು."
-    },
-    "Want a new dashboard view or tracking tool? Share your thoughts": {
-      "": "ಹೊಸ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ವೀಕ್ಷಣೆ ಅಥವಾ ಟ್ರ್ಯಾಕಿಂಗ್ ಟೂಲ್ ಬೇಕೇ? ನಿಮ್ಮ ಆಲೋಚನೆಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ."
-    },
-    "Get help with authentication changes or importing issues": {
-      "": "ದೃಢೀಕರಣ ಬದಲಾವಣೆಗಳು ಅಥವಾ ಆಮದು ಸಮಸ್ಯೆಗಳ ಕುರಿತು ಸಹಾಯ ಪಡೆಯಿರಿ."
-    },
-    "Ask questions about subscriptions, interest calculations, or layout metrics": {
-      "": "ಚಂದಾದಾರಿಕೆಗಳು, ಬಡ್ಡಿ ಲೆಕ್ಕಾಚಾರಗಳು ಅಥವಾ ಲೇಔಟ್ ಮೆಟ್ರಿಕ್‌ಗಳ ಕುರಿತು ಪ್ರಶ್ನೆಗಳನ್ನು ಕೇಳಿ."
-    },
-    "Get help retrieving backup data, CSV templates, or deleting your history": {
-      "": "ಬ್ಯಾಕಪ್ ಡೇಟಾ, CSV ಟೆಂಪ್ಲೇಟ್‌ಗಳು ಅಥವಾ ನಿಮ್ಮ ಇತಿಹಾಸವನ್ನು ಅಳಿಸಲು ಸಹಾಯವನ್ನು ಪಡೆಯಿರಿ."
-    },
-    "Report vulnerabilities, request account deletions, or configure key parameters": {
-      "": "ದೋಷಗಳನ್ನು ವರದಿ ಮಾಡಿ, ಖಾತೆ ಅಳಿಸುವಿಕೆಗೆ ವಿನಂತಿಸಿ ಅಥವಾ ಪ್ರಮುಖ ನಿಯತಾಂಕಗಳನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಿ."
-    },
-    "Fill in details to open a ticket/submission": {
-      "": "ಟಿಕೆಟ್/ಸಲ್ಲಿಕೆ ತೆರೆಯಲು ವಿವರಗಳನ್ನು ಭರ್ತಿ ಮಾಡಿ."
-    },
-    "Please fill in both the subject and concern message": {
-      "": "ದಯವಿಟ್ಟು ವಿಷಯ ಮತ್ತು ಕಾಳಜಿ ಸಂದೇಶ ಎರಡನ್ನೂ ಭರ್ತಿ ಮಾಡಿ."
-    },
-    "Your concern has been submitted successfully": {
-      "": "ನಿಮ್ಮ ಕಾಳಜಿಯನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಲಾಗಿದೆ."
-    },
-    "Failed to submit feedback": {
-      "": "ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಸಲ್ಲಿಸಲು ವಿಫಲವಾಗಿದೆ."
-    },
-    "Sending": {
-      "": {
-        "": {
-          "": "ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ..."
-        }
-      }
-    },
+    "Get support, report technical issues, or request new features directly from our administrators.": "ಬೆಂಬಲವನ್ನು ಪಡೆಯಿರಿ, ತಾಂತ್ರಿಕ ಸಮಸ್ಯೆಗಳನ್ನು ವರದಿ ಮಾಡಿ ಅಥವಾ ನಮ್ಮ ನಿರ್ವಾಹಕರಿಂದ ನೇರವಾಗಿ ಹೊಸ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ವಿನಂತಿಸಿ.",
+    "Found an error or issue? Let us know so we can fix it.": "ದೋಷ ಅಥವಾ ಸಮಸ್ಯೆ ಕಂಡುಬಂದಿದೆಯೇ? ನಮಗೆ ತಿಳಿಸಿ ಇದರಿಂದ ನಾವು ಅದನ್ನು ಸರಿಪಡಿಸಬಹುದು.",
+    "Want a new dashboard view or tracking tool? Share your thoughts.": "ಹೊಸ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ವೀಕ್ಷಣೆ ಅಥವಾ ಟ್ರ್ಯಾಕಿಂಗ್ ಟೂಲ್ ಬೇಕೇ? ನಿಮ್ಮ ಆಲೋಚನೆಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.",
+    "Get help with authentication changes or importing issues.": "ದೃಢೀಕರಣ ಬದಲಾವಣೆಗಳು ಅಥವಾ ಆಮದು ಸಮಸ್ಯೆಗಳ ಕುರಿತು ಸಹಾಯ ಪಡೆಯಿರಿ.",
+    "Ask questions about subscriptions, interest calculations, or layout metrics.": "ಚಂದಾದಾರಿಕೆಗಳು, ಬಡ್ಡಿ ಲೆಕ್ಕಾಚಾರಗಳು ಅಥವಾ ಲೇಔಟ್ ಮೆಟ್ರಿಕ್‌ಗಳ ಕುರಿತು ಪ್ರಶ್ನೆಗಳನ್ನು ಕೇಳಿ.",
+    "Get help retrieving backup data, CSV templates, or deleting your history.": "ಬ್ಯಾಕಪ್ ಡೇಟಾ, CSV ಟೆಂಪ್ಲೇಟ್‌ಗಳು ಅಥವಾ ನಿಮ್ಮ ಇತಿಹಾಸವನ್ನು ಅಳಿಸಲು ಸಹಾಯವನ್ನು ಪಡೆಯಿರಿ.",
+    "Report vulnerabilities, request account deletions, or configure key parameters.": "ದೋಷಗಳನ್ನು ವರದಿ ಮಾಡಿ, ಖಾತೆ ಅಳಿಸುವಿಕೆಗೆ ವಿನಂತಿಸಿ ಅಥವಾ ಪ್ರಮುಖ ನಿಯತಾಂಕಗಳನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಿ.",
+    "Fill in details to open a ticket/submission.": "ಟಿಕೆಟ್/ಸಲ್ಲಿಕೆ ತೆರೆಯಲು ವಿವರಗಳನ್ನು ಭರ್ತಿ ಮಾಡಿ.",
+    "Please fill in both the subject and concern message.": "ದಯವಿಟ್ಟು ವಿಷಯ ಮತ್ತು ಕಾಳಜಿ ಸಂದೇಶ ಎರಡನ್ನೂ ಭರ್ತಿ ಮಾಡಿ.",
+    "Your concern has been submitted successfully.": "ನಿಮ್ಮ ಕಾಳಜಿಯನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಲಾಗಿದೆ.",
+    "Failed to submit feedback.": "ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಸಲ್ಲಿಸಲು ವಿಫಲವಾಗಿದೆ.",
+    "Sending...": "ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ...",
     "Share your thoughts with us": "ನಿಮ್ಮ ಆಲೋಚನೆಗಳನ್ನು ನಮ್ಮೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಿ",
     "Log expenses easily using Telegram": "ಟೆಲಿಗ್ರಾಮ್ ಬಳಸಿ ವೆಚ್ಚಗಳನ್ನು ಸುಲಭವಾಗಿ ಲಾಗ್ ಮಾಡಿ",
     "Checking status…": "ಸ್ಥಿತಿಯನ್ನು ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ...",
@@ -699,16 +545,12 @@
     "Expense Added!": "ವೆಚ್ಚ ಸೇರಿಸಲಾಗಿದೆ!",
     "Spent 1200 groceries yesterday": "ನಿನ್ನೆ 1200 ದಿನಸಿ ಖರ್ಚು ಮಾಡಿದೆ",
     "Telegram bot linked successfully!": "ಟೆಲಿಗ್ರಾಮ್ ಬೋಟ್ ಅನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಲಿಂಕ್ ಮಾಡಲಾಗಿದೆ!",
-    "Telegram bot unlinked": {
-      "": "ಟೆಲಿಗ್ರಾಮ್ ಬೋಟ್ ಅನ್‌ಲಿಂಕ್ ಮಾಡಲಾಗಿದೆ."
-    },
+    "Telegram bot unlinked.": "ಟೆಲಿಗ್ರಾಮ್ ಬೋಟ್ ಅನ್‌ಲಿಂಕ್ ಮಾಡಲಾಗಿದೆ.",
     "Connected": "ಸಂಪರ್ಕಗೊಂಡಿದೆ",
     "Disconnected": "ಸಂಪರ್ಕ ಕಡಿತಗೊಂಡಿದೆ",
     "Link your Telegram account below": "ನಿಮ್ಮ ಟೆಲಿಗ್ರಾಮ್ ಖಾತೆಯನ್ನು ಕೆಳಗೆ ಲಿಂಕ್ ಮಾಡಿ",
     "Telegram Bot QR Code": "ಟೆಲಿಗ್ರಾಮ್ ಬಾಟ್ QR ಕೋಡ್",
-    "Type that Chat ID into the panel on the left and click Link": {
-      "": "ಎಡಭಾಗದಲ್ಲಿರುವ ಪ್ಯಾನೆಲ್‌ನಲ್ಲಿ ಆ ಚಾಟ್ ಐಡಿಯನ್ನು ಟೈಪ್ ಮಾಡಿ ಮತ್ತು ಲಿಂಕ್ ಅನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ."
-    },
+    "Type that Chat ID into the panel on the left and click Link.": "ಎಡಭಾಗದಲ್ಲಿರುವ ಪ್ಯಾನೆಲ್‌ನಲ್ಲಿ ಆ ಚಾಟ್ ಐಡಿಯನ್ನು ಟೈಪ್ ಮಾಡಿ ಮತ್ತು ಲಿಂಕ್ ಅನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ.",
     "Send expense texts directly to the bot and watch them log!": "ವೆಚ್ಚದ ಪಠ್ಯಗಳನ್ನು ನೇರವಾಗಿ ಬೋಟ್‌ಗೆ ಕಳುಹಿಸಿ ಮತ್ತು ಅವುಗಳನ್ನು ಲಾಗ್ ಮಾಡುವುದನ್ನು ವೀಕ್ಷಿಸಿ!",
     "Discover what is new, optimized, and fixed in ExpenseTracker": "ExpenseTracker ನಲ್ಲಿ ಹೊಸದು, ಆಪ್ಟಿಮೈಸ್ ಮಾಡಿರುವುದು ಮತ್ತು ಸ್ಥಿರವಾಗಿರುವುದನ್ನು ಅನ್ವೇಷಿಸಿ",
     "OVERDUE": "ಮೀರಿದೆ",
@@ -719,9 +561,7 @@
     "&lt;type?&gt; &lt;title&gt; &lt;amount&gt; &lt;payment_mode?&gt; &lt;note?&gt;": "&lt;ಟೈಪ್?&gt; &lt;ಶೀರ್ಷಿಕೆ&gt; &lt;ಮೊತ್ತ&gt; &lt;ಪಾವತಿ_ಮೋಡ್?&gt; &lt;ಟಿಪ್ಪಣಿ?&gt;",
     "note:": "ಗಮನಿಸಿ:",
     "Expense (Default)": "ವೆಚ್ಚ (ಡೀಫಾಲ್ಟ್)",
-    "Pizza 150": {
-      "50 upi for lunch": "ಊಟಕ್ಕೆ ಪಿಜ್ಜಾ 150.50 upi"
-    },
+    "Pizza 150.50 upi for lunch": "ಊಟಕ್ಕೆ ಪಿಜ್ಜಾ 150.50 upi",
     "Logs an expense with decimal amount, UPI payment, and note": "ದಶಮಾಂಶ ಮೊತ್ತ, UPI ಪಾವತಿ ಮತ್ತು ಟಿಪ್ಪಣಿಯೊಂದಿಗೆ ವೆಚ್ಚವನ್ನು ಲಾಗ್ ಮಾಡುತ್ತದೆ",
     "Logs income source with payment method and note": "ಪಾವತಿ ವಿಧಾನ ಮತ್ತು ಟಿಪ್ಪಣಿಯೊಂದಿಗೆ ಆದಾಯದ ಮೂಲವನ್ನು ದಾಖಲಿಸುತ್ತದೆ",
     "Creates custom category with hex color and icon name": "ಹೆಕ್ಸ್ ಬಣ್ಣ ಮತ್ತು ಐಕಾನ್ ಹೆಸರಿನೊಂದಿಗೆ ಕಸ್ಟಮ್ ವರ್ಗವನ್ನು ರಚಿಸುತ್ತದೆ",
@@ -740,13 +580,9 @@
     "How do I connect my Telegram account?": "ನನ್ನ ಟೆಲಿಗ್ರಾಮ್ ಖಾತೆಯನ್ನು ನಾನು ಹೇಗೆ ಸಂಪರ್ಕಿಸುವುದು?",
     "Click": "ಕ್ಲಿಕ್ ಮಾಡಿ",
     "What is the syntax for logging entries via Telegram?": "ಟೆಲಿಗ್ರಾಮ್ ಮೂಲಕ ನಮೂದುಗಳನ್ನು ಲಾಗಿಂಗ್ ಮಾಡಲು ಸಿಂಟ್ಯಾಕ್ಸ್ ಏನು?",
-    "Coffee 80": {
-      "50 upi team break": "ಕಾಫಿ 80.50 upi ತಂಡದ ವಿರಾಮ"
-    },
+    "Coffee 80.50 upi team break": "ಕಾಫಿ 80.50 upi ತಂಡದ ವಿರಾಮ",
     "Do I need to type": "ನಾನು ಟೈಪ್ ಮಾಡಬೇಕೇ",
-    "Dinner 450": {
-      "25 card": "ಡಿನ್ನರ್ 450.25 ಕಾರ್ಡ್"
-    },
+    "Dinner 450.25 card": "ಡಿನ್ನರ್ 450.25 ಕಾರ್ಡ್",
     "How do I reconnect or get my Chat ID if I unlink?": "ನಾನು ಅನ್‌ಲಿಂಕ್ ಮಾಡಿದರೆ ನನ್ನ ಚಾಟ್ ಐಡಿಯನ್ನು ಮರುಸಂಪರ್ಕಿಸುವುದು ಅಥವಾ ಪಡೆಯುವುದು ಹೇಗೆ?",
     "General": "ಸಾಮಾನ್ಯ",
     "How do category & monthly budget alerts work?": "ವರ್ಗ ಮತ್ತು ಮಾಸಿಕ ಬಜೆಟ್ ಎಚ್ಚರಿಕೆಗಳು ಹೇಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತವೆ?",
@@ -759,6 +595,169 @@
     "ExpenseTracker": "ಖರ್ಚು ಟ್ರಾಕರ್",
     "What's New": "ಹೊಸತೇನಿದೆ",
     "Escape": "ಎಸ್ಕೇಪ್",
-    "Updates & Bug Fixes": "ನವೀಕರಣಗಳು ಮತ್ತು ದೋಷ ಪರಿಹಾರಗಳು"
+    "Updates & Bug Fixes": "ನವೀಕರಣಗಳು ಮತ್ತು ದೋಷ ಪರಿಹಾರಗಳು",
+    "Your personal finance command center. Let us take a quick 1-minute tour to help you get started.": "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಹಣಕಾಸು ಕಮಾಂಡ್ ಸೆಂಟರ್. ಪ್ರಾರಂಭಿಸಲು ನಿಮಗೆ ಸಹಾಯ ಮಾಡಲು ನಾವು ತ್ವರಿತ 1-ನಿಮಿಷದ ಪ್ರವಾಸವನ್ನು ಕೈಗೊಳ್ಳೋಣ.",
+    "Track your total expenses, monthly income, net savings, and spending streaks at a glance.": "ನಿಮ್ಮ ಒಟ್ಟು ವೆಚ್ಚಗಳು, ಮಾಸಿಕ ಆದಾಯ, ನಿವ್ವಳ ಉಳಿತಾಯ ಮತ್ತು ವೆಚ್ಚದ ಗೆರೆಗಳನ್ನು ಒಂದು ನೋಟದಲ್ಲಿ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ.",
+    "Stay on track! Check your real-time budget utilization progress so you never overspend.": "ಟ್ರ್ಯಾಕ್‌ನಲ್ಲಿ ಇರಿ! ನಿಮ್ಮ ನೈಜ-ಸಮಯದ ಬಜೆಟ್ ಬಳಕೆಯ ಪ್ರಗತಿಯನ್ನು ಪರಿಶೀಲಿಸಿ ಆದ್ದರಿಂದ ನೀವು ಎಂದಿಗೂ ಹೆಚ್ಚು ಖರ್ಚು ಮಾಡಬೇಡಿ.",
+    "Understand your spending habits over time and view your expense distribution by category.": "ಕಾಲಾನಂತರದಲ್ಲಿ ನಿಮ್ಮ ಖರ್ಚು ಅಭ್ಯಾಸಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ ಮತ್ತು ವರ್ಗದ ಮೂಲಕ ನಿಮ್ಮ ವೆಚ್ಚದ ವಿತರಣೆಯನ್ನು ವೀಕ್ಷಿಸಿ.",
+    "Manually add expenses and income, assign custom categories, select payment methods, and filter records.": "ವೆಚ್ಚಗಳು ಮತ್ತು ಆದಾಯವನ್ನು ಹಸ್ತಚಾಲಿತವಾಗಿ ಸೇರಿಸಿ, ಕಸ್ಟಮ್ ವರ್ಗಗಳನ್ನು ನಿಯೋಜಿಸಿ, ಪಾವತಿ ವಿಧಾನಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ ಮತ್ತು ದಾಖಲೆಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಿ.",
+    "Keep tabs on loans you borrow or lend out. Track interest rates, upcoming EMIs, and pending outstanding debts.": "ನೀವು ಎರವಲು ಪಡೆಯುವ ಅಥವಾ ನೀಡುವ ಸಾಲಗಳ ಮೇಲೆ ನಿಗಾ ಇರಿಸಿ. ಬಡ್ಡಿ ದರಗಳು, ಮುಂಬರುವ EMI ಗಳು ಮತ್ತು ಬಾಕಿ ಉಳಿದಿರುವ ಸಾಲಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ.",
+    "Set custom spending categories and monthly limits. Stay within your boundaries to save more.": "ಕಸ್ಟಮ್ ಖರ್ಚು ವಿಭಾಗಗಳು ಮತ್ತು ಮಾಸಿಕ ಮಿತಿಗಳನ್ನು ಹೊಂದಿಸಿ. ಹೆಚ್ಚಿನದನ್ನು ಉಳಿಸಲು ನಿಮ್ಮ ಗಡಿಯೊಳಗೆ ಇರಿ.",
+    "Set aside money for specific savings pools and track milestones toward goals like buying a house or car.": "ನಿರ್ದಿಷ್ಟ ಉಳಿತಾಯ ಪೂಲ್‌ಗಳಿಗಾಗಿ ಹಣವನ್ನು ಹೊಂದಿಸಿ ಮತ್ತು ಮನೆ ಅಥವಾ ಕಾರನ್ನು ಖರೀದಿಸುವಂತಹ ಗುರಿಗಳತ್ತ ಮೈಲಿಗಲ್ಲುಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ.",
+    "Manage active subscriptions (Netflix, Spotify), set repeating expenses, and receive payment alerts.": "ಸಕ್ರಿಯ ಚಂದಾದಾರಿಕೆಗಳನ್ನು ನಿರ್ವಹಿಸಿ (Netflix, Spotify), ಪುನರಾವರ್ತಿತ ವೆಚ್ಚಗಳನ್ನು ಹೊಂದಿಸಿ ಮತ್ತು ಪಾವತಿ ಎಚ್ಚರಿಕೆಗಳನ್ನು ಸ್ವೀಕರಿಸಿ.",
+    "Link your Telegram account to chat with our AI Bot. Log entries on-the-go with natural text (e.g.": "ನಮ್ಮ AI ಬಾಟ್‌ನೊಂದಿಗೆ ಚಾಟ್ ಮಾಡಲು ನಿಮ್ಮ ಟೆಲಿಗ್ರಾಮ್ ಖಾತೆಯನ್ನು ಲಿಂಕ್ ಮಾಡಿ. ನೈಸರ್ಗಿಕ ಪಠ್ಯದೊಂದಿಗೆ ಪ್ರಯಾಣದಲ್ಲಿರುವಾಗ ಲಾಗ್ ನಮೂದುಗಳು (ಉದಾ.",
+    "Toggle Dark Mode, access audit logs for security, and export full reports (PDF or Excel).": "ಡಾರ್ಕ್ ಮೋಡ್ ಅನ್ನು ಟಾಗಲ್ ಮಾಡಿ, ಭದ್ರತೆಗಾಗಿ ಆಡಿಟ್ ಲಾಗ್‌ಗಳನ್ನು ಪ್ರವೇಶಿಸಿ ಮತ್ತು ಸಂಪೂರ್ಣ ವರದಿಗಳನ್ನು ರಫ್ತು ಮಾಡಿ (PDF ಅಥವಾ ಎಕ್ಸೆಲ್).",
+    "Read the detailed FAQ to resolve common questions and get step-by-step guides.": "ಸಾಮಾನ್ಯ ಪ್ರಶ್ನೆಗಳನ್ನು ಪರಿಹರಿಸಲು ಮತ್ತು ಹಂತ-ಹಂತದ ಮಾರ್ಗದರ್ಶಿಗಳನ್ನು ಪಡೆಯಲು ವಿವರವಾದ FAQ ಅನ್ನು ಓದಿ.",
+    "Send feature requests, bug reports, and feedback directly to our development team.": "ವೈಶಿಷ್ಟ್ಯದ ವಿನಂತಿಗಳು, ದೋಷ ವರದಿಗಳು ಮತ್ತು ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ನೇರವಾಗಿ ನಮ್ಮ ಅಭಿವೃದ್ಧಿ ತಂಡಕ್ಕೆ ಕಳುಹಿಸಿ.",
+    "Install ExpenseTracker directly onto your desktop or mobile device home screen for quick offline access.": "ತ್ವರಿತ ಆಫ್‌ಲೈನ್ ಪ್ರವೇಶಕ್ಕಾಗಿ ನಿಮ್ಮ ಡೆಸ್ಕ್‌ಟಾಪ್ ಅಥವಾ ಮೊಬೈಲ್ ಸಾಧನದ ಮುಖಪುಟದಲ್ಲಿ ನೇರವಾಗಿ ExpenseTracker ಅನ್ನು ಸ್ಥಾಪಿಸಿ.",
+    "No active loans being tracked. Use the calculator on the left and click": "ಯಾವುದೇ ಸಕ್ರಿಯ ಸಾಲಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಲಾಗುತ್ತಿಲ್ಲ. ಎಡಭಾಗದಲ್ಲಿರುವ ಕ್ಯಾಲ್ಕುಲೇಟರ್ ಬಳಸಿ ಮತ್ತು ಕ್ಲಿಕ್ ಮಾಡಿ",
+    "M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z": "M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.501-4.60 7.09-17.65z",
+    "Europe/London', 'Europe/Paris', 'Asia/Tokyo', 'Australia/Sydney": "ಯುರೋಪ್/ಲಂಡನ್', 'ಯುರೋಪ್/ಪ್ಯಾರಿಸ್', 'ಏಷ್ಯಾ/ಟೋಕಿಯೋ', 'ಆಸ್ಟ್ರೇಲಿಯಾ/ಸಿಡ್ನಿ",
+    "Message the bot /start to receive your secure numeric Chat ID.": "ನಿಮ್ಮ ಸುರಕ್ಷಿತ ಸಂಖ್ಯಾ ಚಾಟ್ ಐಡಿಯನ್ನು ಸ್ವೀಕರಿಸಲು ಬೋಟ್/ಪ್ರಾರಂಭಕ್ಕೆ ಸಂದೇಶ ಕಳುಹಿಸಿ.",
+    "No! Any text typed after the payment mode (or amount) is automatically saved as your entry note.": "ಇಲ್ಲ! ಪಾವತಿ ಮೋಡ್ (ಅಥವಾ ಮೊತ್ತ) ನಂತರ ಟೈಪ್ ಮಾಡಿದ ಯಾವುದೇ ಪಠ್ಯವನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ನಿಮ್ಮ ಪ್ರವೇಶ ಟಿಪ್ಪಣಿಯಾಗಿ ಉಳಿಸಲಾಗುತ್ತದೆ.",
+    "Yes, full decimal precision is supported across all commands! For example,": "ಹೌದು, ಎಲ್ಲಾ ಆಜ್ಞೆಗಳಲ್ಲಿ ಪೂರ್ಣ ದಶಮಾಂಶ ನಿಖರತೆಯನ್ನು ಬೆಂಬಲಿಸಲಾಗುತ್ತದೆ! ಉದಾಹರಣೆಗೆ,",
+    "Type /start in your Telegram bot chat anytime to get your Chat ID and reconnect link.": "ನಿಮ್ಮ ಚಾಟ್ ಐಡಿಯನ್ನು ಪಡೆಯಲು ಮತ್ತು ಲಿಂಕ್ ಅನ್ನು ಮರುಸಂಪರ್ಕಿಸಲು ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ನಿಮ್ಮ ಟೆಲಿಗ್ರಾಮ್ ಬಾಟ್ ಚಾಟ್‌ನಲ್ಲಿ ಟೈಪ್ ಮಾಡಿ/ಪ್ರಾರಂಭಿಸಿ.",
+    "Yes! All user sessions use encrypted JWT authentication, password hashes, and user-isolated database records.": "ಹೌದು! ಎಲ್ಲಾ ಬಳಕೆದಾರ ಅವಧಿಗಳು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿದ JWT ದೃಢೀಕರಣ, ಪಾಸ್‌ವರ್ಡ್ ಹ್ಯಾಶ್‌ಗಳು ಮತ್ತು ಬಳಕೆದಾರ-ಪ್ರತ್ಯೇಕ ಡೇಟಾಬೇಸ್ ದಾಖಲೆಗಳನ್ನು ಬಳಸುತ್ತವೆ.",
+    "expense', 'income', 'emi', 'debt": "ಖರ್ಚು', 'ಆದಾಯ', 'ಇಮಿ', 'ಸಾಲ",
+    "budget', 'goal": "ಬಜೆಟ್', 'ಗುರಿ",
+    "reminder', 'recurring', 'subscription": "ಜ್ಞಾಪನೆ', 'ಮರುಕಳಿಸುವ', 'ಚಂದಾದಾರಿಕೆ",
+    "category', 'user": "ವರ್ಗ', 'ಬಳಕೆದಾರ",
+    "rgba(255, 255, 255, 0.2)": "rgba(255, 255, 255, 0.2)",
+    "card skeleton": "ಕಾರ್ಡ್ ಅಸ್ಥಿಪಂಜರ",
+    "card empty-state": "ಕಾರ್ಡ್ ಖಾಲಿ-ಸ್ಥಿತಿ",
+    "table-wrapper animate-in": "ಟೇಬಲ್-ರೇಪರ್ ಅನಿಮೇಟ್-ಇನ್",
+    "flex items-center gap-3": "ಫ್ಲೆಕ್ಸ್ ಐಟಂಗಳು-ಸೆಂಟರ್ ಗ್ಯಾಪ್-3",
+    "btn-icon btn-danger": "btn-icon btn-ಅಪಾಯ",
+    "flex justify-between items-center": "ಫ್ಲೆಕ್ಸ್ ಜಸ್ಟಿಫೈ-ಬಿಟ್ವೀನ್ ಐಟಂಗಳು-ಸೆಂಟರ್",
+    "flex items-center justify-between": "ಫ್ಲೆಕ್ಸ್ ಐಟಂಗಳು-ಸೆಂಟರ್ ಸಮರ್ಥನೆ-ನಡುವೆ",
+    "flex items-center gap-2": "ಫ್ಲೆಕ್ಸ್ ಐಟಂಗಳು-ಸೆಂಟರ್ ಗ್ಯಾಪ್-2",
+    "flex flex-col gap-3": "flex flex-col gap-3",
+    "create' ? 'Set Budget": "ರಚಿಸಿ'? 'ಬಜೆಟ್ ಹೊಂದಿಸಿ",
+    "tag', 'utensils', 'home', 'shopping-bag', 'car', 'file-text', 'heart', 'fuel', 'pill', 'key', 'tv', 'coffee', 'music', 'book": "ಟ್ಯಾಗ್', 'ಪಾತ್ರೆಗಳು', 'ಮನೆ', 'ಶಾಪಿಂಗ್-ಬ್ಯಾಗ್', 'ಕಾರ್', 'ಫೈಲ್-ಟೆಕ್ಸ್ಟ್', 'ಹೃದಯ', 'ಇಂಧನ', 'ಮಾತ್ರೆ', 'ಕೀ', 'ಟಿವಿ', 'ಕಾಫಿ', 'ಸಂಗೀತ', 'ಪುಸ್ತಕ",
+    "gift', 'plane', 'dumbbell": "ಉಡುಗೊರೆ', 'ವಿಮಾನ', 'ಡಂಬ್ಬೆಲ್",
+    "expense' ? 'var(--text-primary)": "ಖರ್ಚು'? 'var(--ಪಠ್ಯ-ಪ್ರಾಥಮಿಕ)",
+    "all 0.2s": "ಎಲ್ಲಾ 0.2 ಸೆ",
+    "income' ? 'var(--text-primary)": "ಆದಾಯ'? 'var(--ಪಠ್ಯ-ಪ್ರಾಥಮಿಕ)",
+    "card cat-card": "ಕಾರ್ಡ್ ಬೆಕ್ಕು-ಕಾರ್ಡ್",
+    "badge badge-info": "ಬ್ಯಾಡ್ಜ್ ಬ್ಯಾಡ್ಜ್-ಮಾಹಿತಿ",
+    "create' ? 'New Category": "ರಚಿಸಿ'? 'ಹೊಸ ವರ್ಗ",
+    "create' ? 'Create": "ರಚಿಸಿ'? 'ರಚಿಸಿ",
+    ", 'true": ", 'ನಿಜ",
+    ") and sync in real-time.": ") ಮತ್ತು ನೈಜ ಸಮಯದಲ್ಲಿ ಸಿಂಕ್ರೊನೈಸ್ ಮಾಡಿ.",
+    "card bot-promo-card animate-in": "ಕಾರ್ಡ್ ಬೋಟ್-ಪ್ರೊಮೊ-ಕಾರ್ಡ್ ಅನಿಮೇಟ್-ಇನ್",
+    "linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(16, 185, 129, 0.08))": "ರೇಖೀಯ-ಗ್ರೇಡಿಯಂಟ್(135deg, rgba(99, 102, 241, 0.08), rgba(16, 185, 129, 0.08))",
+    "radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(99, 102, 241, 0) 70%)": "ರೇಡಿಯಲ್-ಗ್ರೇಡಿಯಂಟ್(ವೃತ್ತ, rgba(99, 102, 241, 0.25) 0%, rgba(99, 102, 241, 0) 70%)",
+    "linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(16, 185, 129, 0.25))": "ರೇಖೀಯ-ಗ್ರೇಡಿಯಂಟ್(135deg, rgba(99, 102, 241, 0.25), rgba(16, 185, 129, 0.25))",
+    "btn-primary bot-promo-btn": "btn-ಪ್ರಾಥಮಿಕ bot-promo-btn",
+    "card budget-card": "ಕಾರ್ಡ್ ಬಜೆಟ್-ಕಾರ್ಡ್",
+    "flex justify-between": "ಫ್ಲೆಕ್ಸ್ ಸಮರ್ಥನೆ-ನಡುವೆ",
+    "dd MMM": "ಡಿಡಿ ಎಂಎಂಎಂ",
+    "page-wrapper animate-in": "ಪುಟ-ಹೊದಿಕೆ ಅನಿಮೇಟ್-ಇನ್",
+    "card flex flex-col gap-2": "ಕಾರ್ಡ್ ಫ್ಲೆಕ್ಸ್ ಫ್ಲೆಕ್ಸ್-ಕೋಲ್ ಗ್ಯಾಪ್-2",
+    "card flex flex-col justify-between gap-4": "ಕಾರ್ಡ್ ಫ್ಲೆಕ್ಸ್ ಫ್ಲೆಕ್ಸ್-ಕೋಲ್ ಜಸ್ಟಿಫೈ-ಬಿಟ್ವೀನ್ ಗ್ಯಾಪ್-4",
+    "badge badge-success": "ಬ್ಯಾಡ್ಜ್ ಬ್ಯಾಡ್ಜ್-ಯಶಸ್ಸು",
+    "badge badge-danger": "ಬ್ಯಾಡ್ಜ್ ಬ್ಯಾಡ್ಜ್-ಅಪಾಯ",
+    "1fr 1fr": "1fr 1fr",
+    "dd MMM yyyy": "dd MMM yyyy",
+    "create' ? 'Add Debt": "ರಚಿಸಿ'? 'ಸಾಲ ಸೇರಿಸಿ",
+    "bank transfer": "ಬ್ಯಾಂಕ್ ವರ್ಗಾವಣೆ",
+    "t updated, or if they change tenure directly, we can keep it\r\n      // Let": "ನವೀಕರಿಸಲಾಗಿದೆ, ಅಥವಾ ಅವರು ನೇರವಾಗಿ ಅಧಿಕಾರಾವಧಿಯನ್ನು ಬದಲಾಯಿಸಿದರೆ, ನಾವು ಅದನ್ನು ಉಳಿಸಿಕೊಳ್ಳಬಹುದು\r\n      // ಅವಕಾಶ",
+    "card flex flex-col gap-4": "ಕಾರ್ಡ್ ಫ್ಲೆಕ್ಸ್ ಫ್ಲೆಕ್ಸ್-ಕೋಲ್ ಗ್ಯಾಪ್-4",
+    "flex items-start gap-2": "ಫ್ಲೆಕ್ಸ್ ಐಟಂಗಳು-ಸ್ಟಾರ್ಟ್ ಗ್ಯಾಪ್-2",
+    "create' ? 'Add Loan EMI": "ರಚಿಸಿ'? 'ಸಾಲ EMI ಸೇರಿಸಿ",
+    "advance payment": "ಮುಂಗಡ ಪಾವತಿ",
+    "credit card": "ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್",
+    "debit card": "ಡೆಬಿಟ್ ಕಾರ್ಡ್",
+    "cash', 'upi', 'card', 'netbanking', 'wallet', 'other": "ನಗದು', 'ಯುಪಿಐ', 'ಕಾರ್ಡ್', 'ನೆಟ್ಬ್ಯಾಂಕಿಂಗ್', 'ವಾಲೆಟ್', 'ಇತರ",
+    "dd MMM yy": "dd MMM yy",
+    "create' ? 'Add Expense": "ರಚಿಸಿ'? 'ಖರ್ಚು ಸೇರಿಸಿ",
+    "create' ? 'New Goal": "ರಚಿಸಿ'? 'ಹೊಸ ಗುರಿ",
+    "create' ? 'Create Goal": "ರಚಿಸಿ'? 'ಗುರಿಯನ್ನು ರಚಿಸಿ",
+    "create' ? 'Add Income": "ರಚಿಸಿ'? 'ಆದಾಯ ಸೇರಿಸಿ",
+    "rgba(239, 68, 68, 0.1)": "rgba(239, 68, 68, 0.1)",
+    "rgba(245, 158, 11, 0.1)": "rgba(245, 158, 11, 0.1)",
+    "rgba(99, 102, 241, 0.1)": "rgba(99, 102, 241, 0.1)",
+    "to list them here.": "ಅವುಗಳನ್ನು ಇಲ್ಲಿ ಪಟ್ಟಿ ಮಾಡಲು.",
+    "save' ? 'Save Calculated Loan": "ಉಳಿಸು'? ಲೆಕ್ಕ ಹಾಕಿದ ಸಾಲವನ್ನು ಉಳಿಸಿ",
+    "btn-primary auth-btn": "btn-ಪ್ರಾಥಮಿಕ ದೃಢೀಕರಣ-btn",
+    ", 'America/Chicago',": ", 'ಅಮೆರಿಕಾ/ಚಿಕಾಗೋ',",
+    ", 'Europe/London', 'Europe/Paris', 'Asia/Tokyo', 'Australia/Sydney": ", 'ಯುರೋಪ್/ಲಂಡನ್', 'ಯುರೋಪ್/ಪ್ಯಾರಿಸ್', 'ಏಷ್ಯಾ/ಟೋಕಿಯೋ', 'ಆಸ್ಟ್ರೇಲಿಯಾ/ಸಿಡ್ನಿ",
+    "csv' ? 'csv": "csv'? 'ಸಿಎಸ್ವಿ",
+    "monthly' ? 'badge-info": "ಮಾಸಿಕ' ? 'ಬ್ಯಾಡ್ಜ್-ಮಾಹಿತಿ",
+    "create' ? 'Add Recurring": "ರಚಿಸಿ'? 'ಪುನರಾವರ್ತನೆಯನ್ನು ಸೇರಿಸಿ",
+    "border-color 0.15s ease": "ಗಡಿ-ಬಣ್ಣ 0.15 ಸೆ ಸುಲಭ",
+    "create' ? 'Add Reminder": "ರಚಿಸಿ'? 'ಜ್ಞಾಪನೆಯನ್ನು ಸೇರಿಸಿ",
+    "create' ? 'Log Savings Transaction": "ರಚಿಸಿ'? 'ಲಾಗ್ ಸೇವಿಂಗ್ಸ್ ಟ್ರಾನ್ಸಾಕ್ಷನ್",
+    "create' ? 'Log Transaction": "ರಚಿಸಿ'? 'ಲಾಗ್ ಟ್ರಾನ್ಸಾಕ್ಷನ್",
+    "daily', 'weekly', 'monthly', 'yearly": "ಪ್ರತಿದಿನ', 'ಸಾಪ್ತಾಹಿಕ', 'ಮಾಸಿಕ', 'ವಾರ್ಷಿಕ",
+    "badge badge-warning": "ಬ್ಯಾಡ್ಜ್ ಬ್ಯಾಡ್ಜ್-ಎಚ್ಚರಿಕೆ",
+    "badge badge-accent": "ಬ್ಯಾಡ್ಜ್ ಬ್ಯಾಡ್ಜ್-ಉಚ್ಚಾರಣೆ",
+    "create' ? 'Add Subscription": "ರಚಿಸಿ'? 'ಚಂದಾದಾರಿಕೆಯನ್ನು ಸೇರಿಸಿ",
+    "card text-center": "ಕಾರ್ಡ್ ಪಠ್ಯ ಕೇಂದ್ರ",
+    "rgba(16, 185, 129, 0.1)": "rgba(16, 185, 129, 0.1)",
+    "linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08))": "ರೇಖೀಯ-ಗ್ರೇಡಿಯಂಟ್(135deg, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.08))",
+    "rgba(59, 130, 246, 0.1)": "rgba(59, 130, 246, 0.1)",
+    "rgba(236, 72, 153, 0.1)": "rgba(236, 72, 153, 0.1)",
+    "color 0.15s ease, transform 0.1s ease": "ಬಣ್ಣ 0.15 ಸೆ ಸುಲಭ, ರೂಪಾಂತರ 0.1 ಸೆ ಸುಲಭ",
+    "linear-gradient(135deg, rgba(0,136,204,0.12) 0%, rgba(36,151,212,0.08) 100%)": "ರೇಖೀಯ-ಗ್ರೇಡಿಯಂಟ್(135deg, rgba(0,136,204,0.12) 0%, rgba(36,151,212,0.08) 100%)",
+    "pulse-anim 2s infinite": "pulse-anim 2s ಅನಂತ",
+    "spin 1s linear infinite": "ಸ್ಪಿನ್ 1ಸೆ ರೇಖೀಯ ಅನಂತ",
+    "noopener noreferrer": "noopener noreferrer",
+    "0 auto": "0 ಸ್ವಯಂ",
+    "rgba(99, 102, 241, 0.12)": "rgba(99, 102, 241, 0.12)",
+    "release-group animate-in": "ಬಿಡುಗಡೆ-ಗುಂಪು ಅನಿಮೇಟ್-ಇನ್",
+    "linear-gradient(135deg, rgba(30, 30, 46, 0.4), rgba(20, 20, 35, 0.4))": "ರೇಖೀಯ-ಗ್ರೇಡಿಯಂಟ್(135deg, rgba(30, 30, 46, 0.4), rgba(20, 20, 35, 0.4))",
+    "due TODAY": "ಇಂದು ಬಾಕಿಯಿದೆ",
+    "due TOMORROW": "ನಾಳೆ ಬರಲಿದೆ",
+    "urgent' ? 'Urgent": "ತುರ್ತು'? 'ತುರ್ತು",
+    "income Salary 50000 bank April salary": "ಆದಾಯ ಸಂಬಳ 50000 ಬ್ಯಾಂಕ್ ಏಪ್ರಿಲ್ ಸಂಬಳ",
+    "budget Food 5000": "ಬಜೆಟ್ ಆಹಾರ 5000",
+    "recurring Rent 15000 monthly bank house rent": "ಮರುಕಳಿಸುವ ಬಾಡಿಗೆ 15000 ಮಾಸಿಕ ಬ್ಯಾಂಕ್ ಮನೆ ಬಾಡಿಗೆ",
+    "goal Buy iPhone 120000 upi saving for work": "ಗುರಿ iPhone 120000 upi ಅನ್ನು ಖರೀದಿಸಿ ಕೆಲಸಕ್ಕಾಗಿ ಉಳಿತಾಯ",
+    "sub Netflix 649 card monthly plan": "ಉಪ Netflix 649 ಕಾರ್ಡ್ ಮಾಸಿಕ ಯೋಜನೆ",
+    "emi Car Loan 8500.75 netbanking monthly payment": "emi ಕಾರ್ ಲೋನ್ 8500.75 ನೆಟ್‌ಬ್ಯಾಂಕಿಂಗ್ ಮಾಸಿಕ ಪಾವತಿ",
+    "debt John 2000 cash borrowed for trip": "ಸಾಲ ಜಾನ್ 2000 ನಗದನ್ನು ಪ್ರವಾಸಕ್ಕಾಗಿ ಎರವಲು ಪಡೆಯಲಾಗಿದೆ",
+    "remind Pay Electricity 1450 tomorrow": "ನಾಳೆ ವಿದ್ಯುತ್ ಪಾವತಿಸಿ 1450 ಅನ್ನು ನೆನಪಿಸಿ",
+    "). Dashboard indicators highlight progress and warn when approaching limits.": ") ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಸೂಚಕಗಳು ಪ್ರಗತಿಯನ್ನು ಎತ್ತಿ ತೋರಿಸುತ್ತವೆ ಮತ್ತು ಮಿತಿಗಳನ್ನು ಸಮೀಪಿಸಿದಾಗ ಎಚ್ಚರಿಕೆ ನೀಡುತ್ತವೆ.",
+    "card help-card": "ಕಾರ್ಡ್ ಸಹಾಯ ಕಾರ್ಡ್",
+    "6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E": "6 9 12 15 18 9'%3E%3C/ಪಾಲಿಲೈನ್%3E%3C/svg%3E",
+    "nowrap',\r\n          '--scroll-dist": "Nowrap',\r\n          '--ಸ್ಕ್ರೋಲ್-ಡಿಸ್ಟ್",
+    "/', '').replace('-',": "/', '').replace('-',",
+    "btn-icon logout-btn": "btn-icon logout-btn",
+    "stat-card card": "ಸ್ಟಾಟ್-ಕಾರ್ಡ್ ಕಾರ್ಡ್",
+    "1px solid transparent": "1px ಘನ ಪಾರದರ್ಶಕ",
+    "1px solid var(--border)": "1px ಘನ var (--ಗಡಿ)",
+    "expense' ? '3px solid var(--primary)": "ಖರ್ಚು'? '3px ಘನ var(--ಪ್ರಾಥಮಿಕ)",
+    "3px solid transparent": "3px ಘನ ಪಾರದರ್ಶಕ",
+    "income' ? '3px solid var(--primary)": "ಆದಾಯ'? '3px ಘನ var(--ಪ್ರಾಥಮಿಕ)",
+    "1px solid var(--border-active)": "1px ಘನ var (--ಗಡಿ-ಸಕ್ರಿಯ)",
+    "16px 0": "16px 0",
+    "12px 0": "12px 0",
+    "repeat(auto-fit, minmax(240px, 1fr))": "ಪುನರಾವರ್ತನೆ (ಸ್ವಯಂ-ಫಿಟ್, ಮಿನಿಮ್ಯಾಕ್ಸ್ (240px, 1fr))",
+    "20px 0": "20px 0",
+    "40px 0": "40px 0",
+    "8px 0": "8px 0",
+    "20px 0 12px 0": "20px 0 12px 0",
+    "2px solid var(--bg-card)": "2px ಘನ ವರ್ (--ಬಿಜಿ-ಕಾರ್ಡ್)",
+    "2px solid var(--border)": "2px ಘನ var (--ಗಡಿ)",
+    "4px 0": "4px 0",
+    "24px 0": "24px 0",
+    "30px 0": "30px 0",
+    "8px 0 16px 0": "8px 0 16px 0",
+    "0 0 2px 0": "0 0 2px 0",
+    "14px 0": "14px 0",
+    "right 6px center": "ಬಲ 6px ಕೇಂದ್ರ",
+    "Hindi": "ಹಿಂದಿ",
+    "Tamil": "ತಮಿಳು",
+    "Telugu": "ತೆಲುಗು",
+    "Kannada": "ಕನ್ನಡ",
+    "Malayalam": "ಮಲಯಾಳಂ",
+    "Marathi": "ಮರಾಠಿ",
+    "Gujarati": "ಗುಜರಾತಿ",
+    "Bengali": "ಬೆಂಗಾಲಿ",
+    "all 0.18s ease": "ಎಲ್ಲಾ 0.18s ಸುಲಭ",
+    "transform 0.18s ease": "0.18s ಸುಲಭವಾಗಿ ಪರಿವರ್ತಿಸಿ",
+    "dropdownFadeIn 0.15s ease": "ಡ್ರಾಪ್‌ಡೌನ್‌ಫೇಡ್‌ಇನ್ 0.15 ಸೆ ಸುಲಭ",
+    "background 0.12s ease": "ಹಿನ್ನೆಲೆ 0.12 ಸೆ ಸುಲಭ"
   }
 }
