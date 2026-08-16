@@ -385,8 +385,6 @@ button {
   font-weight: 500;
   text-decoration: none;
   transition: var(--transition);
-  position: relative;
-  z-index: 1000000; /* lifts the link above the chatbot iframe */
 }
 
 .app-footer-author:hover {
@@ -1641,6 +1639,19 @@ iframe[src*="chatbotf-production"] {
   background: transparent !important;
   background-color: transparent !important;
   color-scheme: normal !important;
+}
+
+/* Ensure closed chatbot iframe does not cover the screen and block clicks on all screen sizes */
+iframe[title="MoneyCommandAI Assistant"]:not(.chatbot-open),
+iframe[src*="moneycommandai-assistant"]:not(.chatbot-open),
+iframe[src*="chatbotf-production"]:not(.chatbot-open) {
+  width: 280px !important;
+  height: 300px !important;
+  left: auto !important;
+  top: auto !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  pointer-events: auto !important;
 }
 
 

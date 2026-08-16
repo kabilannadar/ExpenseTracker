@@ -163,7 +163,33 @@ function ProtectedLayout() {
 
     const scriptPromise = initWidget();
 
+    const handleToggleMessage = (event) => {
+      const isChatbotOrigin = event.origin.includes('moneycommandai-assistant') ||
+                              event.origin.includes('chatbotf-production') ||
+                              event.origin.includes('localhost');
+      if (!isChatbotOrigin) return;
+
+      const data = event.data;
+      if (data && data.type === 'moneycommandai-chatbot-toggle') {
+        const isOpen = !!data.open;
+        const iframe = document.querySelector('iframe[title="MoneyCommandAI Assistant"]') ||
+                       document.querySelector('iframe[src*="moneycommandai-assistant"]') ||
+                       document.querySelector('iframe[src*="chatbotf-production"]');
+        if (iframe) {
+          if (isOpen) {
+            iframe.classList.add('chatbot-open');
+            iframe.style.pointerEvents = 'auto';
+          } else {
+            iframe.classList.remove('chatbot-open');
+            iframe.style.pointerEvents = 'none';
+          }
+        }
+      }
+    };
+    window.addEventListener('message', handleToggleMessage);
+
     return () => {
+      window.removeEventListener('message', handleToggleMessage);
       scriptPromise.then((script) => {
         if (script && document.body.contains(script)) {
           document.body.removeChild(script);

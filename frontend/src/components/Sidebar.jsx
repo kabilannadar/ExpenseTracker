@@ -45,7 +45,7 @@ function MarqueeText({ text }) {
   return (
     <div 
       ref={containerRef} 
-      style={{ overflow: 'hidden', whiteSpace: 'nowrap', width: '100%' }}
+      style={{ overflow: 'hidden', whiteSpace: 'nowrap', width: '100%', display: 'flex', alignItems: 'center' }}
     >
       <span 
         ref={textRef} 
@@ -93,6 +93,11 @@ export default function Sidebar({ isOpen, onClose }) {
     if (typeof window === 'undefined') return false;
     return window.innerWidth > 768 && window.innerWidth <= 1024;
   });
+  const [avatarError, setAvatarError] = useState(false);
+
+  useEffect(() => {
+    setAvatarError(false);
+  }, [user]);
 
 
   return (
@@ -148,13 +153,19 @@ export default function Sidebar({ isOpen, onClose }) {
         {!collapsed && user && (
           <div className="sidebar-user">
             <div className="user-avatar" style={{ overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              {user.avatar_url ? (
-                <img src={user.avatar_url} alt={user.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              {user.avatar_url && !avatarError ? (
+                <img 
+                  src={user.avatar_url} 
+                  alt={user.name} 
+                  onError={() => setAvatarError(true)}
+                  referrerPolicy="no-referrer"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
               ) : (
                 user.name?.[0]?.toUpperCase()
               )}
             </div>
-            <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center', height: '32px' }}>
               <MarqueeText text={user.name} />
             </div>
           </div>

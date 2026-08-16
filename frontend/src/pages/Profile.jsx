@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { userApi, exportApi, expensesApi, getApiError } from '../api';
 import { useAuth } from '../context/AuthContext';
@@ -24,6 +24,11 @@ export default function Profile() {
   const [importing, setImporting] = useState(false);
   const [form, setForm] = useState({ name: user?.name || '', currency: user?.currency || 'INR', timezone: user?.timezone || 'Asia/Kolkata', dark_mode: user?.dark_mode ?? true });
   const [avatarUploading, setAvatarUploading] = useState(false);
+  const [avatarError, setAvatarError] = useState(false);
+
+  useEffect(() => {
+    setAvatarError(false);
+  }, [user]);
 
   const handleAvatarUpload = async (e) => {
     const file = e.target.files?.[0];
@@ -116,8 +121,14 @@ export default function Profile() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
             <div style={{ position: 'relative' }}>
               <div className="profile-avatar" style={{ overflow: 'hidden' }}>
-                {user?.avatar_url ? (
-                  <img src={user.avatar_url} alt={user.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                {user?.avatar_url && !avatarError ? (
+                  <img 
+                    src={user.avatar_url} 
+                    alt={user.name} 
+                    onError={() => setAvatarError(true)}
+                    referrerPolicy="no-referrer"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                  />
                 ) : (
                   user?.name?.[0]?.toUpperCase()
                 )}
