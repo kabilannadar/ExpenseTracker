@@ -1,89 +1,200 @@
+import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe } from 'lucide-react';
+import { Globe, Check, ChevronDown } from 'lucide-react';
 
-const languagesCompact = [
-  { code: 'en', name: 'EN' },
-  { code: 'hi', name: 'HI' },
-  { code: 'ta', name: 'TA' },
-  { code: 'te', name: 'TE' },
-  { code: 'kn', name: 'KN' },
-  { code: 'ml', name: 'ML' },
-  { code: 'mr', name: 'MR' },
-  { code: 'gu', name: 'GU' },
-  { code: 'bn', name: 'BN' },
+const LANGUAGES = [
+  { code: 'en', name: 'English',              native: 'English'    },
+  { code: 'hi', name: 'Hindi',                native: 'हिंदी'       },
+  { code: 'ta', name: 'Tamil',                native: 'தமிழ்'       },
+  { code: 'te', name: 'Telugu',               native: 'తెలుగు'      },
+  { code: 'kn', name: 'Kannada',              native: 'ಕನ್ನಡ'       },
+  { code: 'ml', name: 'Malayalam',            native: 'മലയാളം'      },
+  { code: 'mr', name: 'Marathi',              native: 'मराठी'       },
+  { code: 'gu', name: 'Gujarati',             native: 'ગુજરાતી'     },
+  { code: 'bn', name: 'Bengali',              native: 'বাংলা'       },
 ];
 
-const languagesForm = [
-  { code: 'en', name: 'English' },
-  { code: 'hi', name: 'हिंदी (Hindi)' },
-  { code: 'ta', name: 'தமிழ் (Tamil)' },
-  { code: 'te', name: 'తెలుగు (Telugu)' },
-  { code: 'kn', name: 'ಕನ್ನಡ (Kannada)' },
-  { code: 'ml', name: 'മലയാളം (Malayalam)' },
-  { code: 'mr', name: 'मराठी (Marathi)' },
-  { code: 'gu', name: 'ગુજરાતી (Gujarati)' },
-  { code: 'bn', name: 'বাংলা (Bengali)' },
-];
+const FLAG_EMOJI = {
+  en: '🇬🇧', hi: '🇮🇳', ta: '🇮🇳', te: '🇮🇳',
+  kn: '🇮🇳', ml: '🇮🇳', mr: '🇮🇳', gu: '🇮🇳', bn: '🇧🇩',
+};
 
 export default function LanguageSelector({ variant = 'compact' }) {
   const { i18n } = useTranslation();
+  const [open, setOpen]       = useState(false);
+  const ref                   = useRef(null);
+  const currentCode           = i18n.language?.split('-')[0] || 'en';
+  const current               = LANGUAGES.find(l => l.code === currentCode) || LANGUAGES[0];
 
-  const handleChange = (e) => {
-    const lang = e.target.value;
-    i18n.changeLanguage(lang);
-    localStorage.setItem('i18nextLng', lang);
-    document.documentElement.lang = lang;
+  const apply = (code) => {
+    i18n.changeLanguage(code);
+    localStorage.setItem('i18nextLng', code);
+    document.documentElement.lang = code;
+    setOpen(false);
     window.location.reload();
   };
 
+  // Close on outside click
+  useEffect(() => {
+    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  // ── form variant (Profile page) ─────────────────────────────────────────
   if (variant === 'form') {
     return (
       <select
-        value={i18n.language || 'en'}
-        onChange={handleChange}
+        value={currentCode}
+        onChange={e => apply(e.target.value)}
         title="Change Language"
+        style={{
+          width: '100%',
+          padding: '10px 14px',
+          background: 'var(--bg-surface)',
+          border: '1px solid var(--border)',
+          borderRadius: 'var(--radius-md)',
+          color: 'var(--text-primary)',
+          fontSize: '14px',
+          cursor: 'pointer',
+        }}
       >
-        {languagesForm.map((lang) => (
-          <option key={lang.code} value={lang.code}>
-            {lang.name}
+        {LANGUAGES.map(l => (
+          <option key={l.code} value={l.code}>
+            {FLAG_EMOJI[l.code]} {l.native} ({l.name})
           </option>
         ))}
       </select>
     );
   }
 
+  // ── compact variant (Header) ─────────────────────────────────────────────
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)' }}>
-      <Globe size={14} style={{ color: 'var(--text-muted)' }} />
-      <select
-        value={i18n.language || 'en'}
-        onChange={handleChange}
+    <div ref={ref} style={{ position: 'relative' }}>
+      {/* Trigger button */}
+      <button
+        onClick={() => setOpen(o => !o)}
+        title="Change Language"
+        aria-label="Change Language"
         style={{
-          background: 'var(--bg-surface)',
-          border: '1px solid var(--border)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 5,
+          padding: '4px 8px 4px 7px',
+          background: open ? 'var(--bg-elevated)' : 'var(--bg-surface)',
+          border: `1px solid ${open ? 'var(--accent-primary)' : 'var(--border)'}`,
           borderRadius: 'var(--radius-md)',
           color: 'var(--text-primary)',
           fontSize: '12px',
-          fontWeight: '500',
-          padding: '3px 20px 3px 6px',
+          fontWeight: 600,
           cursor: 'pointer',
           outline: 'none',
-          WebkitAppearance: 'none',
-          MozAppearance: 'none',
-          appearance: 'none',
-          backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'right 6px center',
-          transition: 'var(--transition)'
+          transition: 'all 0.18s ease',
+          whiteSpace: 'nowrap',
+          lineHeight: 1,
         }}
-        title="Change Language"
       >
-        {languagesCompact.map((lang) => (
-          <option key={lang.code} value={lang.code} style={{ background: 'var(--bg-card)', color: 'var(--text-primary)' }}>
-            {lang.name}
-          </option>
-        ))}
-      </select>
+        <Globe size={13} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />
+        {/* Show full name on wider screens, code on narrow */}
+        <span className="lang-label-full">{current.native}</span>
+        <span className="lang-label-short">{currentCode.toUpperCase()}</span>
+        <ChevronDown
+          size={11}
+          style={{
+            color: 'var(--text-muted)',
+            transition: 'transform 0.18s ease',
+            transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
+            flexShrink: 0,
+          }}
+        />
+      </button>
+
+      {/* Dropdown panel */}
+      {open && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 'calc(100% + 6px)',
+            right: 0,
+            zIndex: 9999,
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border)',
+            borderRadius: 'var(--radius-lg)',
+            boxShadow: '0 16px 40px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.04)',
+            padding: '6px',
+            minWidth: '200px',
+            backdropFilter: 'blur(20px)',
+            animation: 'dropdownFadeIn 0.15s ease',
+          }}
+        >
+          <style>{`
+            @keyframes dropdownFadeIn {
+              from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+              to   { opacity: 1; transform: translateY(0) scale(1); }
+            }
+            /* Responsive label visibility */
+            .lang-label-full { display: inline; }
+            .lang-label-short { display: none; }
+            @media (max-width: 520px) {
+              .lang-label-full { display: none; }
+              .lang-label-short { display: inline; }
+            }
+            .lang-option-row:hover {
+              background: var(--bg-elevated) !important;
+            }
+          `}</style>
+
+          {/* Header label */}
+          <div style={{
+            padding: '4px 10px 8px',
+            fontSize: '10px',
+            fontWeight: 700,
+            letterSpacing: '0.8px',
+            textTransform: 'uppercase',
+            color: 'var(--text-muted)',
+            borderBottom: '1px solid var(--border)',
+            marginBottom: 4,
+          }}>
+            Interface Language
+          </div>
+
+          {LANGUAGES.map(lang => {
+            const isActive = lang.code === currentCode;
+            return (
+              <button
+                key={lang.code}
+                className="lang-option-row"
+                onClick={() => apply(lang.code)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
+                  width: '100%',
+                  padding: '8px 10px',
+                  background: isActive ? 'var(--bg-elevated)' : 'transparent',
+                  border: 'none',
+                  borderRadius: 'var(--radius-md)',
+                  cursor: 'pointer',
+                  color: isActive ? 'var(--accent-primary)' : 'var(--text-primary)',
+                  fontSize: '13px',
+                  fontWeight: isActive ? 700 : 400,
+                  textAlign: 'left',
+                  transition: 'background 0.12s ease',
+                }}
+              >
+                <span style={{ fontSize: 16, lineHeight: 1 }}>{FLAG_EMOJI[lang.code]}</span>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: 600, fontSize: 13 }}>{lang.native}</div>
+                  <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 1 }}>{lang.name}</div>
+                </div>
+                {isActive && (
+                  <Check size={14} style={{ color: 'var(--accent-primary)', flexShrink: 0 }} />
+                )}
+              </button>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

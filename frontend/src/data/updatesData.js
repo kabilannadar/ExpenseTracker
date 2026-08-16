@@ -24,6 +24,36 @@ export const TYPE_LABELS = {
 
 export const RELEASES = [
   {
+    version: 'v2.3.3',
+    date: 'August 16, 2026',
+    label: 'Indic Language Support & Mobile UX',
+    labelColor: 'success',
+    entries: [
+      {
+        type: 'feat',
+        icon: Sparkles,
+        color: '#f59e0b',
+        title: '9 Indic Language Localisation (Full Offline i18n)',
+        detail: 'ExpenseTracker now speaks your language — literally. Added full offline multilingual support for 9 Indian languages: हिंदी (Hindi), தமிழ் (Tamil), తెలుగు (Telugu), ಕನ್ನಡ (Kannada), മലയാളം (Malayalam), मराठी (Marathi), ગુજરાતી (Gujarati), বাংলা (Bengali), and English. All 700+ static UI labels, buttons, form placeholders, card titles, and page headers are translated and stored locally in the app — no internet or external API needed at runtime. Language preference persists across sessions via localStorage.',
+      },
+      {
+        type: 'style',
+        icon: Rocket,
+        color: '#6366f1',
+        title: 'Redesigned Language Selector Dropdown',
+        detail: 'Replaced the plain browser <select> dropdown with a fully custom animated language picker featuring flag emojis, native script names with English subtitles, an active-language checkmark, smooth fade-in animation, and outside-click dismissal. On narrow mobile screens the trigger label collapses to a compact 2-letter language code to prevent header overflow.',
+      },
+      {
+        type: 'chore',
+        icon: Package,
+        color: '#10b981',
+        title: 'Automated Locale Pipeline (update_locales.js)',
+        detail: 'Built a unified one-command locale maintenance script (scripts/update_locales.js) that automatically scans all JSX files for new static strings, detects only the changed keys, translates them via the local Hugging Face IndicTrans2 model (with a lightweight API fallback), and recompiles the locales.js bundle. A git pre-push hook wires this pipeline to run locally every time you push — keeping translations always in sync without consuming any server resources.',
+      },
+    ],
+  },
+  {
+
     version: 'v2.3.2',
     date: 'August 14, 2026',
     label: 'Google Profile & iOS Touch Polish',
