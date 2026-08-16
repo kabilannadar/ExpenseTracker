@@ -31,7 +31,9 @@ export default function LanguageSelector({ variant = 'compact' }) {
     localStorage.setItem('i18nextLng', code);
     document.documentElement.lang = code;
     setOpen(false);
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
   };
 
   // Close on outside click
@@ -44,27 +46,111 @@ export default function LanguageSelector({ variant = 'compact' }) {
   // ── form variant (Profile page) ─────────────────────────────────────────
   if (variant === 'form') {
     return (
-      <select
-        value={currentCode}
-        onChange={e => apply(e.target.value)}
-        title="Change Language"
-        style={{
-          width: '100%',
-          padding: '10px 14px',
-          background: 'var(--bg-surface)',
-          border: '1px solid var(--border)',
-          borderRadius: 'var(--radius-md)',
-          color: 'var(--text-primary)',
-          fontSize: '14px',
-          cursor: 'pointer',
-        }}
-      >
-        {LANGUAGES.map(l => (
-          <option key={l.code} value={l.code}>
-            {FLAG_EMOJI[l.code]} {l.native} ({l.name})
-          </option>
-        ))}
-      </select>
+      <div ref={ref} style={{ position: 'relative', width: '100%' }}>
+        {/* Trigger button */}
+        <button
+          type="button"
+          onClick={() => setOpen(o => !o)}
+          title="Change Language"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
+            padding: '10px 14px',
+            background: 'var(--bg-surface)',
+            border: `1px solid ${open ? 'var(--accent-primary)' : 'var(--border)'}`,
+            borderRadius: 'var(--radius-md)',
+            color: 'var(--text-primary)',
+            fontSize: '14px',
+            cursor: 'pointer',
+            outline: 'none',
+            transition: 'all 0.18s ease',
+            textAlign: 'left',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontSize: '16px', lineHeight: 1 }}>{FLAG_EMOJI[current.code]}</span>
+            <span>{current.native} ({current.name})</span>
+          </div>
+          <ChevronDown
+            size={16}
+            style={{
+              color: 'var(--text-muted)',
+              transition: 'transform 0.18s ease',
+              transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
+              flexShrink: 0,
+            }}
+          />
+        </button>
+
+        {/* Dropdown panel */}
+        {open && (
+          <div
+            style={{
+              position: 'absolute',
+              top: 'calc(100% + 6px)',
+              left: 0,
+              right: 0,
+              zIndex: 9999,
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border)',
+              borderRadius: 'var(--radius-lg)',
+              boxShadow: '0 16px 40px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.04)',
+              padding: '6px',
+              animation: 'dropdownFadeIn 0.15s ease',
+              maxHeight: '260px',
+              overflowY: 'auto',
+            }}
+          >
+            <style>{`
+              @keyframes dropdownFadeIn {
+                from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+                to   { opacity: 1; transform: translateY(0) scale(1); }
+              }
+              .lang-option-row:hover {
+                background: var(--bg-elevated) !important;
+              }
+            `}</style>
+            {LANGUAGES.map(lang => {
+              const isActive = lang.code === currentCode;
+              return (
+                <button
+                  type="button"
+                  key={lang.code}
+                  className="lang-option-row"
+                  onClick={() => apply(lang.code)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    width: '100%',
+                    padding: '8px 10px',
+                    background: isActive ? 'var(--bg-elevated)' : 'transparent',
+                    border: 'none',
+                    borderRadius: 'var(--radius-md)',
+                    cursor: 'pointer',
+                    color: isActive ? 'var(--accent-primary)' : 'var(--text-primary)',
+                    fontSize: '13px',
+                    fontWeight: isActive ? 700 : 400,
+                    textAlign: 'left',
+                    transition: 'background 0.12s ease',
+                  }}
+                >
+                  <span style={{ fontSize: 16, lineHeight: 1 }}>{FLAG_EMOJI[lang.code]}</span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontWeight: 600, fontSize: 13 }}>{lang.native}</div>
+                    <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 1 }}>{lang.name}</div>
+                  </div>
+                  {isActive && (
+                    <Check size={14} style={{ color: 'var(--accent-primary)', flexShrink: 0 }} />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
     );
   }
 
@@ -123,7 +209,6 @@ export default function LanguageSelector({ variant = 'compact' }) {
             boxShadow: '0 16px 40px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.04)',
             padding: '6px',
             minWidth: '200px',
-            backdropFilter: 'blur(20px)',
             animation: 'dropdownFadeIn 0.15s ease',
           }}
         >

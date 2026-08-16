@@ -37,11 +37,11 @@ export const RELEASES = [
         detail: 'ExpenseTracker now speaks your language — literally. Added full offline multilingual support for 9 Indian languages: हिंदी (Hindi), தமிழ் (Tamil), తెలుగు (Telugu), ಕನ್ನಡ (Kannada), മലയാളം (Malayalam), मराठी (Marathi), ગુજરાતી (Gujarati), বাংলা (Bengali), and English. All 700+ static UI labels, buttons, form placeholders, card titles, and page headers are translated and stored locally in the app — no internet or external API needed at runtime. Language preference persists across sessions via localStorage.',
       },
       {
-        type: 'style',
-        icon: Rocket,
-        color: '#6366f1',
-        title: 'Redesigned Language Selector Dropdown',
-        detail: 'Replaced the plain browser <select> dropdown with a fully custom animated language picker featuring flag emojis, native script names with English subtitles, an active-language checkmark, smooth fade-in animation, and outside-click dismissal. On narrow mobile screens the trigger label collapses to a compact 2-letter language code to prevent header overflow.',
+        type: 'fix',
+        icon: Wrench,
+        color: '#ef4444',
+        title: 'Mobile App Bug Fixes & Stability Improvements',
+        detail: 'Resolved a series of mobile-specific issues that were affecting usability on small screens. Fixed the language selector overflowing and overlapping the app logo on narrow viewports — it now collapses to a compact 2-letter code below 520px. Addressed sticky hover states on iOS Safari that caused buttons to remain visually "pressed" after tap. Corrected modal overflow on short-screen devices, prevented iOS auto-zoom on form inputs by enforcing a 16px minimum font size, and fixed layout shifts caused by the browser toolbar appearing and disappearing during scroll using dynamic viewport height (dvh).',
       },
       {
         type: 'chore',

@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { usePWA } from '../context/PWAContext';
 import { useTranslation } from 'react-i18next';
-import LanguageSelector from './LanguageSelector';
 import {
   LayoutDashboard, Receipt, Tag, TrendingUp, Wallet, PiggyBank,
   Bell, RefreshCw, CreditCard, Target, ClipboardList,
@@ -155,12 +154,7 @@ export default function Sidebar({ isOpen, onClose }) {
         </div>
       )}
 
-      {/* Language Selector */}
-      {!collapsed && (
-        <div style={{ padding: '12px 16px', display: 'flex', justifyContent: 'center', borderTop: '1px solid var(--border)', background: 'rgba(0,0,0,0.02)' }}>
-          <LanguageSelector />
-        </div>
-      )}
+
 
       {/* User + Logout */}
       <div className="sidebar-footer">
