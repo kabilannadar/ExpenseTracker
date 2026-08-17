@@ -712,6 +712,20 @@ tbody tr:hover {
   transition: filter var(--transition), transform var(--transition);
 }
 
+@media (min-width: 769px) {
+  .mobile-header-logo {
+    left: 32px;
+    transform: translate(0, -50%) scale(1.15);
+    transform-origin: left center;
+  }
+}
+
+@media (min-width: 1025px) {
+  .mobile-header-logo {
+    transform: translate(0, -50%) scale(1.25);
+  }
+}
+
 [data-theme="light"] .mobile-header-logo {
   filter: invert(1) hue-rotate(180deg) drop-shadow(0 2px 8px rgba(0,0,0,0.12));
 }
