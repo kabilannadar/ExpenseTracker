@@ -68,6 +68,7 @@ export default function AuditLogs() {
   const { data: logs = [], isLoading } = useQuery({
     queryKey: ['audit-logs'],
     queryFn: () => auditLogsApi.getAll(250).then((r) => r.data),
+    refetchInterval: 5000,
   });
 
   const tabConfig = TABS.find((t) => t.id === activeTab);

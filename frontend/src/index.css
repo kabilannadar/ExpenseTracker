@@ -714,15 +714,17 @@ tbody tr:hover {
 
 @media (min-width: 769px) {
   .mobile-header-logo {
-    left: 32px;
-    transform: translate(0, -50%) scale(1.15);
-    transform-origin: left center;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.15);
+    transform-origin: center center;
   }
 }
 
 @media (min-width: 1025px) {
   .mobile-header-logo {
-    transform: translate(0, -50%) scale(1.25);
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.25);
+    transform-origin: center center;
   }
 }
 
@@ -797,17 +799,26 @@ tbody tr:hover {
   flex-shrink: 0;
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 1350px) {
   .header-clock .clock-date,
   .header-clock .clock-separator {
     display: none !important;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
   .header-clock,
   .header-divider {
     display: none !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header-updates-btn span {
+    display: none !important;
+  }
+  .header-updates-btn {
+    padding: 7px 10px !important;
   }
 }
 

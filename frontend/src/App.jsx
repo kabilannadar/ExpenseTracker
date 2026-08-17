@@ -43,8 +43,6 @@ const queryClient = new QueryClient({
     queries: {
       retry: 1,
       staleTime: 5000,
-      refetchInterval: 5000, // Real-time sync for Telegram and external logs
-      refetchIntervalInBackground: false, // Save bandwidth when tab is in background
       refetchOnWindowFocus: true, // Instantly refresh when returning to tab
     }
   }

@@ -220,7 +220,7 @@ export default function LanguageSelector({ variant = 'compact' }) {
             /* Responsive label visibility */
             .lang-label-full { display: inline; }
             .lang-label-short { display: none; }
-            @media (max-width: 520px) {
+            @media (max-width: 1200px) {
               .lang-label-full { display: none; }
               .lang-label-short { display: inline; }
             }

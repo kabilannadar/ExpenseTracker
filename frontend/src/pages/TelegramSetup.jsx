@@ -150,6 +150,7 @@ export default function TelegramSetup() {
   const { data: tgStatusData, isLoading: tgStatusLoading } = useQuery({
     queryKey: ['telegram-status'],
     queryFn: () => telegramApi.getStatus().then(r => r.data),
+    refetchInterval: 5000,
   });
 
   const tgLinked = tgStatusData?.linked || false;

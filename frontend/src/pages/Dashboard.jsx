@@ -62,6 +62,7 @@ export default function Dashboard() {
   const { data: tgStatus } = useQuery({
     queryKey: ['telegramStatus'],
     queryFn: () => telegramApi.getStatus().then(r => r.data),
+    refetchInterval: 5000,
   });
 
   const handleImportCsv = async (e) => {
