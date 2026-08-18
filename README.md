@@ -1,8 +1,8 @@
 <div align="center">
 
-  <img src="https://ik.imagekit.io/kabi10/tr:q-auto,f-auto/ExpenseTracker_Banner_Transparent.png" alt="ExpenseTracker Banner" width="480"/>
+  <img src="logos/ExpenseTracker_Portfolio_Banner.png" alt="ExpenseTracker Banner" width="480"/>
 
-<br/><br/>
+  <br/><br/>
 
   <h1>ExpenseTracker 💰</h1>
   <p><strong>Your finances, completely under control.</strong></p>
@@ -500,3 +500,37 @@ alembic downgrade -1
 ## License
 
 This project is proprietary software. All rights reserved.
+
+---
+
+<div align="center">
+
+  <img src="logos/ExpenseTracker_Banner_Message.png" alt="ExpenseTracker Banner Message" width="480" />
+
+  <h3>ExpenseTracker</h3>
+
+  <p>Created by <a href="https://portfolio.r-r-kabilan0435.workers.dev/"><strong>Kabilan Rethinaswamy</strong></a></p>
+
+  <p>
+    <a href="https://expensetrackertn.vercel.app">🌐 Live App</a>
+    &nbsp;•&nbsp;
+    <a href="https://expensetrackertn.vercel.app/support">💬 Support & Feedback</a>
+    &nbsp;•&nbsp;
+    <a href="https://t.me/expensetrackertnbot">🤖 Telegram Bot</a>
+    &nbsp;•&nbsp;
+    <a href="mailto:r.r.kabilan0335@gmail.com">✉️ Email Us</a>
+  </p>
+
+  <p>
+    <a href="https://github.com/kabilannadar/ExpenseTracker">
+      <img src="https://img.shields.io/github/stars/kabilannadar/ExpenseTracker?style=social" alt="GitHub Stars" />
+    </a>
+    &nbsp;
+    <a href="https://github.com/kabilannadar/ExpenseTracker/fork">
+      <img src="https://img.shields.io/github/forks/kabilannadar/ExpenseTracker?style=social" alt="GitHub Forks" />
+    </a>
+  </p>
+
+<sub>© 2026 ExpenseTracker. All rights reserved.</sub>
+
+</div>
