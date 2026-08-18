@@ -2,8 +2,6 @@
 
   <img src="logos/ExpenseTracker_Portfolio_Banner.png" alt="ExpenseTracker Banner" width="480"/>
 
-<br/><br/>
-
   <h1>ExpenseTracker 💰</h1>
   <p><strong>Your finances, completely under control.</strong></p>
   <p>A premium, full-stack personal finance and budget management web application.</p>
