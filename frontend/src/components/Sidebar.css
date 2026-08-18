@@ -370,4 +370,22 @@ body.driver-active .sidebar .sidebar-install-wrapper:has(.install-app-btn.driver
   }
 }
 
+/* ── Sidebar Reload button ────────────────────────────────── */
+.sidebar-footer .reload-btn {
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  border-color: transparent;
+  transition: var(--transition);
+}
+
+.sidebar-footer .reload-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.sidebar.collapsed .sidebar-footer .reload-btn {
+  display: none !important;
+}
+
+
 

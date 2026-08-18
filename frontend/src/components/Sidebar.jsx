@@ -96,6 +96,14 @@ export default function Sidebar({ isOpen, onClose }) {
     return window.innerWidth > 768 && window.innerWidth <= 1024;
   });
   const [avatarError, setAvatarError] = useState(false);
+  const [isReloading, setIsReloading] = useState(false);
+
+  const handleReload = () => {
+    setIsReloading(true);
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  };
 
   useEffect(() => {
     setAvatarError(false);
@@ -178,6 +186,9 @@ export default function Sidebar({ isOpen, onClose }) {
             </div>
           </div>
         )}
+        <button className="btn-icon reload-btn" onClick={handleReload} title="Reload App">
+          <RefreshCw size={16} className={isReloading ? 'spin-icon' : ''} />
+        </button>
         <button className="btn-icon logout-btn" onClick={logout} title="Logout">
           <LogOut size={16} />
         </button>
