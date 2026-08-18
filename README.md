@@ -2,7 +2,7 @@
 
   <img src="https://ik.imagekit.io/kabi10/tr:q-auto,f-auto/ExpenseTracker_Banner_Transparent.png" alt="ExpenseTracker Banner" width="480"/>
 
-  <br/><br/>
+<br/><br/>
 
   <h1>ExpenseTracker 💰</h1>
   <p><strong>Your finances, completely under control.</strong></p>
@@ -221,19 +221,19 @@ ExpenseTracker/
 
 ## Tech Stack
 
-| Layer                  | Technologies & Libraries                                              |
-| ---------------------- | --------------------------------------------------------------------- |
-| **Frontend Framework** | React 18, Vite 8, Vanilla CSS                                         |
-| **State & Data**       | TanStack React Query, React Router v6, Axios                          |
-| **Charts & UI**        | Recharts, Lucide React, driver.js (onboarding tour)                   |
-| **i18n**               | i18next, react-i18next (9 Indic languages, 100% offline)              |
-| **Backend Framework**  | FastAPI, Uvicorn, Pydantic v2                                         |
-| **ORM & Migrations**   | SQLAlchemy, Alembic                                                   |
-| **Auth**               | JWT (python-jose), bcrypt, Google OAuth 2.0                           |
-| **Database**           | SQLite (local dev) / PostgreSQL (production)                          |
-| **Data Export**        | Pandas, OpenPyXL                                                      |
-| **Notifications**      | Telegram Bot API, Resend Email API                                    |
-| **Deployment**         | Docker Compose, Render (Web Services + Background Cron Workers)       |
+| Layer                  | Technologies & Libraries                                        |
+| ---------------------- | --------------------------------------------------------------- |
+| **Frontend Framework** | React 18, Vite 8, Vanilla CSS                                   |
+| **State & Data**       | TanStack React Query, React Router v6, Axios                    |
+| **Charts & UI**        | Recharts, Lucide React, driver.js (onboarding tour)             |
+| **i18n**               | i18next, react-i18next (9 Indic languages, 100% offline)        |
+| **Backend Framework**  | FastAPI, Uvicorn, Pydantic v2                                   |
+| **ORM & Migrations**   | SQLAlchemy, Alembic                                             |
+| **Auth**               | JWT (python-jose), bcrypt, Google OAuth 2.0                     |
+| **Database**           | SQLite (local dev) / PostgreSQL (production)                    |
+| **Data Export**        | Pandas, OpenPyXL                                                |
+| **Notifications**      | Telegram Bot API, Resend Email API                              |
+| **Deployment**         | Docker Compose, Render (Web Services + Background Cron Workers) |
 
 ---
 
@@ -307,10 +307,10 @@ Spin up the full stack (frontend + backend) with a single command:
 docker-compose up --build
 ```
 
-| Service  | URL                    |
-| -------- | ---------------------- |
-| Frontend | http://localhost:5173  |
-| Backend  | http://localhost:8001  |
+| Service  | URL                   |
+| -------- | --------------------- |
+| Frontend | http://localhost:5173 |
+| Backend  | http://localhost:8001 |
 
 ---
 
@@ -318,25 +318,25 @@ docker-compose up --build
 
 ### Backend (`backend/.env`)
 
-| Variable                 | Required     | Description                                                                            |
-| ------------------------ | ------------ | -------------------------------------------------------------------------------------- |
-| `SECRET_KEY`             | ✅ Required  | Strong random secret for JWT signing. **Must be changed in production.**               |
-| `ALGORITHM`              | ✅ Required  | JWT algorithm (default: `HS256`).                                                      |
-| `DATABASE_URL`           | ⚠️ Prod      | PostgreSQL connection URL. Leave blank to use local SQLite.                            |
-| `UPLOAD_DIR`             | ⚠️ Optional  | Directory for storing uploaded profile pictures (default: `./uploads`).                |
-| `FRONTEND_URL`           | ⚠️ Optional  | Production frontend URL added to CORS allowed origins.                                 |
-| `TELEGRAM_BOT_TOKEN`     | ⚠️ Optional  | Telegram Bot API token from @BotFather (required to enable the bot).                   |
-| `RENDER_EXTERNAL_URL`    | ⚠️ Optional  | Public backend URL used to auto-register the Telegram webhook on startup.              |
-| `ENVIRONMENT`            | ❌ Optional  | `development` or `production` (default: `development`).                                |
+| Variable              | Required    | Description                                                               |
+| --------------------- | ----------- | ------------------------------------------------------------------------- |
+| `SECRET_KEY`          | ✅ Required | Strong random secret for JWT signing. **Must be changed in production.**  |
+| `ALGORITHM`           | ✅ Required | JWT algorithm (default: `HS256`).                                         |
+| `DATABASE_URL`        | ⚠️ Prod     | PostgreSQL connection URL. Leave blank to use local SQLite.               |
+| `UPLOAD_DIR`          | ⚠️ Optional | Directory for storing uploaded profile pictures (default: `./uploads`).   |
+| `FRONTEND_URL`        | ⚠️ Optional | Production frontend URL added to CORS allowed origins.                    |
+| `TELEGRAM_BOT_TOKEN`  | ⚠️ Optional | Telegram Bot API token from @BotFather (required to enable the bot).      |
+| `RENDER_EXTERNAL_URL` | ⚠️ Optional | Public backend URL used to auto-register the Telegram webhook on startup. |
+| `ENVIRONMENT`         | ❌ Optional | `development` or `production` (default: `development`).                   |
 
 > ⚠️ **Never commit your `.env` file.** It is already listed in `.gitignore`.
 
 ### Frontend (`frontend/.env`)
 
-| Variable               | Required     | Description                                                                        |
-| ---------------------- | ------------ | ---------------------------------------------------------------------------------- |
-| `VITE_GOOGLE_CLIENT_ID`| ⚠️ Optional  | Google OAuth 2.0 client ID (required for Google Sign-In to work).                  |
-| `VITE_API_URL`         | ❌ Optional  | Absolute backend URL for production builds. Leave empty for local dev (uses proxy). |
+| Variable                | Required    | Description                                                                         |
+| ----------------------- | ----------- | ----------------------------------------------------------------------------------- |
+| `VITE_GOOGLE_CLIENT_ID` | ⚠️ Optional | Google OAuth 2.0 client ID (required for Google Sign-In to work).                   |
+| `VITE_API_URL`          | ❌ Optional | Absolute backend URL for production builds. Leave empty for local dev (uses proxy). |
 
 ---
 
@@ -346,66 +346,66 @@ All endpoints are served by the FastAPI backend. Interactive docs at `http://loc
 
 ### Health
 
-| Method  | Endpoint        | Description                             |
-| ------- | --------------- | --------------------------------------- |
-| `GET`   | `/health`       | Liveness check: `{"status": "ok"}`      |
-| `HEAD`  | `/health`       | Same as above, no body.                 |
-| `GET`   | `/ping`         | Ultra-fast ping (no DB check).          |
+| Method | Endpoint  | Description                        |
+| ------ | --------- | ---------------------------------- |
+| `GET`  | `/health` | Liveness check: `{"status": "ok"}` |
+| `HEAD` | `/health` | Same as above, no body.            |
+| `GET`  | `/ping`   | Ultra-fast ping (no DB check).     |
 
 ### Authentication
 
-| Method | Endpoint                    | Description                                      |
-| ------ | --------------------------- | ------------------------------------------------ |
-| `POST` | `/api/auth/register`        | Register a new account with email + password.    |
-| `POST` | `/api/auth/login`           | Email/password login; returns JWT access token.  |
-| `POST` | `/api/auth/google`          | Login / register via Google OAuth ID token.      |
-| `POST` | `/api/auth/send-otp`        | Send email OTP for email verification.           |
-| `POST` | `/api/auth/verify-otp`      | Verify OTP to activate account.                  |
-| `GET`  | `/api/auth/me`              | Return currently authenticated user profile.     |
+| Method | Endpoint               | Description                                     |
+| ------ | ---------------------- | ----------------------------------------------- |
+| `POST` | `/api/auth/register`   | Register a new account with email + password.   |
+| `POST` | `/api/auth/login`      | Email/password login; returns JWT access token. |
+| `POST` | `/api/auth/google`     | Login / register via Google OAuth ID token.     |
+| `POST` | `/api/auth/send-otp`   | Send email OTP for email verification.          |
+| `POST` | `/api/auth/verify-otp` | Verify OTP to activate account.                 |
+| `GET`  | `/api/auth/me`         | Return currently authenticated user profile.    |
 
 ### Expenses
 
-| Method   | Endpoint                | Auth     | Description                                      |
-| -------- | ----------------------- | -------- | ------------------------------------------------ |
-| `GET`    | `/api/expenses`         | User JWT | List all expenses with optional filters.         |
-| `POST`   | `/api/expenses`         | User JWT | Create a new expense record.                     |
-| `PUT`    | `/api/expenses/{id}`    | User JWT | Update an existing expense.                      |
-| `DELETE` | `/api/expenses/{id}`    | User JWT | Soft-delete an expense.                          |
-| `POST`   | `/api/expenses/import`  | User JWT | Bulk-import expenses from a CSV file upload.     |
+| Method   | Endpoint               | Auth     | Description                                  |
+| -------- | ---------------------- | -------- | -------------------------------------------- |
+| `GET`    | `/api/expenses`        | User JWT | List all expenses with optional filters.     |
+| `POST`   | `/api/expenses`        | User JWT | Create a new expense record.                 |
+| `PUT`    | `/api/expenses/{id}`   | User JWT | Update an existing expense.                  |
+| `DELETE` | `/api/expenses/{id}`   | User JWT | Soft-delete an expense.                      |
+| `POST`   | `/api/expenses/import` | User JWT | Bulk-import expenses from a CSV file upload. |
 
 ### Export
 
-| Method | Endpoint           | Auth     | Description                                             |
-| ------ | ------------------ | -------- | ------------------------------------------------------- |
-| `GET`  | `/api/export/csv`  | User JWT | Download expenses as `.csv` with optional date filters. |
-| `GET`  | `/api/export/excel`| User JWT | Download expenses as `.xlsx` with optional date filters.|
+| Method | Endpoint            | Auth     | Description                                              |
+| ------ | ------------------- | -------- | -------------------------------------------------------- |
+| `GET`  | `/api/export/csv`   | User JWT | Download expenses as `.csv` with optional date filters.  |
+| `GET`  | `/api/export/excel` | User JWT | Download expenses as `.xlsx` with optional date filters. |
 
 **Supported `date_filter` values:** `today`, `this_week`, `this_month`, `last_month`, `all_time`, `custom` (requires `date_from` + `date_to`).
 
 ### Analytics
 
-| Method | Endpoint               | Auth     | Description                                                    |
-| ------ | ---------------------- | -------- | -------------------------------------------------------------- |
+| Method | Endpoint                   | Auth     | Description                                                    |
+| ------ | -------------------------- | -------- | -------------------------------------------------------------- |
 | `GET`  | `/api/analytics/dashboard` | User JWT | Full dashboard stats: KPIs, monthly trend, category breakdown. |
 
 ### Other Modules
 
 All modules follow the same RESTful pattern (`GET /`, `POST /`, `PUT /{id}`, `DELETE /{id}`):
 
-| Module          | Base Path              |
-| --------------- | ---------------------- |
-| Income          | `/api/income`          |
-| Budgets         | `/api/budgets`         |
-| Categories      | `/api/categories`      |
-| Savings         | `/api/savings`         |
-| Goals           | `/api/goals`           |
-| Recurring       | `/api/recurring`       |
-| Reminders       | `/api/reminders`       |
-| Subscriptions   | `/api/subscriptions`   |
-| EMIs / Loans    | `/api/emis`            |
-| Debts           | `/api/debts`           |
-| Audit Logs      | `/api/audit-logs`      |
-| User Profile    | `/api/users/me`        |
+| Module        | Base Path            |
+| ------------- | -------------------- |
+| Income        | `/api/income`        |
+| Budgets       | `/api/budgets`       |
+| Categories    | `/api/categories`    |
+| Savings       | `/api/savings`       |
+| Goals         | `/api/goals`         |
+| Recurring     | `/api/recurring`     |
+| Reminders     | `/api/reminders`     |
+| Subscriptions | `/api/subscriptions` |
+| EMIs / Loans  | `/api/emis`          |
+| Debts         | `/api/debts`         |
+| Audit Logs    | `/api/audit-logs`    |
+| User Profile  | `/api/users/me`      |
 
 ---
 
@@ -435,9 +435,11 @@ To enable conversational expense logging, budget queries, and proactive alerts v
 ExpenseTracker uses an automated pipeline to keep all 9 Indic language translations in sync:
 
 - **Extract & translate new strings** (run from the repo root after adding new UI text):
+
   ```bash
   cd frontend && npm run update:locales
   ```
+
   This scans all JSX files, detects new strings, translates them via the IndicTrans2 / mtranslate fallback, and recompiles `src/utils/locales.js`.
 
 - **Git pre-push hook** — automatically runs `scripts/update_locales.js` on every push to prevent untranslated strings from reaching the remote. Skip with `git push --no-verify` if the model is unavailable locally.
@@ -465,14 +467,14 @@ alembic downgrade -1
 
 ## Security
 
-| Area                    | Implementation                                                                                    |
-| ----------------------- | ------------------------------------------------------------------------------------------------- |
-| **JWT Signing**         | `SECRET_KEY` env var required; HS256-signed access tokens with configurable expiry.               |
-| **Password Hashing**    | `bcrypt` via `passlib[bcrypt]`. Plain-text passwords are never stored.                            |
-| **CORS**                | Restricted to explicit `FRONTEND_URL` + local dev origins; Vercel wildcard via regex middleware.  |
-| **Structured Logging**  | Every request gets a unique `request_id`; unhandled errors are logged with user context.          |
-| **Secrets Management**  | `.env` is gitignored. All secrets loaded exclusively from environment variables.                  |
-| **Avatar Storage**      | Profile pictures stored server-side in `./uploads`; served as static files, never publicly listed.|
+| Area                   | Implementation                                                                                     |
+| ---------------------- | -------------------------------------------------------------------------------------------------- |
+| **JWT Signing**        | `SECRET_KEY` env var required; HS256-signed access tokens with configurable expiry.                |
+| **Password Hashing**   | `bcrypt` via `passlib[bcrypt]`. Plain-text passwords are never stored.                             |
+| **CORS**               | Restricted to explicit `FRONTEND_URL` + local dev origins; Vercel wildcard via regex middleware.   |
+| **Structured Logging** | Every request gets a unique `request_id`; unhandled errors are logged with user context.           |
+| **Secrets Management** | `.env` is gitignored. All secrets loaded exclusively from environment variables.                   |
+| **Avatar Storage**     | Profile pictures stored server-side in `./uploads`; served as static files, never publicly listed. |
 
 > ⚠️ **Important:** The example `.env.example` values in this repo are for local development only. **Rotate all secrets before deploying to production.**
 
