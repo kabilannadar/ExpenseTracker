@@ -2,7 +2,7 @@
 
   <img src="logos/ExpenseTracker_Portfolio_Banner.png" alt="ExpenseTracker Banner" width="480"/>
 
-  <br/><br/>
+<br/><br/>
 
   <h1>ExpenseTracker 💰</h1>
   <p><strong>Your finances, completely under control.</strong></p>
@@ -519,16 +519,6 @@ This project is proprietary software. All rights reserved.
     <a href="https://t.me/expensetrackertnbot">🤖 Telegram Bot</a>
     &nbsp;•&nbsp;
     <a href="mailto:r.r.kabilan0335@gmail.com">✉️ Email Us</a>
-  </p>
-
-  <p>
-    <a href="https://github.com/kabilannadar/ExpenseTracker">
-      <img src="https://img.shields.io/github/stars/kabilannadar/ExpenseTracker?style=social" alt="GitHub Stars" />
-    </a>
-    &nbsp;
-    <a href="https://github.com/kabilannadar/ExpenseTracker/fork">
-      <img src="https://img.shields.io/github/forks/kabilannadar/ExpenseTracker?style=social" alt="GitHub Forks" />
-    </a>
   </p>
 
 <sub>© 2026 ExpenseTracker. All rights reserved.</sub>
