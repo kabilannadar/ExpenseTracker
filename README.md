@@ -98,7 +98,7 @@ The system is composed of:
 - **Progressive Web App (PWA)**: Offline capable with native installation on desktop and mobile directly from the sidebar.
 - **Dark / Light Theme**: Toggle glassmorphic dark mode or clean light mode from user profile settings.
 - **Google OAuth**: Single-click registration and login; Google avatars synced and displayed automatically.
-- **100% Offline i18n**: Client-side translation supporting 10 languages — English, हिंदी, தமிழ், తెలుగు, ಕನ್ನಡ, മലയാളം, मराठी, ગુજરાતી, and বাংলা.
+- **100% Offline i18n**: Client-side translation supporting 9 languages — English, हिंदी, தமிழ், తెలుగు, ಕನ್ನಡ, മലയാളം, मराठी, ગુજરાતી, and বাংলা.
 - **Interactive Onboarding Tour**: Step-by-step guided walkthrough via `driver.js` for new users.
 - **Live Header Clock**: Real-time ticking date and time clock in the global navigation header.
 
